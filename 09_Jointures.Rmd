@@ -1,0 +1,321 @@
+# Jointures^[ Extrait du site [ sql.sh - https://sql.sh/cours/jointures](https://sql.sh/cours/jointures)]  {#jointures}
+
+## Principe
+
+Les jointures permettent d’associer plusieurs tables dans une même requête. Cela permet d’exploiter la puissance des bases de données relationnelles pour obtenir des résultats qui combinent les données de plusieurs tables de manière efficace.
+
+En général, les jointures consistent à associer des lignes de 2 tables en associant l’égalité des valeurs d’une colonne d’une première table par rapport à la valeur d’une colonne d’une seconde table. 
+
+Imaginons qu’une base de 2 données possède une table “utilisateur” et une autre table “abonnement” qui contient des informations sur les comptes de ces utilisateurs.
+
+```{r, include=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(knitr)
+```
+
+Voici la table utilisateur :
+
+```{r, echo=FALSE}
+Utilisateur <- data.frame(Id_utilisateur = c(1,2,3,4),
+                     Name = c("Luca", "Martin", "Mélanie","François"),
+                     Age = c(18,20,22,21))
+
+```
+
+```{r, echo=FALSE}
+kable(Utilisateur)
+```
+
+Voici la table abonnement :
+
+```{r, echo=FALSE}
+Abonnement <- data.frame(Id_utilisateur = c(1,2,4,5),
+                     Like = c(24,66,8,34),
+                     Share = c(5,0,11,27))
+
+```
+
+```{r, echo=FALSE}
+kable(Abonnement)
+```
+
+Imaginons qu’une base de 2 données possède une table “utilisateur” et une autre table “abonnement” qui contient les informations du nombre de pages aimées et partagées de ces utilisateurs. Avec une jointure, il est possible d’obtenir les données des deux tables.
+
+## Types de jointures
+
+Il y a plusieurs types de jointures pour associer 2 tables ensemble. Voici la liste des 4 principales :
+
+* **INNER JOIN** : jointure interne pour retourner les enregistrements quand la condition est vrai dans les 2 tables. C’est l’une des jointures les plus communes.
+
+* **LEFT JOIN** (ou LEFT OUTER JOIN) : jointure externe pour retourner tous les enregistrements de la table de gauche (LEFT = gauche) même si la condition n’est pas vérifié dans l’autre table.
+
+* **RIGHT JOIN** (ou RIGHT OUTER JOIN) : jointure externe pour retourner tous les enregistrements de la table de droite (RIGHT = droite) même si la condition n’est pas vérifié dans l’autre table.
+
+* **FULL JOIN** (ou FULL OUTER JOIN) : jointure externe pour retourner les résultats quand la condition est vrai dans au moins une des 2 tables.
+
+```{r, fig.align = "center",out.width = "50%", echo=FALSE}
+include_graphics(path = "./img/sql.png")
+```
+
+
+La fonction `merge` (du package *base* chargé par défaut dans RStudio) permet de réaliser ces 4 types de jointures. Cette fonction admet différents arguments selon la structure des deux tables à joindre :
+
+* `x`, `y` : le nom des deux tables à joindre
+* `by` : le nom de la colonne commune jouant le rôle de clé primaire / étrangère
+* `by.x`, `by.y` : le nom de chaque colonne jouant le rôle de clé primaire / étrangère **si** elles n'ont pas le même nom
+* `all` : par défaut `FALSE` pour réaliser une inner join, `TRUE` pour une full join
+* `all.x`  : par défaut `FALSE`, `TRUE` pour réaliser une left join
+* `all.y`  : par défaut `FALSE`, `TRUE` pour réaliser une right join
+
+Le package **dplyr** permet également de réaliser des jointures avec les fonctions *left_join*, *right_join*, *full_join*, *inner_join* et d'aller plus loin. Les fonctions de jointure de *dplyr* ont un temps de traitement plus rapide que celles proposées par la fonction `merge`. Nous comparerons les deux méthodes dans la correction de l'exercice.
+
+
+### Left Join
+
+```{r}
+left <- merge(x = Utilisateur, y = Abonnement, by = "Id_utilisateur", all.x = TRUE)
+
+```
+
+```{r, echo=FALSE}
+kable(left)
+```
+
+
+En réalisant une jointure externe gauche, on observe :
+
+* qu'on retrouve les informations des deux tables pour les id_utilisateur 1,3 et 4.
+* qu'on ne retrouve pas l'id_utilisateur 5 dans la table de sortie n'étant pas présent dans la table Utilisateur.
+* la présence de `NA` pour l'id_utilisateur 3 car il n'etait pas présent dans la table Abonnement.
+
+### Right Join
+
+```{r}
+right <- merge(x = Utilisateur, y = Abonnement, by = "Id_utilisateur", all.y = TRUE)
+```
+
+```{r, echo=FALSE}
+kable(right)
+```
+
+
+En réalisant une jointure externe droite, on observe :
+
+* qu'on retrouve les informations des deux tables pour les id_utilisateur 1,2 et 4.
+* qu'on ne retrouve pas l'id_utilisateur 3 dans la table de sortie n'étant pas présent dans la table Abonnement
+* la présence de `NA` pour l'id_utilisateur 5 car il n'etait pas présent dans la table Utilisateur.
+
+### Inner Join
+
+```{r}
+inner <- merge(x = Utilisateur, y = Abonnement, by = "Id_utilisateur")
+
+```
+
+```{r, echo=FALSE}
+kable(inner)
+```
+
+En réalisant une jointure interne, on observe :
+
+* qu'on retrouve les informations des deux tables pour les id_utilisateur 1,2 et 4.
+* qu'on ne retrouve pas l'id_utilisateur 3 et 5 dans la table de sortie n'étant pas présents dans l'une des deux tables.
+
+### Full Join
+
+```{r}
+full <- merge(x = Utilisateur, y = Abonnement, by = "Id_utilisateur", all = TRUE)
+
+```
+
+```{r, echo=FALSE}
+kable(full)
+```
+
+
+En réalisant une jointure externe, on observe :
+
+* qu'on retrouve les informations des deux tables pour les id_utilisateur 1,2 et 4.
+* la présence de `NA` pour l'id_utilisateur 3 et 5 n'étant pas présents dans l'une des deux tables.
+
+
+## Exercice
+
+Pour illustrer ces notions, on utilise la base de données *nycflights13* du même package. La base de données est répartie en 5 tables et disponible à partir du package *nycflights13* :
+
+- table `flights` (336776 x 20) : une ligne décrit un vol
+- table `airlines` (16 x 2) : une ligne décrit une compagnie
+- table `airports` (1458 x 8) : une ligne décrit un aéroport
+- table `planes` (3322 x 9) : une ligne décrit un appareil
+- table `weather` (26115 x 15) : une ligne décrit les conditions météorologiques au départ d'un vol avec une mesure par heure
+
+Voici le modèle relationnel de ces 5 tables :
+
+```{r, fig.align = "center",out.width = "50%", echo=FALSE}
+include_graphics(path = "./img/mcd.png")
+```
+
+
+```{r, fig.align = "center", echo=FALSE}
+include_graphics(path = "./img/table.png")
+```
+
+
+```{r, include = FALSE, warning = FALSE}
+#on charge le package
+library(nycflights13)
+
+#on affiche les objets disponibles du package
+ls("package:nycflights13")
+```
+
+### Sujet
+
+a. Affichez le nom des 3 compagnies avec le plus de vols.
+
+```{r, include=FALSE}
+#jointure sans dplyr
+requete <- merge(x = flights,y = airlines, by = "carrier",all.x = TRUE)
+
+#jointure avec dplyr
+requete <- left_join(x = flights, y = airlines, by = "carrier")
+```
+
+```{r, echo=FALSE}
+requete %>%
+  group_by(name) %>%
+  summarise(nb_vols = n()) %>%
+  arrange(desc(nb_vols)) %>%
+  slice(1:3) %>% 
+  kable()
+```
+
+
+b. Affichez le nombre de vols à destination de chaque `tzone` (table `airports`).
+
+```{r, include=FALSE }
+#jointure sans dplyr
+requete <- merge(x = flights,y = airports[,c("faa","tzone")], by.x = "dest", by.y = "faa", all.x =  TRUE)
+
+#jointure avec dplyr
+requete <- left_join(x = flights, 
+                     y = select(airports, c("faa","tzone")),
+                     by = c("dest" = "faa"))
+```
+
+```{r,echo=FALSE}
+requete %>%
+  group_by(tzone) %>%
+  summarise(nb_vols = n()) %>%
+  arrange(desc(nb_vols)) %>%
+  kable()
+```
+
+On observe que la catégorie `NA` signifie que certaines destinations ne sont pas référencées dans la table `airports`.
+
+c. Dans quel aéroport y a-t-il le plus de précipitations ?
+
+```{r, include=FALSE }
+#jointure sans dplyr
+requete <- merge(x = flights, y = weather,
+                     by = c("year" = "year", "month" = "month", "day" = "day",
+                            "hour" = "hour" , "origin" = "origin"), all.x = TRUE)
+
+
+#jointure avec dplyr
+requete <- left_join(x = flights, y = weather,
+                     by = c("year" = "year", "month" = "month", "day" = "day",
+                            "hour" = "hour" , "origin" = "origin"))
+```
+
+```{r,echo=FALSE}
+requete %>%
+  select(year, month, day, hour, origin, origin, precip) %>% 
+  distinct() %>%
+  group_by(origin) %>%
+  summarise(precip_moy = mean(precip,na.rm = TRUE)) %>%
+  kable()
+```
+
+Pour obtenir ce résultat, on utilise la fonction `distinct` du package *dplyr* après la jointure.
+
+
+### Correction
+
+a. Affichez le nom des 3 compagnies avec le plus de vols.
+
+```{r}
+#jointure sans dplyr
+start.time <- Sys.time()
+requete <- merge(x = flights,y = airlines, by = "carrier",all.x = TRUE)
+Sys.time() - start.time
+
+#jointure avec dplyr
+start.time <- Sys.time()
+requete <- left_join(x = flights, y = airlines, by = "carrier")
+Sys.time() - start.time
+```
+
+```{r}
+requete %>%
+  group_by(name) %>%
+  summarise(nb_vols = n()) %>%
+  arrange(desc(nb_vols)) %>%
+  slice(1:3) %>% 
+  kable()
+```
+
+
+b. Affichez le nombre de vols à destination de chaque `tzone` (table `airports`).
+
+```{r}
+#jointure sans dplyr
+start.time <- Sys.time()
+requete <- merge(x = flights,y = airports[,c("faa","tzone")], 
+                 by.x = "dest", by.y = "faa", all.x =  TRUE)
+Sys.time() - start.time
+
+#jointure avec dplyr
+start.time <- Sys.time()
+requete <- left_join(x = flights, 
+                     y = select(airports, c("faa","tzone")),
+                     by = c("dest" = "faa"))
+Sys.time() - start.time
+```
+
+```{r}
+requete %>%
+  group_by(tzone) %>%
+  summarise(nb_vols = n()) %>%
+  arrange(desc(nb_vols)) %>%
+  kable()
+```
+
+On observe que la catégorie `NA` signifie que certaines destinations ne sont pas référencées dans la table `airports`.
+
+c. Dans quel aéroport y a-t-il le plus de précipitations ?
+
+```{r}
+#jointure sans dplyr
+start.time <- Sys.time()
+requete <- merge(x = flights, y = weather,
+                     by = c("year" = "year", "month" = "month", "day" = "day",
+                            "hour" = "hour" , "origin" = "origin"), all.x = TRUE)
+Sys.time() - start.time
+
+#jointure avec dplyr
+start.time <- Sys.time()
+requete <- left_join(x = flights, y = weather,
+                     by = c("year" = "year", "month" = "month", "day" = "day",
+                            "hour" = "hour" , "origin" = "origin"))
+Sys.time() - start.time
+```
+
+```{r}
+requete %>%
+  select(year, month, day, hour, origin, origin, precip) %>% 
+  distinct() %>%
+  group_by(origin) %>%
+  summarise(precip_moy = mean(precip,na.rm = TRUE)) %>%
+  kable()
+```

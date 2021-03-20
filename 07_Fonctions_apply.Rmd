@@ -1,0 +1,100 @@
+# Les fonctions apply {#apply}
+
+La famille des fonctions `apply` est intégrée dans le package *base* déjà chargé en mémoire dans RStudio.
+Ces fonctions évitent d’avoir recours aux boucles.
+Dans ce TP, nous aborderons uniquement les fonctions `apply`, `lapply` et `tapply`. Mais, il en existe d'autres telles que `sapply`, `mapply`, `vapply`, etc.
+
+## Fonction apply
+
+La fonction `apply` est la fonction de base des fonctions de cette famille.
+Elle est utile pour appliquer une fonction sur chaque colonne d’une matrice. L'argument `MARGIN` permet de préciser si on veut appliquer la fonction `mean` pour chaque ligne ou chaque colonne.
+
+Ici l'objet X convertit le data frame en matrice, c'est pourquoi la fonction `apply` renvoie que des vecteurs de type `character`. 
+
+```{r}
+apply(X = iris, MARGIN = 2, FUN = class)
+```
+
+```{r}
+apply(X = iris[, 1:4], MARGIN = 2, FUN = mean)
+```
+
+## Fonction lapply
+
+La fonction `lapply` se construit de la même façon que la fonction `apply` à l’exception que le résultat renvoyé est une liste
+La fonction `lapply` prend en entrée une liste, un vecteur ou un data frame / matrice contrairement à la fonction `apply`.
+
+```{r}
+lapply(X = iris , function(x) class(x))
+```
+
+```{r}
+lapply(X = colnames(iris) , function(x) summary(iris[,x]))
+```
+
+Quand on regarde de plus près, on se rend compte, que ces fonctions peuvent jouer le même rôle qu'une boucle.
+
+```{r}
+lapply(X = colnames(iris) , function(x) x)
+```
+
+## Fonction sapply
+
+La fonction sapply est similaire à la fonction lapply sauf qu'elle ne retourne pas de liste mais un vecteur ou une **matrice**.
+
+```{r}
+sapply(X = iris , function(x) class(x))
+```
+
+## Fonction tapply
+
+La fonction `tapply` adopte la même approche que la fonction `aggregate`. Elle permet d'agréger des données. Les arguments de la fonction d'agrégation sont renseignés dans la fonction `tapply` et non dans la fonction d'agrégation.
+
+```{r}
+tapply(X = iris$Sepal.Length, INDEX = iris$Species, FUN = mean, na.rm = TRUE)
+```
+
+## Exercice
+
+### Sujet
+
+a. Calculez le taille moyenne pour chaque race de personnage Star Wars (`species`)
+
+```{r,include=FALSE}
+tapply(X = starWars$height, INDEX = starWars$species, FUN = mean, na.rm = TRUE)
+```
+
+b. Appliquez la fonction `build_plot` sur le data frame Star Wars en utilisant la fonction lapply.
+
+```{r, include=FALSE}
+lapply(X = starWars, function(x) build_plot(x))
+```
+
+c. Calculer la moyenne de chaque variable numérique en utilisant la fonction `sapply` et `lapply`.
+
+```{r, include=FALSE}
+col_numeric <-  sapply(X = starWars, function(x) is.numeric(x))
+lapply(X = starWars[ ,col_numeric], function(x) mean(x, na.rm = TRUE))
+```
+
+
+### Correction
+
+a. Calculez le taille moyenne pour chaque race de personnage Star Wars (`species`)
+
+```{r,eval=FALSE}
+tapply(X = starWars$height, INDEX = starWars$species, FUN = mean, na.rm = TRUE)
+```
+
+b. Appliquez la fonction `build_plot` sur le data frame Star Wars en utilisant la fonction lapply.
+
+```{r,eval=FALSE}
+lapply(X = starWars, function(x) build_plot(x))
+```
+
+c. Calculer la moyenne de chaque variable numérique en utilisant la fonction `sapply` et `lapply`.
+
+```{r,eval=FALSE}
+col_numeric <-  sapply(X = starWars, function(x) is.numeric(x))
+lapply(X = starWars[ ,col_numeric], function(x) mean(x, na.rm = TRUE))
+```

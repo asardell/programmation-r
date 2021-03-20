@@ -1,0 +1,4490 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 12 S’entrainer | Apprendre à programmer avec R</title>
+  <meta name="description" content="Chapitre 12 S’entrainer | Apprendre à programmer avec R" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 12 S’entrainer | Apprendre à programmer avec R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapitre 12 S’entrainer | Apprendre à programmer avec R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 12 S’entrainer | Apprendre à programmer avec R" />
+  
+  <meta name="twitter:description" content="Chapitre 12 S’entrainer | Apprendre à programmer avec R" />
+  
+
+<meta name="author" content="Anthony SARDELLITTI" />
+
+
+<meta name="date" content="2021-03-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="jointures.html"/>
+<link rel="next" href="all-dataset.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Préface</a></li>
+<li class="chapter" data-level="2" data-path="presentation.html"><a href="presentation.html"><i class="fa fa-check"></i><b>2</b> Présentation</a><ul>
+<li class="chapter" data-level="2.1" data-path="presentation.html"><a href="presentation.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="presentation.html"><a href="presentation.html#à-propos-de-r"><i class="fa fa-check"></i><b>2.1.1</b> À propos de R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="presentation.html"><a href="presentation.html#à-propos-de-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> À propos de RStudio</a></li>
+<li class="chapter" data-level="2.1.3" data-path="presentation.html"><a href="presentation.html#à-propos-du-tidyverse"><i class="fa fa-check"></i><b>2.1.3</b> À propos du <em>tidyverse</em></a></li>
+<li class="chapter" data-level="2.1.4" data-path="presentation.html"><a href="presentation.html#structure-du-document"><i class="fa fa-check"></i><b>2.1.4</b> Structure du document</a></li>
+<li class="chapter" data-level="2.1.5" data-path="presentation.html"><a href="presentation.html#prérequis"><i class="fa fa-check"></i><b>2.1.5</b> Prérequis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="presentation.html"><a href="presentation.html#prise-en-main"><i class="fa fa-check"></i><b>2.2</b> Prise en main</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="presentation.html"><a href="presentation.html#la-console"><i class="fa fa-check"></i><b>2.2.1</b> La console</a></li>
+<li class="chapter" data-level="2.2.2" data-path="presentation.html"><a href="presentation.html#objets"><i class="fa fa-check"></i><b>2.2.2</b> Objets</a></li>
+<li class="chapter" data-level="2.2.3" data-path="presentation.html"><a href="presentation.html#fonctions"><i class="fa fa-check"></i><b>2.2.3</b> Fonctions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="presentation.html"><a href="presentation.html#fonctions-de-tests-et-comparaisons"><i class="fa fa-check"></i><b>2.3</b> Fonctions de tests et comparaisons</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="presentation.html"><a href="presentation.html#opérateurs-de-comparaisons"><i class="fa fa-check"></i><b>2.3.1</b> Opérateurs de comparaisons</a></li>
+<li class="chapter" data-level="2.3.2" data-path="presentation.html"><a href="presentation.html#opérateurs-logiques"><i class="fa fa-check"></i><b>2.3.2</b> Opérateurs logiques</a></li>
+<li class="chapter" data-level="2.3.3" data-path="presentation.html"><a href="presentation.html#fonctions-logiques"><i class="fa fa-check"></i><b>2.3.3</b> Fonctions logiques</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="presentation.html"><a href="presentation.html#regrouper-ses-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>2.4</b> Regrouper ses commandes dans des scripts</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="presentation.html"><a href="presentation.html#commentaires"><i class="fa fa-check"></i><b>2.4.1</b> Commentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="presentation.html"><a href="presentation.html#installer-et-charger-des-extensions-packages"><i class="fa fa-check"></i><b>2.5</b> Installer et charger des extensions (<em>packages</em>)</a></li>
+<li class="chapter" data-level="2.6" data-path="presentation.html"><a href="presentation.html#exercices"><i class="fa fa-check"></i><b>2.6</b> Exercices</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="presentation.html"><a href="presentation.html#sujet"><i class="fa fa-check"></i><b>2.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="2.6.2" data-path="presentation.html"><a href="presentation.html#correction"><i class="fa fa-check"></i><b>2.6.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="presentation.html"><a href="presentation.html#testez-vos-connaissances"><i class="fa fa-check"></i><b>2.7</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="first-dataset.html"><a href="first-dataset.html"><i class="fa fa-check"></i><b>3</b> Premier travail avec des données</a><ul>
+<li class="chapter" data-level="3.1" data-path="first-dataset.html"><a href="first-dataset.html#jeu-de-données-dexemple"><i class="fa fa-check"></i><b>3.1</b> Jeu de données d’exemple</a></li>
+<li class="chapter" data-level="3.2" data-path="first-dataset.html"><a href="first-dataset.html#tableau-de-données-data-frame"><i class="fa fa-check"></i><b>3.2</b> Tableau de données (<em>data frame</em>)</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="first-dataset.html"><a href="first-dataset.html#structure-du-tableau"><i class="fa fa-check"></i><b>3.2.1</b> Structure du tableau</a></li>
+<li class="chapter" data-level="3.2.2" data-path="first-dataset.html"><a href="first-dataset.html#accéder-aux-variables-dun-tableau"><i class="fa fa-check"></i><b>3.2.2</b> Accéder aux variables d’un tableau</a></li>
+<li class="chapter" data-level="3.2.3" data-path="first-dataset.html"><a href="first-dataset.html#créer-une-nouvelle-variable"><i class="fa fa-check"></i><b>3.2.3</b> Créer une nouvelle variable</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="first-dataset.html"><a href="first-dataset.html#analyse-univariée"><i class="fa fa-check"></i><b>3.3</b> Analyse univariée</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="first-dataset.html"><a href="first-dataset.html#analyser-une-variable-quantitative"><i class="fa fa-check"></i><b>3.3.1</b> Analyser une variable quantitative</a></li>
+<li class="chapter" data-level="3.3.2" data-path="first-dataset.html"><a href="first-dataset.html#analyser-une-variable-qualitative"><i class="fa fa-check"></i><b>3.3.2</b> Analyser une variable qualitative</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="first-dataset.html"><a href="first-dataset.html#combiner-plusieurs-variables"><i class="fa fa-check"></i><b>3.4</b> Combiner plusieurs variables</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="first-dataset.html"><a href="first-dataset.html#créer-une-nouvelle-variable-1"><i class="fa fa-check"></i><b>3.4.1</b> Créer une nouvelle variable</a></li>
+<li class="chapter" data-level="3.4.2" data-path="first-dataset.html"><a href="first-dataset.html#créer-des-regroupements-de-modalités"><i class="fa fa-check"></i><b>3.4.2</b> Créer des regroupements de modalités</a></li>
+<li class="chapter" data-level="3.4.3" data-path="first-dataset.html"><a href="first-dataset.html#découper-une-variable-numérique-en-classes"><i class="fa fa-check"></i><b>3.4.3</b> Découper une variable numérique en classes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="first-dataset.html"><a href="first-dataset.html#exercices-1"><i class="fa fa-check"></i><b>3.5</b> Exercices</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="first-dataset.html"><a href="first-dataset.html#sujet-1"><i class="fa fa-check"></i><b>3.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="3.5.2" data-path="first-dataset.html"><a href="first-dataset.html#correction-1"><i class="fa fa-check"></i><b>3.5.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="first-dataset.html"><a href="first-dataset.html#testez-vos-connaissances-1"><i class="fa fa-check"></i><b>3.6</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="first-import.html"><a href="first-import.html"><i class="fa fa-check"></i><b>4</b> Importer des données externes</a><ul>
+<li class="chapter" data-level="4.1" data-path="first-import.html"><a href="first-import.html#import-de-fichiers-csv"><i class="fa fa-check"></i><b>4.1</b> Import de fichiers csv</a></li>
+<li class="chapter" data-level="4.2" data-path="first-import.html"><a href="first-import.html#interface-interactive-dimport-de-fichiers"><i class="fa fa-check"></i><b>4.2</b> Interface interactive d’import de fichiers</a></li>
+<li class="chapter" data-level="4.3" data-path="first-import.html"><a href="first-import.html#modifier-le-répertoire-actif"><i class="fa fa-check"></i><b>4.3</b> Modifier le répertoire actif</a></li>
+<li class="chapter" data-level="4.4" data-path="first-import.html"><a href="first-import.html#import-depuis-un-fichier-excel"><i class="fa fa-check"></i><b>4.4</b> Import depuis un fichier Excel</a></li>
+<li class="chapter" data-level="4.5" data-path="first-import.html"><a href="first-import.html#export-de-données"><i class="fa fa-check"></i><b>4.5</b> Export de données</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="first-import.html"><a href="first-import.html#export-de-tableaux-de-données"><i class="fa fa-check"></i><b>4.5.1</b> Export de tableaux de données</a></li>
+<li class="chapter" data-level="4.5.2" data-path="first-import.html"><a href="first-import.html#sauvegarder-des-objets"><i class="fa fa-check"></i><b>4.5.2</b> Sauvegarder des objets</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="first-import.html"><a href="first-import.html#exercices-2"><i class="fa fa-check"></i><b>4.6</b> Exercices</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="first-import.html"><a href="first-import.html#sujet-2"><i class="fa fa-check"></i><b>4.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="4.6.2" data-path="first-import.html"><a href="first-import.html#correction-2"><i class="fa fa-check"></i><b>4.6.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="first-import.html"><a href="first-import.html#testez-vos-connaissances-2"><i class="fa fa-check"></i><b>4.7</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="manipulation-objet.html"><a href="manipulation-objet.html"><i class="fa fa-check"></i><b>5</b> Manipulation des objets</a><ul>
+<li class="chapter" data-level="5.1" data-path="manipulation-objet.html"><a href="manipulation-objet.html#liste"><i class="fa fa-check"></i><b>5.1</b> Liste</a></li>
+<li class="chapter" data-level="5.2" data-path="manipulation-objet.html"><a href="manipulation-objet.html#matrice"><i class="fa fa-check"></i><b>5.2</b> Matrice</a></li>
+<li class="chapter" data-level="5.3" data-path="manipulation-objet.html"><a href="manipulation-objet.html#data-frame"><i class="fa fa-check"></i><b>5.3</b> Data frame</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="manipulation-objet.html"><a href="manipulation-objet.html#indexations-simples"><i class="fa fa-check"></i><b>5.3.1</b> Indexations simples</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manipulation-objet.html"><a href="manipulation-objet.html#indexations-avec-des-booléens"><i class="fa fa-check"></i><b>5.3.2</b> Indexations avec des booléens</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manipulation-objet.html"><a href="manipulation-objet.html#filtre-et-sélection-dans-un-data-frame"><i class="fa fa-check"></i><b>5.3.3</b> Filtre et sélection dans un data frame</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercices-3"><i class="fa fa-check"></i><b>5.3.4</b> Exercices</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manipulation-objet.html"><a href="manipulation-objet.html#trier-un-data-frame"><i class="fa fa-check"></i><b>5.3.5</b> Trier un data frame</a></li>
+<li class="chapter" data-level="5.3.6" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercice"><i class="fa fa-check"></i><b>5.3.6</b> Exercice</a></li>
+<li class="chapter" data-level="5.3.7" data-path="manipulation-objet.html"><a href="manipulation-objet.html#agréger-des-données"><i class="fa fa-check"></i><b>5.3.7</b> Agréger des données</a></li>
+<li class="chapter" data-level="5.3.8" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercice-1"><i class="fa fa-check"></i><b>5.3.8</b> Exercice</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="manipulation-objet.html"><a href="manipulation-objet.html#testez-vos-connaissances-3"><i class="fa fa-check"></i><b>5.4</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="graphique.html"><a href="graphique.html"><i class="fa fa-check"></i><b>6</b> Représentation Graphique</a><ul>
+<li class="chapter" data-level="6.1" data-path="graphique.html"><a href="graphique.html#les-fenêtres-graphiques"><i class="fa fa-check"></i><b>6.1</b> Les fenêtres graphiques</a></li>
+<li class="chapter" data-level="6.2" data-path="graphique.html"><a href="graphique.html#les-fonctions-de-tracé-de-bas-niveau"><i class="fa fa-check"></i><b>6.2</b> Les fonctions de tracé de bas niveau</a></li>
+<li class="chapter" data-level="6.3" data-path="graphique.html"><a href="graphique.html#personnaliser-des-éléments-graphiques"><i class="fa fa-check"></i><b>6.3</b> Personnaliser des éléments graphiques</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="graphique.html"><a href="graphique.html#mise-en-forme"><i class="fa fa-check"></i><b>6.3.1</b> Mise en forme</a></li>
+<li class="chapter" data-level="6.3.2" data-path="graphique.html"><a href="graphique.html#gestion-des-couleurs"><i class="fa fa-check"></i><b>6.3.2</b> Gestion des couleurs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="graphique.html"><a href="graphique.html#type-de-graphique"><i class="fa fa-check"></i><b>6.4</b> Type de graphique</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="graphique.html"><a href="graphique.html#boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Boxplot</a></li>
+<li class="chapter" data-level="6.4.2" data-path="graphique.html"><a href="graphique.html#histogramme"><i class="fa fa-check"></i><b>6.4.2</b> Histogramme</a></li>
+<li class="chapter" data-level="6.4.3" data-path="graphique.html"><a href="graphique.html#diagramme-en-circulaire"><i class="fa fa-check"></i><b>6.4.3</b> Diagramme en circulaire</a></li>
+<li class="chapter" data-level="6.4.4" data-path="graphique.html"><a href="graphique.html#diagramme-en-barre"><i class="fa fa-check"></i><b>6.4.4</b> Diagramme en barre</a></li>
+<li class="chapter" data-level="6.4.5" data-path="graphique.html"><a href="graphique.html#nuage-de-points"><i class="fa fa-check"></i><b>6.4.5</b> Nuage de points</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="graphique.html"><a href="graphique.html#exercice-2"><i class="fa fa-check"></i><b>6.5</b> Exercice</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="graphique.html"><a href="graphique.html#sujet-6"><i class="fa fa-check"></i><b>6.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="6.5.2" data-path="graphique.html"><a href="graphique.html#correction-6"><i class="fa fa-check"></i><b>6.5.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="graphique.html"><a href="graphique.html#aller-plus-loin"><i class="fa fa-check"></i><b>6.6</b> Aller plus loin</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="algo.html"><a href="algo.html"><i class="fa fa-check"></i><b>7</b> Algorithme</a><ul>
+<li class="chapter" data-level="7.1" data-path="algo.html"><a href="algo.html#construire-une-fonction"><i class="fa fa-check"></i><b>7.1</b> Construire une fonction</a></li>
+<li class="chapter" data-level="7.2" data-path="algo.html"><a href="algo.html#construire-une-structure-conditionnelle"><i class="fa fa-check"></i><b>7.2</b> Construire une structure conditionnelle</a></li>
+<li class="chapter" data-level="7.3" data-path="algo.html"><a href="algo.html#construire-une-boucle"><i class="fa fa-check"></i><b>7.3</b> Construire une boucle</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="algo.html"><a href="algo.html#la-boucle-for"><i class="fa fa-check"></i><b>7.3.1</b> La boucle <code>for</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="algo.html"><a href="algo.html#la-boucle-while"><i class="fa fa-check"></i><b>7.3.2</b> La boucle <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="algo.html"><a href="algo.html#exercice-3"><i class="fa fa-check"></i><b>7.4</b> Exercice</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="algo.html"><a href="algo.html#sujet-7"><i class="fa fa-check"></i><b>7.4.1</b> Sujet</a></li>
+<li class="chapter" data-level="7.4.2" data-path="algo.html"><a href="algo.html#correction-7"><i class="fa fa-check"></i><b>7.4.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="apply.html"><a href="apply.html"><i class="fa fa-check"></i><b>8</b> Les fonctions apply</a><ul>
+<li class="chapter" data-level="8.1" data-path="apply.html"><a href="apply.html#fonction-apply"><i class="fa fa-check"></i><b>8.1</b> Fonction apply</a></li>
+<li class="chapter" data-level="8.2" data-path="apply.html"><a href="apply.html#fonction-lapply"><i class="fa fa-check"></i><b>8.2</b> Fonction lapply</a></li>
+<li class="chapter" data-level="8.3" data-path="apply.html"><a href="apply.html#fonction-sapply"><i class="fa fa-check"></i><b>8.3</b> Fonction sapply</a></li>
+<li class="chapter" data-level="8.4" data-path="apply.html"><a href="apply.html#fonction-tapply"><i class="fa fa-check"></i><b>8.4</b> Fonction tapply</a></li>
+<li class="chapter" data-level="8.5" data-path="apply.html"><a href="apply.html#exercice-4"><i class="fa fa-check"></i><b>8.5</b> Exercice</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="apply.html"><a href="apply.html#sujet-8"><i class="fa fa-check"></i><b>8.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="8.5.2" data-path="apply.html"><a href="apply.html#correction-8"><i class="fa fa-check"></i><b>8.5.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>9</b> Manipuler les données avec dplyr</a><ul>
+<li class="chapter" data-level="9.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-slice"><i class="fa fa-check"></i><b>9.1</b> La fonction <code>slice</code></a></li>
+<li class="chapter" data-level="9.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-filter"><i class="fa fa-check"></i><b>9.2</b> La fonction <code>filter</code></a></li>
+<li class="chapter" data-level="9.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-select"><i class="fa fa-check"></i><b>9.3</b> La fonction <code>select</code></a></li>
+<li class="chapter" data-level="9.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-arrange"><i class="fa fa-check"></i><b>9.4</b> La fonction <code>arrange</code></a></li>
+<li class="chapter" data-level="9.5" data-path="dplyr.html"><a href="dplyr.html#enchaîner-les-fonctions-avec-le-pipe"><i class="fa fa-check"></i><b>9.5</b> Enchaîner les fonctions avec le <em>pipe</em></a></li>
+<li class="chapter" data-level="9.6" data-path="dplyr.html"><a href="dplyr.html#la-fonction-group_by"><i class="fa fa-check"></i><b>9.6</b> La fonction <code>group_by</code></a></li>
+<li class="chapter" data-level="9.7" data-path="dplyr.html"><a href="dplyr.html#la-fonction-summarise"><i class="fa fa-check"></i><b>9.7</b> La fonction <code>summarise</code></a></li>
+<li class="chapter" data-level="9.8" data-path="dplyr.html"><a href="dplyr.html#autres-fonctions-utiles-de-dplyr"><i class="fa fa-check"></i><b>9.8</b> Autres fonctions utiles de dplyr</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-rename"><i class="fa fa-check"></i><b>9.8.1</b> La fonction <code>rename</code></a></li>
+<li class="chapter" data-level="9.8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-mutate"><i class="fa fa-check"></i><b>9.8.2</b> La fonction <code>mutate</code></a></li>
+<li class="chapter" data-level="9.8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-distinct"><i class="fa fa-check"></i><b>9.8.3</b> La fonction <code>distinct</code></a></li>
+<li class="chapter" data-level="9.8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-case_when"><i class="fa fa-check"></i><b>9.8.4</b> La fonction <code>case_when</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chaines.html"><a href="chaines.html"><i class="fa fa-check"></i><b>10</b> Manipuler le texte et les dates</a><ul>
+<li class="chapter" data-level="10.1" data-path="chaines.html"><a href="chaines.html#manipulation-des-chaînes-de-caractères"><i class="fa fa-check"></i><b>10.1</b> Manipulation des chaînes de caractères</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="chaines.html"><a href="chaines.html#concaténer-des-chaînes"><i class="fa fa-check"></i><b>10.1.1</b> Concaténer des chaînes</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chaines.html"><a href="chaines.html#majuscule-et-minuscule"><i class="fa fa-check"></i><b>10.1.2</b> Majuscule et minuscule</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chaines.html"><a href="chaines.html#longueur-dune-chaîne"><i class="fa fa-check"></i><b>10.1.3</b> Longueur d’une chaîne</a></li>
+<li class="chapter" data-level="10.1.4" data-path="chaines.html"><a href="chaines.html#extraction-de-sous-chaînes"><i class="fa fa-check"></i><b>10.1.4</b> Extraction de sous-chaînes</a></li>
+<li class="chapter" data-level="10.1.5" data-path="chaines.html"><a href="chaines.html#remplacement-de-chaînes"><i class="fa fa-check"></i><b>10.1.5</b> Remplacement de chaînes</a></li>
+<li class="chapter" data-level="10.1.6" data-path="chaines.html"><a href="chaines.html#décomposition-dune-chaîne"><i class="fa fa-check"></i><b>10.1.6</b> Décomposition d’une chaîne</a></li>
+<li class="chapter" data-level="10.1.7" data-path="chaines.html"><a href="chaines.html#recherche-de-sous-chaîne"><i class="fa fa-check"></i><b>10.1.7</b> Recherche de sous-chaîne</a></li>
+<li class="chapter" data-level="10.1.8" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-1"><i class="fa fa-check"></i><b>10.1.8</b> Aller plus loin</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chaines.html"><a href="chaines.html#manipulation-des-dates"><i class="fa fa-check"></i><b>10.2</b> Manipulation des dates</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="chaines.html"><a href="chaines.html#les-dates"><i class="fa fa-check"></i><b>10.2.1</b> Les dates</a></li>
+<li class="chapter" data-level="10.2.2" data-path="chaines.html"><a href="chaines.html#lhorloge"><i class="fa fa-check"></i><b>10.2.2</b> L’horloge</a></li>
+<li class="chapter" data-level="10.2.3" data-path="chaines.html"><a href="chaines.html#calcul-sur-les-dates"><i class="fa fa-check"></i><b>10.2.3</b> Calcul sur les dates</a></li>
+<li class="chapter" data-level="10.2.4" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-2"><i class="fa fa-check"></i><b>10.2.4</b> Aller plus loin</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="jointures.html"><a href="jointures.html"><i class="fa fa-check"></i><b>11</b> Jointures</a><ul>
+<li class="chapter" data-level="11.1" data-path="jointures.html"><a href="jointures.html#principe-1"><i class="fa fa-check"></i><b>11.1</b> Principe</a></li>
+<li class="chapter" data-level="11.2" data-path="jointures.html"><a href="jointures.html#types-de-jointures"><i class="fa fa-check"></i><b>11.2</b> Types de jointures</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="jointures.html"><a href="jointures.html#left-join"><i class="fa fa-check"></i><b>11.2.1</b> Left Join</a></li>
+<li class="chapter" data-level="11.2.2" data-path="jointures.html"><a href="jointures.html#right-join"><i class="fa fa-check"></i><b>11.2.2</b> Right Join</a></li>
+<li class="chapter" data-level="11.2.3" data-path="jointures.html"><a href="jointures.html#inner-join"><i class="fa fa-check"></i><b>11.2.3</b> Inner Join</a></li>
+<li class="chapter" data-level="11.2.4" data-path="jointures.html"><a href="jointures.html#full-join"><i class="fa fa-check"></i><b>11.2.4</b> Full Join</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="jointures.html"><a href="jointures.html#exercice-5"><i class="fa fa-check"></i><b>11.3</b> Exercice</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="jointures.html"><a href="jointures.html#sujet-9"><i class="fa fa-check"></i><b>11.3.1</b> Sujet</a></li>
+<li class="chapter" data-level="11.3.2" data-path="jointures.html"><a href="jointures.html#correction-9"><i class="fa fa-check"></i><b>11.3.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="entrainement.html"><a href="entrainement.html"><i class="fa fa-check"></i><b>12</b> S’entrainer</a><ul>
+<li class="chapter" data-level="12.1" data-path="entrainement.html"><a href="entrainement.html#tp1"><i class="fa fa-check"></i><b>12.1</b> TP1</a></li>
+<li class="chapter" data-level="12.2" data-path="entrainement.html"><a href="entrainement.html#tp2"><i class="fa fa-check"></i><b>12.2</b> TP2</a></li>
+<li class="chapter" data-level="12.3" data-path="entrainement.html"><a href="entrainement.html#tp3"><i class="fa fa-check"></i><b>12.3</b> TP3</a></li>
+<li class="chapter" data-level="12.4" data-path="entrainement.html"><a href="entrainement.html#tp4---récap"><i class="fa fa-check"></i><b>12.4</b> TP4 - Récap</a></li>
+<li class="chapter" data-level="12.5" data-path="entrainement.html"><a href="entrainement.html#tp5---chercher-lerreur"><i class="fa fa-check"></i><b>12.5</b> TP5 - Chercher l’erreur</a></li>
+<li class="chapter" data-level="12.6" data-path="entrainement.html"><a href="entrainement.html#tp6---analyses-statistiques"><i class="fa fa-check"></i><b>12.6</b> TP6 - Analyses statistiques</a></li>
+<li class="chapter" data-level="12.7" data-path="entrainement.html"><a href="entrainement.html#tp7---analyse-de-film"><i class="fa fa-check"></i><b>12.7</b> TP7 - Analyse de film</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="all-dataset.html"><a href="all-dataset.html"><i class="fa fa-check"></i><b>13</b> Jeux de données utilisés</a><ul>
+<li class="chapter" data-level="13.1" data-path="all-dataset.html"><a href="all-dataset.html#iris"><i class="fa fa-check"></i><b>13.1</b> Iris 🌺</a></li>
+<li class="chapter" data-level="13.2" data-path="all-dataset.html"><a href="all-dataset.html#histoire-de-vie-hdv2003"><i class="fa fa-check"></i><b>13.2</b> Histoire de vie (hdv2003) 🗨</a></li>
+<li class="chapter" data-level="13.3" data-path="all-dataset.html"><a href="all-dataset.html#nyc-flights-2013"><i class="fa fa-check"></i><b>13.3</b> NYC Flights 2013 ✈</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="all-dataset.html"><a href="all-dataset.html#flights"><i class="fa fa-check"></i><b>13.3.1</b> Flights</a></li>
+<li class="chapter" data-level="13.3.2" data-path="all-dataset.html"><a href="all-dataset.html#airlines"><i class="fa fa-check"></i><b>13.3.2</b> Airlines</a></li>
+<li class="chapter" data-level="13.3.3" data-path="all-dataset.html"><a href="all-dataset.html#airports"><i class="fa fa-check"></i><b>13.3.3</b> Airports</a></li>
+<li class="chapter" data-level="13.3.4" data-path="all-dataset.html"><a href="all-dataset.html#weather"><i class="fa fa-check"></i><b>13.3.4</b> Weather</a></li>
+<li class="chapter" data-level="13.3.5" data-path="all-dataset.html"><a href="all-dataset.html#planes"><i class="fa fa-check"></i><b>13.3.5</b> Planes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="all-dataset.html"><a href="all-dataset.html#google"><i class="fa fa-check"></i><b>13.4</b> Google 📱</a></li>
+<li class="chapter" data-level="13.5" data-path="all-dataset.html"><a href="all-dataset.html#pokemon"><i class="fa fa-check"></i><b>13.5</b> Pokemon 🐾</a></li>
+<li class="chapter" data-level="13.6" data-path="all-dataset.html"><a href="all-dataset.html#star-wars"><i class="fa fa-check"></i><b>13.6</b> Star Wars 🎬</a></li>
+<li class="chapter" data-level="13.7" data-path="all-dataset.html"><a href="all-dataset.html#amongus"><i class="fa fa-check"></i><b>13.7</b> AmongUs 🔦</a></li>
+<li class="chapter" data-level="13.8" data-path="all-dataset.html"><a href="all-dataset.html#nba"><i class="fa fa-check"></i><b>13.8</b> NBA 🏀</a></li>
+<li class="chapter" data-level="13.9" data-path="all-dataset.html"><a href="all-dataset.html#students"><i class="fa fa-check"></i><b>13.9</b> Students 🎓</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="biblio.html"><a href="biblio.html"><i class="fa fa-check"></i><b>14</b> Bibliographie</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Apprendre à programmer avec R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="entrainement" class="section level1">
+<h1><span class="header-section-number">Chapitre 12</span> S’entrainer</h1>
+<div id="tp1" class="section level2">
+<h2><span class="header-section-number">12.1</span> TP1</h2>
+<p><strong>Difficulté 🏆</strong></p>
+<p>Ce TP reprend les notions évoquées dans les chapitres 2 et 3.
+On utilise le dataset <code>mtcars</code> qui décrit les statistiques de voitures.
+Le dataset est présent dans le package <em>datasets</em> automatiquement installé sur R. Voici une description des données :</p>
+<ul>
+<li><code>mpg</code> : Miles/(US) gallon</li>
+<li><code>cyl</code> : Number of cylinders</li>
+<li><code>disp</code> : Displacement (cu.in.)</li>
+<li><code>hp</code> : Gross horsepower</li>
+<li><code>drat</code> : Rear axle ratio</li>
+<li><code>wt</code> : Weight (1000 lbs)</li>
+<li><code>qsec</code> : 1/4 mile time</li>
+<li><code>vs</code> : Engine (0 = V-shaped, 1 = straight)</li>
+<li><code>am</code> : Transmission (0 = automatic, 1 = manual)</li>
+<li><code>gear</code> : Number of forward gears</li>
+<li><code>carb</code> : Number of carburetors</li>
+</ul>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+mpg
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+cyl
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+disp
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+hp
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+drat
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+wt
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+qsec
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+vs
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+am
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+gear
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+carb
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Mazda RX4
+</td>
+<td style="text-align:right;">
+21.0
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+160.0
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+3.90
+</td>
+<td style="text-align:right;">
+2.620
+</td>
+<td style="text-align:right;">
+16.46
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mazda RX4 Wag
+</td>
+<td style="text-align:right;">
+21.0
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+160.0
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+3.90
+</td>
+<td style="text-align:right;">
+2.875
+</td>
+<td style="text-align:right;">
+17.02
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Datsun 710
+</td>
+<td style="text-align:right;">
+22.8
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+108.0
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+3.85
+</td>
+<td style="text-align:right;">
+2.320
+</td>
+<td style="text-align:right;">
+18.61
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hornet 4 Drive
+</td>
+<td style="text-align:right;">
+21.4
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+258.0
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+3.08
+</td>
+<td style="text-align:right;">
+3.215
+</td>
+<td style="text-align:right;">
+19.44
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hornet Sportabout
+</td>
+<td style="text-align:right;">
+18.7
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+360.0
+</td>
+<td style="text-align:right;">
+175
+</td>
+<td style="text-align:right;">
+3.15
+</td>
+<td style="text-align:right;">
+3.440
+</td>
+<td style="text-align:right;">
+17.02
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Valiant
+</td>
+<td style="text-align:right;">
+18.1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+225.0
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+2.76
+</td>
+<td style="text-align:right;">
+3.460
+</td>
+<td style="text-align:right;">
+20.22
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Duster 360
+</td>
+<td style="text-align:right;">
+14.3
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+360.0
+</td>
+<td style="text-align:right;">
+245
+</td>
+<td style="text-align:right;">
+3.21
+</td>
+<td style="text-align:right;">
+3.570
+</td>
+<td style="text-align:right;">
+15.84
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Merc 240D
+</td>
+<td style="text-align:right;">
+24.4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+146.7
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+3.69
+</td>
+<td style="text-align:right;">
+3.190
+</td>
+<td style="text-align:right;">
+20.00
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Merc 230
+</td>
+<td style="text-align:right;">
+22.8
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+140.8
+</td>
+<td style="text-align:right;">
+95
+</td>
+<td style="text-align:right;">
+3.92
+</td>
+<td style="text-align:right;">
+3.150
+</td>
+<td style="text-align:right;">
+22.90
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Merc 280
+</td>
+<td style="text-align:right;">
+19.2
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+167.6
+</td>
+<td style="text-align:right;">
+123
+</td>
+<td style="text-align:right;">
+3.92
+</td>
+<td style="text-align:right;">
+3.440
+</td>
+<td style="text-align:right;">
+18.30
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p><strong>Exercice 1 : Préparer son environnement de travail</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Dupliquer le dataset dans un nouvel objet appelé <code>df</code>.</li>
+<li>Combien de lignes, colonnes sont présentes dans ce dataset (utilisez les fonctions adaptées) ?</li>
+<li>Affichez le nom des colonnes</li>
+<li>Affichez le type des colonnes avec la fonction adaptée.</li>
+<li>On souhaite analyser les variables <code>cyl</code>, <code>vs</code>, <code>am</code>, <code>gear</code> et <code>carb</code> en tant que variables qualitatives. Modifier le type de ces variables pour les transformer en type factor.</li>
+<li>Combien de niveaux (<em>levels</em>) sont présents dans ces variables ?</li>
+<li>Affichez un résumé des données avec la fonction adaptée.</li>
+</ol>
+<p><strong>Exercice 2 : Statistiques descriptives</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Déterminer la moyenne de la variable <code>mpg</code></li>
+<li>Déterminer le maximum la variable <code>wt</code>.</li>
+<li>Déterminer la médiane de la variable <code>hp</code>.</li>
+<li>Déterminer les quartiles de la variable <code>qsec</code>.</li>
+<li>Déterminer les déciles de la variable <code>qsec</code>.</li>
+<li>Déterminer la variance et l’écart-type de la variable <code>qsec</code>.</li>
+<li>Déterminer un tri à plat pour compter les effectifs des modalités de chaque variables <em>factor</em>.</li>
+</ol>
+<p><strong>Exercice 3 : Quelques graphiques</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Contruire un histogramme de la distribution de la variable <code>qsec</code>.</li>
+<li>Constuire une boîte à moustache de la distribution de la variable <code>qsec</code>.</li>
+<li>Construire un diagramme en barre de répartition de la variable <code>carb</code>.</li>
+<li>Construire un diagramme circulaire de la répartition de la variable <code>vs</code>.</li>
+</ol>
+<p><strong>Exercice 4 : Création de nouvelles colonnes</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>La colonne <code>mpg</code> correspond au nombre de miles parcouru en 1 gallon (US). Cette mesure correspond en quelques sortes à la mesure de consommation de litres aux 100 km utilisée en France. Créer une colonne supplémentaire appelée <code>litres_au_100km</code> qui correspond à la conversion de la variable <code>mpg</code>(Miles/(US) gallon) en nombre de litres aux 100 kilomètres. Aidez-vous du guide des conversion disponible sur ce <a href="https://anglais-pratique.fr/index.php/rubriques/divers/101-mpg-l-100km">lien</a>.</li>
+<li>Construire une nouvelle colonne appelée <code>qsec_cut</code> qui est un découpage de la variable <code>qsec</code> en 3 groupes (pas de restriction sur le nombre de classe).</li>
+<li>Construire une nouvelle colonne appelée <code>litres100km_group</code> pour distinguer deux groupes de voiture : celles qui consomment plus que la moyenne et celles qui consomment moins que la moyenne.</li>
+</ol>
+</div>
+<div id="tp2" class="section level2">
+<h2><span class="header-section-number">12.2</span> TP2</h2>
+<p><strong>Difficulté 🏆🏆</strong></p>
+<p>
+<img src="img/pokemon.jpg" title="fig:" alt="Pokemon" />
+</p>
+<p>Ce TP reprend les notions évoquées dans les chapitres 2 à 5.
+On utilise le fichier <code>pokemon.xlsx</code> qui décrit les statistiques des pokemon des deux premières générations.
+Le fichier est issu du site <a href="https://www.kaggle.com/rounakbanik/pokemon">Kaggle</a>. Il a été adapté pour ce TP. Pour réaliser ce TP, télécharger le fichier en <a href="https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset">cliquant ici</a>.Voici une description des données :</p>
+<ul>
+<li><code>pokedex_number</code> : numéro du pokemon</li>
+<li><code>nom</code> : nom du pokemon</li>
+<li><code>generation</code> : le numéro de génération dont est issu le pokemon</li>
+<li><code>is_legendary</code> : Oui / Non si le pokemon est légendaire</li>
+<li><code>type</code> : le type du pokemon</li>
+<li><code>weight_kg</code> : le poids du pokemon en kg</li>
+<li><code>height_m</code> : la taille du pokemon en mètre</li>
+<li><code>attack</code> : la puissance d’attaque du pokemon</li>
+<li><code>defense</code> : la puissance de défense du pokemon</li>
+<li><code>speed</code> : la vitesse du pokemon</li>
+</ul>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+pokedex_number
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+nom
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+generation
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+is_legendary
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+type
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+weight_kg
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+height_m
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+attack
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+defense
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+speed
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Bulbizarre
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+grass
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;">
+0.7
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Herbizarre
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+grass
+</td>
+<td style="text-align:right;">
+13.0
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Florizarre
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+grass
+</td>
+<td style="text-align:right;">
+100.0
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+123
+</td>
+<td style="text-align:right;">
+80
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Salameche
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+fire
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+<td style="text-align:right;">
+0.6
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+65
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Reptincel
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+fire
+</td>
+<td style="text-align:right;">
+19.0
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+80
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Dracaufeu
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+fire
+</td>
+<td style="text-align:right;">
+90.5
+</td>
+<td style="text-align:right;">
+1.7
+</td>
+<td style="text-align:right;">
+104
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+Carapuce
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+water
+</td>
+<td style="text-align:right;">
+9.0
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:right;">
+43
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Carabaffe
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+water
+</td>
+<td style="text-align:right;">
+22.5
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+58
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Tortank
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+water
+</td>
+<td style="text-align:right;">
+85.5
+</td>
+<td style="text-align:right;">
+1.6
+</td>
+<td style="text-align:right;">
+103
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+78
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+Chenipan
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+bug
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+Chrysacier
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+bug
+</td>
+<td style="text-align:right;">
+9.9
+</td>
+<td style="text-align:right;">
+0.7
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+Papilusion
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+bug
+</td>
+<td style="text-align:right;">
+32.0
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+70
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:left;">
+Aspicot
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+bug
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Coconfort
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+bug
+</td>
+<td style="text-align:right;">
+10.0
+</td>
+<td style="text-align:right;">
+0.6
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+Dardargnan
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+bug
+</td>
+<td style="text-align:right;">
+29.5
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+145
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+Roucool
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+normal
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+56
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+Roucoups
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+normal
+</td>
+<td style="text-align:right;">
+30.0
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:right;">
+71
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+Roucarnage
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+normal
+</td>
+<td style="text-align:right;">
+39.5
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+121
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+Rattata
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+normal
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+Rattatac
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Non
+</td>
+<td style="text-align:left;">
+normal
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+71
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+77
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p><strong>Exercice 1 : Importer les données</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Importez le jeu de données <code>pokemon.xlsx</code> à l’aide du package <code>readxl</code>.</li>
+<li>Combien de lignes, colonnes sont présentes dans ce dataset (utilisez les fonctions adaptées) ?</li>
+<li>Affichez le nom des colonnes.</li>
+<li>Affichez le type des colonnes avec la fonction adaptée.</li>
+<li>On souhaite analyser les variables <code>generation</code>, <code>is_legendary</code>, et <code>type</code> en tant que variables qualitatives. Modifier le type de ces variables pour les transformer en type factor.</li>
+<li>Combien de niveaux (<em>levels</em>) sont présents dans ces variables ?</li>
+<li>Affichez un résumé des données avec la fonction adaptée.</li>
+</ol>
+<p><strong>Exercice 2 : Statistiques descriptives</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Déterminer la moyenne de la variable <code>weight_kg</code>.</li>
+<li>Déterminer la médiane de la variable <code>weight_kg</code>.</li>
+<li>Déterminer les quartiles de la variable <code>height_m</code>.</li>
+<li>Déterminer les déciles de la variable <code>height_m</code>.</li>
+<li>Déterminer la variance et l’écart-type de la variable <code>weight_kg</code>.</li>
+<li>Déterminer un tri à plat pour compter les effectifs des modalités de chaque variable <em>factor</em> en triant chaque sortie par ordre décroissant.</li>
+</ol>
+<p><strong>Exercice 3 : Tris et Selections</strong></p>
+<p>Pour chaque question suivante, affectez le résultat de la requête dans un objet puis calculez sa dimension. Exemple :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="entrainement.html#cb1-1"></a><span class="co">#Selectionnez les deux premières colonnes du data frame</span></span>
+<span id="cb1-2"><a href="entrainement.html#cb1-2"></a>requete_<span class="dv">0</span> &lt;-<span class="st"> </span>pokemon[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span>
+<span id="cb1-3"><a href="entrainement.html#cb1-3"></a><span class="kw">dim</span>(requete_<span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 251   2</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>Sélectionnez la colonne <code>nom</code> et <code>is_legendary</code>.</li>
+<li>Sélectionnez les 50 premières lignes et les deux premières colonnes.</li>
+<li>Sélectionnez les 10 premières lignes et toutes les colonnes.</li>
+<li>Sélectionnez toutes les colonnes sauf la dernière.</li>
+<li>Sélectionnez les colonnes 2,8,9 et 10.</li>
+<li>Sélectionnez les lignes 20 à 30 et 80 à 100.</li>
+<li>Triez le dataset par ordre alphabétique et afficher le <code>nom</code> du pokemon dela première ligne.</li>
+<li>Triez le dataset par <code>weight_kg</code> en ordre <strong>décroissant</strong>, et afficher le <code>nom</code>du pokemon de la première ligne</li>
+<li>Triez le dataset par <code>attack</code> en ordre <strong>décroissant</strong> puis par <code>speed</code> en ordre <strong>croissant</strong>, et afficher le <code>nom</code> des pokemons des 10 premières lignes.</li>
+</ol>
+<p><strong>Exercice 4 : Tris et Filtres</strong></p>
+<p>Pour chaque question suivante, affectez le résultat de la requête dans un objet puis calculez sa dimension. Pour faciliter la lecture, sélectionnez la colonne <code>nom</code>et les colonnes concernées par le filtre. Exemple :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="entrainement.html#cb3-1"></a><span class="co">#Selectionnez les pokemons de type feu</span></span>
+<span id="cb3-2"><a href="entrainement.html#cb3-2"></a>requete_<span class="dv">0</span> &lt;-<span class="st"> </span>pokemon[ pokemon<span class="op">$</span>type <span class="op">==</span><span class="st"> &quot;fire&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;nom&quot;</span>,<span class="st">&quot;type&quot;</span>)]</span>
+<span id="cb3-3"><a href="entrainement.html#cb3-3"></a><span class="kw">dim</span>(requete_<span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 20  2</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>Filtrez sur les pokemons qui ont 150 ou plus d’<code>attack</code> puis trier le résultat par ordre décroissant d’<code>attack</code>.</li>
+<li>Filtrez sur les pokemons de <code>type</code> <em>dragon</em>,<em>ghost</em>,<em>psychic</em> et <em>dark</em></li>
+<li>Filtrez sur les pokemons de <code>type</code> <em>fire</em> avec plus de 100 d’<code>attack</code>, puis trier le résultat par ordre décroissant d’<code>attack</code>.</li>
+<li>Filtrez sur les pokemons qui ont entre 100 et 150 de <code>speed</code>. Les trier par <code>speed</code> décroissant.</li>
+<li>Filtrez sur les pokemons pesant plus de 250 kg et affichez le résultat pour vérifier.</li>
+<li>Filtrez sur les pokémons qui ont des valeurs manquantes sur la variable <code>height_m</code>.</li>
+<li>Filtrez sur les pokemons qui ont des valeurs renseignées à la fois pour la variable <code>weight_kg</code> <strong>et</strong> la variable <code>height</code>.</li>
+</ol>
+<p><strong>Exercice 5 : Agregations</strong></p>
+<p>Pour chaque question suivante, affectez le résultat de la requête dans un objet puis calculez sa dimension. Exemple :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="entrainement.html#cb5-1"></a><span class="co">#Calculez la vitesse moyenne par generation</span></span>
+<span id="cb5-2"><a href="entrainement.html#cb5-2"></a>requete_<span class="dv">0</span> &lt;-<span class="st"> </span><span class="kw">aggregate</span>(<span class="dt">formula =</span> speed <span class="op">~</span><span class="st"> </span>generation, <span class="dt">data =</span> pokemon , <span class="dt">FUN =</span> mean)</span>
+<span id="cb5-3"><a href="entrainement.html#cb5-3"></a><span class="kw">dim</span>(requete_<span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 2 2</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+generation
+</th>
+<th style="text-align:right;">
+speed
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+70.15232
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+61.61000
+</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li>Calculez l’<code>attack</code> moyenne en fonction de la variable <code>type</code>, puis filtrez sur les 3 types avec les moyennes les plus élevées.</li>
+<li>Calculez le nombre de pokemon par <code>type</code> , puis triez par ordre décroissant ces effectifs.</li>
+<li>Calculez la médiane de <code>weight_kg</code> par <code>type</code>.</li>
+<li>Calculez le nombre de pokemon par <code>type</code> et <code>generation</code></li>
+<li>Calculez la moyenne de chaque critère (<code>weight_kg</code>, <code>height_m</code>, <code>attack</code>, <code>defense</code> et <code>speed</code>) en fonction de chaque <code>type</code>.</li>
+</ol>
+</div>
+<div id="tp3" class="section level2">
+<h2><span class="header-section-number">12.3</span> TP3</h2>
+<p><strong>Difficulté 🏆🏆🏆</strong></p>
+<p>
+<img src="img/amongus.jpg" title="fig:" alt="Among us" />
+</p>
+<p>Ce TP reprend les notions évoquées dans les chapitres 6,7 et 10.
+On utilise le fichier compressé <code>AmongUs.7z</code> où l’ensemble des fichiers décrivent les statistiques des parties jouées sur le jeu <em>Among Us</em>. Il y a un fichier par joueur nommé <em>UserX.csv</em>.
+Les données sont issues du site <a href="https://www.kaggle.com/ruchi798/among-us-dataset">Kaggle</a>. Pour réaliser ce TP, télécharger le fichier en <a href="https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset">cliquant ici</a>.
+Les fichiers csv ont tous la même structure avec :</p>
+<ul>
+<li><code>Game.Completed.Date</code> : Date de la partie</li>
+<li><code>Team</code> : l’équipe attribuée</li>
+<li><code>Outcome</code> : résultat de la partie</li>
+<li><code>Task.Completed</code> : le nombre de tâches effectuées</li>
+<li><code>All.Tasks.Completed</code> : si toutes les tâches ont été effectuées</li>
+<li><code>Murdered</code> : si le joueur a été tué</li>
+<li><code>Imposter.Kills</code> : le nombre de joueurs tués par l’imposteur</li>
+<li><code>Game.Length</code> : durée de la partie</li>
+<li><code>Ejected</code> : si le joueur a été éliminé par les autres au cours de la partie</li>
+<li><code>Sabotages.Fixed</code> : nombre de sabotages réparés</li>
+<li><code>Time.to.complete.all.tasks</code> : temps pour compléter les toutes les tâches</li>
+<li><code>Rank.Change</code> : Non renseigné</li>
+<li><code>Region.Game.Code</code> : la région du serveur de jeu</li>
+</ul>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Game.Completed.Date
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Team
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Outcome
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Task.Completed
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+All.Tasks.Completed
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Murdered
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Imposter.Kills
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Game.Length
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Ejected
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Sabotages.Fixed
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Time.to.complete.all.tasks
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Rank.Change
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Region.Game.Code
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+12/13/2020 at 1:26:56 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+07m 04s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+++
+</td>
+<td style="text-align:left;">
+NA / WYMSBF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/13/2020 at 1:17:42 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Loss
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+16m 21s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+09m 48s
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+NA / WYMSBF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/13/2020 at 12:57:47 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+11m 33s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+++
+</td>
+<td style="text-align:left;">
+NA / WYMSBF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/13/2020 at 12:41:55 am EST
+</td>
+<td style="text-align:left;">
+Imposter
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+08m 05s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+N/A
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
++++
+</td>
+<td style="text-align:left;">
+Europe / QIRTNF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/13/2020 at 12:30:37 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Loss
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+05m 10s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+—
+</td>
+<td style="text-align:left;">
+Europe / QIRTNF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/13/2020 at 12:24:20 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Loss
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+16m 22s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+12m 16s
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Europe / QIRTNF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/13/2020 at 12:00:39 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Loss
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+21m 41s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+18m 38s
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Europe / MTKPVF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 4:15:08 pm EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+18m 43s
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+07m 48s
+</td>
+<td style="text-align:left;">
+++
+</td>
+<td style="text-align:left;">
+Europe / BFRJCF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 3:49:33 pm EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+13m 15s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+13m 15s
+</td>
+<td style="text-align:left;">
+++
+</td>
+<td style="text-align:left;">
+Europe / BFRJCF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 3:30:36 pm EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Loss
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+12m 43s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+12m 43s
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Europe / BFRJCF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 3:10:58 pm EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+11m 00s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+++
+</td>
+<td style="text-align:left;">
+Europe / BFRJCF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 2:53:28 pm EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+17m 43s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+11m 59s
+</td>
+<td style="text-align:left;">
+++
+</td>
+<td style="text-align:left;">
+Europe / BFRJCF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 2:20:38 pm EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Loss
+</td>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+13m 46s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+—
+</td>
+<td style="text-align:left;">
+Europe / ONSJWQ
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 2:04:26 pm EST
+</td>
+<td style="text-align:left;">
+Imposter
+</td>
+<td style="text-align:left;">
+Loss
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+15m 52s
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+N/A
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+Europe / ONSJWQ
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 1:46:30 pm EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+18m 54s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+11m 09s
+</td>
+<td style="text-align:left;">
+++
+</td>
+<td style="text-align:left;">
+Europe / ONSJWQ
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 2:09:32 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Loss
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+08m 00s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+01m 41s
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+NA / EYNONF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 2:00:26 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+18m 06s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+09m 34s
+</td>
+<td style="text-align:left;">
+++
+</td>
+<td style="text-align:left;">
+NA / EYNONF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 1:26:11 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+12m 58s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+09m 03s
+</td>
+<td style="text-align:left;">
+++
+</td>
+<td style="text-align:left;">
+NA / EYNONF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 1:03:05 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Win
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+14m 57s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+14m 50s
+</td>
+<td style="text-align:left;">
+++
+</td>
+<td style="text-align:left;">
+NA / EYNONF
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/11/2020 at 12:45:34 am EST
+</td>
+<td style="text-align:left;">
+Crewmate
+</td>
+<td style="text-align:left;">
+Loss
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+11m 03s
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+10m 34s
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+NA / EYNONF
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Exercice 1 : Créer le jeu de données</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Télécharger le fichier compressé <code>AmongUs.7z</code> et le déziper. La fonction <code>list.files()</code> devrait vous aider à extraire l’ensemble des noms de fichiers présents dans un répertoire (voir l’exemple ci-dessous).</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="entrainement.html#cb7-1"></a><span class="kw">list.files</span>(<span class="dt">path =</span> <span class="st">&quot;dataset/&quot;</span>, <span class="dt">pattern=</span><span class="st">&quot;*.csv&quot;</span>, <span class="dt">full.names=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;AmongUs.csv&quot;          &quot;characters.csv&quot;       &quot;flights.csv&quot;         
+##  [4] &quot;google.csv&quot;           &quot;NBA.csv&quot;              &quot;planes.csv&quot;          
+##  [7] &quot;starwars.csv&quot;         &quot;students_results.csv&quot; &quot;Titanic.csv&quot;         
+## [10] &quot;tv_shows.csv&quot;</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Compiler l’ensemble des fichiers <em>UserX.csv</em> présents dans le fichier zip dans un seul et même data frame. Utiliser une boucle qui parcourt chaque fichier csv utilisateur. La fonction <code>rbind()</code> devrait vous aider à compiler les différents csv dans un seul data frame (voir l’exemple ci-dessous).
+<br>
+📢 Attention, pour le bon déroulement du TP, intégrer l’argument <code>stringsAsFactors = FALSE</code> dans votre fonction <code>read.csv()</code>. Cet argument permet de ne pas typer par défaut les variables <code>character</code> en <code>factor</code> lors de l’importation.</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="entrainement.html#cb9-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</span>
+<span id="cb9-2"><a href="entrainement.html#cb9-2"></a><span class="kw">dim</span>(df)</span></code></pre></div>
+<pre><code>## [1] 0 0</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="entrainement.html#cb11-1"></a>df &lt;-<span class="st"> </span><span class="kw">rbind</span>(df, mtcars)</span>
+<span id="cb11-2"><a href="entrainement.html#cb11-2"></a><span class="kw">dim</span>(df)</span></code></pre></div>
+<pre><code>## [1] 32 11</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="entrainement.html#cb13-1"></a>df &lt;-<span class="st"> </span><span class="kw">rbind</span>(df, mtcars)</span>
+<span id="cb13-2"><a href="entrainement.html#cb13-2"></a><span class="kw">dim</span>(df)</span></code></pre></div>
+<pre><code>## [1] 64 11</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><p>Modifier votre boucle afin d’ajouter une colonne dans le data frame final qui renseigne le numéro d’utilisateur disponible dans le nom de chaque fichier csv.
+<br>
+💡 indice : Il est plus simple d’ajouter une colonne avec le nom du fichier juste avant la fonction <code>rbind()</code>.</p></li>
+<li><p>Stocker le data frame final dans un objet appelé <em>AmongUs</em>.</p></li>
+<li><p>Supprimer la colonne <code>Rank.Change</code> qui est inutile.</p></li>
+<li><p>On observe des valeurs manquantes dans le dataset à travers les champs <code>-</code> et <code>N/A</code>, on souhaite remplacer ces valeurs textuelles par la véritable valeur <code>NA</code> permettant d’indiquer à R que la valeur est manquante. Construire une fonction appelée <code>manage_na()</code> qui prend en entrée :</p></li>
+</ol>
+<ul>
+<li>un vecteur <code>x</code> correspondra à une colonne d’un dataset.</li>
+<li>un vecteur <code>string_to_na</code> correspondant à la liste des chaînes de caractères qu’on souhaite transformer en <code>NA</code>.</li>
+</ul>
+<p>La fonction retournera le vecteur modifié.
+<br>
+💡 indice : voici ci-dessous la tête que doit avoir votre fonction :</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="entrainement.html#cb15-1"></a>manage_na &lt;-<span class="st"> </span><span class="cf">function</span>(x, string_to_na) {</span>
+<span id="cb15-2"><a href="entrainement.html#cb15-2"></a>  </span>
+<span id="cb15-3"><a href="entrainement.html#cb15-3"></a>  ...</span>
+<span id="cb15-4"><a href="entrainement.html#cb15-4"></a>  ...</span>
+<span id="cb15-5"><a href="entrainement.html#cb15-5"></a>  ...</span>
+<span id="cb15-6"><a href="entrainement.html#cb15-6"></a>  </span>
+<span id="cb15-7"><a href="entrainement.html#cb15-7"></a>  <span class="kw">return</span>(x_modif)</span>
+<span id="cb15-8"><a href="entrainement.html#cb15-8"></a>}</span></code></pre></div>
+<ol start="7" style="list-style-type: lower-alpha">
+<li>Construire une boucle qui parcourt toutes les colonnes du data frame <em>AmongUs</em> et qui remplace les champs avec des <code>-</code> et <code>N/A</code> par des valeurs manquantes <code>NA</code>. Utilisez la fonction <code>manage_na()</code> créée précédemment.</li>
+</ol>
+<p><strong>Exercice 2 : Manipuler le texte et les dates</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>À partir de la colonne <code>Game.Completed.Date</code>, construire une colonne appelée <code>Date</code> avec la date de la partie au format <em>yyyy-mm-dd</em> uniquement. Veiller à ce que le type de cette colonne soit <em>Date</em>.</p></li>
+<li><p>À partir de la colonne <code>Game.Completed.Date</code>, construire une colonne appelée <code>Heure</code> avec <strong>l’heure uniquement</strong> de la partie. Attention au format <em>am</em> et <em>pm</em>.</p></li>
+<li><p>À partir de la colonne <code>Game Length</code>, construire une colonne appelée <code>Game.Length.sec</code> correspondant à la durée de la partie en secondes.</p></li>
+<li><p>À partir de la colonne <code>Time.to.complete.all.tasks</code>, construire une colonne appelée <code>Complete.all.tasks.sec</code> correspondant à la durée en secondes pour compléter toutes les tâches.</p></li>
+<li><p>À partir de la colonne <code>Region.Game.Code</code> construire une colonne appelée <code>Region</code> correspondant au nom du continent uniquement.</p></li>
+</ol>
+<p><strong>Exercice 3 : Type des variables</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Combien de lignes, colonnes sont présentes dans ce dataset (Utiliser la fonction adaptée) ?</p></li>
+<li><p>Afficher un résumé des données avec la fonction adaptée.</p></li>
+<li><p>Veiller à ce que les types de chaque colonne du dataset correspondent aux types ci-dessous. Sinon, convertir les variables dans leur type approprié.</p></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type souhaité</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Game.Completed.Date</td>
+<td>character</td>
+</tr>
+<tr class="even">
+<td>Team</td>
+<td>factor</td>
+</tr>
+<tr class="odd">
+<td>Outcome</td>
+<td>factor</td>
+</tr>
+<tr class="even">
+<td>Task.Completed</td>
+<td>numeric</td>
+</tr>
+<tr class="odd">
+<td>All.Tasks.Completed</td>
+<td>factor</td>
+</tr>
+<tr class="even">
+<td>Murdered</td>
+<td>factor</td>
+</tr>
+<tr class="odd">
+<td>Imposter.Kills</td>
+<td>numeric</td>
+</tr>
+<tr class="even">
+<td>Game.Length</td>
+<td>character</td>
+</tr>
+<tr class="odd">
+<td>Ejected</td>
+<td>factor</td>
+</tr>
+<tr class="even">
+<td>Sabotages.Fixed</td>
+<td>numeric</td>
+</tr>
+<tr class="odd">
+<td>Time.to.complete.all.tasks</td>
+<td>character</td>
+</tr>
+<tr class="even">
+<td>Region.Game.Code</td>
+<td>character</td>
+</tr>
+<tr class="odd">
+<td><strong>Date</strong></td>
+<td>Date</td>
+</tr>
+<tr class="even">
+<td><strong>Heure</strong></td>
+<td>numeric</td>
+</tr>
+<tr class="odd">
+<td><strong>Game.Length.sec</strong></td>
+<td>numeric</td>
+</tr>
+<tr class="even">
+<td><strong>Complete.all.tasks.sec</strong></td>
+<td>numeric</td>
+</tr>
+<tr class="odd">
+<td><strong>Region</strong></td>
+<td>factor</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+📢 Attention, lorsqu’on convertit un vecteur de type <code>factor</code> en type <code>numeric</code>, il est recommandé de passer d’abord par le type <code>character</code> (voir exemple ci-dessous). Ce ne sera peu être pas utile pour ce TP, mais c’est bien de le savoir !</p>
+<p>Ce qu’il ne faut pas faire ⛔</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="entrainement.html#cb16-1"></a>x &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">6</span>))</span>
+<span id="cb16-2"><a href="entrainement.html#cb16-2"></a><span class="kw">levels</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;6&quot; &quot;7&quot; &quot;8&quot; &quot;9&quot;</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="entrainement.html#cb18-1"></a>x &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(x)</span>
+<span id="cb18-2"><a href="entrainement.html#cb18-2"></a>x</span></code></pre></div>
+<pre><code>## [1] 2 2 3 2 4 1 1</code></pre>
+<p>Ce qu’il faut faire ✅</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="entrainement.html#cb20-1"></a>x &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">6</span>))</span>
+<span id="cb20-2"><a href="entrainement.html#cb20-2"></a><span class="kw">levels</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;6&quot; &quot;7&quot; &quot;8&quot; &quot;9&quot;</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="entrainement.html#cb22-1"></a>x &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(x))</span>
+<span id="cb22-2"><a href="entrainement.html#cb22-2"></a>x</span></code></pre></div>
+<pre><code>## [1] 7 7 8 7 9 6 6</code></pre>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Vérifier si cela a fonctionné en affichant le type de chaque variable du data frame.</li>
+</ol>
+<p><strong>Exercice 4 : Analyses statistiques </strong></p>
+<p>La plupart des questions de cet exercice demandent un peu de réflexion. <br>
+📢 Ne partez pas à l’abordage, les solutions peuvent se coder en plusieurs étapes (<em>tris</em>,<em>filtres</em>, <em>agregations</em>, <em>etc.</em>).</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Quelle est la durée moyenne d’une partie ?</p></li>
+<li><p>Combien y-a-t-il de régions serveurs différentes ?.</p></li>
+<li><p>Combien de tâche maximum un Crewmate peut-il réaliser ?</p></li>
+<li><p>Quel est le taux de parties remportées par les imposteurs ?</p></li>
+<li><p>Construire <strong>un graphique adapté</strong> permettant de visualiser la répartition du nombre de parties jouées selon la<code>Region</code>.</p></li>
+<li><p>Construire <strong>un graphique adapté</strong> permettant de visualiser la répartition des joueurs qui termine ou pas leurs tâches selon s’ils se font tuer ou pas.</p></li>
+<li><p>Construire <strong>un graphique adapté</strong> permettant de visualiser la distribution du nombre de tâches complétées par les joueurs.</p></li>
+<li><p>Construire <strong>un graphique adapté</strong> permettant de visualiser pour chaque partie jouée, la durée de la partie et le temps pour compléter toutes les tâches.</p></li>
+<li><p>Construire <strong>un graphique adapté</strong> permettant de visualiser la distribution du temps des parties selon la <code>Region</code>.</p></li>
+<li><p>Construire <strong>un graphique adapté</strong> permettant de visualiser l’évolution du nombre de parties jouées selon l’heure de la journée.</p></li>
+<li><p>Construire <strong>un graphique adapté</strong> permettant de visualiser les variations du taux de succès des imposteurs selon les régions serveurs.</p></li>
+<li><p>Construire <strong>un graphique adapté</strong> permettant de visualiser les taux de succès des 5 meilleurs utilisateurs.</p></li>
+</ol>
+</div>
+<div id="tp4---récap" class="section level2">
+<h2><span class="header-section-number">12.4</span> TP4 - Récap</h2>
+<p><strong>Difficulté 🏆🏆</strong></p>
+<p>
+<img src="img/nba.jpg" title="fig:" alt="NBA" />
+</p>
+<p>Ce TP reprend les notions évoquées dans les chapitres 2 à 7.
+On utilise le fichier <code>NBA.csv</code> qui décrit les tirs effectués au cours de la saison 2014-2015 de NBA. Le fichier est issu du site <a href="https://www.kaggle.com/dansbecker/nba-shot-logs">Kaggle</a>. Il a été adapté et modifié pour ce cours. Les données sont accessibles en <a href="https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset">cliquant ici</a>.</p>
+<p>Voici la présentation du jeu de données :</p>
+<ul>
+<li><code>GAME_ID</code> : ID du match</li>
+<li><code>LOCATION</code> : Lieu du match (<em>Home</em> / <em>Away</em>)</li>
+<li><code>GAME_RESULT</code> : Résultat du match (<em>Won</em> / <em>Lost</em>)</li>
+<li><code>PERIOD</code> : Numéro de quart-temps et prolongations éventuelles</li>
+<li><code>SHOT_CLOCK</code> : Durée de la possession de l’équipe au moment du tir</li>
+<li><code>DRIBBLES</code> : Nombre de dribbles avant le tir</li>
+<li><code>TOUCH_TIME</code> : Durée de la possession du joueur avant le tir</li>
+<li><code>SHOT_DIST</code> : Distance de tir en <em>foot</em> (<em>1 foot = 0,30 mètre</em>)</li>
+<li><code>PTS_TYPE</code> : Tentative à 2 ou 3 points (les lancers francs à 1 point ne sont pas répertoriés)</li>
+<li><code>SHOT_RESULT</code> : Résultat du tir (<em>made</em> / <em>missed</em>)</li>
+<li><code>CLOSE_DEF_DIST</code> : Distance entre le tireur et le défenseur le plus proche en <em>foot</em> (<em>1 foot = 0,30 mètre</em>)</li>
+<li><code>SHOOTER</code> : Nom du tireur</li>
+</ul>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+GAME_ID
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+LOCATION
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+GAME_RESULT
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+PERIOD
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+SHOT_CLOCK
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+DRIBBLES
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TOUCH_TIME
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+SHOT_DIST
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+PTS_TYPE
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+SHOT_RESULT
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+CLOSE_DEF_DIST
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+SHOOTER
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+21400899
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+10.8
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1.9
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+made
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400899
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+28.2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400899
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2.7
+</td>
+<td style="text-align:right;">
+10.1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+0.9
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400899
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+10.3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1.9
+</td>
+<td style="text-align:right;">
+17.2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400899
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+10.9
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2.7
+</td>
+<td style="text-align:right;">
+3.7
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400899
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+9.1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+18.4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+2.6
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400899
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+14.5
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+9.0
+</td>
+<td style="text-align:right;">
+20.7
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400899
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+made
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400899
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+12.4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+24.6
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400890
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+17.4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+22.4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+19.8
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400890
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+16.0
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+7.5
+</td>
+<td style="text-align:right;">
+24.5
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400890
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+12.1
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+11.9
+</td>
+<td style="text-align:right;">
+14.6
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+made
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400890
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+5.9
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+made
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400882
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+26.4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400859
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+L
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6.8
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+<td style="text-align:right;">
+22.8
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+5.3
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400859
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+L
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+6.4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2.7
+</td>
+<td style="text-align:right;">
+24.7
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+made
+</td>
+<td style="text-align:right;">
+5.6
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400859
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+L
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+17.6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+25.0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400859
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+L
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+8.7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.9
+</td>
+<td style="text-align:right;">
+25.6
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400859
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+L
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+20.8
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+24.2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+made
+</td>
+<td style="text-align:right;">
+11.1
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21400845
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+17.5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2.2
+</td>
+<td style="text-align:right;">
+25.4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+missed
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:left;">
+brian roberts
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br>
+<strong>Exercice 1 : Importer les données</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Importer le jeu de données <code>NBA.csv</code> avec la fonction <code>read.csv()</code>.</li>
+<li>Combien de lignes, colonnes sont présentes dans ce dataset (utilisez les fonctions adaptées) ?</li>
+<li>Afficher le nom des colonnes.</li>
+<li>Afficher le type des colonnes avec la fonction adaptée.</li>
+<li>On souhaite analyser les variables <code>PERIOD</code>, <code>PTS_TYPE</code>, et <code>SHOOTER</code> en tant que variables qualitatives. Modifier le type de ces variables pour les transformer en type factor.</li>
+<li>Combien de niveaux (<em>levels</em>) sont présents dans ces variables ?</li>
+<li>Afficher un résumé des données avec la fonction adaptée.</li>
+</ol>
+<p><strong>Exercice 2 : Statistiques descriptives</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Calculer l’écart-type de la variable présentant la distance de tir (<code>SHOT_DIST</code>).</li>
+<li>Calculer l’écart-type de la variable présentant la durée de la possession de l’équipe au moment du tir (<code>SHOT_CLOCK</code>).</li>
+<li>Calculer la répartition du nombre de tirs manqués et réussis (<code>SHOT_RESULT</code>).</li>
+<li>Calculer les <strong>quartiles</strong> de la variable présentant le nombre de dribbles avant un tir (<code>DRIBBLES</code>).</li>
+<li>Calculer les <strong>déciles</strong> de la variable présentant la distance entre le tireur et le défenseur le plus proche (<code>CLOSE_DEF_DIST</code>).</li>
+<li>Combien de matchs se sont déroulés lors de cette saison de basket ?</li>
+<li>Combien y-a-t-il de <code>SHOOTER</code> différents ?</li>
+</ol>
+<p><strong>Exercice 3 : Modifier le jeu de données</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Créer une variable <code>SHOT_DIST_METRE</code> qui affiche la variable <code>SHOT_DIST</code> convertit en mètre (<em>1 foot = 0,30 mètre</em>).</li>
+<li>Créer une variable <code>PTS_MARQUES</code> qui prend la valeur 0, 2 ou 3 en fonction de l’issue du tir.</li>
+<li>Supprimer la variable <code>GAME_RESULT</code> car elle est inutile.</li>
+</ol>
+<p><strong>Exercice 4 : Interroger les données</strong></p>
+<p>Attention, certaines questions peuvent nécessiter plusieurs étapes. Penser à vérifier vos requêtes avec la fonction <code>dim()</code> ou <code>View()</code>.Pour chaque question, affecter le résultat ddans un objet comme dans l’exemple ci-dessous.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="entrainement.html#cb24-1"></a><span class="co">#Selectionnez les deux premières colonnes du data frame</span></span>
+<span id="cb24-2"><a href="entrainement.html#cb24-2"></a>requete_<span class="dv">0</span> &lt;-<span class="st"> </span>NBA[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li>On souhaite extraire uniquement la colonne <code>SHOOTER</code> , <code>SHOT_RESULT</code> et <code>PTS_TYPE</code> dans cet ordre.</li>
+<li>On souhaite extraire uniquement les 50 premières lignes.</li>
+<li>On souhaite extraire toutes les colonnes sauf la première.</li>
+<li>On souhaite extraire uniquement les 100 <strong>tirs tentés</strong> avec les <code>SHOT_DIST</code> les plus loin.</li>
+<li>On souhaite extraire uniquement les 100 <strong>tirs réussis</strong> avec les <code>SHOT_DIST</code> les plus loin.</li>
+<li>On souhaite extraire uniquement les tirs réussis à 3 points de <em>kobe bryant</em>.</li>
+<li>On souhaite construire un data frame avec les 5 <code>SHOOTER</code> qui ont inscrit le plus de points.</li>
+</ol>
+<p><strong>Bonus</strong></p>
+<p>On souhaite construire un programme permettant de parcourir l’ensemble des colonnes du data frame :</p>
+<ul>
+<li><p>Si la colonne est <code>numeric</code>,on souhaite construire un <em>boxplot</em>.</p></li>
+<li><p>Si la colonne est <code>factor</code>, on souhaite construire un <em>barplot</em>.</p></li>
+<li><p>Sinon, on ne fait rien.</p></li>
+<li><p>Pensez à ajouter un titre sur les graphiques afin de savoir à quelle variable on a à faire.</p></li>
+<li><p>Dans une boucle,lorsqu’on souhaite affcher un graphique ou une sortie dans la console, il faut utiliser la fonction <code>print()</code>.</p></li>
+</ul>
+</div>
+<div id="tp5---chercher-lerreur" class="section level2">
+<h2><span class="header-section-number">12.5</span> TP5 - Chercher l’erreur</h2>
+<p><strong>Difficulté 🏆🏆</strong></p>
+<p>
+<img src="img/mistake.jpg" title="fig:" alt="mistake" />
+</p>
+<p>Ce TP reprend les notions évoquées dans les chapitres 2 à 7. Dans ce TP, vous incarnez un data analyst travaillant dans le service statistique de la NBA. Un de vos collègues est parti en vacances vendredi dernier et a envoyer à votre manager quelques statistiques sur les tirs effectués au cours de la saison 2014-2015. <br>
+Le problème c’est que le script est bourré de fautes ! Rien ne fonctionne, à tous les coups, votre collègue était pressé de partir en vacance. Votre manager fait donc appel à vous pour corriger les erreurs de ce script. Attention, votre manager aimerait également comprendre ce que vous programmez dans votre script alors n’oubliez pas de commenter chaque ligne de code pour qu’il la comprenne. Le fichier de données (<em>NBA.csv</em>) et le script de votre collègue (<em>nba_stats.R</em>) sont disponibles en <a href="https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset">cliquant ici</a>.
+<br>
+🎯 Votre manager a déjà passé beaucoup de temps pour comprendre ce script et aimerait que votre correction garde la même philosophie que le script de votre collègue, cela signifie qu’il ne faut pas écrire d’autres commandes R et simplement faire en sorte que celles déjà présentes fonctionnent.</p>
+<p>
+<img src="img/mistakes_1.PNG" title="fig:" alt="script1" />
+</p>
+<p>
+<img src="img/mistakes_2.PNG" title="fig:" alt="script2" />
+</p>
+<p>
+<img src="img/mistakes_3.PNG" title="fig:" alt="script3" />
+</p>
+<p>
+<img src="img/mistakes_4.PNG" title="fig:" alt="script4" />
+</p>
+</div>
+<div id="tp6---analyses-statistiques" class="section level2">
+<h2><span class="header-section-number">12.6</span> TP6 - Analyses statistiques</h2>
+<p><strong>Difficulté 🏆🏆</strong></p>
+<p>
+<img src="img/students.jpg" title="fig:" alt="Students" />
+</p>
+<p>Ce TP reprend les notions évoquées dans les chapitres 2 à 5.
+On utilise le fichier <code>students_results.csv</code> qui décrit les notes d’étudiants sur différentes épreuves.
+Pour réaliser ce TP, télécharger le fichier en <a href="https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset">cliquant ici</a>. Voici une description des données :</p>
+<ul>
+<li><code>ID_etudiant</code> : Le matricule des étudiants</li>
+<li><code>Genre</code> : Le genre des étudiants</li>
+<li><code>Groupe.TP</code> : Le groupe de travaux pratiques</li>
+<li><code>Groupe.TD</code> : Le groupe de travaux dirigés</li>
+<li><code>QUIZ#</code> : Le score du quiz numéro #</li>
+<li><code>TP#</code> : La note au TP numéro #</li>
+</ul>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+ID_etudiant
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Genre
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Groupe.TP
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Groupe.TD
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+QUIZ1
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+QUIZ2
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TP1
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TP2
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+TP4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+42247
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+39774
+</td>
+<td style="text-align:right;">
+25587
+</td>
+<td style="text-align:right;">
+0.8095238
+</td>
+<td style="text-align:right;">
+0.6470588
+</td>
+<td style="text-align:right;">
+14.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+84675
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+27029
+</td>
+<td style="text-align:right;">
+16083
+</td>
+<td style="text-align:right;">
+0.9523810
+</td>
+<td style="text-align:right;">
+0.6470588
+</td>
+<td style="text-align:right;">
+14.50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+93817
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+24839
+</td>
+<td style="text-align:right;">
+20601
+</td>
+<td style="text-align:right;">
+0.9523810
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+13.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22886
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33835
+</td>
+<td style="text-align:right;">
+22853
+</td>
+<td style="text-align:right;">
+0.7619048
+</td>
+<td style="text-align:right;">
+0.7794118
+</td>
+<td style="text-align:right;">
+13.50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+49060
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+31817
+</td>
+<td style="text-align:right;">
+21322
+</td>
+<td style="text-align:right;">
+0.8095238
+</td>
+<td style="text-align:right;">
+0.8823529
+</td>
+<td style="text-align:right;">
+16.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+66756
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+48147
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+30572
+</td>
+<td style="text-align:right;">
+18889
+</td>
+<td style="text-align:right;">
+0.9523810
+</td>
+<td style="text-align:right;">
+0.6470588
+</td>
+<td style="text-align:right;">
+15.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+86478
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+26072
+</td>
+<td style="text-align:right;">
+16057
+</td>
+<td style="text-align:right;">
+0.8095238
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+7.25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9082
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+32028
+</td>
+<td style="text-align:right;">
+25880
+</td>
+<td style="text-align:right;">
+0.8095238
+</td>
+<td style="text-align:right;">
+0.6470588
+</td>
+<td style="text-align:right;">
+13.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2851
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+32945
+</td>
+<td style="text-align:right;">
+25293
+</td>
+<td style="text-align:right;">
+0.8095238
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+11.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+94187
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2060
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+31588
+</td>
+<td style="text-align:right;">
+17365
+</td>
+<td style="text-align:right;">
+0.7619048
+</td>
+<td style="text-align:right;">
+0.7794118
+</td>
+<td style="text-align:right;">
+12.50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+79464
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+34180
+</td>
+<td style="text-align:right;">
+32996
+</td>
+<td style="text-align:right;">
+0.8809524
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+7.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+42086
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+36817
+</td>
+<td style="text-align:right;">
+21302
+</td>
+<td style="text-align:right;">
+0.9523810
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+19.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4921
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+27838
+</td>
+<td style="text-align:right;">
+20305
+</td>
+<td style="text-align:right;">
+0.9523810
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+13.50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23653
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33856
+</td>
+<td style="text-align:right;">
+18854
+</td>
+<td style="text-align:right;">
+0.9047619
+</td>
+<td style="text-align:right;">
+0.9117647
+</td>
+<td style="text-align:right;">
+16.50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26956
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33375
+</td>
+<td style="text-align:right;">
+18970
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+19.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10702
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+34778
+</td>
+<td style="text-align:right;">
+15677
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+13.50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+36265
+</td>
+<td style="text-align:right;">
+22377
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:right;">
+17.50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3179
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+32809
+</td>
+<td style="text-align:right;">
+23123
+</td>
+<td style="text-align:right;">
+0.9047619
+</td>
+<td style="text-align:right;">
+0.9117647
+</td>
+<td style="text-align:right;">
+18.50
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p><strong>Exercice 1 : Importer les données</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Importer le jeu de données <code>students_results.csv</code> avec la fonction <code>read.csv()</code>.</li>
+<li>Combien de lignes, colonnes sont présentes dans ce dataset (utilisez les fonctions adaptées) ?</li>
+<li>Afficher le nom des colonnes.</li>
+<li>Afficher le type des colonnes avec la fonction adaptée.</li>
+<li>Afficher un résumé des données avec la fonction adaptée.</li>
+<li>On souhaite analyser les variables <code>Groupe.TP</code> et <code>Groupe.TD</code> en tant que variables qualitatives. Modifier le type de ces variables pour les transformer en type factor.</li>
+</ol>
+<p><strong>Exercice 2 : Statistiques descriptives</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Ajouter une colonne appelée <code>TOTAL_QUIZ</code> qui correspond à la somme des notes des quiz.</p></li>
+<li><p>Déterminer la moyenne du score total des quiz. Proposez un graphique adapté pour visualiser la distribution de tous les scores totaux des étudiants</p></li>
+<li><p>Déterminer les déciles des notes du TP4. Proposez un autre graphique pour visualiser la distribution des notes des étudiants au TP4.</p></li>
+<li><p>Déterminer le nombre d’étudiants par groupe de TP. Proposez un graphique adapté pour visualiser cette répartition par groupe.</p></li>
+<li><p>Déterminer le nombre d’étudiants par genre. Proposez un autre graphique pour visualiser cette répartition par genre.</p></li>
+</ol>
+<p><strong>Exercice 3 : Qui sont les meilleurs ?</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Proposer un graphique adapté pour visualiser la distribution du score total aux quiz par genre.</li>
+<li>Calculer la moyenne du score total aux quiz par genre</li>
+<li>Proposer un graphique adapté pour visualiser la distribution du score total aux quiz par groupe de TP.</li>
+<li>Calculer la moyenne du score total aux quiz par groupe de TP.</li>
+<li>On souhaite visualiser avec un graphique adapté le score total aux quiz uniquement des 5 meilleurs étudiants.</li>
+<li>On souhaite conserver les lignes uniquement des 3 meilleur(e)s étudiant(e)s du groupe de TP 1.</li>
+</ol>
+<p><strong>Exercice 4 : Allez plus loin </strong></p>
+<p>Dans cet exercice, nous allons aller plus loin sur des notions qu’on peut retrouver en analyses statistiques comme des corrélations et des régressions linéaires. On va déterminer quelle variable est la plus corrélée avec la note du TP4 qui a été réalisé en condition d’examen. Puis nous modéliserons cette relation.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Y-a-t-il une corrélation entre la note au TP4 et le score total aux quiz ? Pour cela, utiliser la fonction <code>cor()</code>. Voici un exemple d’utilisation avec le dataset <code>iris</code> ci-dessous:</li>
+</ol>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="entrainement.html#cb25-1"></a><span class="kw">help</span>(<span class="st">&quot;cor&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="entrainement.html#cb26-1"></a><span class="kw">cor</span>(<span class="dt">x =</span> iris<span class="op">$</span>Sepal.Length, <span class="dt">y =</span> iris<span class="op">$</span>Sepal.Width)</span></code></pre></div>
+<pre><code>## [1] -0.1175698</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>On peut aussi utiliser la fonction <code>cor()</code> où l’argument <code>x</code> est un data frame avec uniquement les variables quantitatives qu’on souhaite analyser. Cela permet d’obtenir ce qu’on appelle une matrice de corrélation. Voici ci-dessous un exemple d’utilisation avec le dataset <code>iris</code>. Construire la matrice de corrélation des scores aux quiz et des notes des TP.</li>
+</ol>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="entrainement.html#cb28-1"></a><span class="co">#On construit la matrice de corrélation sur le dataset iris en excluant la colonne 5 qui est qualitative</span></span>
+<span id="cb28-2"><a href="entrainement.html#cb28-2"></a><span class="kw">cor</span>(iris[ , <span class="dv">-5</span>])</span></code></pre></div>
+<pre><code>##              Sepal.Length Sepal.Width Petal.Length Petal.Width
+## Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411
+## Sepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259
+## Petal.Length    0.8717538  -0.4284401    1.0000000   0.9628654
+## Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><p>La fonction <code>corrplot()</code> du package <code>corrplot</code> du même nom permet de visualiser une matrice de corrélation. Ce graphique s’appelle aussi un <em>corrélogramme</em>. Construire un <em>corrplot</em> de la matrice de corrélation calculée précédemment. Consulter cette <a href="http://www.sthda.com/french/wiki/visualiser-une-matrice-de-correlation-par-un-correlogramme">page</a> pour plus d’information. En le personnalisant, on peut obtenir le corrélogramme ci-dessous :
+<img src="index.html_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p></li>
+<li><p>Quelle est la variable la plus corrélée avec la note au TP4 ?</p></li>
+<li><p>Pour illustrer cette corrélation, construire un nuage de points des notes du TP4 en fonction de la variable la plus corrélée comme ci-dessous :</p></li>
+</ol>
+<p><img src="index.html_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>On observe une relation linéaire entre ces deux variables. On va calculer la droite qui permet de modéliser cette relation On parle alors de droite de régression. Cette méthode permet d’établir une relation mathématique entre une variable explicative <span class="math inline">\(x\)</span> et une variable à expliquer <span class="math inline">\(y\)</span> telles que <span class="math inline">\(y = ax + b\)</span> où :</li>
+</ol>
+<ul>
+<li><span class="math inline">\(a\)</span> est le coefficient directeur aussi appelé <em>la pente</em>.</li>
+<li><span class="math inline">\(b\)</span> est la constante où la valeur de l’ordonnée <span class="math inline">\(y\)</span> lorsque l’abscisse <span class="math inline">\(x\)</span> vaut 0.</li>
+</ul>
+Voici un exemple :
+<p>
+<img src="img/linear_reg.png" title="fig:" alt="lm" />
+</p>
+<p>Calculer ces deux indicateurs sachant que :</p>
+<ul>
+<li><p><span class="math inline">\(a = \frac{s_{xy}}{s^2_x}\)</span> où <span class="math inline">\(s_{xy}\)</span> est la covariance entre <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> et <span class="math inline">\(s^2_x\)</span> est la variance de la variable explicative. On peut la calculer avec la fonction <code>cov()</code>.</p></li>
+<li><p><span class="math inline">\(b=\bar{y}-a\bar{x}\)</span> où <span class="math inline">\(\bar{x}\)</span> et <span class="math inline">\(\bar{y}\)</span> correspondent respectivement à la moyenne de la variable explicative et la variable à expliquer.</p></li>
+</ul>
+<p>📢 Il est recommandé de calculer ces indicateurs sur un tableau filtré avec uniquement les lignes ne présentant pas de valeurs manquantes sur la variable explicative et la note au TP4.</p>
+<pre><code>## [1] &quot;Le coefficient directeur a vaut 14.2&quot;</code></pre>
+<pre><code>## [1] &quot;La constante b vaut 2.79&quot;</code></pre>
+<ol start="7" style="list-style-type: lower-alpha">
+<li>Après avoir calculé <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span>, Tracer la droite de régression sur le nuage de points avec la fonction <code>abline()</code>.</li>
+</ol>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="entrainement.html#cb32-1"></a><span class="kw">help</span>(<span class="st">&quot;abline&quot;</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<ol start="8" style="list-style-type: lower-alpha">
+<li>En réalité, pour éviter tous ces calculs, on peut directement utiliser la fonction <code>lm()</code> qui gère déjà les valeurs manquantes.</li>
+</ol>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="entrainement.html#cb33-1"></a><span class="kw">help</span>(<span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="entrainement.html#cb34-1"></a>modele &lt;-<span class="st"> </span><span class="kw">lm</span>(TP4 <span class="op">~</span><span class="st"> </span>TP2, <span class="dt">data =</span> df)</span>
+<span id="cb34-2"><a href="entrainement.html#cb34-2"></a>modele<span class="op">$</span>coefficients</span></code></pre></div>
+<pre><code>## (Intercept)         TP2 
+##    2.789817   14.203363</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="entrainement.html#cb36-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> df<span class="op">$</span>TP2, <span class="dt">y =</span> df<span class="op">$</span>TP4,</span>
+<span id="cb36-2"><a href="entrainement.html#cb36-2"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>),</span>
+<span id="cb36-3"><a href="entrainement.html#cb36-3"></a>     <span class="dt">xlab =</span> <span class="st">&quot;TP2&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;TP4&quot;</span>,</span>
+<span id="cb36-4"><a href="entrainement.html#cb36-4"></a>     <span class="dt">main =</span> <span class="st">&quot;Note du TP4 en fonction de la note du TP2&quot;</span>)</span>
+<span id="cb36-5"><a href="entrainement.html#cb36-5"></a></span>
+<span id="cb36-6"><a href="entrainement.html#cb36-6"></a><span class="kw">abline</span>(modele)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+</div>
+<div id="tp7---analyse-de-film" class="section level2">
+<h2><span class="header-section-number">12.7</span> TP7 - Analyse de film</h2>
+<p><strong>Difficulté 🏆🏆</strong></p>
+<p>
+<div class="figure">
+<img src="img/streaming.png" alt="" />
+<p class="caption">Streaming</p>
+</div>
+<p>Ce TP reprend les notions évoquées dans les chapitres 2 à 6.
+On utilise le fichier <code>tv_shows.csv</code> qui décrit les notes d’évaluation des films et séries disponibles sur diverses plateformes de diffusion en continu. Le fichier est issu du site <a href="https://www.kaggle.com/ruchi798/tv-shows-on-netflix-prime-video-hulu-and-disney">Kaggle</a>. Il a été adapté pour ce TP. Pour réaliser ce TP, télécharger le fichier en <a href="https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset">cliquant ici</a>.Voici une description des données :</p>
+<ul>
+<li><code>Title</code> : titre de la série ou du film</li>
+<li><code>Year</code> : Année de sortie ou première diffusion</li>
+<li><code>Age</code> : Type de public conseillé</li>
+<li><code>IMDb</code> : Notes des utilisateurs enregistrés sur le site <a href="https://www.imdb.com/"><em>L’Internet Movie Database</em></a></li>
+<li><code>Rotten.Tomatoes</code> : Notes basées sur les opinions de centaines de critiques de cinéma et de télévision du <a href="https://www.rottentomatoes.com/">site</a> du même nom</li>
+<li><code>Netflix</code> : si le film ou la série est disponible sur cette plateforme</li>
+<li><code>Hulu</code> : si le film ou la série est disponible sur cette plateforme</li>
+<li><code>Prime.Video</code> : si le film ou la série est disponible sur cette plateforme</li>
+<li><code>Disney.</code> : si le film ou la série est disponible sur cette plateforme</li>
+</ul>
+<p><strong>Exercice 1 : Importer les données</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Importer le jeu de données <code>tv_shows.csv</code> avec la fonction <code>read.csv</code>.</li>
+<li>Combien de lignes, colonnes sont présentes dans ce dataset (utilisez la ou les fonctions adaptées) ?</li>
+<li>Afficher le nom des colonnes.</li>
+<li>Afficher un résumé des données avec la fonction adaptée.</li>
+<li>On souhaite analyser les variables <code>Year</code>en tant que variable qualitative. Modifier le type de cette variable pour la transformer en type factor.</li>
+<li>Afficher le type de chaque variable avec la fonction adapté.</li>
+<li>Construire une colonne appelée <code>Total_plateforme</code> avec le nombre de plateforme où est disponible le film ou la série.</li>
+</ol>
+<p><strong>Exercice 2 : Statistiques descriptives</strong></p>
+<p>👨🏻‍🏫 Ne pas oublier de mettre des titres sur vos graphiques !</p>
+<ol style="list-style-type: lower-alpha">
+<li>Déterminer la moyenne des notes <code>IMDb</code>.</li>
+<li>Déterminer le nombre de modalités de type de public conseillé (variable <code>Age</code>).</li>
+<li>Déterminer les <strong>centiles</strong> des notes <code>Rotten.Tomatoes</code>.</li>
+<li>Déterminer l’écart-type des notes <code>IMDb</code> puis <code>Rotten.Tomatoes</code>.</li>
+<li>Représenter graphiquement la distribution des notes utilisateurs (variable <code>IMDb</code>).</li>
+<li>Déterminer un tri à plat pour compter les effectifs des modalités de type de public conseillé (variable <code>Age</code>).</li>
+<li>Représenter graphiquement ce tri à plat de la modalité la plus représentée à la moins représentée.</li>
+<li>Calculer la répartition en pourcentage du nombre de films ou séries présents sur la plateforme Netflix.</li>
+<li>Représenter graphiquement cette répartition dans un diagramme circulaire.</li>
+<li>Représenter graphiquement la distribution des notes utilisateurs (variable <code>IMDb</code>) selon le type de public conseillé (variable <code>Age</code>).</li>
+</ol>
+<p><strong>Exercice 3 : Tris, filtres et agrégations</strong></p>
+<p>💡 On peut vérifier si la question est correcte en affichant le résultat dans une vue.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Construire un objet <code>requete_a</code> avec uniquement les films grands public (variable <code>Age</code> : <em>all</em>). Puis les trier de la note utilisateur (variable <code>IMDb</code>) de la plus élevée à la plus basse.</p></li>
+<li><p>Construire un objet <code>requete_b</code> avec uniquement les films ayant une note utilisateur (variable <code>IMDb</code>) supérieure ou égale à 9. Puis les trier par année de sortie de la plus ancienne à la plus récente</p></li>
+<li><p>Construire un objet <code>requete_c</code> avec uniquement les films ayant une note utilisateur (variable <code>IMDb</code>) et une note critique (variable <code>Rotten.Tomatoes</code>) qui soient renseignées. Puis les trier par ordre alphabétique (de A à Z)</p></li>
+<li><p>Construire un objet <code>requete_d</code> avec la moyenne des notes utilisateurs (variable <code>IMDb</code>) selon le type de public conseillé (variable <code>Age</code>). Puis les trier de la note utilisateur (variable <code>IMDb</code>) de la plus élevée à la plus basse.</p></li>
+</ol>
+<p><strong>Bonus</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Représenter grahiquement le lien entre les notes utilisateurs et les notes des critiques.</p></li>
+<li><p>Calculer le coefficient de corrélation entre les notes utilisateurs et les notes des critiques. Attention, les <code>NA</code> pourraient vous poser des problèmes mais avec <code>use = "complete.obs"</code> dans la fonction cela devrait fonctionner.</p></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="jointures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="all-dataset.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

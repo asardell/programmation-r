@@ -1,0 +1,17 @@
+---
+title: "Apprendre à programmer avec R"
+author: "Anthony SARDELLITTI"
+date: "`r Sys.Date()`"
+description: "Apprendre à programmer avec R"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+bookdown::pdf_book: default
+---
+
+# Préface
+
+Ce livre permet de mettre un pied dans le monde de la programmation statistique avec le langage R. Il présente les concepts fondamentaux. Certaines parties sont extraites d'autres sources qui seront renseignées. Il n'y a pas de pré-requis pour suivre ce livre. Seulement une apétence pour la programmation et les analyses statistiques.
+
+Le code source de ce cours est disponible sur [ github](https://github.com/AnthonySardellitti/programmation-r).

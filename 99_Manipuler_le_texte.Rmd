@@ -1,0 +1,189 @@
+# Manipuler le texte et les dates {#chaines}
+
+## Manipulation des chaînes de caractères
+La manipulation des chaines de caractères est essentielle dans le traitement des données. On peut trouver des données textuelles sur réseaux sociaux par exemple. La plupart du temps, ces données sont brutes et il faut donc manipuler le texte pour en extraire les informations importantes.
+
+Pour manipuler des chaines de caractères, il faut bien entendu que les données soit de type caractère. On peut vérifier cela avec la fonction `class()` et `as.character()` si une conversion est nécessaire.
+
+```{r}
+x <- c("Luca","Ambra","Francesco")
+class(x)
+```
+### Concaténer des chaînes
+
+La fonction `paste()` permet de concaténer des chaînes de caractères. 
+
+```{r}
+paste(c("Hello"), c("Luca","Ambra","Francesco"), sep = "_")
+```
+Ici, on profite du phénomène de réplication de R pour éviter de répéter le premier vecteur.
+
+On peut aussi utiliser la fonction `cat()` qui à le même rôle que la fonction `print()`.
+
+```{r}
+cat("Bonjour", "\n" ,"Une nouvelle ligne","\n" ,"\t",  "une tabulation", "\n", "\"", "une expression entre guillemets","\"")
+```
+Des caractères d'échapement sont présents dans l'exemple précédent. On peut en recontrer d'autres mais les plus fréquents sont le retour à la ligne `\n`, souvent utilisé dans des titres de  graphique et la tabulation `\t` permettant notament d'importer des données quand le séparateur correspond à ce dernier.
+
+### Majuscule et minuscule
+
+Les fonctions `toupper()` et `toloweer()` permettent de modifier la casse. Rappelons que le langage R en est sensible tout comme la plupart des langages de programmation.
+
+```{r}
+toupper(x)
+```
+
+```{r}
+tolower(x)
+```
+### Longueur d'une chaîne
+
+On peut utiliser la fonction `nchar()` pour compter la longueur d'une chaîne. Attention, l'espace est considéré comme un caractère.
+
+```{r}
+nchar(x)
+```
+### Extraction de sous-chaînes
+
+La fonction `substr()` permet d'extraire certains élèments d'une chaîne de caractère à partir de leur position.
+
+```{r}
+substr(x,start = 1,stop = 3)
+```
+Pour extraire la fin d'une chaîne de catactère, il est recommandé d'utiliser le package *stringr* avec la fonction `str_sub()`.
+
+```{r, warning=FALSE,message=FALSE}
+library(stringr)
+str_sub(string = x,start = -3,end = -1)
+```
+### Remplacement de chaînes
+
+La fonction `gsub()` permet de remplacer un motif recherché par une autre chaîne de caractère.
+
+```{r}
+x <- paste(c("Hello"), c("Luca","Ambra","Francesco"), sep = "_")
+x
+```
+```{r}
+x <- gsub(pattern = "_",replacement = " ",x)
+x
+```
+### Décomposition d'une chaîne
+
+On utilise la fonction `strsplit()` pour décomposer une chaîne de caractère selon un motif. Le résultat renvoyé est une liste.
+
+```{r}
+strsplit(x,split = " ")
+```
+### Recherche de sous-chaîne
+
+La fonction `grep()` permet de rechercher les élèments d'un vecteur composé du motif.
+
+```{r}
+x
+grep(pattern = "Am", x)
+```
+La fonction `grepl()` plus utile, permet de renvoyer `TRUE` ou `FALSE` si le motif est présent dans la chaîne.
+
+```{r}
+x
+grepl(pattern = "Am", x)
+```
+### Aller plus loin
+
+Les fonctions que propose le package *base* permettent de couvrir l'essentiel des méthodes de traitement de texte. Néanmoins, le package *stringr* de la suite *tidyverse* propose des fonctionnalités bien plus avancées. Julien Barnier en propose une immersion dans son tutoriel ([vers le tutoriel](https://juba.github.io/tidyverse/11-stringr.html)).
+
+Il est possible d'utiliser des expressions régulières lorsqu'on utilise des fonctions de traitements de texte. Ricco Rakotomalala en propose d'ailleurs une esquisse dans son [tutoriel](https://eric.univ-lyon2.fr/~ricco/cours/slides/TM.E%20-%20expressions%20regulieres.pdf).
+
+Voici un petit exemple de vérification d'adresse mail à partir d'une expression régulière :
+```{r}
+emails <- c("steve_aoki@gmail.com",
+            "@jdoreofficiel",
+            "castex_jean@gouv.fr")
+
+regex <- "^[[:alnum:].-_]+@[[:alnum:].-]+$"
+stringr::str_match(emails, regex)
+```         
+
+## Manipulation des dates
+
+### Les dates
+
+Les dates sont stockées comme le nombre de jours depuis 1970-01-01, avec des valeurs négatives pour les dates antérieures. Par défaut, R reconnait le format date si la chaîne de caractère est sous la forme *yyyy-mm-dd*.
+Néanmoins, lorsque ce n'est pas le cas on utilsie la fonction `as.Date()` qui convertit une chaîne de caractères en date.
+
+```{r}
+d <- as.Date("2018-07-15")
+class(d)
+unclass(d)
+```
+Dans l'exemple ci-dessus, cela fonctionne très bien car la chaîne de caractère correspond parfaitement au format interpréter par défaut de R.
+Lorsque ce n'est pas le cas, il faut indiquer à R comment interpréter la chaîne de caractère en tant que date. On utilise la table de référence présente dans l'aide en executant la commande `help(strptime)`.
+
+```{r}
+d <- as.Date("2018 15 07", format = ("%Y %d %m"))
+d
+d <- as.Date("15 Juillet, 2018", format = ("%d %B, %Y"))
+d
+```
+Voici un tableau récapitulatif :
+
+<p>
+![strptime*](./img/strptime.png)
+</p>
+
+Ce tableau permet donc également de gérer le temps (heures, minutes, secondes) quand ces valeurs sont renseignées dans une chaîne de caractères.
+
+### L'horloge
+
+Le classe `POSIXct` est une des classes date pouvant gérer la date et l'horloge. Cette classe stocke les dates en secondes depuis 1970-01-01 01:00:00
+
+```{r}
+d <- as.POSIXct("2018-07-15 19:00:00")
+unclass(d)
+```
+```{r}
+unclass(as.POSIXct("1970-01-01 01:00:00"))
+```
+La classe `POSIXlt` stocke la date et l'horloge sous forme de liste dont les éléments correspondent. Attention, ici l'année de référence semble être l'année 1900.
+
+```{r}
+d <- as.POSIXlt("2018-07-15 19:00:00")
+unlist(unclass(d))
+d$hour
+d$year
+```
+
+Dans le cas où la chaîne de caractère ne respectère pas le format par défaut. On utilise le même procédé que pour la classe `date`.
+
+```{r}
+d <- as.POSIXct("2018 15 07 190000", format = ("%Y %d %m %H%M%S"))
+d
+```
+
+```{r}
+d <- as.POSIXlt("15 Juillet, 2018 à 19h00 et 00s",
+		 format = ("%d %B, %Y à %Hh%M et %Ss"))
+d
+```
+
+### Calcul sur les dates
+
+La fonction difftime() permet de calculer une différence entre deux dates. On peut s'en servir par exemple pour calculer un temps d'execution d'un programme.
+
+```{r, eval=FALSE}
+help(difftime)
+```
+
+
+```{r}
+debut <- Sys.time()
+Sys.sleep(5)
+fin <- Sys.time()
+difftime(time1 = fin, time2 = debut,units = "secs")
+```
+
+
+### Aller plus loin
+
+Le package *lubridate* propose des fonctionnalités plus avancées pour la manipulation des dates et des calendrier que ne savent pas gérer les fonctions par défaut de R.

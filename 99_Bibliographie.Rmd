@@ -1,0 +1,7 @@
+# Bibliographie {#biblio}
+
+Voici les références qui ont permis de construire ce livre :
+
+
+- [Julien Barnier, "Introduction à R et au tidyverse"](https://juba.github.io/tidyverse/index.html)
+- [Cours SQL sur le site sql.sh](https://sql.sh/cours/jointures)

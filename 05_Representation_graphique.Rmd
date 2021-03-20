@@ -1,0 +1,672 @@
+# Représentation Graphique {#graphique}
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#packages nécessaires pour les sorties
+library(knitr)
+library(kableExtra)
+library(dplyr)
+taille <- 12 #taille de la police des df en sortie
+```
+
+Cette partie est destinée à présenter comment construire et personnaliser des graphiques sous R. Jusqu'à présent, on a abordé brièvement les graphiques univariés dans les parties précédentes à travers les fonctions `barplot`, `boxplot`, et `hist`.Volontairement, nous ferons les premiers pas sans utiliser le package *ggplot2* que nous verrons plus tard. Pour un tutoriel complet de *ggplot2* vous pouvez vous dirigez vers le cours de [ Julien Barnier ](https://juba.github.io/tidyverse/08-ggplot2.html)
+<br>
+Pour illustrer les concepts, nous travaillerons sur les données iris. Un jeu de données de 150 fleurs réparties en 3 espèces différentes (**setosa**, **versicolor** et **virginica**) et caractérisées par 4 variables quantitatives.
+
+```{r, echo=FALSE, warning=FALSE}
+kable(head(iris))
+```
+
+## Les fenêtres graphiques
+
+La fenêtre graphique de RStudio permet d'afficher les graphiques qui ont été générés.
+
+```{r, fig.align = "center",out.width = "50%", echo=FALSE}
+include_graphics(path = "./img/plot.png")
+```
+
+Le bouton **Export** permet d'exporter le graphique en tant qu'image ou pdf.
+
+```{r, fig.align = "center",out.width = "50%", echo=FALSE}
+include_graphics(path = "./img/plot_save.png")
+```
+
+On peut aussi exporter un graphique avec la fonction `dev.print`.
+
+```{r, eval=FALSE}
+dev.print(device = png, file = "export.png", width = 600)
+```
+
+Il est possible de découper la fenêtre graphique pour en afficher plusieurs à la fois. Pour cela on utilise la fonction `par` avec l'argument `mfrow` en précisant le découpage de la fenêtre.
+
+```{r, eval=FALSE}
+par(mfrow=c(1,2)) #fenêtre sur une ligne et deux colonnes
+plot(iris$Sepal.Length,iris$Sepal.Width)
+plot(iris$Petal.Length,iris$Petal.Width)
+```
+
+```{r, fig.align = "center",out.width = "40%", echo=FALSE}
+include_graphics(path = "./img/2plot.png")
+```
+
+Pour réinitialiser le découpage de la fenêtre graphique, on redimensionne la fenêtre sur 1 x 1.
+```{r}
+par(mfrow=c(1,1))
+```
+
+## Les fonctions de tracé de bas niveau
+
+Nous allons illustrer les fonctions graphiques du langage R à travers la représentation d'un nuage de points. 
+Pour construire un nuage de points, on utilise la fonction `plot` en précisant les deux vecteurs numériques que l'on souhaite projeter.
+
+```{r, fig.align = "center",out.width = "60%"}
+plot(x = iris$Sepal.Length,y = iris$Sepal.Width,
+     xlab = "Sepal Length",ylab = "Sepal Width")
+```
+
+Dans l'exemple ci-dessus, on précise les caractéristiques du graphique directement dans la fonction `plot`. Mais, il est également possible d'ajouter des éléments avec d'autres fonctions issues notamment du package `graphics` déjà chargé par défaut dans RStudio.
+
+```{r, fig.align = "center",out.width = "60%"}
+#Ajouter des éléments
+plot(x = iris$Sepal.Length,y = iris$Sepal.Width, 
+     xlim = c(4,9),ylim = c(1,5),
+     xlab = "Sepal Length",ylab = "Sepal Width")
+
+#Ajouter un titre
+title(main = "Sepal Width and Sepal Length")
+
+#Ajouter un sous titre
+mtext(text = "(Source : Iris)",side=4)
+
+#Ajouter des lignes
+abline(h = 3)
+abline(v = 6)
+
+#Ajouter du texte
+text(x = 5,y = 1.5,labels = "Groupe 1")
+text(x = 5,y = 4.5,labels = "Groupe 2")
+text(x = 7,y = 4.5,labels = "Groupe 3")
+text(x = 7,y = 2,labels = "Groupe 4")
+
+#Ajouter des points
+points(x = c(9,9,9),y = c(4,4.5,5))
+```
+
+Attention : Les fonctions des éléments graphiques ajoutent les éléments sur le graphique en cours de lecture dans la fenêtre graphique.
+
+## Personnaliser des éléments graphiques
+
+### Mise en forme
+
+On peut aussi personnaliser les différents éléments du graphique en utilisant les arguments de chaque fonction.
+
+```{r, fig.align = "center",out.width = "60%"}
+plot(x = iris$Sepal.Length,y = iris$Sepal.Width, 
+     xlim = c(4,9),ylim = c(1,5),
+     xlab = "Sepal Length",ylab = "Sepal Width",
+     col = iris$Species, pch = 19 )
+
+title(main = "Sepal Width and Sepal Length", 
+      cex.main = 2,font.main=4, col.main= "red")
+
+mtext(text = "(Source : Iris)",side=4,  font=2)
+
+abline(h = 3 , lty = 3 , lwd = 4)
+abline(v = 6 , lty = 3 , lwd = 2)
+
+text(x = 5,y = 1.5,labels = "Groupe 1", col = 3)
+text(x = 5,y = 4.5,labels = "Groupe 2", col = 2)
+text(x = 7,y = 4.5,labels = "Groupe 3", col = 4)
+text(x = 7,y = 2,labels = "Groupe 4", col = 5)
+
+points(x = c(9,9,9),y = c(4,4.5,5), pch = 4 , col = c("red","blue"))
+
+legend(x = "bottomright", legend=levels(iris$Species),
+       col=c(1:3), pch = 19, cex=0.8)
+
+legend(x = 6.5, y=1.5, legend="points \n supplémentaires",
+       pch = 4, cex=0.8 , box.lty=0)
+```
+
+Par exemple l'argument `pch` définit la forme du point et l'argument `lty` la forme du trait. Voici une table de correspondance :
+
+```{r, fig.align = "center",out.width = "60%", echo=FALSE}
+include_graphics(path = "./img/element.png")
+```
+
+### Gestion des couleurs
+
+Dans R, la gestion des couleurs est assez simple. Jusqu'à présent, pour construire les graphiques on se contentait de renseigner les arguments `col` des fonctions avec le nom d'une couleur comme *red*, *blue*, ou de préciser des numéros dans des vecteurs comme *c(1,2,3)*. Mais comment R fait-il pour interpréter cela ? 
+
+```{r, eval=FALSE}
+plot(x = iris$Sepal.Length,y = iris$Sepal.Width, 
+    col = c("red"))
+```
+```{r, eval=FALSE}
+plot(x = iris$Sepal.Length,y = iris$Sepal.Width, 
+    col = 3)
+```
+
+
+En réalité, il existe une palette par défaut dans R. Elle est composée de 8 couleurs. On peut les retrouver avec la fonction `palette()`.
+
+```{r}
+palette()
+```
+
+Ainsi, on peut définir les couleurs que l'on souhaite dans cette palette en précisant le nom ou le numéro de la couleur. C'est pourquoi, il est possible de définir les couleurs de différentes catégories si le vecteur est défini en tant que `factor`.
+
+```{r, fig.align = "center",out.width = "60%"}
+class(iris$Species)
+plot(x = iris$Sepal.Length,y = iris$Sepal.Width, 
+    col = iris$Species, pch  = 19)
+
+legend(x = "bottomright", legend=levels(iris$Species),
+       col=c(1:3), pch = 19, cex=0.8)
+```
+
+Dans R, un vecteur de type `factor` est stocker au format numérique en mémoire ou chaque nombre représente l'indice du niveau associé à la catégorie. 
+
+```{r}
+levels(iris$Species)
+```
+
+L'espèce *setosa* prendra la valeur 1, *versicolor* la valeur 2 et *virignica* la valeur 3. Ces niveaux seront donc associés aux 3 premières couleurs de la palette par défaut.
+
+```{r}
+palette()[1:3]
+```
+
+On aura donc black pour *setosa*, red pour *versicolor* et green3 pour *virginica*.
+Attention donc lorsqu'on souhaite représenter des points selon une variable qualitative. 
+Dans l'exemple ci-dessous, on définit 3 couleurs sans tenir compte de l'espèce et nous n'obtenons pas du tout le même résultat.
+
+```{r, fig.align = "center",out.width = "60%"}
+plot(x = iris$Sepal.Length,y = iris$Sepal.Width, 
+    col = c(1,2,3), pch  = 19)
+```
+
+En précisant uniquement 3 couleurs, l'argument `col` va en réalité prendre en entrée un vecteur de longueur 150 ou le trio de couleur sera répliqué 50 fois pour qu'à chaque fleur soit associée une couleur.
+
+```{r}
+trio_replique <- rep(c(1,2,3), 50)
+trio_replique
+```
+
+On obtient le même graphique que ci-dessous et en l'occurrence les deux sont faux car les couleurs ne sont pas définies en fonction des espèces.
+
+```{r, fig.align = "center",out.width = "60%"}
+plot(x = iris$Sepal.Length,y = iris$Sepal.Width, 
+    col = trio_replique, pch  = 19)
+```
+
+De plus, on constate que nous sommes limitées en nombre de couleurs. Dès lors que nous souhaitons représenter plus de 8 couleurs, nous faisons face au phénomène de réplication de R.
+
+```{r, fig.align = "center",fig.width= 8, fig.height=3}
+plot(x = rep(1,20),pch=20, col=1:20,  cex=4)
+abline(v = 8.5)
+abline(v = 16.5)
+```
+
+
+On peut alors utiliser la fonction `colors()` qui propose une palette de plus de 650 couleurs avec le même mécanisme que la palette par défaut. 
+
+```{r}
+head(colors(), n = 20)
+length(colors())
+```
+
+```{r, fig.align = "center",fig.width= 8, fig.height=3}
+plot(x = rep(1,20),pch=20, col= c("antiquewhite2","aquamarine2", "azure2"), cex = 4)
+```
+
+```{r, fig.align = "center",,fig.width= 8, fig.height=3}
+plot(x = rep(1,20),pch=20, col= c("antiquewhite2","aquamarine2", "azure2") , cex = 4)
+```
+
+Pour personnaliser les couleurs dans R, on utilise donc des vecteurs en appelant les couleurs par leur nom ou leur indice. Cependant, en mémoire les couleurs sont codées en héxadécimales. C'est avec ce format que nous allons pouvoir créer notre propre palette de couleurs. Pour cela, il suffit de construire un vecteur avec les valeurs en héxadécimales des couleurs qu'on souhaite. On peut également utiliser la fonction `rgb` et l'argument `alpha` pour gérer la transparence. Le site https://htmlcolorcodes.com/fr/  propose toutes les couleurs qu'il est possible de définir.
+
+```{r, fig.align = "center",out.width = "60%", echo=FALSE}
+include_graphics(path = "./img/palette.png")
+```
+
+```{r}
+ma_palette <- c( vert = "#2FB846", 
+                 bleu = rgb(red = 4/255,green = 12/255 ,blue = 250/255 , alpha = 0.5))
+ma_palette
+```
+
+```{r, fig.align = "center",fig.width= 12, fig.height=3}
+par(mfrow = c(1,2))
+plot(x = rep(1,20),pch=20, col= ma_palette , cex = 4)
+plot(x = rep(1,20),pch=20, col= ma_palette[c("vert")] , cex = 4)
+```
+
+## Type de graphique
+
+Dans cette partie, nous allons énumérer les graphiques les plus populaires illustrés avec le dataset des applications *google*. Les différents éléments de personnalisation abordés précédemment sont disponibles pour n'importe quel type de graphique.
+
+<br>
+
+Le dataset `google.csv` décrit des applications du store google.
+Le fichier est issu du site [ Kaggle ](https://www.kaggle.com/lava18/google-play-store-apps). Il a été adapté dans ce livre.
+
+Voici la présentation du jeu de données :
+
+- `App` : Nom de l'application
+- `Category` : Catégorie de l'application
+- `Rating` : Note moyenne des utilisateurs
+- `Reviews` : Nombre d'avis d'utilisateurs
+- `Installs` :  Nombre d'installation
+- `Type` : Application gratuite / payante
+- `Price` : Prix de l'application
+- `Content.Rating` : Public concerné
+- `Last.Updated` : Date de la dernière version
+- `Size_recode` : Taille de l'application (en Mo)
+
+
+```{r, echo=FALSE}
+google <- read.csv(file = "./dataset/google.csv", sep = '\t')
+kable(head(google,n = 20), "html") %>% kable_styling("striped", font_size = taille) %>% scroll_box(width = "100%", height = "400px")
+```
+
+### Boxplot
+
+Les points représentent les outliers. L'argument `horizontal` permet de représenter le graphique à l'horizontal. D'autres arguments sont disponibles (cf : aide).
+
+```{r, fig.width= 12, fig.height=4}
+boxplot(x = google$Rating, main = "Distribution des notes des utilisateurs", 
+        horizontal = TRUE,col = ma_palette)
+```
+
+Il est possible de construire un boxplot dans un cadre bivarié :
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+boxplot(formula = google$Rating ~ google$Content.Rating,
+        main = "Distribution des notes des utilisateurs",
+        col = c(ma_palette, "red"))
+```
+
+Ici on utilise les couleurs de palette différentes.
+
+### Histogramme
+
+L'argument `breaks` permet de définir le nombre de classe et `probability` d'afficher la densité plutôt que les effectifs ou fréquence. D'autres arguments sont disponibles (cf : aide).
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+hist(x = google$Rating, main = "Distribution des notes des utilisateurs",
+     col = ma_palette[2] , breaks = 8, probability = TRUE)
+```
+
+La fonction `lines` permet d'ajouter une courbe sur un graphique existant. Ici on représente la courbe densité avec la fonction `density`.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+hist(x = google$Rating, main = "Distribution des notes des utilisateurs",
+     col = ma_palette[2] , breaks = 8, probability = TRUE)
+lines(density(google$Rating), lty = 2, col = ma_palette[1], lwd = 4)
+```
+
+
+### Diagramme en circulaire
+
+L'argument `labels` permet de renseigner les étiquettes du graphique. Si on souhaite afficher les étiquettes en pourcentage, il faut calculer un tri à plat avec les pourcentages. D'autres arguments sont disponibles (cf : aide).
+
+```{r , fig.align = "center",fig.width= 8, fig.height=4}
+tri_a_plat <- table(google$Type)
+tri_a_plat
+paste(rownames(tri_a_plat),tri_a_plat)
+pie(x = tri_a_plat, main = "Repartition du nombre d'applications par type",
+    col = ma_palette, labels = paste(rownames(tri_a_plat),tri_a_plat))
+```
+
+
+
+### Diagramme en barre
+
+Même principe pour le diagramme en barre, on doit calculer un tri à plat dans un premier temps. L'argument `horiz` permet de représenter le graphique à l'horizontal. D'autres arguments sont disponibles (cf : aide).
+
+```{r , fig.align = "center",fig.width= 8, fig.height=4}
+tri_a_plat <- table(google$Type)
+
+barplot(height = tri_a_plat, 
+        main = "Repartition du nombre d'applications par type",
+    col = colors()[c(45,99)], horiz = TRUE)
+```
+
+Il est possible de construire un diagramme en barre dans un cadre bivarié. L'argument `beside` permet de préciser si on souhaite un diagramme empilé ou non. La fonction `prop.table` permet d'obtenir un tableau en pourcentage.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+tri_croise <- prop.table(table(google$Content.Rating, google$Type))
+tri_croise
+par(mfrow = c(1,2))
+barplot(height = tri_croise, legend = rownames(tri_croise))
+barplot(height = tri_croise, legend = rownames(tri_croise) ,  beside = TRUE)
+```
+
+
+### Nuage de points
+
+Ici on représente un nuage de points avec la présentation par défaut.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+plot(x = google$Reviews, y = google$Rating)
+```
+
+Puis le même en y ajoutant des éléments de personnalisation.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+class(google$Content.Rating)
+plot(x = google$Reviews, y = google$Rating, pch = 19, cex = 0.5, 
+     xlim = c(0,3e+7), col = google$Content.Rating)
+
+legend(x = "bottomright", legend=levels(google$Content.Rating),
+      col = 1:length(levels(google$Content.Rating)), pch = 19, cex=0.8)
+```
+
+
+## Exercice
+
+### Sujet
+
+Dans ce TD, on utilise  le fichier `pokemon.xlsx` qui décrit les statistiques des pokemon des deux premières générations.
+Le fichier est issu du site [ Kaggle ](https://www.kaggle.com/rounakbanik/pokemon). Il a été adapté pour ce TP. Voici une description des données :
+
+- `pokedex_number` : numéro du pokemon
+- `nom` : nom du pokemon
+- `generation` : le numéro de génération dont est issu le pokemon
+- `is_legendary` : Oui / Non si le pokemon est légendaire
+- `type` : le type du pokemon
+- `weight_kg` : le poids du pokemon en kg
+- `height_m` : la taille du pokemon en mètre
+- `attack` : la puissance d'attaque du pokemon
+- `defense` : la puissance de défense du pokemon
+- `speed` : la vitesse du pokemon
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(readxl)
+pokemon <- read_excel(path = "./dataset/pokemon.xlsx", sheet = "pokemon")
+kable(head(pokemon,n = 20), "html") %>% kable_styling("striped", font_size = taille) %>% scroll_box(width = "100%", height = "400px")
+```
+
+a. Importez le jeu de données `pokemon.xlsx` à l'aide du package `readxl`.
+
+```{r, include=FALSE}
+library(readxl)
+pokemon <- read_excel(path = "./dataset/pokemon.xlsx", sheet = "pokemon")
+```
+
+b. Combien de lignes, colonnes sont présentes dans cette table ?
+
+```{r, include=FALSE}
+dim(pokemon)
+```
+
+c. Affichez le nom des colonnes
+
+```{r, include=FALSE}
+colnames(pokemon)
+```
+
+d. Affichez un résumé des données
+
+```{r, include=FALSE}
+summary(pokemon)
+```
+
+e. Construire un diagramme en barre du nombre de pokemon par `type` avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, echo=FALSE, fig.align = "center",fig.width= 12, fig.height=4}
+count <- table(pokemon$type)
+par(mfrow = c(1,2))
+barplot(count, cex.names = 0.4)
+barplot(sort(count, decreasing = TRUE), 
+        horiz = TRUE, las = 2, 
+        xlab = "Nombre de pokemon",
+        col = "yellow", col.main = "blue",
+        main = "Nombre de pokemon \n par type")
+```
+
+f. Construire un diagramme circulaire présentant la répartition du nombre de pokemon légendaires ou non (`is_legendary`) avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, echo=FALSE, fig.align = "center",fig.width= 12, fig.height=4}
+count <- table(pokemon$is_legendary)
+par(mfrow = c(1,2))
+pie(count)
+pie(count, main = "Repartition pokemon \n legendaire ou non",
+    col = c("yellow","blue"), 
+    col.main = "blue", labels =
+      paste(rownames(count),count))
+```
+
+g. Construire un diagramme empilé présentant la répartition en **pourcentage** du nombre de pokemon légendaires ou non pour chaque génération avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, echo=FALSE, fig.align = "center",fig.width= 12, fig.height=4}
+count <- table(pokemon$is_legendary, pokemon$generation)
+count_freq <- prop.table(count,margin = 2)
+par(mfrow = c(1,2))
+barplot(count_freq, legend = rownames(count_freq))
+
+barplot(count_freq, las = 2, xlab = "Nombre de pokemon",
+        main = "Nb pokemon par generation si legendaire", 
+        col = c("yellow","blue"), 
+        legend = rownames(count_freq), beside = TRUE)
+```
+
+h. Construire un histogramme de la distribution de la vitesse (`speed`) des pokemon avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, echo=FALSE, fig.align = "center",fig.width= 12, fig.height=4}
+par(mfrow = c(1,2))
+hist(x = pokemon$speed)
+
+hist(x = pokemon$speed, breaks = 20, 
+     probability = TRUE,
+     col = "yellow", xlab = "Vitesse",
+     main = "Histo. de la vitesse des pokemon",
+     col.main = "blue")
+```
+
+
+i. Construire un nuage de points de la vitesse (`speed`) et du poids (`weight_kg`) des pokemon avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous. Puis, calculez le coefficient de corrélation entre ces deux variables avec la fonction `cor`.
+
+```{r, echo=FALSE, fig.align = "center",fig.width= 12, fig.height=4}
+par(mfrow = c(1,2))
+plot(x = pokemon$speed, y = pokemon$weight_kg)
+
+plot(x = pokemon$speed, y = pokemon$weight_kg, 
+     col = as.factor(pokemon$is_legendary))
+
+legend(x = "topright", 
+       legend = c("Legendaire : Oui", "Legendaire : Non"), 
+       col= 1:2, cex=1, pch = 1)
+
+#On récupère les statistiques de Mewtwo
+Mewtwo <- pokemon[pokemon$nom == "Mewtwo",
+                      c("speed", "weight_kg")]
+
+#On les affiche avec la fonction text
+text(x = Mewtwo[1], y = Mewtwo[2]+40,
+     labels = "Mewtwo")
+```
+
+```{r,echo=FALSE}
+#argument use pour gérer les NA (voir aide)
+print("Le coefficient de corrélation est :")
+cor(x = pokemon$speed, y = pokemon$weight_kg, 
+    use = "complete.obs")
+```
+
+j. Construire un diagramme en boîte de la distribution de la statistique `speed` des pokemon avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, echo=FALSE, fig.align = "center",fig.width= 12, fig.height=4}
+par(mfrow = c(1,2))
+boxplot(x = pokemon$speed, main = "Boxplot Speed")
+
+boxplot(x = pokemon$speed, main = "Boxplot Speed",
+        range = 0, xlab = "Speed", col = "yellow")
+
+points(mean(pokemon$speed,na.rm = TRUE),
+       cex = 2, pch = 19, col = "blue")
+
+legend(x = "bottomright", legend= "Moyenne",
+       col= "blue", pch = 19, cex=1)
+```
+
+k. Construire un diagramme en boîte de la distribution de la statistique `attack` des pokemon selon le `type` avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, echo=FALSE, fig.align = "center",fig.width= 12, fig.height=4}
+par(mfrow = c(1,2))
+boxplot(formula = attack ~ type,
+        data = pokemon, 
+        main = "Boxplot Attack vs Type")
+
+boxplot(formula = attack ~ type,
+        data = pokemon, 
+        main = "Boxplot Attack vs Type", 
+        las = 2, col = colors())
+```
+
+### Correction
+
+a. Importez le jeu de données `pokemon.xlsx` à l'aide du package `readxl`.
+
+```{r, eval=FALSE}
+library(readxl)
+pokemon <- read_excel(path = "./dataset/pokemon.xlsx", sheet = "pokemon")
+```
+
+b. Combien de lignes, colonnes sont présentes dans cette table ?
+
+```{r, eval=FALSE}
+dim(pokemon)
+```
+
+c. Affichez le nom des colonnes
+
+```{r, eval=FALSE}
+colnames(pokemon)
+```
+
+d. Affichez un résumé des données
+
+```{r, eval=FALSE}
+summary(pokemon)
+```
+
+e. Construire un diagramme en barre du nombre de pokemon par `type` avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+count <- table(pokemon$type)
+par(mfrow = c(1,2))
+barplot(count, cex.names = 0.4)
+barplot(sort(count, decreasing = TRUE), 
+        horiz = TRUE, las = 2, 
+        xlab = "Nombre de pokemon",
+        col = "yellow", col.main = "blue",
+        main = "Nombre de pokemon \n par type")
+```
+
+f. Construire un diagramme circulaire présentant la répartition du nombre de pokemon légendaires ou non (`is_legendary`) avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+count <- table(pokemon$is_legendary)
+par(mfrow = c(1,2))
+pie(count)
+pie(count, main = "Repartition pokemon \n legendaire ou non",
+    col = c("yellow","blue"), 
+    col.main = "blue", labels =
+      paste(rownames(count),count))
+```
+
+g. Construire un diagramme empilé présentant la répartition en **pourcentage** du nombre de pokemon légendaires ou non pour chaque génération avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+count <- table(pokemon$is_legendary, pokemon$generation)
+count_freq <- prop.table(count,margin = 2)
+par(mfrow = c(1,2))
+barplot(count_freq, legend = rownames(count_freq))
+
+barplot(count_freq, las = 2, xlab = "Nombre de pokemon",
+        main = "Nb pokemon par generation si legendaire", 
+        col = c("yellow","blue"), 
+        legend = rownames(count_freq), beside = TRUE)
+```
+
+h. Construire un histogramme de la distribution de la vitesse (`speed`) des pokemon avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+par(mfrow = c(1,2))
+hist(x = pokemon$speed)
+
+hist(x = pokemon$speed, breaks = 20, 
+     probability = TRUE,
+     col = "yellow", xlab = "Vitesse",
+     main = "Histo. de la vitesse des pokemon",
+     col.main = "blue")
+```
+
+
+i. Construire un nuage de points de la vitesse (`speed`) et du poids (`weight_kg`) des pokemon avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous. Puis, calculez le coefficient de corrélation entre ces deux variables avec la fonction `cor`.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+par(mfrow = c(1,2))
+plot(x = pokemon$speed, y = pokemon$weight_kg)
+
+plot(x = pokemon$speed, y = pokemon$weight_kg, 
+     col = as.factor(pokemon$is_legendary))
+
+legend(x = "topright", 
+       legend = c("Legendaire : Oui", "Legendaire : Non"), 
+       col= 1:2, cex=1, pch = 1)
+
+#On récupère les statistiques de Mewtwo
+Mewtwo <- pokemon[pokemon$nom == "Mewtwo",
+                      c("speed", "weight_kg")]
+
+#On les affiche avec la fonction text
+text(x = Mewtwo[1], y = Mewtwo[2]+40,
+     labels = "Mewtwo")
+```
+
+```{r}
+#argument use pour gérer les NA (voir aide)
+cor(x = pokemon$speed, y = pokemon$weight_kg, 
+    use = "complete.obs")
+```
+
+j. Construire un diagramme en boîte de la distribution de la statistique `speed` des pokemon avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+par(mfrow = c(1,2))
+boxplot(x = pokemon$speed, main = "Boxplot Speed")
+
+boxplot(x = pokemon$speed, main = "Boxplot Speed",
+        range = 0, xlab = "Speed", col = "yellow")
+
+points(mean(pokemon$speed,na.rm = TRUE),
+       cex = 2, pch = 19, col = "blue")
+
+legend(x = "bottomright", legend= "Moyenne",
+       col= "blue", pch = 19, cex=1)
+```
+
+k. Construire un diagramme en boîte de la distribution de la statistique `attack` des pokemon selon le `type` avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.
+
+```{r, fig.align = "center",fig.width= 12, fig.height=4}
+par(mfrow = c(1,2))
+boxplot(formula = attack ~ type,
+        data = pokemon, 
+        main = "Boxplot Attack vs Type")
+
+boxplot(formula = attack ~ type,
+        data = pokemon, 
+        main = "Boxplot Attack vs Type", 
+        las = 2, col = colors())
+```
+
+
+## Aller plus loin
+
+- Utiliser le package *ggplot2* avec le cours de [ Julien Barnier ](https://juba.github.io/tidyverse/08-ggplot2.html)
+- Constuire des graphiques avec l'interface *esquisse* avec le cours de [ Dreams Rs](https://dreamrs.github.io/esquisse/articles/get-started.html)
+- Utiliser des widgets HTML avec la [ Galerie ](https://www.htmlwidgets.org/showcase_leaflet.html) pour construire des graphiques dynamiques
+

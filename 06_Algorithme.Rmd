@@ -1,0 +1,235 @@
+# Algorithme {#algo}
+
+## Construire une fonction
+
+Il est possible de programmer ses propres fonctions. Dans l'exemple ci-dessous on construit une fonction `imc`q ui prend en entrée deux arguments `poids` et `taille`. La fonction effectue un calcul et renvoi l'IMC. Pour construire une fonction, on doit obligatoirement faire appel au mot clé `function`. Le mot clé `return` n'est pas obligatoire. Cependant, par convention, une fonction renvoie toujours un résultat qui peut aussi être un message d'information sur le bon déroulement de celle-ci. Les arguments sont précisés entre parenthèses  `( )`. Les traitements s'effectuent entre accolades `{ }`.
+
+```{r}
+imc <- function(taille,poids) {
+   calcul <- poids / (taille^2)
+   return (calcul) }
+```
+
+Lorsqu'on vérifie la classe de l'objet `imc` en mémoire, on constate qu'il est bien de type `function`.
+
+```{r}
+class(imc)
+```
+
+Puis c'est le même principe que les autres fonctions pour l'utiliser :
+```{r}
+imc(taille = 1.55, poids = 49)
+```
+
+Il est possible de préciser des arguments par défaut. Ils sont à saisir dans la définition des arguments :
+
+```{r}
+imc <- function(taille = 1.70, poids = 60) {
+   calcul <- poids / (taille^2)
+   return (calcul) }
+
+imc()
+```
+
+## Construire une structure conditionnelle
+
+Pour construire des structures conditionnelles en R, on utilise le mot clé `if`  avec la ou les conditions à tester entre parenthèses `( )`. Si la condition retourne `TRUE`, l'ensemble des commandes présentent dans les accolades `{ }` seront exécutées.
+
+```{r}
+x <- c(1,3,5)
+if ( sum(x) > 4 ) 
+{ 
+  print("Total supérieur à 4")
+  print("Fin du traitement")
+  }
+```
+
+On peut aussi utiliser le mot clé `else` pour exécuter un traitement lorsque la condition retourne `FALSE`.
+Attention, petite particularité de R, il faut que le mot clé `else` soit sur la même ligne de l'accolade qui le bloc `if`.
+Dernière particularité, jusqu'à présent on pouvait se passer de la fonction `print` pour afficher des résultats dans la console. Désormais, cette fonction est obligatoire dans les structures conditionnelles.
+
+```{r}
+x <- c(1,3,5)
+if ( sum(x) > 4 ) 
+{ 
+  print("Total supérieur à 4")
+  print("Fin du traitement")
+} else 
+{ 
+  print("Total inférieur ou égale à 4")
+  print("Fin du traitement")
+}
+```
+
+On peut donc réaliser n'importe quelS tests logiques dans une structure conditionnelle.
+On peut par exemple tester la classe d'un **objet** avec les fonctions `is.classe_a_tester` comme `is.numeric` qui renvoie `TRUE` ou `FALSE`.
+
+Pour rappel, voici la liste des opérateurs de comparaisons :
+
+```{r, include=FALSE}
+library(knitr)
+```
+
+
+```{r, fig.align = "center",out.width = "50%", echo=FALSE}
+include_graphics(path = "./img/comparaison.png")
+```
+
+Pour rappel, voici la liste des opérateurs logiques :
+
+```{r, fig.align = "center",out.width = "50%", echo=FALSE}
+include_graphics(path = "./img/logique.png")
+```
+
+## Construire une boucle
+
+Pour répéter un traitement et éviter les copier-coller, on a souvent recours aux boucles. Celles qu'on retrouve principalement dans le langage R est la boucle `for` et `while`. La syntaxe utilisée est très proche de celles des structures conditionnelles. Attention, jusqu'à présent on pouvait se passer de la fonction `print` pour afficher des résultats dans la console. Désormais, cette fonction est obligatoire dans les boucles comme pour les structures conditionnelles.
+
+### La boucle `for`
+
+La boucle `for` parcourt les **éléments** d'un vecteur qu'on lui indique en entrée.
+
+```{r}
+for ( i  in c("Pierre","Paul","Jacques")) 
+{
+  print(paste("Salut ", i))
+  print("Traitement terminé !")
+}
+```
+
+La boucle `for` parcourt les **vecteurs** d'un data frame / matrice qu'on lui indique en entrée.
+
+```{r}
+for ( i  in iris) 
+{
+  print(summary(i))
+  print("Traitement terminé !")
+}
+```
+
+### La boucle `while`
+
+La particularité de la boucle while réside dans la condition qui est testée à chaque itération. La boucle s'arrête lorsque la condition retourne `FALSE`. Cela signifie aussi qu'il faut créer un objet qu'on incrémentera au fur et à mesure afin d'éviter de générer une boucle infinie.
+
+```{r}
+i <- 1
+noms <- c("Pierre","Paul","Jacques")
+while( i <= length(noms)) 
+{
+  print(paste("Salut ", noms[i]))
+  print("Traitement terminé !")
+  i <- i + 1
+}
+
+print(i) # > à length(noms) donc la boucle est terminée
+```
+
+```{r}
+i <- 1
+while ( i <= ncol(iris)) 
+{
+  print(summary(iris[,i]))
+  print("Traitement terminé !")
+  i <- i + 1
+}
+
+print(i) # > à ncol(iris) donc la boucle est terminée
+```
+
+## Exercice
+
+### Sujet
+
+Dans cet exercice, on utilise  le fichier `starwars` qui décrit les caractéristiques des personnes principaux de la saga.
+
+Le dataset `starwars.csv`  décrit les caractéristiques des personnages principaux de la saga.
+
+Voici un extrait du dataset :
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#packages nécessaires pour les sorties
+library(knitr)
+library(kableExtra)
+library(dplyr)
+taille <- 12 #taille de la police des df en sortie
+```
+
+```{r, include=FALSE}
+starWars <- read.csv("./dataset/starwars.csv", sep = "\t")
+kable(head(starWars,n = 20), "html") %>% kable_styling("striped", font_size = taille) %>% scroll_box(width = "100%", height = "400px")
+```
+
+a. Importez le fichier *starwars.csv*
+
+```{r, include=FALSE}
+starWars <- read.csv("./dataset/starwars.csv", sep = "\t")
+```
+
+b. Construisez une fonction appelée `build_plot` qui prend en entrée un vecteur 
+
+* s'il est de type numérique la fonction affiche un diagramme en boîte et retourne un résumé du vecteur
+* s'il n'est pas de type numérique et présente 15 modalités différentes ou moins, la fonction affiche un diagramme en barre et retourne un résumé du vecteur
+* sinon, la fonction n'affiche rien et retourne uniquement "Pas de traitement"
+
+```{r, include=FALSE}
+build_plot <- function(x) {
+  if (is.numeric(x)) {
+    boxplot(x)
+    return(summary(x))
+  } else if (length(unique(x)) <= 15)
+    { barplot(sort(table(x)))
+    return(summary(x)) 
+    } else
+      return("Pas de traitement")
+}
+
+#Test
+build_plot(x = starWars$height)
+build_plot(x = starWars$gender)
+build_plot(x = starWars$name)
+```
+
+
+c. Créez une boucle qui parcourt toutes les colonnes du data frame en appliquant la fonction `build_plot` pour chacune.
+
+```{r, include=FALSE}
+for (i in starWars) {
+  build_plot(x = i)
+}
+```
+
+### Correction
+
+a. Importez le fichier *starwars.csv*
+
+```{r}
+starWars <- read.csv("./dataset/starwars.csv", sep = "\t")
+```
+
+b. Construisez une fonction appelée `build_plot` qui prend en entrée un vecteur 
+
+* s'il est de type numérique la fonction affiche un diagramme en boîte et retourne un résumé du vecteur
+* s'il n'est pas de type numérique et présente 15 modalités différentes ou moins, la fonction affiche un diagramme en barre et retourne un résumé du vecteur
+* sinon, la fonction n'affiche rien et retourne uniquement "Pas de traitement"
+
+```{r}
+build_plot <- function(x) {
+  if (is.numeric(x)) {
+    boxplot(x)
+    return(summary(x))
+  } else if (length(unique(x)) <= 15)
+    { barplot(sort(table(x)))
+    return(summary(x)) 
+    } else
+      return("Pas de traitement")
+}
+```
+
+
+c. Créez une boucle qui parcourt toutes les colonnes du data frame en appliquant la fonction `build_plot` pour chacune.
+
+```{r, eval=FALSE}
+for (i in starWars) {
+  build_plot(x = i)
+}
+```

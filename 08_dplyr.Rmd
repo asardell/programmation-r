@@ -1,0 +1,324 @@
+# Manipuler les données avec  dplyr {#dplyr}
+
+Certaines parties de ce chapitre sont extraites du cours de Julien Barnier "Introduction à R et au tidyverse" (https://juba.github.io/tidyverse)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(knitr)
+library(kableExtra)
+library(dplyr)
+taille <- 12
+```
+
+Le package `dplyr` est une extension facilitant le traitement et la manipulation de données contenues dans une ou plusieurs tables. Elle propose une syntaxe claire et cohérente. Ses fonctions sont en général plus rapides que leur équivalent sous R de base, elles permettent donc de traiter efficacement des données de grande dimension.
+
+Les fonctions de ce package peuvent s'appliquer à des tableaux de type `data.frame` ou `tibble` (package `tibble` de tidyverse), et elles retournent systématiquement un `tibble.
+
+Dans ce qui suit on va utiliser le jeu de données `nycflights13`, contenu dans l'extension du même nom (qu'il faut donc avoir installé). Celui-ci correspond aux données de tous les vols au départ d'un des trois aéroports de New-York en 2013. Il a la particularité d'être réparti en trois tables :
+
+- `flights` contient des informations sur les vols : date, départ, destination, horaires, retard...
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+kable(head(flights,n = 20), "html") %>% kable_styling("striped", font_size = taille) %>% scroll_box(width = "100%", height = "400px")
+```
+
+- `airports` contient des informations sur les aéroports
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+kable(head(airports,n = 20), "html") %>% kable_styling("striped", font_size = taille) %>% scroll_box(width = "100%", height = "400px")
+```
+
+
+- `airlines` contient des données sur les compagnies aériennes
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+kable(head(airlines,n = 20), "html") %>% kable_styling("striped", font_size = taille) %>% scroll_box(width = "100%", height = "400px")
+```
+
+
+On va charger les trois tables du jeu de données :
+
+```{r cache = FALSE, warning=FALSE}
+library(nycflights13)
+```
+
+Trois objets correspondant aux trois tables ont dû apparaître dans votre environnement.
+
+On charge le package `dplyr` :
+
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+```
+## La fonction `slice`
+
+La fonction `slice` sélectionne des lignes du tableau selon leur position. On lui passe un chiffre ou un vecteur de chiffres.
+
+Si on souhaite sélectionner la 345e ligne du tableau `airports` :
+
+```{r, eval=FALSE}
+slice(airports, 345)
+```
+
+Si on veut sélectionner les 5 premières lignes :
+
+```{r, eval=FALSE}
+slice(airports, 1:5)
+```
+
+## La fonction `filter`
+
+La fonction `filter` sélectionne des lignes d'une table selon une condition. On lui passe en paramètre un test, et seules les lignes pour lesquelles ce test renvoie `TRUE` sont conservées. 
+
+Par exemple, si on veut sélectionner les vols du mois de janvier, on peut filtrer sur la variable `month` de la manière suivante :
+
+```{r, eval=FALSE}
+filter(flights, month == 1)
+```
+
+Si on veut uniquement les vols avec un retard au départ (variable `dep_delay`) compris entre 10 et 15 minutes :
+
+```{r, eval=FALSE}
+filter(flights, dep_delay >= 10 & dep_delay <= 15)
+```
+
+On peut également placer des fonctions dans les tests, qui nous permettent par exemple de sélectionner les vols avec la plus grande distance :
+
+```{r, eval=FALSE}
+filter(flights, distance == max(distance))
+```
+
+## La fonction `select`
+
+La fonction `select` permet de sélectionner des colonnes d'un tableau de données. Ainsi, si on veut extraire les colonnes `lat` et `lon` du tableau airports :
+
+```{r, eval=FALSE}
+select(airports, lat, lon)
+```
+Si on fait précéder le nom d'un `-`, la colonne est éliminée plutôt que sélectionnée :
+
+```{r, eval=FALSE}
+select(airports, -lat, -lon)
+```
+
+La syntaxe `colonne1:colonne2` permet de sélectionner toutes les colonnes situées entre `colonne1` et `colonne2` incluses :
+
+```{r, eval=FALSE}
+select(flights, year:day)
+```
+
+`select` peut être utilisée pour réordonner les colonnes d'une table en utilisant la fonction `everything()`, qui sélectionne l'ensemble des colonnes non encore sélectionnées. Ainsi, si on souhaite faire passer la colonne `name` en première position de la table `airports`, on peut faire :
+
+```{r, eval=FALSE}
+select(airports, name, everything())
+```
+
+## La fonction `arrange`
+
+La fonction `arrange` réordonne les lignes d'un tableau selon une ou plusieurs colonnes. Ainsi, si on veut trier le tableau `flights` selon le retard au départ croissant :
+
+```{r, eval=FALSE}
+arrange(flights, dep_delay)
+```
+
+On peut trier selon plusieurs colonnes. Par exemple selon le mois, puis selon le retard au départ :
+
+```{r, eval=FALSE}
+arrange(flights, month, dep_delay)
+```
+
+Si on veut trier selon une colonne par ordre décroissant, on lui applique la fonction `desc()` :
+
+```{r, eval=FALSE}
+arrange(flights, desc(dep_delay))
+```
+
+## Enchaîner les fonctions avec le *pipe*
+
+Quand on manipule un tableau de données, il est très fréquent d'enchaîner plusieurs opérations. On va par exemple extraire une sous-population avec `filter`, sélectionner des colonnes avec `select` puis trier selon une variable avec `arrange`, etc.
+
+Quand on veut enchaîner des opérations, on peut le faire de différentes manières. La première est d'effectuer toutes les opérations en une fois en les "emboîtant" :
+
+```{r eval=FALSE}
+arrange(select(filter(flights, dest == "LAX"), dep_delay, arr_delay), dep_delay)
+```
+
+Cette notation a plusieurs inconvénients :
+
+- elle est peu lisible
+- les opérations apparaissent dans l'ordre inverse de leur réalisation. Ici on effectue d'abord le `filter`, puis le `select`, puis le `arrange`, alors qu'à la lecture du code c'est le `arrange` qui apparaît en premier.
+- Il est difficile de voir quel paramètre se rapporte à quelle fonction
+
+Une autre manière de faire est d'effectuer les opérations les unes après les autres, en stockant les résultats intermédiaires dans un objet temporaire :
+
+```{r eval=FALSE}
+tmp <- filter(flights, dest == "LAX")
+tmp <- select(tmp, dep_delay, arr_delay)
+arrange(tmp, dep_delay)
+```
+
+C'est nettement plus lisible, l'ordre des opérations est le bon, et les paramètres sont bien rattachés à leur fonction. Par contre, ça reste un peu "verbeux", et on crée un objet temporaire `tmp` dont on n'a pas réellement besoin.
+
+Pour simplifier et améliorer encore la lisibilité du code, on va utiliser un nouvel opérateur, baptisé *pipe*^[Le *pipe* a été  introduit à l'origine par le package `magrittr`, et repris par `dplyr`]. Le *pipe* se note `%>%`, et son fonctionnement est le suivant : si j'exécute `expr %>% f`, alors le résultat de l'expression `expr`, à gauche du *pipe*, sera passé comme premier argument à la fonction `f`, à droite du *pipe*, ce qui revient à exécuter `f(expr)`. 
+
+Ainsi les deux expressions suivantes sont rigoureusement équivalentes :
+
+```{r eval=FALSE}
+filter(flights, dest == "LAX")
+```
+```{r eval=FALSE}
+flights %>% filter(dest == "LAX")
+```
+
+Ce qui est intéressant dans cette histoire, c'est qu'on va pouvoir enchaîner les *pipes*. Plutôt que d'écrire :
+
+```{r eval=FALSE}
+select(filter(flights, dest == "LAX"), dep_delay, arr_delay)
+```
+
+On va pouvoir faire :
+
+```{r eval=FALSE}
+flights %>% 
+  filter(dest == "LAX") %>% 
+  select(dep_delay, arr_delay)
+```
+
+Si la liste des fonctions enchaînées est longue, on peut les répartir sur plusieurs lignes à condition que l'opérateur `%>%` soit en fin de ligne.
+
+À chaque fois, le résultat de ce qui se trouve à gauche du *pipe* est passé comme premier argument à ce qui se trouve à droite : on part de l'objet `flights`, qu'on passe comme premier argument à la fonction `filter`, puis on passe le résultat de ce `filter` comme premier argument du `select`.
+
+Le résultat final est le même avec les deux syntaxes, mais avec le *pipe* l'ordre des opérations correspond à l'ordre naturel de leur exécution, et on n'a pas eu besoin de créer d'objet intermédiaire.
+Évidemment, il est naturel de vouloir récupérer le résultat final d'un *pipeline* pour le stocker dans un objet. Par exemple, on peut stocker le résultat du *pipeline* dans un nouvel objet.
+L'utilisation du *pipe* n'est pas obligatoire, mais elle rend les scripts plus lisibles et plus rapides à saisir.
+
+## La fonction `group_by`
+
+Un élément très important de `dplyr` est la fonction `group_by`. Elle permet de définir des groupes de lignes à partir des valeurs d'une ou plusieurs colonnes. Par exemple, on peut grouper les vols selon leur mois :
+
+```{r, eval=FALSE}
+flights %>% group_by(month)
+```
+
+Par défaut ceci ne fait rien de visible, à part l'apparition d'une mention `Groups` dans l'affichage du résultat. Mais à partir du moment où des groupes ont été définis, les fonctions comme `slice`, `mutate` ou `summarise` vont en tenir compte lors de leurs opérations.
+
+Par exemple, si on applique `slice` à un tableau préalablement groupé, il va sélectionner les lignes aux positions indiquées *pour chaque groupe*. Ainsi la commande suivante affiche le premier vol de chaque mois, selon leur ordre d'apparition dans le tableau :
+
+```{r, eval=FALSE}
+flights %>% group_by(month) %>% slice(1)
+```
+
+On peut grouper selon plusieurs variables à la fois, il suffit de les indiquer dans la clause du `group_by`.
+
+```{r, eval=FALSE}
+flights %>%
+  group_by(month, dest)
+```
+
+## La fonction `summarise`
+
+La fonction `summarise` permet d'agréger les lignes du tableau en effectuant une opération "résumée" sur une ou plusieurs colonnes. Par exemple, si on souhaite connaître les retards moyens au départ et à l'arrivée pour l'ensemble des vols du tableau `flights` :
+
+```{r, eval=FALSE}
+flights %>% 
+  summarise(retard_dep = mean(dep_delay, na.rm=TRUE),
+            retard_arr = mean(arr_delay, na.rm=TRUE))
+```
+
+Cette fonction est en général utilisée avec `group_by`, puisqu'elle permet du coup d'agréger et résumer les lignes du tableau groupe par groupe. Si on souhaite calculer le délai maximum, le délai minimum et le délai moyen au départ pour chaque mois, on pourra faire :
+
+```{r, eval=FALSE}
+flights %>%
+  group_by(month) %>%
+  summarise(max_delay = max(dep_delay, na.rm=TRUE),
+            min_delay = min(dep_delay, na.rm=TRUE),
+            mean_delay = mean(dep_delay, na.rm=TRUE),
+            nb = n())
+```
+
+`summarise` dispose d'un opérateur spécial, `n()`, qui retourne le nombre de lignes du groupe.
+
+```{r, eval=FALSE}
+help(summarise)
+```
+
+## Autres fonctions utiles de dplyr
+
+### La fonction `rename`
+
+La fonction `rename` permet de renommer des colonnes. On l'utilise en lui passant des paramètres de la forme `nouveau_nom = ancien_nom`. Ainsi, si on veut renommer les colonnes `lon` et `lat` de `airports` en `longitude` et `latitude` :
+
+```{r, eval=FALSE}
+rename(airports, longitude = lon, latitude = lat)
+```
+
+Même si cela est déconseillé, si les noms de colonnes comportent des espaces ou des caractères spéciaux, on peut les entourer de guillemets (`"`) ou de quotes inverses (`` ` ``) :
+
+```{r, eval=FALSE}
+tmp <- rename(flights, 
+              "retard départ" = dep_delay,
+              "retard arrivée" = arr_delay)
+select(tmp, `retard départ`, `retard arrivée`)
+```
+
+### La fonction `mutate`
+
+La fonction `mutate` permet de créer de nouvelles colonnes dans le tableau de données, en général à partir de variables existantes.
+
+Par exemple, la table `flights` contient la durée du vol en minutes. Si on veut créer une nouvelle variable `duree_h` avec cette durée en heures, on peut faire :
+
+```{r, eval=FALSE}
+flights <- mutate(flights, duree_h = air_time / 60)
+select(flights, air_time, duree_h)
+```
+
+On peut créer plusieurs nouvelles colonnes en une seule commande, et les expressions successives peuvent prendre en compte les résultats des calculs précédents. L'exemple suivant convertit d'abord la durée en heures dans une variable `duree_h` et la distance en kilomètres dans une variable `distance_km`, puis utilise ces nouvelles colonnes pour calculer la vitesse en km/h.
+
+```{r, eval=FALSE}
+flights <- mutate(flights, 
+                  duree_h = air_time / 60,
+                  distance_km = distance / 0.62137,
+                  vitesse = distance_km / duree_h)
+select(flights, air_time, duree_h, distance, distance_km, vitesse)
+```
+
+À noter que `mutate` est évidemment parfaitement compatible avec les fonctions de recodages comme `case_when`.
+
+```{r, eval=FALSE}
+flights <- mutate(flights,
+                  type_retard = case_when(
+                    dep_delay > 0 & arr_delay > 0 ~ "Retard départ et arrivée",
+                    dep_delay > 0 & arr_delay <= 0 ~ "Retard départ",
+                    dep_delay <= 0 & arr_delay > 0 ~ "Retard arrivée",
+                    TRUE ~ "Aucun retard"))
+```
+
+### La fonction `distinct`
+
+La fonction `distinct` filtre les lignes du tableau pour ne conserver que les lignes distinctes, en supprimant toutes les lignes en double.
+
+```{r, eval=FALSE}
+flights %>%
+  select(day, month) %>%
+  distinct
+```
+
+On peut lui spécifier une liste de variables : dans ce cas, pour toutes les observations ayant des valeurs identiques pour les variables en question, `distinct` ne conservera que la première d'entre elles.
+
+```{r, eval=FALSE}
+flights %>%
+  distinct(month, day)
+```
+
+### La fonction `case_when`
+
+La fonction `case_when` est une généralisation de la fonction `if_else`(du package `dplyr`) ou `ifelse` (du package de `base`) qui permet d'indiquer plusieurs tests et leurs valeurs associées.
+
+```{r, eval=FALSE}
+flights <- mutate(flights,
+                  type_retard = case_when(
+                    dep_delay > 0 & arr_delay > 0 ~ "Retard départ et arrivée",
+                    dep_delay > 0 & arr_delay <= 0 ~ "Retard départ",
+                    dep_delay <= 0 & arr_delay > 0 ~ "Retard arrivée",
+                    TRUE ~ "Aucun retard"))
+
+select(flights, dep_delay, arr_delay , type_retard)
+```

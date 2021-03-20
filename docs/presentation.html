@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 2 Présentation | Apprendre à programmer avec R</title>
+  <meta name="description" content="Chapitre 2 Présentation | Apprendre à programmer avec R" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 2 Présentation | Apprendre à programmer avec R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapitre 2 Présentation | Apprendre à programmer avec R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 2 Présentation | Apprendre à programmer avec R" />
+  
+  <meta name="twitter:description" content="Chapitre 2 Présentation | Apprendre à programmer avec R" />
+  
+
+<meta name="author" content="Anthony SARDELLITTI" />
+
+
+<meta name="date" content="2021-02-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="first-dataset.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Préface</a></li>
+<li class="chapter" data-level="2" data-path="presentation.html"><a href="presentation.html"><i class="fa fa-check"></i><b>2</b> Présentation</a><ul>
+<li class="chapter" data-level="2.1" data-path="presentation.html"><a href="presentation.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="presentation.html"><a href="presentation.html#à-propos-de-r"><i class="fa fa-check"></i><b>2.1.1</b> À propos de R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="presentation.html"><a href="presentation.html#à-propos-de-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> À propos de RStudio</a></li>
+<li class="chapter" data-level="2.1.3" data-path="presentation.html"><a href="presentation.html#à-propos-du-tidyverse"><i class="fa fa-check"></i><b>2.1.3</b> À propos du <em>tidyverse</em></a></li>
+<li class="chapter" data-level="2.1.4" data-path="presentation.html"><a href="presentation.html#structure-du-document"><i class="fa fa-check"></i><b>2.1.4</b> Structure du document</a></li>
+<li class="chapter" data-level="2.1.5" data-path="presentation.html"><a href="presentation.html#prérequis"><i class="fa fa-check"></i><b>2.1.5</b> Prérequis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="presentation.html"><a href="presentation.html#prise-en-main"><i class="fa fa-check"></i><b>2.2</b> Prise en main</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="presentation.html"><a href="presentation.html#la-console"><i class="fa fa-check"></i><b>2.2.1</b> La console</a></li>
+<li class="chapter" data-level="2.2.2" data-path="presentation.html"><a href="presentation.html#objets"><i class="fa fa-check"></i><b>2.2.2</b> Objets</a></li>
+<li class="chapter" data-level="2.2.3" data-path="presentation.html"><a href="presentation.html#fonctions"><i class="fa fa-check"></i><b>2.2.3</b> Fonctions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="presentation.html"><a href="presentation.html#fonctions-de-tests-et-comparaisons"><i class="fa fa-check"></i><b>2.3</b> Fonctions de tests et comparaisons</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="presentation.html"><a href="presentation.html#opérateurs-de-comparaisons"><i class="fa fa-check"></i><b>2.3.1</b> Opérateurs de comparaisons</a></li>
+<li class="chapter" data-level="2.3.2" data-path="presentation.html"><a href="presentation.html#opérateurs-logiques"><i class="fa fa-check"></i><b>2.3.2</b> Opérateurs logiques</a></li>
+<li class="chapter" data-level="2.3.3" data-path="presentation.html"><a href="presentation.html#fonctions-logiques"><i class="fa fa-check"></i><b>2.3.3</b> Fonctions logiques</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="presentation.html"><a href="presentation.html#regrouper-ses-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>2.4</b> Regrouper ses commandes dans des scripts</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="presentation.html"><a href="presentation.html#commentaires"><i class="fa fa-check"></i><b>2.4.1</b> Commentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="presentation.html"><a href="presentation.html#installer-et-charger-des-extensions-packages"><i class="fa fa-check"></i><b>2.5</b> Installer et charger des extensions (<em>packages</em>)</a></li>
+<li class="chapter" data-level="2.6" data-path="presentation.html"><a href="presentation.html#exercices"><i class="fa fa-check"></i><b>2.6</b> Exercices</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="presentation.html"><a href="presentation.html#sujet"><i class="fa fa-check"></i><b>2.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="2.6.2" data-path="presentation.html"><a href="presentation.html#correction"><i class="fa fa-check"></i><b>2.6.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="presentation.html"><a href="presentation.html#testez-vos-connaissances"><i class="fa fa-check"></i><b>2.7</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="first-dataset.html"><a href="first-dataset.html"><i class="fa fa-check"></i><b>3</b> Premier travail avec des données</a><ul>
+<li class="chapter" data-level="3.1" data-path="first-dataset.html"><a href="first-dataset.html#jeu-de-données-dexemple"><i class="fa fa-check"></i><b>3.1</b> Jeu de données d’exemple</a></li>
+<li class="chapter" data-level="3.2" data-path="first-dataset.html"><a href="first-dataset.html#tableau-de-données-data-frame"><i class="fa fa-check"></i><b>3.2</b> Tableau de données (<em>data frame</em>)</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="first-dataset.html"><a href="first-dataset.html#structure-du-tableau"><i class="fa fa-check"></i><b>3.2.1</b> Structure du tableau</a></li>
+<li class="chapter" data-level="3.2.2" data-path="first-dataset.html"><a href="first-dataset.html#accéder-aux-variables-dun-tableau"><i class="fa fa-check"></i><b>3.2.2</b> Accéder aux variables d’un tableau</a></li>
+<li class="chapter" data-level="3.2.3" data-path="first-dataset.html"><a href="first-dataset.html#créer-une-nouvelle-variable"><i class="fa fa-check"></i><b>3.2.3</b> Créer une nouvelle variable</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="first-dataset.html"><a href="first-dataset.html#analyse-univariée"><i class="fa fa-check"></i><b>3.3</b> Analyse univariée</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="first-dataset.html"><a href="first-dataset.html#analyser-une-variable-quantitative"><i class="fa fa-check"></i><b>3.3.1</b> Analyser une variable quantitative</a></li>
+<li class="chapter" data-level="3.3.2" data-path="first-dataset.html"><a href="first-dataset.html#analyser-une-variable-qualitative"><i class="fa fa-check"></i><b>3.3.2</b> Analyser une variable qualitative</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="first-dataset.html"><a href="first-dataset.html#combiner-plusieurs-variables"><i class="fa fa-check"></i><b>3.4</b> Combiner plusieurs variables</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="first-dataset.html"><a href="first-dataset.html#créer-une-nouvelle-variable-1"><i class="fa fa-check"></i><b>3.4.1</b> Créer une nouvelle variable</a></li>
+<li class="chapter" data-level="3.4.2" data-path="first-dataset.html"><a href="first-dataset.html#créer-des-regroupements-de-modalités"><i class="fa fa-check"></i><b>3.4.2</b> Créer des regroupements de modalités</a></li>
+<li class="chapter" data-level="3.4.3" data-path="first-dataset.html"><a href="first-dataset.html#découper-une-variable-numérique-en-classes"><i class="fa fa-check"></i><b>3.4.3</b> Découper une variable numérique en classes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="first-dataset.html"><a href="first-dataset.html#exercices-1"><i class="fa fa-check"></i><b>3.5</b> Exercices</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="first-dataset.html"><a href="first-dataset.html#sujet-1"><i class="fa fa-check"></i><b>3.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="3.5.2" data-path="first-dataset.html"><a href="first-dataset.html#correction-1"><i class="fa fa-check"></i><b>3.5.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="first-dataset.html"><a href="first-dataset.html#testez-vos-connaissances-1"><i class="fa fa-check"></i><b>3.6</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="first-import.html"><a href="first-import.html"><i class="fa fa-check"></i><b>4</b> Importer des données externes</a><ul>
+<li class="chapter" data-level="4.1" data-path="first-import.html"><a href="first-import.html#import-de-fichiers-csv"><i class="fa fa-check"></i><b>4.1</b> Import de fichiers csv</a></li>
+<li class="chapter" data-level="4.2" data-path="first-import.html"><a href="first-import.html#interface-interactive-dimport-de-fichiers"><i class="fa fa-check"></i><b>4.2</b> Interface interactive d’import de fichiers</a></li>
+<li class="chapter" data-level="4.3" data-path="first-import.html"><a href="first-import.html#modifier-le-répertoire-actif"><i class="fa fa-check"></i><b>4.3</b> Modifier le répertoire actif</a></li>
+<li class="chapter" data-level="4.4" data-path="first-import.html"><a href="first-import.html#import-depuis-un-fichier-excel"><i class="fa fa-check"></i><b>4.4</b> Import depuis un fichier Excel</a></li>
+<li class="chapter" data-level="4.5" data-path="first-import.html"><a href="first-import.html#export-de-données"><i class="fa fa-check"></i><b>4.5</b> Export de données</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="first-import.html"><a href="first-import.html#export-de-tableaux-de-données"><i class="fa fa-check"></i><b>4.5.1</b> Export de tableaux de données</a></li>
+<li class="chapter" data-level="4.5.2" data-path="first-import.html"><a href="first-import.html#sauvegarder-des-objets"><i class="fa fa-check"></i><b>4.5.2</b> Sauvegarder des objets</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="first-import.html"><a href="first-import.html#exercices-2"><i class="fa fa-check"></i><b>4.6</b> Exercices</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="first-import.html"><a href="first-import.html#sujet-2"><i class="fa fa-check"></i><b>4.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="4.6.2" data-path="first-import.html"><a href="first-import.html#correction-2"><i class="fa fa-check"></i><b>4.6.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="first-import.html"><a href="first-import.html#testez-vos-connaissances-2"><i class="fa fa-check"></i><b>4.7</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="manipulation-objet.html"><a href="manipulation-objet.html"><i class="fa fa-check"></i><b>5</b> Manipulation des objets</a><ul>
+<li class="chapter" data-level="5.1" data-path="manipulation-objet.html"><a href="manipulation-objet.html#liste"><i class="fa fa-check"></i><b>5.1</b> Liste</a></li>
+<li class="chapter" data-level="5.2" data-path="manipulation-objet.html"><a href="manipulation-objet.html#matrice"><i class="fa fa-check"></i><b>5.2</b> Matrice</a></li>
+<li class="chapter" data-level="5.3" data-path="manipulation-objet.html"><a href="manipulation-objet.html#data-frame"><i class="fa fa-check"></i><b>5.3</b> Data frame</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="manipulation-objet.html"><a href="manipulation-objet.html#indexations-simples"><i class="fa fa-check"></i><b>5.3.1</b> Indexations simples</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manipulation-objet.html"><a href="manipulation-objet.html#indexations-avec-des-booléens"><i class="fa fa-check"></i><b>5.3.2</b> Indexations avec des booléens</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manipulation-objet.html"><a href="manipulation-objet.html#filtre-et-sélection-dans-un-data-frame"><i class="fa fa-check"></i><b>5.3.3</b> Filtre et sélection dans un data frame</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercices-3"><i class="fa fa-check"></i><b>5.3.4</b> Exercices</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manipulation-objet.html"><a href="manipulation-objet.html#trier-un-data-frame"><i class="fa fa-check"></i><b>5.3.5</b> Trier un data frame</a></li>
+<li class="chapter" data-level="5.3.6" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercice"><i class="fa fa-check"></i><b>5.3.6</b> Exercice</a></li>
+<li class="chapter" data-level="5.3.7" data-path="manipulation-objet.html"><a href="manipulation-objet.html#agréger-des-données"><i class="fa fa-check"></i><b>5.3.7</b> Agréger des données</a></li>
+<li class="chapter" data-level="5.3.8" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercice-1"><i class="fa fa-check"></i><b>5.3.8</b> Exercice</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="manipulation-objet.html"><a href="manipulation-objet.html#testez-vos-connaissances-3"><i class="fa fa-check"></i><b>5.4</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="graphique.html"><a href="graphique.html"><i class="fa fa-check"></i><b>6</b> Représentation Graphique</a><ul>
+<li class="chapter" data-level="6.1" data-path="graphique.html"><a href="graphique.html#les-fenêtres-graphiques"><i class="fa fa-check"></i><b>6.1</b> Les fenêtres graphiques</a></li>
+<li class="chapter" data-level="6.2" data-path="graphique.html"><a href="graphique.html#les-fonctions-de-tracé-de-bas-niveau"><i class="fa fa-check"></i><b>6.2</b> Les fonctions de tracé de bas niveau</a></li>
+<li class="chapter" data-level="6.3" data-path="graphique.html"><a href="graphique.html#personnaliser-des-éléments-graphiques"><i class="fa fa-check"></i><b>6.3</b> Personnaliser des éléments graphiques</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="graphique.html"><a href="graphique.html#mise-en-forme"><i class="fa fa-check"></i><b>6.3.1</b> Mise en forme</a></li>
+<li class="chapter" data-level="6.3.2" data-path="graphique.html"><a href="graphique.html#gestion-des-couleurs"><i class="fa fa-check"></i><b>6.3.2</b> Gestion des couleurs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="graphique.html"><a href="graphique.html#type-de-graphique"><i class="fa fa-check"></i><b>6.4</b> Type de graphique</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="graphique.html"><a href="graphique.html#boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Boxplot</a></li>
+<li class="chapter" data-level="6.4.2" data-path="graphique.html"><a href="graphique.html#histogramme"><i class="fa fa-check"></i><b>6.4.2</b> Histogramme</a></li>
+<li class="chapter" data-level="6.4.3" data-path="graphique.html"><a href="graphique.html#diagramme-en-circulaire"><i class="fa fa-check"></i><b>6.4.3</b> Diagramme en circulaire</a></li>
+<li class="chapter" data-level="6.4.4" data-path="graphique.html"><a href="graphique.html#diagramme-en-barre"><i class="fa fa-check"></i><b>6.4.4</b> Diagramme en barre</a></li>
+<li class="chapter" data-level="6.4.5" data-path="graphique.html"><a href="graphique.html#nuage-de-points"><i class="fa fa-check"></i><b>6.4.5</b> Nuage de points</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="graphique.html"><a href="graphique.html#exercice-2"><i class="fa fa-check"></i><b>6.5</b> Exercice</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="graphique.html"><a href="graphique.html#sujet-6"><i class="fa fa-check"></i><b>6.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="6.5.2" data-path="graphique.html"><a href="graphique.html#correction-6"><i class="fa fa-check"></i><b>6.5.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="graphique.html"><a href="graphique.html#aller-plus-loin"><i class="fa fa-check"></i><b>6.6</b> Aller plus loin</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="algo.html"><a href="algo.html"><i class="fa fa-check"></i><b>7</b> Algorithme</a><ul>
+<li class="chapter" data-level="7.1" data-path="algo.html"><a href="algo.html#construire-une-fonction"><i class="fa fa-check"></i><b>7.1</b> Construire une fonction</a></li>
+<li class="chapter" data-level="7.2" data-path="algo.html"><a href="algo.html#construire-une-structure-conditionnelle"><i class="fa fa-check"></i><b>7.2</b> Construire une structure conditionnelle</a></li>
+<li class="chapter" data-level="7.3" data-path="algo.html"><a href="algo.html#construire-une-boucle"><i class="fa fa-check"></i><b>7.3</b> Construire une boucle</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="algo.html"><a href="algo.html#la-boucle-for"><i class="fa fa-check"></i><b>7.3.1</b> La boucle <code>for</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="algo.html"><a href="algo.html#la-boucle-while"><i class="fa fa-check"></i><b>7.3.2</b> La boucle <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="algo.html"><a href="algo.html#exercice-3"><i class="fa fa-check"></i><b>7.4</b> Exercice</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="algo.html"><a href="algo.html#sujet-7"><i class="fa fa-check"></i><b>7.4.1</b> Sujet</a></li>
+<li class="chapter" data-level="7.4.2" data-path="algo.html"><a href="algo.html#correction-7"><i class="fa fa-check"></i><b>7.4.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="apply.html"><a href="apply.html"><i class="fa fa-check"></i><b>8</b> Les fonctions apply</a><ul>
+<li class="chapter" data-level="8.1" data-path="apply.html"><a href="apply.html#fonction-apply"><i class="fa fa-check"></i><b>8.1</b> Fonction apply</a></li>
+<li class="chapter" data-level="8.2" data-path="apply.html"><a href="apply.html#fonction-lapply"><i class="fa fa-check"></i><b>8.2</b> Fonction lapply</a></li>
+<li class="chapter" data-level="8.3" data-path="apply.html"><a href="apply.html#fonction-sapply"><i class="fa fa-check"></i><b>8.3</b> Fonction sapply</a></li>
+<li class="chapter" data-level="8.4" data-path="apply.html"><a href="apply.html#fonction-tapply"><i class="fa fa-check"></i><b>8.4</b> Fonction tapply</a></li>
+<li class="chapter" data-level="8.5" data-path="apply.html"><a href="apply.html#exercice-4"><i class="fa fa-check"></i><b>8.5</b> Exercice</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="apply.html"><a href="apply.html#sujet-8"><i class="fa fa-check"></i><b>8.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="8.5.2" data-path="apply.html"><a href="apply.html#correction-8"><i class="fa fa-check"></i><b>8.5.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>9</b> Manipuler les données avec dplyr</a><ul>
+<li class="chapter" data-level="9.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-slice"><i class="fa fa-check"></i><b>9.1</b> La fonction <code>slice</code></a></li>
+<li class="chapter" data-level="9.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-filter"><i class="fa fa-check"></i><b>9.2</b> La fonction <code>filter</code></a></li>
+<li class="chapter" data-level="9.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-select"><i class="fa fa-check"></i><b>9.3</b> La fonction <code>select</code></a></li>
+<li class="chapter" data-level="9.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-arrange"><i class="fa fa-check"></i><b>9.4</b> La fonction <code>arrange</code></a></li>
+<li class="chapter" data-level="9.5" data-path="dplyr.html"><a href="dplyr.html#enchaîner-les-fonctions-avec-le-pipe"><i class="fa fa-check"></i><b>9.5</b> Enchaîner les fonctions avec le <em>pipe</em></a></li>
+<li class="chapter" data-level="9.6" data-path="dplyr.html"><a href="dplyr.html#la-fonction-group_by"><i class="fa fa-check"></i><b>9.6</b> La fonction <code>group_by</code></a></li>
+<li class="chapter" data-level="9.7" data-path="dplyr.html"><a href="dplyr.html#la-fonction-summarise"><i class="fa fa-check"></i><b>9.7</b> La fonction <code>summarise</code></a></li>
+<li class="chapter" data-level="9.8" data-path="dplyr.html"><a href="dplyr.html#autres-fonctions-utiles-de-dplyr"><i class="fa fa-check"></i><b>9.8</b> Autres fonctions utiles de dplyr</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-rename"><i class="fa fa-check"></i><b>9.8.1</b> La fonction <code>rename</code></a></li>
+<li class="chapter" data-level="9.8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-mutate"><i class="fa fa-check"></i><b>9.8.2</b> La fonction <code>mutate</code></a></li>
+<li class="chapter" data-level="9.8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-distinct"><i class="fa fa-check"></i><b>9.8.3</b> La fonction <code>distinct</code></a></li>
+<li class="chapter" data-level="9.8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-case_when"><i class="fa fa-check"></i><b>9.8.4</b> La fonction <code>case_when</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chaines.html"><a href="chaines.html"><i class="fa fa-check"></i><b>10</b> Manipuler le texte et les dates</a><ul>
+<li class="chapter" data-level="10.1" data-path="chaines.html"><a href="chaines.html#manipulation-des-chaînes-de-caractères"><i class="fa fa-check"></i><b>10.1</b> Manipulation des chaînes de caractères</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="chaines.html"><a href="chaines.html#concaténer-des-chaînes"><i class="fa fa-check"></i><b>10.1.1</b> Concaténer des chaînes</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chaines.html"><a href="chaines.html#majuscule-et-minuscule"><i class="fa fa-check"></i><b>10.1.2</b> Majuscule et minuscule</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chaines.html"><a href="chaines.html#longueur-dune-chaîne"><i class="fa fa-check"></i><b>10.1.3</b> Longueur d’une chaîne</a></li>
+<li class="chapter" data-level="10.1.4" data-path="chaines.html"><a href="chaines.html#extraction-de-sous-chaînes"><i class="fa fa-check"></i><b>10.1.4</b> Extraction de sous-chaînes</a></li>
+<li class="chapter" data-level="10.1.5" data-path="chaines.html"><a href="chaines.html#remplacement-de-chaînes"><i class="fa fa-check"></i><b>10.1.5</b> Remplacement de chaînes</a></li>
+<li class="chapter" data-level="10.1.6" data-path="chaines.html"><a href="chaines.html#décomposition-dune-chaîne"><i class="fa fa-check"></i><b>10.1.6</b> Décomposition d’une chaîne</a></li>
+<li class="chapter" data-level="10.1.7" data-path="chaines.html"><a href="chaines.html#recherche-de-sous-chaîne"><i class="fa fa-check"></i><b>10.1.7</b> Recherche de sous-chaîne</a></li>
+<li class="chapter" data-level="10.1.8" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-1"><i class="fa fa-check"></i><b>10.1.8</b> Aller plus loin</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chaines.html"><a href="chaines.html#manipulation-des-dates"><i class="fa fa-check"></i><b>10.2</b> Manipulation des dates</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="chaines.html"><a href="chaines.html#les-dates"><i class="fa fa-check"></i><b>10.2.1</b> Les dates</a></li>
+<li class="chapter" data-level="10.2.2" data-path="chaines.html"><a href="chaines.html#lhorloge"><i class="fa fa-check"></i><b>10.2.2</b> L’horloge</a></li>
+<li class="chapter" data-level="10.2.3" data-path="chaines.html"><a href="chaines.html#calcul-sur-les-dates"><i class="fa fa-check"></i><b>10.2.3</b> Calcul sur les dates</a></li>
+<li class="chapter" data-level="10.2.4" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-2"><i class="fa fa-check"></i><b>10.2.4</b> Aller plus loin</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="jointures.html"><a href="jointures.html"><i class="fa fa-check"></i><b>11</b> Jointures</a><ul>
+<li class="chapter" data-level="11.1" data-path="jointures.html"><a href="jointures.html#principe-1"><i class="fa fa-check"></i><b>11.1</b> Principe</a></li>
+<li class="chapter" data-level="11.2" data-path="jointures.html"><a href="jointures.html#types-de-jointures"><i class="fa fa-check"></i><b>11.2</b> Types de jointures</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="jointures.html"><a href="jointures.html#left-join"><i class="fa fa-check"></i><b>11.2.1</b> Left Join</a></li>
+<li class="chapter" data-level="11.2.2" data-path="jointures.html"><a href="jointures.html#right-join"><i class="fa fa-check"></i><b>11.2.2</b> Right Join</a></li>
+<li class="chapter" data-level="11.2.3" data-path="jointures.html"><a href="jointures.html#inner-join"><i class="fa fa-check"></i><b>11.2.3</b> Inner Join</a></li>
+<li class="chapter" data-level="11.2.4" data-path="jointures.html"><a href="jointures.html#full-join"><i class="fa fa-check"></i><b>11.2.4</b> Full Join</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="jointures.html"><a href="jointures.html#exercice-5"><i class="fa fa-check"></i><b>11.3</b> Exercice</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="jointures.html"><a href="jointures.html#sujet-9"><i class="fa fa-check"></i><b>11.3.1</b> Sujet</a></li>
+<li class="chapter" data-level="11.3.2" data-path="jointures.html"><a href="jointures.html#correction-9"><i class="fa fa-check"></i><b>11.3.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="entrainement.html"><a href="entrainement.html"><i class="fa fa-check"></i><b>12</b> S’entrainer</a><ul>
+<li class="chapter" data-level="12.1" data-path="entrainement.html"><a href="entrainement.html#tp1"><i class="fa fa-check"></i><b>12.1</b> TP1</a></li>
+<li class="chapter" data-level="12.2" data-path="entrainement.html"><a href="entrainement.html#tp2"><i class="fa fa-check"></i><b>12.2</b> TP2</a></li>
+<li class="chapter" data-level="12.3" data-path="entrainement.html"><a href="entrainement.html#tp3"><i class="fa fa-check"></i><b>12.3</b> TP3</a></li>
+<li class="chapter" data-level="12.4" data-path="entrainement.html"><a href="entrainement.html#tp4---récap"><i class="fa fa-check"></i><b>12.4</b> TP4 - Récap</a></li>
+<li class="chapter" data-level="12.5" data-path="entrainement.html"><a href="entrainement.html#tp5---chercher-lerreur"><i class="fa fa-check"></i><b>12.5</b> TP5 - Chercher l’erreur</a></li>
+<li class="chapter" data-level="12.6" data-path="entrainement.html"><a href="entrainement.html#tp6---analyses-statistiques"><i class="fa fa-check"></i><b>12.6</b> TP6 - Analyses statistiques</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="all-dataset.html"><a href="all-dataset.html"><i class="fa fa-check"></i><b>13</b> Jeux de données utilisés</a><ul>
+<li class="chapter" data-level="13.1" data-path="all-dataset.html"><a href="all-dataset.html#iris"><i class="fa fa-check"></i><b>13.1</b> Iris 🌺</a></li>
+<li class="chapter" data-level="13.2" data-path="all-dataset.html"><a href="all-dataset.html#histoire-de-vie-hdv2003"><i class="fa fa-check"></i><b>13.2</b> Histoire de vie (hdv2003) 🗨</a></li>
+<li class="chapter" data-level="13.3" data-path="all-dataset.html"><a href="all-dataset.html#nyc-flights-2013"><i class="fa fa-check"></i><b>13.3</b> NYC Flights 2013 ✈</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="all-dataset.html"><a href="all-dataset.html#flights"><i class="fa fa-check"></i><b>13.3.1</b> Flights</a></li>
+<li class="chapter" data-level="13.3.2" data-path="all-dataset.html"><a href="all-dataset.html#airlines"><i class="fa fa-check"></i><b>13.3.2</b> Airlines</a></li>
+<li class="chapter" data-level="13.3.3" data-path="all-dataset.html"><a href="all-dataset.html#airports"><i class="fa fa-check"></i><b>13.3.3</b> Airports</a></li>
+<li class="chapter" data-level="13.3.4" data-path="all-dataset.html"><a href="all-dataset.html#weather"><i class="fa fa-check"></i><b>13.3.4</b> Weather</a></li>
+<li class="chapter" data-level="13.3.5" data-path="all-dataset.html"><a href="all-dataset.html#planes"><i class="fa fa-check"></i><b>13.3.5</b> Planes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="all-dataset.html"><a href="all-dataset.html#google"><i class="fa fa-check"></i><b>13.4</b> Google 📱</a></li>
+<li class="chapter" data-level="13.5" data-path="all-dataset.html"><a href="all-dataset.html#pokemon"><i class="fa fa-check"></i><b>13.5</b> Pokemon 🐾</a></li>
+<li class="chapter" data-level="13.6" data-path="all-dataset.html"><a href="all-dataset.html#star-wars"><i class="fa fa-check"></i><b>13.6</b> Star Wars 🎬</a></li>
+<li class="chapter" data-level="13.7" data-path="all-dataset.html"><a href="all-dataset.html#amongus"><i class="fa fa-check"></i><b>13.7</b> AmongUs 🔦</a></li>
+<li class="chapter" data-level="13.8" data-path="all-dataset.html"><a href="all-dataset.html#nba"><i class="fa fa-check"></i><b>13.8</b> NBA 🏀</a></li>
+<li class="chapter" data-level="13.9" data-path="all-dataset.html"><a href="all-dataset.html#students"><i class="fa fa-check"></i><b>13.9</b> Students 🎓</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="biblio.html"><a href="biblio.html"><i class="fa fa-check"></i><b>14</b> Bibliographie</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Apprendre à programmer avec R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="presentation" class="section level1">
+<h1><span class="header-section-number">Chapitre 2</span> Présentation</h1>
+<p>Certaines parties de ce chapitre sont extraites du cours de Julien Barnier “Introduction à R et au tidyverse” (<a href="https://juba.github.io/tidyverse" class="uri">https://juba.github.io/tidyverse</a>)</p>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">2.1</span> Introduction</h2>
+<div id="à-propos-de-r" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> À propos de R</h3>
+<p>R est un langage orienté vers le traitement et l’analyse quantitative des données, dérivé du langage. Il est développé depuis les années 90 par un groupe de volontaires de différents pays et par une grande communauté d’utilisateurs. C’est un logiciel libre, publié sous licence GNU GPL.</p>
+<p>Utilisation de R présente plusieurs avantages:</p>
+<ul>
+<li>c’est un logiciel multiplateforme, qui fonctionne aussi bien sur des systèmes Linux, Mac OS X ou Windows.</li>
+<li>c’est un logiciel libre, développé par ses utilisateurs, diffusable et modifiable par tout un chacun.</li>
+<li>c’est un logiciel gratuit.</li>
+<li>c’est un logiciel très puissant, dont les fonctionnalités de base peuvent être étendues à l’aide d’extensions développées par la communauté. Il en existe plusieurs milliers.</li>
+<li>c’est un logiciel dont le développement est très actif et dont la communauté d’utilisateurs et l’utilisation ne cessent de grandir.</li>
+<li>c’est un logiciel avec des capacités graphiques intéressantes.</li>
+</ul>
+<p>Comme rien n’est parfait, on peut également trouver quelques inconvénients :</p>
+<ul>
+<li>le logiciel, la documentation de référence et les principales ressources sont en anglais. Il est cependant parfaitement possible d’utiliser R sans spécialement maîtriser cette langue et il existe de plus en plus de ressources francophones.</li>
+<li>R n’est pas un logiciel au sens classique du terme, mais plutôt un langage de programmation. Il fonctionne à l’aide de scripts (des petits programmes) édités et exécutés au fur et à mesure de l’analyse.</li>
+<li>en tant que langage de programmation, R à la réputation d’être difficile d’accès, notamment pour ceux qui n’ont jamais été programmés auparavant.</li>
+</ul>
+<p>Au départ cantonné à la sphère universitaire, R est aujourd’hui de plus en plus utilisé dans des grandes entreprises et administrations, car il coûte beaucoup moins cher que ses concurrents (par exemple SAS) tout en étant très peformant.</p>
+<p>Ce document ne demande aucun prérequis en informatique ou en programmation. Juste un peu de motivation pour l’apprentissage du langage et, si possible, des données intéressantes sur l’application appliquée les connaissances acquiert.</p>
+<p>L’aspect langage de programmation et la difficulté qui en découle peut sembler des inconvénients importants. Le fait de structurer ses analyses sous forme de scripts (suite d’instructions effectuant les différentes opérations d’une analyse) présente cependant de nombreux avantages :</p>
+<ul>
+<li>le script garde par ordre chronologique l’ensemble des étapes d’une analyse, des données des données à leur analyser en passant par les manipulations et les recodages.</li>
+<li>on peut à tout moment revenir en arrière et modifier ce qui a été fait.</li>
+<li>il est très rapide de réexécuter une suite d’opérations complexes.</li>
+<li>on peut très facilement mettre à jour les résultats en cas de modification des sources de données.</li>
+<li>le script garanti, sous certaines conditions, la reproductibilité des résultats obtenus.</li>
+</ul>
+</div>
+<div id="à-propos-de-rstudio" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> À propos de RStudio</h3>
+<p>RStudio n’est pas à proprement parler une interface graphique pour R, il s’agit plutôt d’un <em>environnement de développement intégré</em>, qui propose des outils et facilite l’écriture de scripts et l’usage de R au quotidien. C’est une interface bien supérieure à celles fournies par défaut fournies installe R sous Windows ou sous Mac ^ [Sous Linux R n’est fourni que comme un outil en ligne de commande.].</p>
+<p>Pour paraphraser <a href="https://elementr.hypotheses.org/237">Hadrien Commenges</a>, il n’y a pas d’obligation à utiliser RStudio, mais il y a une obligation à ne pas utiliser les interfaces de R par défaut.</p>
+<p>RStudio est également un logiciel libre et gratuit. Une version payante existe, mais elle ne propose pas de fonctionnalités indispensables.</p>
+</div>
+<div id="à-propos-du-tidyverse" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> À propos du <em>tidyverse</em></h3>
+<p>Le <em>tidyverse</em> est un ensemble d’extensions pour R (code développé par la communauté permettant de rajouter des fonctionnalités à R) construites autour d’une philosophie commune et exercé pour fonctionner ensemble. Elles facilitent l’utilisation de R dans les domaines les plus courants : manipulation des données, recodages, production de graphiques, etc.</p>
+</div>
+<div id="structure-du-document" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> Structure du document</h3>
+<p>Ce document est composé de deux grandes fêtes :</p>
+<ul>
+<li>Une <em>Introduction à R</em> , qui présente les bases du langage R et de l’interface RStudio</li>
+<li>Une <em>Introduction au tidyverse</em> qui présente cet ensemble d’extensions pour la visualisation, la manipulation des données et l’export de résultats</li>
+</ul>
+</div>
+<div id="prérequis" class="section level3">
+<h3><span class="header-section-number">2.1.5</span> Prérequis</h3>
+<p>Le seul prérequis pour suivre ce document est installé R et RStudio sur votre ordinateur. Il s’agit de deux logiciels libres, gratuits, téléchargeables en ligne et fonctionnant sous PC, Mac et Linux.</p>
+<p>Pour l’installateur R, il suffit de se rendre sur une des pages suivantes :</p>
+<ul>
+<li><a href="https://cloud.r-project.org/bin/windows/base/">Installer R sous Windows</a></li>
+<li><a href="https://cloud.r-project.org/bin/macosx/">Installateur R sous Mac</a></li>
+</ul>
+<p>Pour l’installateur RStudio, rendez-vous sur la page suivante et téléchargez la version adaptée à votre système <a href="https://www.rstudio.com/products/rstudio/download/#download">https://www.rstudio.com/products/rstudio/download/#download</a></p>
+</div>
+</div>
+<div id="prise-en-main" class="section level2">
+<h2><span class="header-section-number">2.2</span> Prise en main</h2>
+<p>Une fois R et RStudio installés sur votre machine, nous n’allons pas lancer R mais plutôt RStudio.</p>
+<p>RStudio n’est pas à proprement parler une interface graphique qui permettrait d’utiliser R de manière “classique” via la souris, des menus et des boîtes de dialogue. Il s’agit plutôt de ce qu’on appelle un <em>Environnement de développement intégré</em> (IDE) qui facilite l’utilisation de R et le développement de scripts.</p>
+<div id="la-console" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> La console</h3>
+<div id="linvite-de-commandes" class="section level4">
+<h4><span class="header-section-number">2.2.1.1</span> L’invite de commandes</h4>
+Au premier lancement de RStudio, l’écran principal est découpé en trois grandes zones :
+<p>
+<img src="img/rstudio_start.png" title="fig:" alt="Interface de Rstudio" />
+</p>
+<p>La zone de gauche se nomme <em>Console</em>. À son démarrage, RStudio a lancé une nouvelle session de R et c’est dans cette fenêtre que nous allons pouvoir interagir avec lui.</p>
+<p>La <em>Console</em> doit normalement afficher un texte de bienvenue ressemblant à ceci :</p>
+<pre><code>R version 3.5.2 (2018-12-20) -- &quot;Eggshell Igloo&quot;
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+R est un logiciel libre livré sans AUCUNE GARANTIE.
+Vous pouvez le redistribuer sous certaines conditions.
+Tapez &#39;license()&#39; ou &#39;licence()&#39; pour plus de détails.
+R est un projet collaboratif avec de nombreux contributeurs.
+Tapez &#39;contributors()&#39; pour plus d&#39;information et
+&#39;citation()&#39; pour la façon de le citer dans les publications.
+Tapez &#39;demo()&#39; pour des démonstrations, &#39;help()&#39; pour l&#39;aide
+en ligne ou &#39;help.start()&#39; pour obtenir l&#39;aide au format HTML.
+Tapez &#39;q()&#39; pour quitter R.</code></pre>
+<p>suivi d’une ligne commençant par le caractère <code>&gt;</code> et sur laquelle devrait se trouver votre curseur. Cette ligne est appelée l’<em>invite de commande</em> (ou <em>prompt</em> en anglais). Elle signifie que R est disponible et en attente de votre prochaine commande.</p>
+<p>Nous pouvons tout de suite lui fournir une première commande, en saisissant le texte suivant puis en appuyant sur <code>Entrée</code> :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="presentation.html#cb2-1"></a><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>R nous répond immédiatement, et nous pouvons constater avec soulagement qu’il sait faire des additions à un chiffre<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. On peut donc continuer avec d’autres opérations :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="presentation.html#cb4-1"></a><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">7</span></span></code></pre></div>
+<pre><code>## [1] -2</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="presentation.html#cb6-1"></a><span class="dv">4</span> <span class="op">*</span><span class="st"> </span><span class="dv">12</span></span></code></pre></div>
+<pre><code>## [1] 48</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="presentation.html#cb8-1"></a><span class="dv">-10</span> <span class="op">/</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] -3.333333</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="presentation.html#cb10-1"></a><span class="dv">5</span><span class="op">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<p>Cette dernière opération utilise le symbole <code>^</code> qui représente l’opération <em>puissance</em>. <code>5^2</code> signifie donc “5 au carré”, soit 25.</p>
+</div>
+<div id="précisions-concernant-la-saisie-des-commandes" class="section level4">
+<h4><span class="header-section-number">2.2.1.2</span> Précisions concernant la saisie des commandes</h4>
+<p>Lorsqu’on saisit une commande, les espaces autour des opérateurs n’ont pas d’importance. Les trois commandes suivantes sont donc équivalentes, mais on privilégie en général la deuxième pour des raisons de lisibilité du code.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="presentation.html#cb12-1"></a><span class="dv">10</span><span class="op">+</span><span class="dv">2</span></span>
+<span id="cb12-2"><a href="presentation.html#cb12-2"></a><span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb12-3"><a href="presentation.html#cb12-3"></a><span class="dv">10</span>       <span class="op">+</span><span class="st">       </span><span class="dv">2</span></span></code></pre></div>
+<p>Quand vous êtes dans la console, vous pouvez utiliser les flèches vers le haut et vers le bas pour naviguer dans l’historique des commandes que vous avez tapées précédemment. Vous pouvez à tout moment modifier la commande affichée, et l’exécuter en appuyant sur <code>Entrée</code>.</p>
+<p>Enfin, il peut arriver qu’on saisisse une commande de manière incomplète : oubli d’une parenthèse, faute de frappe, etc. Dans ce cas, R remplace l’invite de commande habituel par un signe <code>+</code> :</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="presentation.html#cb13-1"></a><span class="dv">4</span> <span class="op">*</span></span>
+<span id="cb13-2"><a href="presentation.html#cb13-2"></a><span class="op">+</span></span></code></pre></div>
+<p>Cela signifie qu’il “attend la suite”. On peut alors soit compléter la commande sur cette nouvelle ligne et appuyer sur <code>Entrée</code>, soit, si on est perdu, tout annuler et revenir à l’invite de commandes normal en appuyant sur <code>Esc</code> ou <code>Échap</code>.</p>
+</div>
+</div>
+<div id="objets" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Objets</h3>
+<div id="objets-simples" class="section level4">
+<h4><span class="header-section-number">2.2.2.1</span> Objets simples</h4>
+<p>Faire des calculs c’est bien, mais il serait intéressant de pouvoir stocker un résultat quelque part pour pouvoir le réutiliser ultérieurement sans avoir à faire du copier/coller.</p>
+<p>Pour conserver le résultat d’une opération, on peut le stocker dans un <em>objet</em> à l’aide de l’opérateur d’assignation <code>&lt;-</code>. Cette “flèche” stocke ce qu’il y a à sa droite dans un objet dont le nom est indiqué à sa gauche.</p>
+<p>Prenons tout de suite un exemple :</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="presentation.html#cb14-1"></a>x &lt;-<span class="st"> </span><span class="dv">2</span></span></code></pre></div>
+<p>Cette commande peut se lire <em>“prend la valeur 2 et mets la dans un objet qui s’appelle <code>x</code>”</em>.</p>
+<p>Si on exécute une commande comportant juste le nom d’un objet, R affiche son contenu :</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="presentation.html#cb15-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>On voit donc que notre objet <code>x</code> contient bien la valeur 2.</p>
+<p>On peut évidemment réutiliser cet objet dans d’autres opérations. R le remplacera alors par sa valeur :</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="presentation.html#cb17-1"></a>x <span class="op">+</span><span class="st"> </span><span class="dv">4</span></span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>On peut créer autant d’objets qu’on le souhaite.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="presentation.html#cb19-1"></a>x &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb19-2"><a href="presentation.html#cb19-2"></a>y &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb19-3"><a href="presentation.html#cb19-3"></a>resultat &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb19-4"><a href="presentation.html#cb19-4"></a>resultat</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p style="color:red">
+<strong>Attention</strong>
+</p>
+<p>Les noms d’objets peuvent contenir des lettres, des chiffres, les symboles <code>.</code> et <code>_</code>. Ils ne peuvent pas commencer par un chiffre. Attention, R fait la différence entre minuscules et majuscules dans les noms d’objets, ce qui signifie que <code>x</code> et <code>X</code> seront deux objets différents, tout comme <code>resultat</code> et <code>Resultat</code>.
+De manière générale, il est préférable d’éviter les majuscules (pour les risques d’erreur) et les caractères accentués (pour des questions d’encodage) dans les noms d’objets.
+De même, il faut essayer de trouver un équilibre entre clarté du nom (comprendre à quoi sert l’objet, ce qu’il contient) et sa longueur. Par exemple, on préfèrera comme nom d’objet <code>taille_conj1</code> à <code>taille_du_conjoint_numero_1</code> (trop long) ou à <code>t1</code> (pas assez explicite).</p>
+<p>Quand on assigne une nouvelle valeur à un objet déjà existant, la valeur précédente est perdue. Les objets n’ont pas de mémoire.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="presentation.html#cb21-1"></a>x &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb21-2"><a href="presentation.html#cb21-2"></a>x &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb21-3"><a href="presentation.html#cb21-3"></a>x</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>De la même manière, assigner un objet à un autre ne crée pas de “lien” entre les deux. Cela copie juste la valeur de l’objet de droite dans celui de gauche :</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="presentation.html#cb23-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb23-2"><a href="presentation.html#cb23-2"></a>y &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb23-3"><a href="presentation.html#cb23-3"></a>x &lt;-<span class="st"> </span>y</span>
+<span id="cb23-4"><a href="presentation.html#cb23-4"></a>x</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="presentation.html#cb25-1"></a><span class="co">### Si on modifie y, cela ne modifie pas x</span></span>
+<span id="cb25-2"><a href="presentation.html#cb25-2"></a>y &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb25-3"><a href="presentation.html#cb25-3"></a>x</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>On le verra, les objets peuvent contenir tout un tas d’informations. Jusqu’ici on n’a stocké que des nombres, mais ils peuvent aussi contenir des chaînes de caractères (du texte), qu’on délimite avec des guillemets simples ou doubles (<code>'</code> ou <code>"</code>) :</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="presentation.html#cb27-1"></a>chien &lt;-<span class="st"> &quot;Chihuahua&quot;</span></span>
+<span id="cb27-2"><a href="presentation.html#cb27-2"></a>chien</span></code></pre></div>
+<pre><code>## [1] &quot;Chihuahua&quot;</code></pre>
+</div>
+<div id="vecteurs" class="section level4">
+<h4><span class="header-section-number">2.2.2.2</span> Vecteurs</h4>
+<p>Imaginons maintenant qu’on a demandé la taille en centimètres de 5 personnes et qu’on souhaite calculer leur taille moyenne. On pourrait créer autant d’objets que de tailles et faire l’opération mathématique qui va bien :</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="presentation.html#cb29-1"></a>taille1 &lt;-<span class="st"> </span><span class="dv">156</span></span>
+<span id="cb29-2"><a href="presentation.html#cb29-2"></a>taille2 &lt;-<span class="st"> </span><span class="dv">164</span></span>
+<span id="cb29-3"><a href="presentation.html#cb29-3"></a>taille3 &lt;-<span class="st"> </span><span class="dv">197</span></span>
+<span id="cb29-4"><a href="presentation.html#cb29-4"></a>taille4 &lt;-<span class="st"> </span><span class="dv">147</span></span>
+<span id="cb29-5"><a href="presentation.html#cb29-5"></a>taille5 &lt;-<span class="st"> </span><span class="dv">173</span></span>
+<span id="cb29-6"><a href="presentation.html#cb29-6"></a>(taille1 <span class="op">+</span><span class="st"> </span>taille2 <span class="op">+</span><span class="st"> </span>taille3 <span class="op">+</span><span class="st"> </span>taille4 <span class="op">+</span><span class="st"> </span>taille5) <span class="op">/</span><span class="st"> </span><span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 167.4</code></pre>
+<p>Cette manière de faire n’est évidemment pas pratique du tout. On va plutôt stocker l’ensemble de nos tailles dans un seul objet, de type <em>vecteur</em>, avec la fonction <code>combine</code> appeler avec le raccourci <code>c</code> :</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="presentation.html#cb31-1"></a>tailles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">156</span>, <span class="dv">164</span>, <span class="dv">197</span>, <span class="dv">147</span>, <span class="dv">173</span>)</span></code></pre></div>
+<p>Si on affiche le contenu de cet objet, on voit qu’il contient bien l’ensemble des tailles saisies :</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="presentation.html#cb32-1"></a>tailles</span></code></pre></div>
+<pre><code>## [1] 156 164 197 147 173</code></pre>
+<p>Un <em>vecteur</em> dans R est un objet qui peut contenir plusieurs informations du même type, potentiellement en très grand nombre.</p>
+<p>L’avantage d’un vecteur est que lorsqu’on lui applique une opération, celle-ci s’applique à toutes les valeurs qu’il contient. Ainsi, si on veut la taille en mètres plutôt qu’en centimètres, on peut faire :</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="presentation.html#cb34-1"></a>tailles_m &lt;-<span class="st"> </span>tailles <span class="op">/</span><span class="st"> </span><span class="dv">100</span></span>
+<span id="cb34-2"><a href="presentation.html#cb34-2"></a>tailles_m</span></code></pre></div>
+<pre><code>## [1] 1.56 1.64 1.97 1.47 1.73</code></pre>
+<p>Cela fonctionne pour toutes les opérations de base :</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="presentation.html#cb36-1"></a>tailles <span class="op">+</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<pre><code>## [1] 166 174 207 157 183</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="presentation.html#cb38-1"></a>tailles<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 24336 26896 38809 21609 29929</code></pre>
+<p>Imaginons maintenant qu’on a aussi demandé aux cinq mêmes personnes leur poids en kilos. On peut alors créer un deuxième vecteur :</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="presentation.html#cb40-1"></a>poids &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">45</span>, <span class="dv">59</span>, <span class="dv">110</span>, <span class="dv">44</span>, <span class="dv">88</span>)</span></code></pre></div>
+<p>On peut alors effectuer des calculs utilisant nos deux vecteurs <code>tailles</code> et <code>poids</code>. On peut par exemple calculer l’indice de masse corporelle (IMC) de chacun de nos enquêtés en divisant leur poids en kilo par leur taille en mètre au carré :</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="presentation.html#cb41-1"></a>imc &lt;-<span class="st"> </span>poids <span class="op">/</span><span class="st"> </span>(tailles <span class="op">/</span><span class="st"> </span><span class="dv">100</span>) <span class="op">^</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb41-2"><a href="presentation.html#cb41-2"></a>imc</span></code></pre></div>
+<pre><code>## [1] 18.49112 21.93635 28.34394 20.36189 29.40292</code></pre>
+<p>Un vecteur peut contenir des nombres, mais il peut aussi contenir du texte. Imaginons qu’on a demandé aux 5 mêmes personnes leur niveau de diplôme : on peut regrouper l’information dans un vecteur de <em>chaînes de caractères</em>. Une chaîne de caractère contient du texte libre, délimité par des guillemets simples ou doubles :</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="presentation.html#cb43-1"></a>diplome &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;Bac+2&quot;</span>, <span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;Bac+3&quot;</span>)</span>
+<span id="cb43-2"><a href="presentation.html#cb43-2"></a>diplome</span></code></pre></div>
+<pre><code>## [1] &quot;CAP&quot;   &quot;Bac&quot;   &quot;Bac+2&quot; &quot;CAP&quot;   &quot;Bac+3&quot;</code></pre>
+<p>L’opérateur <code>:</code>, lui, permet de générer rapidement un vecteur comprenant tous les nombres entre deux valeurs, opération assez courante sous R :</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="presentation.html#cb45-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb45-2"><a href="presentation.html#cb45-2"></a>x</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Enfin, notons qu’on peut accéder à un élément particulier d’un vecteur en faisant suivre le nom du vecteur de crochets contenant le numéro de l’élément désiré. Par exemple :</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="presentation.html#cb47-1"></a>diplome[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Bac&quot;</code></pre>
+<p>Cette opération, qui utilise l’opérateur <code>[]</code>, permet donc la sélection d’éléments d’un vecteur.</p>
+<p>Dernière remarque, si on affiche dans la console un vecteur avec beaucoup d’éléments, ceux-ci seront répartis sur plusieurs lignes. Par exemple, si on a un vecteur de 50 nombres on peut obtenir quelque chose comme :</p>
+<pre><code> [1] 294 425 339 914 114 896 716 648 915 587 181 926 489
+[14] 848 583 182 662 888 417 133 146 322 400 698 506 944
+[27] 237 324 333 443 487 658 793 288 897 588 697 439 697
+[40] 914 694 126 969 744 927 337 439 226 704 635</code></pre>
+<p>On remarque que R ajoute systématiquement un nombre entre crochets au début de chaque ligne : il s’agit en fait de la position du premier élément de la ligne dans le vecteur. Ainsi, le 848 de la deuxième ligne est le 14e élément du vecteur, le 914 de la dernière ligne est le 40e, etc.</p>
+<p>Ceci explique le <code>[1]</code> qu’on obtient quand on affiche un simple nombre<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> :</p>
+<pre><code> [1] 4
+ </code></pre>
+<p>On peut également effectuer une indexation multiple sur un vecteur si on souhaite sélectionner plusieurs élèments.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="presentation.html#cb51-1"></a>diplome[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>## [1] &quot;Bac&quot;   &quot;Bac+2&quot; &quot;CAP&quot;</code></pre>
+<p>On peut également effectuer une indexation <em>contraire</em> sur un vecteur en précisant tous les élèments que l’on ne veut pas sélectionner. Pour cela, on utilise le ‘-’ devant l’indexation :</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="presentation.html#cb53-1"></a>diplome[<span class="op">-</span><span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;CAP&quot;   &quot;Bac+2&quot; &quot;CAP&quot;   &quot;Bac+3&quot;</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="presentation.html#cb55-1"></a>diplome[<span class="op">-</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>## [1] &quot;CAP&quot;   &quot;Bac+2&quot; &quot;Bac+3&quot;</code></pre>
+</div>
+<div id="type-de-vecteur" class="section level4">
+<h4><span class="header-section-number">2.2.2.3</span> Type de vecteur</h4>
+<p>Les vecteurs peuvent être de classes différentes, selon le type de données qu’ils contiennent.
+On a ainsi des vecteurs de type <code>numeric</code>, <code>character</code> ou <code>logical</code>:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="presentation.html#cb57-1"></a>numeric_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">55</span>,<span class="dv">49</span>,<span class="dv">4</span>)</span>
+<span id="cb57-2"><a href="presentation.html#cb57-2"></a><span class="kw">class</span>(numeric_vec)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="presentation.html#cb59-1"></a>character_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Jaune&quot;</span>, <span class="st">&quot;Vert&quot;</span>, <span class="st">&quot;Bleu&quot;</span>, <span class="st">&quot;Rouge&quot;</span>)</span>
+<span id="cb59-2"><a href="presentation.html#cb59-2"></a><span class="kw">class</span>(character_vec)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="presentation.html#cb61-1"></a>logical_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>)</span>
+<span id="cb61-2"><a href="presentation.html#cb61-2"></a><span class="kw">class</span>(logical_vec)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p><strong>Attention</strong> : dans un vecteur, tous les éléments sont de même type :</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="presentation.html#cb63-1"></a>un_vecteur &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Luca&quot;</span>, <span class="dv">30</span>, <span class="dv">2000</span>, <span class="ot">FALSE</span>)</span>
+<span id="cb63-2"><a href="presentation.html#cb63-2"></a><span class="kw">class</span>(un_vecteur)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="presentation.html#cb65-1"></a>un_vecteur</span></code></pre></div>
+<pre><code>## [1] &quot;Luca&quot;  &quot;30&quot;    &quot;2000&quot;  &quot;FALSE&quot;</code></pre>
+<p>Il existe des fonctions pour tester la classe d’un vecteur. Elles s’écrivent avec le même préfixe <code>is.classe_a_tester</code>. Ces fonctions sont des tests logiques donc elles renvoient toujours des booléens.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="presentation.html#cb67-1"></a><span class="kw">is.numeric</span>(numeric_vec)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="presentation.html#cb69-1"></a><span class="kw">is.numeric</span>(character_vec)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="presentation.html#cb71-1"></a><span class="kw">is.character</span>(numeric_vec)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="presentation.html#cb73-1"></a><span class="kw">is.character</span>(character_vec)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="presentation.html#cb75-1"></a><span class="kw">is.logical</span>(logical_vec)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="presentation.html#cb77-1"></a><span class="kw">is.logical</span>(character_vec)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Il est également possible de modifier la classe d’un vecteur avec les fonctions <code>as.new_class</code>.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="presentation.html#cb79-1"></a><span class="kw">as.character</span>(numeric_vec)</span></code></pre></div>
+<pre><code>## [1] &quot;10&quot; &quot;55&quot; &quot;49&quot; &quot;4&quot;</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="presentation.html#cb81-1"></a><span class="kw">as.numeric</span>(logical_vec)</span></code></pre></div>
+<pre><code>## [1] 1 0 0 1</code></pre>
+<p>Dans R, les variables qualitatives peuvent être de deux types : ou bien des vecteurs de type <code>character</code> (des chaînes de caractères), ou bien des <code>factor</code> (facteurs).
+En R, la classe <code>factor</code> est un vecteur contenant uniquement certaines valeurs prédéfinies. Ces valeurs pré-définies sont appelées des <code>levels</code>.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="presentation.html#cb83-1"></a>diplome &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;Bac+2&quot;</span>, <span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;Bac+3&quot;</span>)</span>
+<span id="cb83-2"><a href="presentation.html#cb83-2"></a><span class="kw">class</span>(diplome)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="presentation.html#cb85-1"></a>diplome &lt;-<span class="st"> </span><span class="kw">as.factor</span>(diplome)</span>
+<span id="cb85-2"><a href="presentation.html#cb85-2"></a>diplome</span></code></pre></div>
+<pre><code>## [1] CAP   Bac   Bac+2 CAP   Bac+3
+## Levels: Bac Bac+2 Bac+3 CAP</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="presentation.html#cb87-1"></a><span class="kw">class</span>(diplome)</span></code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<p>Si on souhaite modifier ou ajouter un élèment avec une modalité qui n’est pas pris en compte dans les <code>levels</code>, nous allons avoir une erreur.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="presentation.html#cb89-1"></a>diplome[<span class="dv">6</span>] &lt;-<span class="st"> &quot;Master&quot;</span></span></code></pre></div>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, 6, value = &quot;Master&quot;): invalid factor
+## level, NA generated</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="presentation.html#cb91-1"></a>diplome</span></code></pre></div>
+<pre><code>## [1] CAP   Bac   Bac+2 CAP   Bac+3 &lt;NA&gt; 
+## Levels: Bac Bac+2 Bac+3 CAP</code></pre>
+<p>Il faut donc modifier les <code>levels</code> acceptés par le vecteur en amont.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="presentation.html#cb93-1"></a><span class="kw">levels</span>(diplome) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">levels</span>(diplome), <span class="st">&quot;Master&quot;</span>)</span>
+<span id="cb93-2"><a href="presentation.html#cb93-2"></a>diplome[<span class="dv">6</span>] &lt;-<span class="st"> &quot;Master&quot;</span></span>
+<span id="cb93-3"><a href="presentation.html#cb93-3"></a>diplome</span></code></pre></div>
+<pre><code>## [1] CAP    Bac    Bac+2  CAP    Bac+3  Master
+## Levels: Bac Bac+2 Bac+3 CAP Master</code></pre>
+<p>Mais à quoi peut servir tout cela ? En réalité, l’intérêt principal de la classe <code>factor</code> est de prendre moins de place en mémoire car les <code>levels</code> sont stockés en <code>numeric</code>. Si on transforme notre vecteur en classe <code>numeric</code> nous n’allons pas avoir d’erreur.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="presentation.html#cb95-1"></a><span class="kw">class</span>(diplome)</span></code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="presentation.html#cb97-1"></a>diplome &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(diplome)</span>
+<span id="cb97-2"><a href="presentation.html#cb97-2"></a><span class="kw">class</span>(diplome)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="presentation.html#cb99-1"></a>diplome</span></code></pre></div>
+<pre><code>## [1] 4 1 2 4 3 5</code></pre>
+<p>On observe que les nombres obtenus correspondent aux numéros de <code>levels</code>. Il faut donc faire trés attention lorsqu’on veut passer une classe <code>numeric</code> à une variable quantitative importée en tant que <code>factor</code>.</p>
+</div>
+</div>
+<div id="fonctions" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Fonctions</h3>
+<div id="principe" class="section level4">
+<h4><span class="header-section-number">2.2.3.1</span> Principe</h4>
+<p>Nous savons désormais effectuer des opérations arithmétiques de base sur des nombres et des vecteurs, et stocker des valeurs dans des objets pour pouvoir les réutiliser plus tard.</p>
+<p>Pour aller plus loin, nous devons aborder les <em>fonctions</em> qui sont, avec les objets, un deuxième concept de base de R. On utilise des fonctions pour effectuer des calculs, obtenir des résultats et accomplir des actions.</p>
+<p>Formellement, une fonction a un <em>nom</em>, elle prend en entrée entre parenthèses un ou plusieurs <em>arguments</em> (ou <em>paramètres</em>), et retourne un <em>résultat</em>.</p>
+<p>Prenons tout de suite un exemple. Si on veut connaître le nombre d’éléments du vecteur <code>tailles</code> que nous avons construit précédemment, on peut utiliser la fonction <code>length</code>, de cette manière :</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="presentation.html#cb101-1"></a><span class="kw">length</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>Ici, <code>length</code> est le nom de la fonction, on l’appelle en lui passant un argument entre parenthèses (en l’occurrence notre vecteur <code>tailles</code>), et elle nous renvoie un résultat, à savoir le nombre d’éléments du vecteur passé en paramètre.</p>
+<p>Autre exemple, les fonctions <code>min</code> et <code>max</code> retournent respectivement les valeurs minimales et maximales d’un vecteur de nombres :</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="presentation.html#cb103-1"></a><span class="kw">min</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] 147</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="presentation.html#cb105-1"></a><span class="kw">max</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] 197</code></pre>
+<p>La fonction <code>mean</code> calcule et retourne la moyenne d’un vecteur de nombres :</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="presentation.html#cb107-1"></a><span class="kw">mean</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] 167.4</code></pre>
+<p>La fonction <code>sum</code> retourne la somme de tous les éléments du vecteur :</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="presentation.html#cb109-1"></a><span class="kw">sum</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] 837</code></pre>
+<p>Jusqu’à présent on n’a vu que des fonctions qui calculent et retournent un unique nombre. Mais une fonction peut renvoyer d’autres types de résultats. Par exemple, la fonction <code>range</code> (étendue) renvoie un vecteur de deux nombres, le minimum et le maximum :</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="presentation.html#cb111-1"></a><span class="kw">range</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] 147 197</code></pre>
+<p>Ou encore, la fonction <code>unique</code>, qui supprime toutes les valeurs en double dans un vecteur, qu’il s’agisse de nombres ou de chaînes de caractères :</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="presentation.html#cb113-1"></a>diplome &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;Bac+2&quot;</span>, <span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;Bac+3&quot;</span>)</span>
+<span id="cb113-2"><a href="presentation.html#cb113-2"></a><span class="kw">unique</span>(diplome)</span></code></pre></div>
+<pre><code>## [1] &quot;CAP&quot;   &quot;Bac&quot;   &quot;Bac+2&quot; &quot;Bac+3&quot;</code></pre>
+</div>
+<div id="arguments" class="section level4">
+<h4><span class="header-section-number">2.2.3.2</span> Arguments</h4>
+<p>Une fonction peut prendre plusieurs arguments, dans ce cas on les indique toujours entre parenthèses, séparés par des virgules.</p>
+<p>On a déjà rencontré un exemple de fonction acceptant plusieurs arguments : la fonction <code>c</code>, qui combine l’ensemble de ses arguments en un vecteur<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> :</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="presentation.html#cb115-1"></a>tailles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">156</span>, <span class="dv">164</span>, <span class="dv">197</span>, <span class="dv">181</span>, <span class="dv">173</span>)</span></code></pre></div>
+<p>Ici, <code>c</code> est appelée en lui passant cinq arguments, les cinq tailles séparées par des virgules, et elle renvoie un vecteur numérique regroupant ces cinq valeurs.</p>
+<p>Supposons maintenant que dans notre vecteur <code>tailles</code> nous avons une valeur manquante (une personne a refusé de répondre). On symbolise celle-ci dans R avec le code interne <code>NA</code> :</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="presentation.html#cb116-1"></a>tailles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">156</span>, <span class="dv">164</span>, <span class="dv">197</span>, <span class="ot">NA</span>, <span class="dv">173</span>)</span>
+<span id="cb116-2"><a href="presentation.html#cb116-2"></a>tailles</span></code></pre></div>
+<pre><code>## [1] 156 164 197  NA 173</code></pre>
+<p><code>NA</code> est l’abréviation de <em>Not available</em>, non disponible. Cette valeur particulière peut être utilisée pour indiquer une valeur manquante, qu’il s’agisse d’un nombre, d’une chaîne de caractères, etc.</p>
+<p>Si je calcule maintenant la taille moyenne à l’aide de la fonction <code>mean</code>, j’obtiens :</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="presentation.html#cb118-1"></a><span class="kw">mean</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>En effet, R considère par défaut qu’il ne peut pas calculer la moyenne si une des valeurs n’est pas disponible. Il considère alors que cette moyenne est elle-même “non disponible” et renvoie donc comme résultat <code>NA</code>.</p>
+<p>On peut cependant indiquer à <code>mean</code> d’effectuer le calcul en ignorant les valeurs manquantes. Ceci se fait en ajoutant un argument supplémentaire, nommé <code>na.rm</code> (abréviation de <em>NA remove</em>, “enlever les NA”), et de lui attribuer la valeur <code>TRUE</code> (code interne de R signifiant <em>vrai</em>) :</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="presentation.html#cb120-1"></a><span class="kw">mean</span>(tailles, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 172.5</code></pre>
+<p>Positionner le paramètre <code>na.rm</code> à <code>TRUE</code> indique à la fonction <code>mean</code> de ne pas tenir compte des valeurs manquantes dans le calcul.</p>
+<p>Si on ne dit rien à la fonction <code>mean</code>, cet argument a une valeur par défaut, en l’occurrence <code>FALSE</code> (faux), qui fait qu’il ne supprime pas les valeurs manquantes. Les deux commandes suivantes sont donc rigoureusement équivalentes :</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="presentation.html#cb122-1"></a><span class="kw">mean</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="presentation.html#cb124-1"></a><span class="kw">mean</span>(tailles, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Lorsqu’on passe un argument à une fonction de cette manière, c’est-à-dire sous la forme <code>nom = valeur</code>, on parle d’<em>argument nommé</em>.</p>
+</div>
+<div id="aide-sur-une-fonction" class="section level4">
+<h4><span class="header-section-number">2.2.3.3</span> Aide sur une fonction</h4>
+<p>Il est fréquent de ne pas savoir (ou d’avoir oublié) quels sont les arguments d’une fonction, ou comment ils se nomment. On peut à tout moment faire appel à l’aide intégrée à R en passant le nom de la fonction (entre guillemets) à la fonction <code>help</code> :</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="presentation.html#cb126-1"></a><span class="kw">help</span>(<span class="st">&quot;mean&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="presentation.html#cb127-1"></a>?mean</span></code></pre></div>
+<p>On peut aussi utiliser le raccourci <code>?mean</code>.</p>
+<p>Ces deux commandes affichent une page (en anglais) décrivant la fonction, ses paramètres, son résultat, le tout accompagné de diverses notes, références et exemples. Ces pages d’aide contiennent à peu près tout ce que vous pourrez chercher à savoir, mais elles ne sont pas toujours d’une lecture aisée.</p>
+<p>Dans RStudio, les pages d’aide en ligne s’ouvriront par défaut dans la zone en bas à droite,
+sous l’onglet <em>Help</em>. Un clic sur l’icône en forme de maison vous affichera la page d’accueil de l’aide.</p>
+</div>
+<div id="programmer-des-fonctions" class="section level4">
+<h4><span class="header-section-number">2.2.3.4</span> Programmer des fonctions</h4>
+<p>Il est possible de programmer ses propres fonctions. Dans l’exemple ci-dessous on construit une fonction <code>imc</code>q ui prend en entrée deux arguments <code>poids</code> et <code>taille</code>. La fonction effectue un calcul et renvoi l’IMC. Pour construire une fonction, on doit obligatoirement faire appel au mot clé <code>function</code>. Le mot clé <code>return</code> n’est pas obligatoire. Cependant, par convention, une fonction renvoie toujours un résultat qui peut aussi être un message d’information sur le bon déroulement de celle-ci. Les arguments sont précisés entre parenthèses <code>( )</code>. Les traitements s’effectuent entre accolades <code>{ }</code>.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="presentation.html#cb128-1"></a>imc &lt;-<span class="st"> </span><span class="cf">function</span>(taille,poids) {</span>
+<span id="cb128-2"><a href="presentation.html#cb128-2"></a>   calcul &lt;-<span class="st"> </span>poids <span class="op">/</span><span class="st"> </span>(taille<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb128-3"><a href="presentation.html#cb128-3"></a>   <span class="kw">return</span> (calcul) }</span></code></pre></div>
+<p>Lorsqu’on vérifie la classe de l’objet <code>imc</code> en mémoire, on constate qu’il est bien de type <code>function</code>.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="presentation.html#cb129-1"></a><span class="kw">class</span>(imc)</span></code></pre></div>
+<pre><code>## [1] &quot;function&quot;</code></pre>
+<p>Puis c’est le même principe que les autres fonctions pour l’utiliser :</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="presentation.html#cb131-1"></a><span class="kw">imc</span>(<span class="dt">taille =</span> <span class="fl">1.55</span>, <span class="dt">poids =</span> <span class="dv">49</span>)</span></code></pre></div>
+<pre><code>## [1] 20.39542</code></pre>
+<p>Il est possible de préciser des arguments par défaut. Ils sont à saisir dans la définition des arguments :</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="presentation.html#cb133-1"></a>imc &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">taille =</span> <span class="fl">1.70</span>, <span class="dt">poids =</span> <span class="dv">60</span>) {</span>
+<span id="cb133-2"><a href="presentation.html#cb133-2"></a>   calcul &lt;-<span class="st"> </span>poids <span class="op">/</span><span class="st"> </span>(taille<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb133-3"><a href="presentation.html#cb133-3"></a>   <span class="kw">return</span> (calcul) }</span>
+<span id="cb133-4"><a href="presentation.html#cb133-4"></a></span>
+<span id="cb133-5"><a href="presentation.html#cb133-5"></a><span class="kw">imc</span>()</span></code></pre></div>
+<pre><code>## [1] 20.76125</code></pre>
+</div>
+</div>
+</div>
+<div id="fonctions-de-tests-et-comparaisons" class="section level2">
+<h2><span class="header-section-number">2.3</span> Fonctions de tests et comparaisons</h2>
+<p>Dans R, il est possible d’effectuer des comparaisons ou des tests qui vont retourner la valeur <code>TRUE</code> si vrai et <code>FALSE</code> si faux</p>
+<div id="opérateurs-de-comparaisons" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Opérateurs de comparaisons</h3>
+<p>Voici les différents opérateurs de comparaisons que l’on peut utiliser :</p>
+<p>
+<img src="img/comparaison.png" title="fig:" alt="Opérateurs de comparaison" />
+</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="presentation.html#cb135-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">9</span>)</span>
+<span id="cb135-2"><a href="presentation.html#cb135-2"></a>b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="presentation.html#cb136-1"></a>a <span class="op">&gt;</span><span class="st"> </span>b</span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="presentation.html#cb138-1"></a>a <span class="op">==</span><span class="st"> </span>b</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="presentation.html#cb140-1"></a>a <span class="op">!=</span><span class="st"> </span>b</span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE  TRUE FALSE</code></pre>
+</div>
+<div id="opérateurs-logiques" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Opérateurs logiques</h3>
+<p>Ces opérateurs permettent de tester l’effet de plusieurs tests logiques.</p>
+<p>
+<img src="img/logique.png" title="fig:" alt="Opérateurs logiques" />
+</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="presentation.html#cb142-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">9</span>)</span>
+<span id="cb142-2"><a href="presentation.html#cb142-2"></a>b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="presentation.html#cb143-1"></a>(a <span class="op">&gt;</span><span class="st"> </span>b) <span class="op">&amp;</span><span class="st"> </span>( a <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="presentation.html#cb145-1"></a>(a <span class="op">==</span><span class="st"> </span>b) <span class="op">|</span><span class="st"> </span>(a <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="presentation.html#cb147-1"></a><span class="kw">xor</span>(a <span class="op">&gt;</span><span class="st"> </span>b, a <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="presentation.html#cb149-1"></a>a <span class="op">&gt;</span><span class="st"> </span>b</span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="presentation.html#cb151-1"></a><span class="op">!</span><span class="st"> </span>a <span class="op">&gt;</span><span class="st"> </span>b</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE</code></pre>
+</div>
+<div id="fonctions-logiques" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Fonctions logiques</h3>
+<p>Il existe des fonctions pour effectuer des tests logiques. Elles ont toutes le même préfixe et s’écrivent <code>is.mon_test</code>. On peut par exemple tester la classe d’un <strong>objet</strong> avec les fonctions <code>is.classe_a_tester</code>. Ces fonctions sont des tests logiques donc elles renvoient toujours des booléens (rappel TD1).</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="presentation.html#cb153-1"></a>numeric_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">55</span>,<span class="dv">49</span>,<span class="dv">4</span>)</span>
+<span id="cb153-2"><a href="presentation.html#cb153-2"></a><span class="kw">class</span>(numeric_vec)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="presentation.html#cb155-1"></a>character_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Jaune&quot;</span>, <span class="st">&quot;Vert&quot;</span>, <span class="st">&quot;Bleu&quot;</span>, <span class="st">&quot;Rouge&quot;</span>)</span>
+<span id="cb155-2"><a href="presentation.html#cb155-2"></a><span class="kw">class</span>(character_vec)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="presentation.html#cb157-1"></a><span class="kw">is.numeric</span>(numeric_vec)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="presentation.html#cb159-1"></a><span class="kw">is.numeric</span>(character_vec)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="presentation.html#cb161-1"></a><span class="kw">is.character</span>(numeric_vec)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="presentation.html#cb163-1"></a><span class="kw">is.character</span>(character_vec)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>On peut aussi tester la présence <code>FALSE</code>/ <code>TRUE</code> de valeurs manquantes <code>NA</code> avec la fonction <code>is.na</code>.</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="presentation.html#cb165-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="ot">NA</span>,<span class="dv">6</span>,<span class="dv">9</span>)</span>
+<span id="cb165-2"><a href="presentation.html#cb165-2"></a><span class="kw">is.na</span>(a)</span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE FALSE FALSE</code></pre>
+</div>
+</div>
+<div id="regrouper-ses-commandes-dans-des-scripts" class="section level2">
+<h2><span class="header-section-number">2.4</span> Regrouper ses commandes dans des scripts</h2>
+<p>Jusqu’ici on a utilisé R de manière “interactive”, en saisissant des commandes directement dans la console. Ça n’est cependant pas la manière dont on va utiliser R au quotidien, pour une raison simple : lorsque R redémarre, tout ce qui a été effectué dans la console est perdu.</p>
+<p>Plutôt que de saisir nos commandes dans la console, on va donc les regrouper dans des scripts (de simples fichiers texte), qui vont garder une trace de toutes les opérations effectuées, et ce sont ces scripts, sauvegardés régulièrement, qui seront le “coeur” de notre travail. C’est en rouvrant les scripts et en réexécutant les commandes qu’ils contiennent qu’on pourra “reproduire” les données, leur traitement, les analyses et leurs résultats.</p>
+<p>Pour créer un script, il suffit de sélectionner le menu <em>File</em>, puis <em>New file</em> et <em>R script</em>. Une quatrième zone apparaît alors en haut à gauche de l’interface de RStudio. On peut enregistrer notre script à tout moment dans un fichier avec l’extension <code>.R</code>, en cliquant sur l’icône de disquette ou en choisissant <em>File</em> puis <em>Save</em>.</p>
+<p>Un script est un fichier texte brut, qui s’édite de la manière habituelle. À la différence de la console, quand on appuie sur <code>Entrée</code>, cela n’exécute pas la commande en cours mais insère un saut de ligne (comme on pouvait s’y attendre).</p>
+<p>Pour exécuter une commande saisie dans un script, il suffit de positionner le curseur sur la ligne de la commande en question, et de cliquer sur le bouton <em>Run</em> dans la barre d’outils juste au-dessus de la zone d’édition du script. On peut aussi utiliser le raccourci clavier <code>Ctrl + Entrée</code> (<code>Cmd + Entrée</code> sous Mac). On peut enfin sélectionner plusieurs lignes avec la souris ou le clavier et cliquer sur <em>Run</em> (ou utiliser le raccourci clavier), et l’ensemble des lignes est exécuté d’un coup.</p>
+<p>Finalement, un script pourra ressembler à quelque chose comme ça :</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="presentation.html#cb167-1"></a>tailles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">156</span>, <span class="dv">164</span>, <span class="dv">197</span>, <span class="dv">147</span>, <span class="dv">173</span>)</span>
+<span id="cb167-2"><a href="presentation.html#cb167-2"></a>poids &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">45</span>, <span class="dv">59</span>, <span class="dv">110</span>, <span class="dv">44</span>, <span class="dv">88</span>)</span>
+<span id="cb167-3"><a href="presentation.html#cb167-3"></a><span class="kw">mean</span>(tailles)</span>
+<span id="cb167-4"><a href="presentation.html#cb167-4"></a><span class="kw">mean</span>(poids)</span>
+<span id="cb167-5"><a href="presentation.html#cb167-5"></a>imc &lt;-<span class="st"> </span>poids <span class="op">/</span><span class="st"> </span>(tailles <span class="op">/</span><span class="st"> </span><span class="dv">100</span>) <span class="op">^</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb167-6"><a href="presentation.html#cb167-6"></a><span class="kw">min</span>(imc)</span>
+<span id="cb167-7"><a href="presentation.html#cb167-7"></a><span class="kw">max</span>(imc)</span></code></pre></div>
+<div id="commentaires" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Commentaires</h3>
+<p>Les commentaires sont un élément très important d’un script. Il s’agit de texte libre, ignoré par R, et qui permet de décrire les étapes du script, sa logique, les raisons pour lesquelles on a procédé de telle ou telle manière… Il est primordial de documenter ses scripts à l’aide de commentaires, car il est très facile de ne plus se retrouver dans un programme qu’on a produit soi-même, même après une courte interruption.</p>
+<p>Pour ajouter un commentaire, il suffit de le faire précéder d’un ou plusieurs symboles <code>#</code>. En effet, dès que R rencontre ce caractère, il ignore tout ce qui se trouve derrière, jusqu’à la fin de la ligne.</p>
+<p>On peut donc documenter le script précédent :</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="presentation.html#cb168-1"></a><span class="co"># Saisie des tailles et poids des enquêtés</span></span>
+<span id="cb168-2"><a href="presentation.html#cb168-2"></a>tailles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">156</span>, <span class="dv">164</span>, <span class="dv">197</span>, <span class="dv">147</span>, <span class="dv">173</span>)</span>
+<span id="cb168-3"><a href="presentation.html#cb168-3"></a>poids &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">45</span>, <span class="dv">59</span>, <span class="dv">110</span>, <span class="dv">44</span>, <span class="dv">88</span>)</span>
+<span id="cb168-4"><a href="presentation.html#cb168-4"></a><span class="co"># Calcul des tailles et poids moyens</span></span>
+<span id="cb168-5"><a href="presentation.html#cb168-5"></a><span class="kw">mean</span>(tailles)</span>
+<span id="cb168-6"><a href="presentation.html#cb168-6"></a><span class="kw">mean</span>(poids)</span>
+<span id="cb168-7"><a href="presentation.html#cb168-7"></a><span class="co"># Calcul de l&#39;IMC (poids en kilo divisé par les tailles en mètre au carré)</span></span>
+<span id="cb168-8"><a href="presentation.html#cb168-8"></a>imc &lt;-<span class="st"> </span>poids <span class="op">/</span><span class="st"> </span>(tailles <span class="op">/</span><span class="st"> </span><span class="dv">100</span>) <span class="op">^</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb168-9"><a href="presentation.html#cb168-9"></a><span class="co"># Valeurs extrêmes de l&#39;IMC</span></span>
+<span id="cb168-10"><a href="presentation.html#cb168-10"></a><span class="kw">min</span>(imc)</span>
+<span id="cb168-11"><a href="presentation.html#cb168-11"></a><span class="kw">max</span>(imc)</span></code></pre></div>
+</div>
+</div>
+<div id="installer-et-charger-des-extensions-packages" class="section level2">
+<h2><span class="header-section-number">2.5</span> Installer et charger des extensions (<em>packages</em>)</h2>
+<p>R étant un logiciel libre, il bénéficie d’un développement communautaire riche et dynamique. L’installation de base de R permet de faire énormément de choses, mais le langage dispose en plus d’un système d’extensions permettant d’ajouter facilement de nouvelles fonctionnalités. La plupart des extensions sont développées et maintenues par la communauté des utilisateurs de R, et diffusées via un réseau de serveurs nommé CRAN (<em>Comprehensive R Archive Network</em>).</p>
+Pour installer une extension, si on dispose d’une connexion Internet, on peut utiliser le bouton <em>Install</em> de l’onglet <em>Packages</em> de RStudio.
+<p>
+<img src="img/rstudio_package_install.png" title="fig:" alt="Installer une extension" />
+</p>
+<p>Il suffit alors d’indiquer le nom de l’extension dans le champ <em>Package</em> et de cliquer sur <em>Install</em>.</p>
+<p>
+<img src="img/rstudio_package_install2.png" title="fig:" alt="Installation d’une extension" />
+</p>
+<p>On peut aussi installer des extensions en utilisant la fonction <code>install.packages()</code> directement dans la console. Par exemple, pour installer le <em>package</em> <code>questionr</code> on peut exécuter la commande :</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="presentation.html#cb169-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;questionr&quot;</span>)</span></code></pre></div>
+<p>Installer une extension via l’une des deux méthodes précédentes va télécharger l’ensemble des fichiers nécessaires depuis l’une des machines du CRAN, puis installer tout ça sur le disque dur de votre ordinateur. Vous n’avez besoin de le faire qu’une fois, comme vous le faites pour installer un programme sur votre Mac ou PC.
+Cela suppose que vous disposez d’une connexion internet. Cependant, il est possible d’installer des packages en local sans connexion internet sous réserve d’être en possession des packages en fichiers zippés.</p>
+<p>Une fois l’extension installée, il faut la “charger” avant de pouvoir utiliser les fonctions qu’elle propose. Ceci se fait avec la fonction <code>library</code>. Par exemple, pour pouvoir utiliser les fonctions de <code>questionr</code>, vous devrez exécuter la commande suivante :</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="presentation.html#cb170-1"></a><span class="kw">library</span>(questionr)</span></code></pre></div>
+<p>Ainsi, bien souvent, on regroupe en début de script toute une série d’appels à <code>library</code> qui permettent de charger tous les packages utilisés dans le script. Quelque chose comme :</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="presentation.html#cb171-1"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb171-2"><a href="presentation.html#cb171-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb171-3"><a href="presentation.html#cb171-3"></a><span class="kw">library</span>(questionr)</span></code></pre></div>
+<p>Si vous essayez d’exécuter une fonction d’une extension et que vous obtenez le message d’erreur <code>impossible de trouver la fonction</code>, c’est certainement parce que vous n’avez pas exécuté la commande <code>library</code> correspondante.</p>
+</div>
+<div id="exercices" class="section level2">
+<h2><span class="header-section-number">2.6</span> Exercices</h2>
+<div id="sujet" class="section level3">
+<h3><span class="header-section-number">2.6.1</span> Sujet</h3>
+<p><strong>Exercice 1</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Construire le vecteur <code>x</code> suivant :</li>
+</ol>
+<pre><code>## [1] 120 134 256  12</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Utiliser ce vecteur <code>x</code> pour générer les deux vecteurs suivants :</li>
+</ol>
+<pre><code>## [1] 220 234 356 112</code></pre>
+<pre><code>## [1] 240 268 512  24</code></pre>
+<p><strong>Exercice 2</strong></p>
+<p>On a demandé à 4 ménages le revenu des deux conjoints, et le nombre de personnes du ménage :</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="presentation.html#cb175-1"></a>conjoint1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1200</span>, <span class="dv">1180</span>, <span class="dv">1750</span>, <span class="dv">2100</span>)</span>
+<span id="cb175-2"><a href="presentation.html#cb175-2"></a>conjoint2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1450</span>, <span class="dv">1870</span>, <span class="dv">1690</span>, <span class="dv">0</span>)</span>
+<span id="cb175-3"><a href="presentation.html#cb175-3"></a>nb_personnes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span></code></pre></div>
+<p>Calculer le revenu total de chaque ménage, puis diviser par le nombre de personnes pour obtenir le revenu par personne de chaque ménage.</p>
+<p><strong>Exercice 3</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Dans l’exercice précédent, calculer le revenu minimum et maximum parmi ceux du premier conjoint.</li>
+</ol>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="presentation.html#cb176-1"></a>conjoint1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1200</span>, <span class="dv">1180</span>, <span class="dv">1750</span>, <span class="dv">2100</span>)</span></code></pre></div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Recommencer avec les revenus suivants, parmi lesquels l’un des enquêtés n’a pas voulu répondre :</li>
+</ol>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="presentation.html#cb177-1"></a>conjoint1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1200</span>, <span class="dv">1180</span>, <span class="dv">1750</span>, <span class="ot">NA</span>)</span></code></pre></div>
+<p><strong>Exercice 4</strong></p>
+<p>Les deux vecteurs suivants représentent les précipitations (en mm) et la température (en °C) moyennes sur la ville de Lyon, pour chaque mois de l’année, entre 1981 et 2010 :</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="presentation.html#cb178-1"></a>temperature &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.4</span>, <span class="fl">4.8</span>, <span class="fl">8.4</span>, <span class="fl">11.4</span>, <span class="fl">15.8</span>, <span class="fl">19.4</span>, <span class="fl">22.2</span>, <span class="fl">21.6</span>, <span class="fl">17.6</span>, <span class="fl">13.4</span>, <span class="fl">7.6</span>, <span class="fl">4.4</span>)</span>
+<span id="cb178-2"><a href="presentation.html#cb178-2"></a>precipitations &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">47.2</span>, <span class="fl">44.1</span>, <span class="fl">50.4</span>, <span class="fl">74.9</span>, <span class="fl">90.8</span>, <span class="fl">75.6</span>, <span class="fl">63.7</span>, <span class="dv">62</span>, <span class="fl">87.5</span>, <span class="fl">98.6</span>, <span class="fl">81.9</span>, <span class="fl">55.2</span>)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Calculer la température moyenne sur l’année.</p></li>
+<li><p>Calculer la quantité totale de précipitations sur l’année.</p></li>
+<li><p>À quoi correspond et comment peut-on interpréter le résultat de la fonction suivante ? Vous pouvez vous aider de la page d’aide de la fonction si nécessaire.</p></li>
+</ol>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="presentation.html#cb179-1"></a><span class="kw">cumsum</span>(precipitations)</span></code></pre></div>
+<pre><code>##  [1]  47.2  91.3 141.7 216.6 307.4 383.0 446.7 508.7 596.2 694.8 776.7
+## [12] 831.9</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Même question pour :</li>
+</ol>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="presentation.html#cb181-1"></a><span class="kw">diff</span>(temperature)</span></code></pre></div>
+<pre><code>##  [1]  1.4  3.6  3.0  4.4  3.6  2.8 -0.6 -4.0 -4.2 -5.8 -3.2</code></pre>
+<p><strong>Exercice 5</strong></p>
+<p>On a relevé les notes en maths, anglais et sport d’une classe de 6 élèves et on a stocké ces données dans trois vecteurs :</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="presentation.html#cb183-1"></a>maths &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">8</span>, <span class="dv">18</span>, <span class="dv">6</span>, <span class="dv">10</span>)</span>
+<span id="cb183-2"><a href="presentation.html#cb183-2"></a>anglais &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">14</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">11</span>)</span>
+<span id="cb183-3"><a href="presentation.html#cb183-3"></a>sport &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">12</span>)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Calculer la moyenne des élèves de la classe en anglais.</p></li>
+<li><p>Calculer la moyenne générale de chaque élève.</p></li>
+<li><p>Essayez de comprendre le résultat des deux fonctions suivantes (vous pouvez vous aider de la page d’aide de ces fonctions) :</p></li>
+</ol>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="presentation.html#cb184-1"></a><span class="kw">pmin</span>(maths, anglais, sport)</span></code></pre></div>
+<pre><code>## [1] 12  9  8 10  6 10</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="presentation.html#cb186-1"></a><span class="kw">pmax</span>(maths, anglais, sport)</span></code></pre></div>
+<pre><code>## [1] 18 16 14 18 17 12</code></pre>
+</div>
+<div id="correction" class="section level3">
+<h3><span class="header-section-number">2.6.2</span> Correction</h3>
+<p><strong>Exercice 1</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Construire le vecteur <code>x</code> suivant :</li>
+</ol>
+<pre><code>## [1] 120 134 256  12</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="presentation.html#cb189-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">120</span>, <span class="dv">134</span>, <span class="dv">256</span>, <span class="dv">12</span>)</span></code></pre></div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Utiliser ce vecteur <code>x</code> pour générer les deux vecteurs suivants :</li>
+</ol>
+<pre><code>## [1] 220 234 356 112</code></pre>
+<pre><code>## [1] 240 268 512  24</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="presentation.html#cb192-1"></a>x <span class="op">+</span><span class="st"> </span><span class="dv">100</span></span>
+<span id="cb192-2"><a href="presentation.html#cb192-2"></a>x <span class="op">*</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
+<p><strong>Exercice 2</strong></p>
+<p>On a demandé à 4 ménages le revenu des deux conjoints, et le nombre de personnes du ménage :</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="presentation.html#cb193-1"></a>conjoint1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1200</span>, <span class="dv">1180</span>, <span class="dv">1750</span>, <span class="dv">2100</span>)</span>
+<span id="cb193-2"><a href="presentation.html#cb193-2"></a>conjoint2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1450</span>, <span class="dv">1870</span>, <span class="dv">1690</span>, <span class="dv">0</span>)</span>
+<span id="cb193-3"><a href="presentation.html#cb193-3"></a>nb_personnes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span></code></pre></div>
+<p>Calculer le revenu total de chaque ménage, puis diviser par le nombre de personnes pour obtenir le revenu par personne de chaque ménage.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="presentation.html#cb194-1"></a>revenu_total &lt;-<span class="st"> </span>conjoint1 <span class="op">+</span><span class="st"> </span>conjoint2</span>
+<span id="cb194-2"><a href="presentation.html#cb194-2"></a>revenu_total <span class="op">/</span><span class="st"> </span>nb_personnes</span></code></pre></div>
+<p><strong>Exercice 3</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Dans l’exercice précédent, calculer le revenu minimum et maximum parmi ceux du premier conjoint.</li>
+</ol>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="presentation.html#cb195-1"></a>conjoint1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1200</span>, <span class="dv">1180</span>, <span class="dv">1750</span>, <span class="dv">2100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="presentation.html#cb196-1"></a><span class="kw">range</span>(conjoint1)</span></code></pre></div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Recommencer avec les revenus suivants, parmi lesquels l’un des enquêtés n’a pas voulu répondre :</li>
+</ol>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="presentation.html#cb197-1"></a>conjoint1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1200</span>, <span class="dv">1180</span>, <span class="dv">1750</span>, <span class="ot">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="presentation.html#cb198-1"></a><span class="kw">range</span>(conjoint1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p><strong>Exercice 4</strong></p>
+<p>Les deux vecteurs suivants représentent les précipitations (en mm) et la température (en °C) moyennes sur la ville de Lyon, pour chaque mois de l’année, entre 1981 et 2010 :</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="presentation.html#cb199-1"></a>temperature &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.4</span>, <span class="fl">4.8</span>, <span class="fl">8.4</span>, <span class="fl">11.4</span>, <span class="fl">15.8</span>, <span class="fl">19.4</span>, <span class="fl">22.2</span>, <span class="fl">21.6</span>, <span class="fl">17.6</span>, <span class="fl">13.4</span>, <span class="fl">7.6</span>, <span class="fl">4.4</span>)</span>
+<span id="cb199-2"><a href="presentation.html#cb199-2"></a>precipitations &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">47.2</span>, <span class="fl">44.1</span>, <span class="fl">50.4</span>, <span class="fl">74.9</span>, <span class="fl">90.8</span>, <span class="fl">75.6</span>, <span class="fl">63.7</span>, <span class="dv">62</span>, <span class="fl">87.5</span>, <span class="fl">98.6</span>, <span class="fl">81.9</span>, <span class="fl">55.2</span>)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li>Calculer la température moyenne sur l’année.</li>
+</ol>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="presentation.html#cb200-1"></a><span class="kw">mean</span>(temperature)</span></code></pre></div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Calculer la quantité totale de précipitations sur l’année.</li>
+</ol>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="presentation.html#cb201-1"></a><span class="kw">sum</span>(precipitations)</span></code></pre></div>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>À quoi correspond et comment peut-on interpréter le résultat de la fonction suivante ? Vous pouvez vous aider de la page d’aide de la fonction si nécessaire.</li>
+</ol>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="presentation.html#cb202-1"></a><span class="kw">cumsum</span>(precipitations)</span></code></pre></div>
+<pre><code>##  [1]  47.2  91.3 141.7 216.6 307.4 383.0 446.7 508.7 596.2 694.8 776.7
+## [12] 831.9</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Même question pour :</li>
+</ol>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="presentation.html#cb204-1"></a><span class="kw">diff</span>(temperature)</span></code></pre></div>
+<pre><code>##  [1]  1.4  3.6  3.0  4.4  3.6  2.8 -0.6 -4.0 -4.2 -5.8 -3.2</code></pre>
+<p><code>cumsum(precipitations)</code> correspond à la somme cumulée des précipitations sur l’année. Par exemple, la 6e valeur du vecteur résultat correspond au total de précipitations de janvier à juin.</p>
+<p><code>diff(temperature)</code> correspond à la différence de température d’un mois sur l’autre. Par exemple, la 2e valeur de ce vecteur correspond à l’écart de température entre le mois de février et le mois de janvier.</p>
+<p><strong>Exercice 5</strong></p>
+<p>On a relevé les notes en maths, anglais et sport d’une classe de 6 élèves et on a stocké ces données dans trois vecteurs :</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="presentation.html#cb206-1"></a>maths &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">8</span>, <span class="dv">18</span>, <span class="dv">6</span>, <span class="dv">10</span>)</span>
+<span id="cb206-2"><a href="presentation.html#cb206-2"></a>anglais &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">14</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">11</span>)</span>
+<span id="cb206-3"><a href="presentation.html#cb206-3"></a>sport &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">12</span>)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li>Calculer la moyenne des élèves de la classe en anglais.</li>
+</ol>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="presentation.html#cb207-1"></a><span class="kw">mean</span>(anglais)</span></code></pre></div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Calculer la moyenne générale de chaque élève.</li>
+</ol>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="presentation.html#cb208-1"></a>(maths <span class="op">+</span><span class="st"> </span>anglais <span class="op">+</span><span class="st"> </span>sport) <span class="op">/</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Essayez de comprendre le résultat des deux fonctions suivantes (vous pouvez vous aider de la page d’aide de ces fonctions) :</li>
+</ol>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="presentation.html#cb209-1"></a><span class="kw">pmin</span>(maths, anglais, sport)</span></code></pre></div>
+<pre><code>## [1] 12  9  8 10  6 10</code></pre>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="presentation.html#cb211-1"></a><span class="kw">pmax</span>(maths, anglais, sport)</span></code></pre></div>
+<pre><code>## [1] 18 16 14 18 17 12</code></pre>
+<p><code>pmin</code> et <code>pmax</code> renvoient les minimum et maximum “parallèles” des trois vecteurs passés en argument. Ainsi, <code>pmin</code> renvoie pour chaque élève la note minimale dans les trois matières, et <code>pmax</code> la note maximale.</p>
+</div>
+</div>
+<div id="testez-vos-connaissances" class="section level2">
+<h2><span class="header-section-number">2.7</span> Testez vos connaissances !</h2>
+<p>
+<img src="img/kahoot.png" title="fig:" alt="Quiz" />
+</p>
+<p>Testez vos connaissances sur ce chapitre avec ce quiz (10 min) en <a href="https://kahoot.it/challenge/07495894?challenge-id=93264293-c5c0-4eb8-8381-2ba18c649ca3_1613840736746">cliquant ici</a>.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>On peut ignorer pour le moment la présence du <code>[1]</code> en début de ligne.<a href="presentation.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Et permet de constater que pour R, un nombre est un vecteur à un seul élément.<a href="presentation.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><code>c</code> est l’abréviation de <em>combine</em>, son nom est très court car on l’utilise très souvent<a href="presentation.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="first-dataset.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
