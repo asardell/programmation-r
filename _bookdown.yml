@@ -15,6 +15,7 @@ rmd_files: ["index.Rmd",
 "08_dplyr.Rmd",
 "99_Manipuler_le_texte.Rmd",
 "09_Jointures.Rmd",
+"99_R_Express.Rmd",
 "99_TP.Rmd",
 "99_dataset.Rmd",
 "99_Bibliographie.Rmd"]

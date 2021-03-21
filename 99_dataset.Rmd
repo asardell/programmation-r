@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Jeux de données utilisés {#all_dataset}
 
 Ce chapitre présente les différents jeux de données utilisés dans ce livre.
@@ -324,6 +329,38 @@ Voici la présentation du jeu de données :
 ```{r, warning=FALSE, message=FALSE}
 df <- read.csv(file = "dataset/students_results.csv",
                                sep = ";", dec = ",")
+```
+
+
+```{r}
+dim(df)
+```
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+kable(head(df,n = 20), "html") %>% kable_styling("striped", font_size = taille) %>% scroll_box(width = "100%", height = "400px")
+```
+
+## TV shows 📺
+
+Le dataset `tv_shows.csv` qui décrit les notes d'évaluation des films et séries disponibles sur diverses plateformes de diffusion en continu. Le fichier est issu du site [Kaggle ](https://www.kaggle.com/ruchi798/tv-shows-on-netflix-prime-video-hulu-and-disney).
+
+Voici la présentation du jeu de données :
+
+- `Title` : titre de la série ou du film
+- `Year` : Année de sortie ou première diffusion
+- `Age` : Type de public conseillé
+- `IMDb` : Notes des utilisateurs enregistrés sur le site [*L'Internet Movie Database*](https://www.imdb.com/)
+- `Rotten.Tomatoes` : Notes basées sur les opinions de centaines de critiques de cinéma et de télévision du [site](https://www.rottentomatoes.com/) du même nom
+- `Netflix` : si le film ou la série est disponible sur cette plateforme
+- `Hulu` : si le film ou la série est disponible sur cette plateforme
+- `Prime.Video` : si le film ou la série est disponible sur cette plateforme
+- `Disney.` : si le film ou la série est disponible sur cette plateforme
+
+
+```{r, warning=FALSE, message=FALSE}
+df <- read.csv(file = "dataset/tv_shows.csv",
+                               sep = ",", dec = ",")
 ```
 
 

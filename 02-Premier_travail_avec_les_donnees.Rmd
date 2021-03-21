@@ -621,4 +621,4 @@ Tapez `colors()` dans la console pour afficher l'ensemble des noms de couleurs d
 ![Quiz](./img/kahoot.png)
 </p>
 
-Testez vos connaissances sur ce chapitre avec ce quiz (10 min) en [cliquant ici](https://kahoot.it/challenge/08620663?challenge-id=93264293-c5c0-4eb8-8381-2ba18c649ca3_1611970391061).
+Testez vos connaissances sur ce chapitre avec ce quiz (10 min) en [cliquant ici](https://kahoot.it/challenge/04610047?challenge-id=93264293-c5c0-4eb8-8381-2ba18c649ca3_1616285400556).

@@ -187,3 +187,12 @@ difftime(time1 = fin, time2 = debut,units = "secs")
 ### Aller plus loin
 
 Le package *lubridate* propose des fonctionnalités plus avancées pour la manipulation des dates et des calendrier que ne savent pas gérer les fonctions par défaut de R.
+
+
+## Testez vos connaissances !
+
+<p>
+![Quiz](./img/kahoot.png)
+</p>
+
+Testez vos connaissances sur ce chapitre avec ce quiz (10 min) en [cliquant ici](https://kahoot.it/challenge/03296411?challenge-id=93264293-c5c0-4eb8-8381-2ba18c649ca3_1616285136476).

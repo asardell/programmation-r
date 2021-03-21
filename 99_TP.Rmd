@@ -78,7 +78,7 @@ c. Construire une nouvelle colonne appelée `litres100km_group` pour distinguer 
 
 Ce TP reprend les notions évoquées dans les chapitres 2 à 5.
 On utilise  le fichier `pokemon.xlsx` qui décrit les statistiques des pokemon des deux premières générations.
-Le fichier est issu du site [ Kaggle ](https://www.kaggle.com/rounakbanik/pokemon). Il a été adapté pour ce TP. Pour réaliser ce TP, télécharger le fichier en [cliquant ici](https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset).Voici une description des données :
+Le fichier est issu du site [ Kaggle ](https://www.kaggle.com/rounakbanik/pokemon). Il a été adapté pour ce TP. Pour réaliser ce TP, télécharger le fichier en [cliquant ici](https://github.com/asardell/programmation-r/tree/master/dataset).Voici une description des données :
 
 - `pokedex_number` : numéro du pokemon
 - `nom` : nom du pokemon
@@ -188,7 +188,7 @@ e. Calculez la moyenne de chaque critère (`weight_kg`, `height_m`, `attack`, `d
 
 Ce TP reprend les notions évoquées dans les chapitres 6,7 et 10.
 On utilise le fichier compressé `AmongUs.7z` où l'ensemble des fichiers décrivent les statistiques des parties jouées sur le jeu *Among Us*. Il y a un fichier par joueur nommé *UserX.csv*.
-Les données sont issues du site [Kaggle](https://www.kaggle.com/ruchi798/among-us-dataset). Pour réaliser ce TP, télécharger le fichier en [cliquant ici](https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset).
+Les données sont issues du site [Kaggle](https://www.kaggle.com/ruchi798/among-us-dataset). Pour réaliser ce TP, télécharger le fichier en [cliquant ici](https://github.com/asardell/programmation-r/tree/master/dataset).
 Les fichiers csv ont tous la même structure avec :
 
 - `Game.Completed.Date` : Date de la partie
@@ -355,7 +355,7 @@ k. Construire **un graphique adapté** permettant de visualiser les variations d
 l. Construire **un graphique adapté** permettant de visualiser les taux de succès  des 5 meilleurs utilisateurs.
 
 
-## TP4 - Récap
+## TP4
 
 **Difficulté 🏆🏆**
 
@@ -364,7 +364,7 @@ l. Construire **un graphique adapté** permettant de visualiser les taux de succ
 </p>
 
 Ce TP reprend les notions évoquées dans les chapitres 2 à 7.
-On utilise  le fichier `NBA.csv` qui décrit les tirs effectués au cours de la saison 2014-2015 de NBA. Le fichier est issu du site [ Kaggle ](https://www.kaggle.com/dansbecker/nba-shot-logs). Il a été adapté et modifié pour ce cours. Les données sont accessibles en [cliquant ici](https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset).
+On utilise  le fichier `NBA.csv` qui décrit les tirs effectués au cours de la saison 2014-2015 de NBA. Le fichier est issu du site [ Kaggle ](https://www.kaggle.com/dansbecker/nba-shot-logs). Il a été adapté et modifié pour ce cours. Les données sont accessibles en [cliquant ici](https://github.com/asardell/programmation-r/tree/master/dataset).
 
 Voici la présentation du jeu de données :
 
@@ -452,7 +452,7 @@ On souhaite construire un programme permettant de parcourir l'ensemble des colon
 </p>
 
 Ce TP reprend les notions évoquées dans les chapitres 2 à 7. Dans ce TP, vous incarnez un data analyst travaillant dans le service statistique de la NBA. Un de vos collègues est parti en vacances vendredi dernier et a envoyer à votre manager quelques statistiques sur les tirs effectués au cours de la saison 2014-2015. <br>
-Le problème c'est que le script est bourré de fautes ! Rien ne fonctionne, à tous les coups, votre collègue était pressé de partir en vacance. Votre manager fait donc appel à vous pour corriger les erreurs de ce script. Attention, votre manager aimerait également comprendre ce que vous programmez dans votre script alors n'oubliez pas de commenter chaque ligne de code pour qu'il la comprenne. Le fichier de données (*NBA.csv*) et le script de votre collègue (*nba_stats.R*) sont disponibles en [cliquant ici](https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset).
+Le problème c'est que le script est bourré de fautes ! Rien ne fonctionne, à tous les coups, votre collègue était pressé de partir en vacance. Votre manager fait donc appel à vous pour corriger les erreurs de ce script. Attention, votre manager aimerait également comprendre ce que vous programmez dans votre script alors n'oubliez pas de commenter chaque ligne de code pour qu'il la comprenne. Le fichier de données (*NBA.csv*) et le script de votre collègue (*nba_stats.R*) sont disponibles en [cliquant ici](https://github.com/asardell/programmation-r/tree/master/dataset).
 <br>
 🎯 Votre manager a déjà passé beaucoup de temps pour comprendre ce script et aimerait que votre correction garde la même philosophie que le script de votre collègue, cela signifie qu'il ne faut pas écrire d'autres commandes R et simplement faire en sorte que celles déjà présentes fonctionnent.
 
@@ -484,7 +484,7 @@ Le problème c'est que le script est bourré de fautes ! Rien ne fonctionne, à 
 
 Ce TP reprend les notions évoquées dans les chapitres 2 à 5.
 On utilise le fichier `students_results.csv` qui décrit les notes d'étudiants sur différentes épreuves.
-Pour réaliser ce TP, télécharger le fichier en [cliquant ici](https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset). Voici une description des données :
+Pour réaliser ce TP, télécharger le fichier en [cliquant ici](https://github.com/asardell/programmation-r/tree/master/dataset). Voici une description des données :
 
 
 - `ID_etudiant` : Le matricule des étudiants
@@ -666,7 +666,7 @@ abline(modele)
 ![Streaming](./img/streaming.png)
 
 Ce TP reprend les notions évoquées dans les chapitres 2 à 6.
-On utilise  le fichier `tv_shows.csv` qui décrit les notes d'évaluation des films et séries disponibles sur diverses plateformes de diffusion en continu. Le fichier est issu du site [Kaggle ](https://www.kaggle.com/ruchi798/tv-shows-on-netflix-prime-video-hulu-and-disney). Il a été adapté pour ce TP. Pour réaliser ce TP, télécharger le fichier en [cliquant ici](https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset).Voici une description des données :
+On utilise  le fichier `tv_shows.csv` qui décrit les notes d'évaluation des films et séries disponibles sur diverses plateformes de diffusion en continu. Le fichier est issu du site [Kaggle ](https://www.kaggle.com/ruchi798/tv-shows-on-netflix-prime-video-hulu-and-disney). Il a été adapté pour ce TP. Pour réaliser ce TP, télécharger le fichier en [cliquant ici](https://github.com/asardell/programmation-r/tree/master/dataset).Voici une description des données :
 
 - `Title` : titre de la série ou du film
 - `Year` : Année de sortie ou première diffusion
@@ -686,7 +686,7 @@ b. Combien de lignes, colonnes sont présentes dans ce dataset (utilisez la ou l
 c. Afficher le nom des colonnes.
 d. Afficher un résumé des données avec la fonction adaptée.
 e. On souhaite analyser les variables `Year`en tant que variable qualitative. Modifier le type de cette variable pour la transformer en type factor.
-f. Afficher le type de chaque variable avec la fonction adapté.
+f. Afficher le type de chaque variable avec la fonction adaptée.
 g. Construire une colonne appelée `Total_plateforme` avec le nombre de plateforme où est disponible le film ou la série.
 
 

@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 7 Algorithme | Apprendre à programmer avec R</title>
-  <meta name="description" content="Chapitre 7 Algorithme | Apprendre à programmer avec R" />
+  <title>Chapitre 12 R-Express 30’ ☕ | Apprendre à programmer avec R</title>
+  <meta name="description" content="Chapitre 12 R-Express 30’ ☕ | Apprendre à programmer avec R" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 7 Algorithme | Apprendre à programmer avec R" />
+  <meta property="og:title" content="Chapitre 12 R-Express 30’ ☕ | Apprendre à programmer avec R" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Chapitre 7 Algorithme | Apprendre à programmer avec R" />
+  <meta property="og:description" content="Chapitre 12 R-Express 30’ ☕ | Apprendre à programmer avec R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 7 Algorithme | Apprendre à programmer avec R" />
+  <meta name="twitter:title" content="Chapitre 12 R-Express 30’ ☕ | Apprendre à programmer avec R" />
   
-  <meta name="twitter:description" content="Chapitre 7 Algorithme | Apprendre à programmer avec R" />
+  <meta name="twitter:description" content="Chapitre 12 R-Express 30’ ☕ | Apprendre à programmer avec R" />
   
 
 <meta name="author" content="Anthony SARDELLITTI" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="graphique.html"/>
-<link rel="next" href="apply.html"/>
+<link rel="prev" href="jointures.html"/>
+<link rel="next" href="entrainement.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -359,203 +359,1001 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="algo" class="section level1">
-<h1><span class="header-section-number">Chapitre 7</span> Algorithme</h1>
-<div id="construire-une-fonction" class="section level2">
-<h2><span class="header-section-number">7.1</span> Construire une fonction</h2>
-<p>Il est possible de programmer ses propres fonctions. Dans l’exemple ci-dessous on construit une fonction <code>imc</code>q ui prend en entrée deux arguments <code>poids</code> et <code>taille</code>. La fonction effectue un calcul et renvoi l’IMC. Pour construire une fonction, on doit obligatoirement faire appel au mot clé <code>function</code>. Le mot clé <code>return</code> n’est pas obligatoire. Cependant, par convention, une fonction renvoie toujours un résultat qui peut aussi être un message d’information sur le bon déroulement de celle-ci. Les arguments sont précisés entre parenthèses <code>( )</code>. Les traitements s’effectuent entre accolades <code>{ }</code>.</p>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="algo.html#cb543-1"></a>imc &lt;-<span class="st"> </span><span class="cf">function</span>(taille,poids) {</span>
-<span id="cb543-2"><a href="algo.html#cb543-2"></a>   calcul &lt;-<span class="st"> </span>poids <span class="op">/</span><span class="st"> </span>(taille<span class="op">^</span><span class="dv">2</span>)</span>
-<span id="cb543-3"><a href="algo.html#cb543-3"></a>   <span class="kw">return</span> (calcul) }</span></code></pre></div>
-<p>Lorsqu’on vérifie la classe de l’objet <code>imc</code> en mémoire, on constate qu’il est bien de type <code>function</code>.</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="algo.html#cb544-1"></a><span class="kw">class</span>(imc)</span></code></pre></div>
-<pre><code>## [1] &quot;function&quot;</code></pre>
-<p>Puis c’est le même principe que les autres fonctions pour l’utiliser :</p>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="algo.html#cb546-1"></a><span class="kw">imc</span>(<span class="dt">taille =</span> <span class="fl">1.55</span>, <span class="dt">poids =</span> <span class="dv">49</span>)</span></code></pre></div>
-<pre><code>## [1] 20.39542</code></pre>
-<p>Il est possible de préciser des arguments par défaut. Ils sont à saisir dans la définition des arguments :</p>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="algo.html#cb548-1"></a>imc &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">taille =</span> <span class="fl">1.70</span>, <span class="dt">poids =</span> <span class="dv">60</span>) {</span>
-<span id="cb548-2"><a href="algo.html#cb548-2"></a>   calcul &lt;-<span class="st"> </span>poids <span class="op">/</span><span class="st"> </span>(taille<span class="op">^</span><span class="dv">2</span>)</span>
-<span id="cb548-3"><a href="algo.html#cb548-3"></a>   <span class="kw">return</span> (calcul) }</span>
-<span id="cb548-4"><a href="algo.html#cb548-4"></a></span>
-<span id="cb548-5"><a href="algo.html#cb548-5"></a><span class="kw">imc</span>()</span></code></pre></div>
-<pre><code>## [1] 20.76125</code></pre>
-</div>
-<div id="construire-une-structure-conditionnelle" class="section level2">
-<h2><span class="header-section-number">7.2</span> Construire une structure conditionnelle</h2>
-<p>Pour construire des structures conditionnelles en R, on utilise le mot clé <code>if</code> avec la ou les conditions à tester entre parenthèses <code>( )</code>. Si la condition retourne <code>TRUE</code>, l’ensemble des commandes présentent dans les accolades <code>{ }</code> seront exécutées.</p>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="algo.html#cb550-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>)</span>
-<span id="cb550-2"><a href="algo.html#cb550-2"></a><span class="cf">if</span> ( <span class="kw">sum</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span> ) </span>
-<span id="cb550-3"><a href="algo.html#cb550-3"></a>{ </span>
-<span id="cb550-4"><a href="algo.html#cb550-4"></a>  <span class="kw">print</span>(<span class="st">&quot;Total supérieur à 4&quot;</span>)</span>
-<span id="cb550-5"><a href="algo.html#cb550-5"></a>  <span class="kw">print</span>(<span class="st">&quot;Fin du traitement&quot;</span>)</span>
-<span id="cb550-6"><a href="algo.html#cb550-6"></a>  }</span></code></pre></div>
-<pre><code>## [1] &quot;Total supérieur à 4&quot;
-## [1] &quot;Fin du traitement&quot;</code></pre>
-<p>On peut aussi utiliser le mot clé <code>else</code> pour exécuter un traitement lorsque la condition retourne <code>FALSE</code>.
-Attention, petite particularité de R, il faut que le mot clé <code>else</code> soit sur la même ligne de l’accolade qui le bloc <code>if</code>.
-Dernière particularité, jusqu’à présent on pouvait se passer de la fonction <code>print</code> pour afficher des résultats dans la console. Désormais, cette fonction est obligatoire dans les structures conditionnelles.</p>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="algo.html#cb552-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>)</span>
-<span id="cb552-2"><a href="algo.html#cb552-2"></a><span class="cf">if</span> ( <span class="kw">sum</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span> ) </span>
-<span id="cb552-3"><a href="algo.html#cb552-3"></a>{ </span>
-<span id="cb552-4"><a href="algo.html#cb552-4"></a>  <span class="kw">print</span>(<span class="st">&quot;Total supérieur à 4&quot;</span>)</span>
-<span id="cb552-5"><a href="algo.html#cb552-5"></a>  <span class="kw">print</span>(<span class="st">&quot;Fin du traitement&quot;</span>)</span>
-<span id="cb552-6"><a href="algo.html#cb552-6"></a>} <span class="cf">else</span> </span>
-<span id="cb552-7"><a href="algo.html#cb552-7"></a>{ </span>
-<span id="cb552-8"><a href="algo.html#cb552-8"></a>  <span class="kw">print</span>(<span class="st">&quot;Total inférieur ou égale à 4&quot;</span>)</span>
-<span id="cb552-9"><a href="algo.html#cb552-9"></a>  <span class="kw">print</span>(<span class="st">&quot;Fin du traitement&quot;</span>)</span>
-<span id="cb552-10"><a href="algo.html#cb552-10"></a>}</span></code></pre></div>
-<pre><code>## [1] &quot;Total supérieur à 4&quot;
-## [1] &quot;Fin du traitement&quot;</code></pre>
-<p>On peut donc réaliser n’importe quelS tests logiques dans une structure conditionnelle.
-On peut par exemple tester la classe d’un <strong>objet</strong> avec les fonctions <code>is.classe_a_tester</code> comme <code>is.numeric</code> qui renvoie <code>TRUE</code> ou <code>FALSE</code>.</p>
-<p>Pour rappel, voici la liste des opérateurs de comparaisons :</p>
-<p><img src="img/comparaison.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>Pour rappel, voici la liste des opérateurs logiques :</p>
-<p><img src="img/logique.png" width="50%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="construire-une-boucle" class="section level2">
-<h2><span class="header-section-number">7.3</span> Construire une boucle</h2>
-<p>Pour répéter un traitement et éviter les copier-coller, on a souvent recours aux boucles. Celles qu’on retrouve principalement dans le langage R est la boucle <code>for</code> et <code>while</code>. La syntaxe utilisée est très proche de celles des structures conditionnelles. Attention, jusqu’à présent on pouvait se passer de la fonction <code>print</code> pour afficher des résultats dans la console. Désormais, cette fonction est obligatoire dans les boucles comme pour les structures conditionnelles.</p>
-<div id="la-boucle-for" class="section level3">
-<h3><span class="header-section-number">7.3.1</span> La boucle <code>for</code></h3>
-<p>La boucle <code>for</code> parcourt les <strong>éléments</strong> d’un vecteur qu’on lui indique en entrée.</p>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="algo.html#cb554-1"></a><span class="cf">for</span> ( i  <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;Pierre&quot;</span>,<span class="st">&quot;Paul&quot;</span>,<span class="st">&quot;Jacques&quot;</span>)) </span>
-<span id="cb554-2"><a href="algo.html#cb554-2"></a>{</span>
-<span id="cb554-3"><a href="algo.html#cb554-3"></a>  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Salut &quot;</span>, i))</span>
-<span id="cb554-4"><a href="algo.html#cb554-4"></a>  <span class="kw">print</span>(<span class="st">&quot;Traitement terminé !&quot;</span>)</span>
-<span id="cb554-5"><a href="algo.html#cb554-5"></a>}</span></code></pre></div>
-<pre><code>## [1] &quot;Salut  Pierre&quot;
-## [1] &quot;Traitement terminé !&quot;
-## [1] &quot;Salut  Paul&quot;
-## [1] &quot;Traitement terminé !&quot;
-## [1] &quot;Salut  Jacques&quot;
-## [1] &quot;Traitement terminé !&quot;</code></pre>
-<p>La boucle <code>for</code> parcourt les <strong>vecteurs</strong> d’un data frame / matrice qu’on lui indique en entrée.</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="algo.html#cb556-1"></a><span class="cf">for</span> ( i  <span class="cf">in</span> iris) </span>
-<span id="cb556-2"><a href="algo.html#cb556-2"></a>{</span>
-<span id="cb556-3"><a href="algo.html#cb556-3"></a>  <span class="kw">print</span>(<span class="kw">summary</span>(i))</span>
-<span id="cb556-4"><a href="algo.html#cb556-4"></a>  <span class="kw">print</span>(<span class="st">&quot;Traitement terminé !&quot;</span>)</span>
-<span id="cb556-5"><a href="algo.html#cb556-5"></a>}</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   4.300   5.100   5.800   5.843   6.400   7.900 
-## [1] &quot;Traitement terminé !&quot;
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   2.000   2.800   3.000   3.057   3.300   4.400 
-## [1] &quot;Traitement terminé !&quot;
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   1.000   1.600   4.350   3.758   5.100   6.900 
-## [1] &quot;Traitement terminé !&quot;
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   0.100   0.300   1.300   1.199   1.800   2.500 
-## [1] &quot;Traitement terminé !&quot;
-##     setosa versicolor  virginica 
-##         50         50         50 
-## [1] &quot;Traitement terminé !&quot;</code></pre>
-</div>
-<div id="la-boucle-while" class="section level3">
-<h3><span class="header-section-number">7.3.2</span> La boucle <code>while</code></h3>
-<p>La particularité de la boucle while réside dans la condition qui est testée à chaque itération. La boucle s’arrête lorsque la condition retourne <code>FALSE</code>. Cela signifie aussi qu’il faut créer un objet qu’on incrémentera au fur et à mesure afin d’éviter de générer une boucle infinie.</p>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="algo.html#cb558-1"></a>i &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb558-2"><a href="algo.html#cb558-2"></a>noms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Pierre&quot;</span>,<span class="st">&quot;Paul&quot;</span>,<span class="st">&quot;Jacques&quot;</span>)</span>
-<span id="cb558-3"><a href="algo.html#cb558-3"></a><span class="cf">while</span>( i <span class="op">&lt;=</span><span class="st"> </span><span class="kw">length</span>(noms)) </span>
-<span id="cb558-4"><a href="algo.html#cb558-4"></a>{</span>
-<span id="cb558-5"><a href="algo.html#cb558-5"></a>  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Salut &quot;</span>, noms[i]))</span>
-<span id="cb558-6"><a href="algo.html#cb558-6"></a>  <span class="kw">print</span>(<span class="st">&quot;Traitement terminé !&quot;</span>)</span>
-<span id="cb558-7"><a href="algo.html#cb558-7"></a>  i &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb558-8"><a href="algo.html#cb558-8"></a>}</span></code></pre></div>
-<pre><code>## [1] &quot;Salut  Pierre&quot;
-## [1] &quot;Traitement terminé !&quot;
-## [1] &quot;Salut  Paul&quot;
-## [1] &quot;Traitement terminé !&quot;
-## [1] &quot;Salut  Jacques&quot;
-## [1] &quot;Traitement terminé !&quot;</code></pre>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="algo.html#cb560-1"></a><span class="kw">print</span>(i) <span class="co"># &gt; à length(noms) donc la boucle est terminée</span></span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="algo.html#cb562-1"></a>i &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb562-2"><a href="algo.html#cb562-2"></a><span class="cf">while</span> ( i <span class="op">&lt;=</span><span class="st"> </span><span class="kw">ncol</span>(iris)) </span>
-<span id="cb562-3"><a href="algo.html#cb562-3"></a>{</span>
-<span id="cb562-4"><a href="algo.html#cb562-4"></a>  <span class="kw">print</span>(<span class="kw">summary</span>(iris[,i]))</span>
-<span id="cb562-5"><a href="algo.html#cb562-5"></a>  <span class="kw">print</span>(<span class="st">&quot;Traitement terminé !&quot;</span>)</span>
-<span id="cb562-6"><a href="algo.html#cb562-6"></a>  i &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb562-7"><a href="algo.html#cb562-7"></a>}</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   4.300   5.100   5.800   5.843   6.400   7.900 
-## [1] &quot;Traitement terminé !&quot;
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   2.000   2.800   3.000   3.057   3.300   4.400 
-## [1] &quot;Traitement terminé !&quot;
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   1.000   1.600   4.350   3.758   5.100   6.900 
-## [1] &quot;Traitement terminé !&quot;
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   0.100   0.300   1.300   1.199   1.800   2.500 
-## [1] &quot;Traitement terminé !&quot;
-##     setosa versicolor  virginica 
-##         50         50         50 
-## [1] &quot;Traitement terminé !&quot;</code></pre>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="algo.html#cb564-1"></a><span class="kw">print</span>(i) <span class="co"># &gt; à ncol(iris) donc la boucle est terminée</span></span></code></pre></div>
-<pre><code>## [1] 6</code></pre>
-</div>
-</div>
-<div id="exercice-3" class="section level2">
-<h2><span class="header-section-number">7.4</span> Exercice</h2>
-<div id="sujet-7" class="section level3">
-<h3><span class="header-section-number">7.4.1</span> Sujet</h3>
-<p>Dans cet exercice, on utilise le fichier <code>starwars</code> qui décrit les caractéristiques des personnes principaux de la saga.</p>
-<p>Le dataset <code>starwars.csv</code> décrit les caractéristiques des personnages principaux de la saga.</p>
-<p>Voici un extrait du dataset :</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Importez le fichier <em>starwars.csv</em></p></li>
-<li><p>Construisez une fonction appelée <code>build_plot</code> qui prend en entrée un vecteur</p></li>
-</ol>
-<ul>
-<li>s’il est de type numérique la fonction affiche un diagramme en boîte et retourne un résumé du vecteur</li>
-<li>s’il n’est pas de type numérique et présente 15 modalités différentes ou moins, la fonction affiche un diagramme en barre et retourne un résumé du vecteur</li>
-<li>sinon, la fonction n’affiche rien et retourne uniquement “Pas de traitement”</li>
-</ul>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Créez une boucle qui parcourt toutes les colonnes du data frame en appliquant la fonction <code>build_plot</code> pour chacune.</li>
-</ol>
-</div>
-<div id="correction-7" class="section level3">
-<h3><span class="header-section-number">7.4.2</span> Correction</h3>
-<ol style="list-style-type: lower-alpha">
-<li>Importez le fichier <em>starwars.csv</em></li>
-</ol>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="algo.html#cb566-1"></a>starWars &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./dataset/starwars.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Construisez une fonction appelée <code>build_plot</code> qui prend en entrée un vecteur</li>
-</ol>
-<ul>
-<li>s’il est de type numérique la fonction affiche un diagramme en boîte et retourne un résumé du vecteur</li>
-<li>s’il n’est pas de type numérique et présente 15 modalités différentes ou moins, la fonction affiche un diagramme en barre et retourne un résumé du vecteur</li>
-<li>sinon, la fonction n’affiche rien et retourne uniquement “Pas de traitement”</li>
-</ul>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="algo.html#cb567-1"></a>build_plot &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb567-2"><a href="algo.html#cb567-2"></a>  <span class="cf">if</span> (<span class="kw">is.numeric</span>(x)) {</span>
-<span id="cb567-3"><a href="algo.html#cb567-3"></a>    <span class="kw">boxplot</span>(x)</span>
-<span id="cb567-4"><a href="algo.html#cb567-4"></a>    <span class="kw">return</span>(<span class="kw">summary</span>(x))</span>
-<span id="cb567-5"><a href="algo.html#cb567-5"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">length</span>(<span class="kw">unique</span>(x)) <span class="op">&lt;=</span><span class="st"> </span><span class="dv">15</span>)</span>
-<span id="cb567-6"><a href="algo.html#cb567-6"></a>    { <span class="kw">barplot</span>(<span class="kw">sort</span>(<span class="kw">table</span>(x)))</span>
-<span id="cb567-7"><a href="algo.html#cb567-7"></a>    <span class="kw">return</span>(<span class="kw">summary</span>(x)) </span>
-<span id="cb567-8"><a href="algo.html#cb567-8"></a>    } <span class="cf">else</span></span>
-<span id="cb567-9"><a href="algo.html#cb567-9"></a>      <span class="kw">return</span>(<span class="st">&quot;Pas de traitement&quot;</span>)</span>
-<span id="cb567-10"><a href="algo.html#cb567-10"></a>}</span></code></pre></div>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Créez une boucle qui parcourt toutes les colonnes du data frame en appliquant la fonction <code>build_plot</code> pour chacune.</li>
-</ol>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="algo.html#cb568-1"></a><span class="cf">for</span> (i <span class="cf">in</span> starWars) {</span>
-<span id="cb568-2"><a href="algo.html#cb568-2"></a>  <span class="kw">build_plot</span>(<span class="dt">x =</span> i)</span>
-<span id="cb568-3"><a href="algo.html#cb568-3"></a>}</span></code></pre></div>
-</div>
-</div>
-<div id="testez-vos-connaissances-5" class="section level2">
-<h2><span class="header-section-number">7.5</span> Testez vos connaissances !</h2>
+<div id="express" class="section level1">
+<h1><span class="header-section-number">Chapitre 12</span> R-Express 30’ ☕</h1>
+<p>Il est peut être intéressant d’aborder ce chapitre en amont d’une formation Nous présentons ici comment être opérationnel sur R en quelques clics et surtout sans connaissance du langage ! Attention tout de même, vous ne pourrez pas faire illusion bien longtemps car il faudra revenir au fondamentaux du langage pour aller plus loin. Ici nous allons à droit au but. 30’ Top chrono !</p>
+<div id="aller-hop-importez-des-données" class="section level2">
+<h2><span class="header-section-number">12.1</span> Aller hop ! Importez des données</h2>
+<p>RStudio propose une interface permettant d’importer un fichier de données de manière interactive. Pour y accéder, dans l’onglet <em>Environment</em>, cliquez sur le bouton <em>Import Dataset</em>. On a ensuite le choix du format de fichier qu’on souhaite importer.</p>
 <p>
-<img src="img/kahoot.png" title="fig:" alt="Quiz" />
+<img src="img/import_dataset.png" title="fig:" alt="Menu Import Dataset" />
 </p>
-<p>Testez vos connaissances sur ce chapitre avec ce quiz (10 min) en <a href="https://kahoot.it/challenge/07475794?challenge-id=93264293-c5c0-4eb8-8381-2ba18c649ca3_1616285089656">cliquant ici</a>.</p>
+<p>Sélectionnez <em>From Text (base)…</em>. Une nouvelle fenêtre s’affiche :</p>
+<p>
+<img src="img/import_dialog.png" title="fig:" alt="Dialogue d’importation" />
+</p>
+<p>Il vous suffit d’indiquer le fichier à importer dans le champ <em>File/URL</em> tout en haut (vous pouvez même indiquer un lien vers un fichier distant via HTTP). Importez le fichier <code>tv_shows.csv</code> qui décrit les notes d’évaluation des films et séries disponibles sur diverses plateformes de diffusion en continu. Un aperçu s’ouvre dans la partie <em>Data Preview</em> et vous permet de vérifier si l’import est correct. Le champ <em>Name</em> qui est modifiable correspondra au nom de votre tableau dans RStudio. Cliquez ensuite sur <em>Import</em>. RStudio vous propose une vue de votre tableau.</p>
+<p>
+<img src="img/import_express.png" title="fig:" alt="Importation" />
+</p>
+</div>
+<div id="manipulez-votre-tableau" class="section level2">
+<h2><span class="header-section-number">12.2</span> Manipulez votre tableau</h2>
+<div id="dans-une-vue" class="section level3">
+<h3><span class="header-section-number">12.2.1</span> Dans une vue</h3>
+<p>Après l’importation, vous pouvez accéder à la vue de votre tableau en cliquant sur votre objet dans la fenêtre d’environnement</p>
+<p>
+<img src="img/view.png" title="fig:" alt="Afficher une vue" />
+</p>
+<p>Vous pouvez ensuite effectuer des tris et des filtres en naviguant sur la vue. Dans l’exemple ci-dessous nous avons filtré sur l’année 2019, filtré les films disponibles sur Netflix et trié selon la note des utilisateurs en colonne <code>IMDb</code>.</p>
+<p>
+<img src="img/view_change.png" title="fig:" alt="Manipuler la vue" />
+</p>
+</div>
+<div id="avec-dplyr" class="section level3">
+<h3><span class="header-section-number">12.2.2</span> Avec <code>dplyr</code></h3>
+<p>Bon le problème de manipuler un tableau dans une vue est qu’on ne peut pas le modifier.
+Pour cela, nous allons commencer à coder en R avec un package qui nous facilite la vie. Mais c’est quoi un package ?
+R étant un logiciel libre, il bénéficie d’un développement communautaire riche et dynamique. L’installation de base de R permet de faire énormément de choses, mais le langage dispose en plus de packages permettant d’ajouter facilement de nouvelles fonctionnalités. La plupart des packages sont développées et maintenues par la communauté des utilisateurs de R, et diffusées via un réseau de serveurs nommé CRAN (<em>Comprehensive R Archive Network</em>).</p>
+<p>Pour installer un package, si on dispose d’une connexion Internet, on peut utiliser le bouton <em>Install</em> de l’onglet <em>Packages</em> de RStudio.</p>
+<p>
+<img src="img/rstudio_package_install.png" title="fig:" alt="Installer une extension" />
+</p>
+<p>Renseignez le nom du package <code>dplyr</code> dans le champ concerné puis cliquez sur <em>Install</em>.</p>
+<p>
+<img src="img/install_dplyr.png" title="fig:" alt="Installer dplyr" />
+</p>
+<p>Cela peut durer quelques secondes. Voilà, vous avez enfin le package <code>dplyr</code> dans la liste des packages déjà installés. Nous n’aurons plus à réitérer cette opération les prochaines fois.</p>
+<p>Nous allons maintenant créer un script pour que toutes nos commandes soient sauvegardées et réutilisables. Pour créer un script, il suffit de sélectionner le menu <em>File</em>, puis <em>New file</em> et <em>R script</em> ou tout simplement utiliser le raccourci <code>Ctrl + Shift + N</code>.</p>
+<p><br></p>
+<p>Voici la première commande que nous allons saisir. Même si le package <code>dplyr</code> est déjà installé, il faut que RStudio le charge en mémoire. Écrivez cette ligne dans votre script :</p>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="express.html#cb702-1"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
+<p>Vous avez écrit une ligne de commande mais il faut encore l’exécuter. Pour cela, sélectionnez votre code à exécuter puis cliquer sur le bouton <em>Run</em> dans la barre d’outils juste au-dessus de la zone d’édition du script. On peut aussi utiliser le raccourci clavier <code>Ctrl + Entrée</code>. On peut désormais utiliser les fonctionnalités du package <code>dplyr</code>.</p>
+</div>
+<div id="sélectionner-certaines-colonnes" class="section level3">
+<h3><span class="header-section-number">12.2.3</span> Sélectionner certaines colonnes</h3>
+<p>La fonction <code>select</code> permet de sélectionner certaines colonnes d’un tableau.
+On va construire un nouveau tableau appelé <em>tv_shows_select</em> avec uniquement les colonnes <em>Title</em>, <em>Year</em>, <em>Age</em> et <em>IMDb</em>.</p>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="express.html#cb703-1"></a>tv_shows_select &lt;-<span class="st"> </span><span class="kw">select</span>(tv_shows, Title, Year, Age, IMDb)</span></code></pre></div>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Title
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Year
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Age
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+IMDb
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Breaking Bad
+</td>
+<td style="text-align:right;">
+2008
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+9.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Stranger Things
+</td>
+<td style="text-align:right;">
+2016
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Money Heist
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sherlock
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+9.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Better Call Saul
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Office
+</td>
+<td style="text-align:right;">
+2005
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Black Mirror
+</td>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Supernatural
+</td>
+<td style="text-align:right;">
+2005
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Peaky Blinders
+</td>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Avatar: The Last Airbender
+</td>
+<td style="text-align:right;">
+2005
+</td>
+<td style="text-align:left;">
+7+
+</td>
+<td style="text-align:right;">
+9.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Walking Dead
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dark
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ozark
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Attack on Titan
+</td>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Narcos
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fullmetal Alchemist: Brotherhood
+</td>
+<td style="text-align:right;">
+2009
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+9.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Community
+</td>
+<td style="text-align:right;">
+2009
+</td>
+<td style="text-align:left;">
+7+
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mindhunter
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Parks and Recreation
+</td>
+<td style="text-align:right;">
+2009
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dexter
+</td>
+<td style="text-align:right;">
+2006
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.6
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Votre nouveau tableau apparaît dans la fenêtre <em>Environnement</em>.</p>
+</div>
+<div id="ajouter-des-filtres" class="section level3">
+<h3><span class="header-section-number">12.2.4</span> Ajouter des filtres</h3>
+<p>La fonction <code>filter</code> permet de construire des filtres. On va construire un nouveau tableau appelé <em>tv_shows_filter</em> en partant du tableau précédent. On ajoute un filtre sur la variable <code>Year</code> en ne conservant que les films de 2019.</p>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="express.html#cb704-1"></a>tv_shows_filter &lt;-<span class="st"> </span><span class="kw">filter</span>(tv_shows_select, Year <span class="op">==</span><span class="st"> </span><span class="dv">2019</span>)</span></code></pre></div>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Title
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Year
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Age
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+IMDb
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+The Witcher
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+When They See Us
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+After Life
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dead to Me
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unbelievable
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex Education
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kingdom
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Love, Death &amp; Robots
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Umbrella Academy
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+7.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Russian Doll
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+7.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Our Planet
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+7+
+</td>
+<td style="text-align:right;">
+9.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Dark Crystal: Age of Resistance
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+7+
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Spy
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+7.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Crash Landing on You
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Delhi Crime
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Don’t F**k with Cats: Hunting an Internet Killer
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Living with Yourself
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Order
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Marianne
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+7.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Society
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+7.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="trier-un-tableau" class="section level3">
+<h3><span class="header-section-number">12.2.5</span> Trier un tableau</h3>
+<p>La fonction <code>arrange</code> permet de construire des filtres. On va construire un nouveau tableau appelé <em>tv_shows_sort</em> en partant du tableau précédent. On tri les films de la meilleure note <code>IMDb</code> à la plus mauvaise.</p>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="express.html#cb705-1"></a>tv_shows_sort &lt;-<span class="st"> </span><span class="kw">arrange</span>(tv_shows_filter, <span class="kw">desc</span>(IMDb))</span></code></pre></div>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Title
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Year
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Age
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+IMDb
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Our Planet
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+7+
+</td>
+<td style="text-align:right;">
+9.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Planets
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+all
+</td>
+<td style="text-align:right;">
+9.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Imagineering Story
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+7+
+</td>
+<td style="text-align:right;">
+9.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+When They See Us
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Untamed
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+7+
+</td>
+<td style="text-align:right;">
+8.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Vinland Saga
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+8.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Crash Landing on You
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Demon Slayer: Kimetsu no Yaiba
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Promised Neverland
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Boys
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Mandalorian
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+7+
+</td>
+<td style="text-align:right;">
+8.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Formula 1: Drive to Survive
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Family Man
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Prairie Dog Manor
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+8.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+After Life
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Love, Death &amp; Robots
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+18+
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Dark Crystal: Age of Resistance
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+7+
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Delhi Crime
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Taco Chronicles
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+7+
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The First 48 Presents: Homicide Squad Atlanta
+</td>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+16+
+</td>
+<td style="text-align:right;">
+8.5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Après ces 3 opérations <code>select</code>, <code>filter</code> et <code>arrange</code>, vous devez avoir ces tableaux dans votre environnement.</p>
+<p>
+<img src="img/env_after_dplyr.png" title="fig:" alt="Env" />
+</p>
+</div>
+</div>
+<div id="des-graphiques-en-3-clics-avec-esquisse" class="section level2">
+<h2><span class="header-section-number">12.3</span> Des graphiques en 3 clics avec <code>esquisse</code></h2>
+<p>Le package <code>esquisse</code> permet de construire des graphiques en quelques clics.
+Il faut aussi installer ce package, cette fois-ci on le fait directement en exécutant une seule et unique fois cette commande dans le script :</p>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="express.html#cb706-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;esquisse&quot;</span>)</span></code></pre></div>
+<p>Voilà, puis executer ces commandes :</p>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="express.html#cb707-1"></a><span class="kw">library</span>(esquisse)</span>
+<span id="cb707-2"><a href="express.html#cb707-2"></a><span class="kw">esquisser</span>(tv_shows_sort)</span></code></pre></div>
+<p>Une fenêtre s’ouvre dans lequel vous pouvez construire quelques graphiques, les personnalisés et les exporter avec le code associé.</p>
+<p>
+<img src="img/eg_esquisse.png" title="fig:" alt="Env" />
+</p>
+</div>
+<div id="en-bref" class="section level2">
+<h2><span class="header-section-number">12.4</span> En bref</h2>
+<p>Nous avons vu dans ce chapitre comment être opérationnel très rapidement sur R avec des commandes pratiques et faciles. Néanmoins, cela n’est pas suffisant pour aller plus loin. Ce cours vous fournira une base théorique permettant d’être autonome par la suite.</p>
 
 </div>
 </div>
@@ -564,8 +1362,8 @@ On peut par exemple tester la classe d’un <strong>objet</strong> avec les fonc
           </div>
         </div>
       </div>
-<a href="graphique.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="apply.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="jointures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="entrainement.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

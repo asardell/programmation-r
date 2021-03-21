@@ -670,3 +670,10 @@ boxplot(formula = attack ~ type,
 - Constuire des graphiques avec l'interface *esquisse* avec le cours de [ Dreams Rs](https://dreamrs.github.io/esquisse/articles/get-started.html)
 - Utiliser des widgets HTML avec la [ Galerie ](https://www.htmlwidgets.org/showcase_leaflet.html) pour construire des graphiques dynamiques
 
+## Testez vos connaissances !
+
+<p>
+![Quiz](./img/kahoot.png)
+</p>
+
+Testez vos connaissances sur ce chapitre avec ce quiz (10 min) en [cliquant ici](https://kahoot.it/challenge/08690258?challenge-id=93264293-c5c0-4eb8-8381-2ba18c649ca3_1616285108760).
