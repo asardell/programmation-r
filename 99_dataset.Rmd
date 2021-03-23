@@ -248,7 +248,7 @@ kable(head(starWars,n = 20), "html") %>% kable_styling("striped", font_size = ta
 ## AmongUs 🔦
 
 On utilise le fichier compressé `AmongUs.7z` où l'ensemble des fichiers décrivent les statistiques des parties jouées sur le jeu *Among Us*. Il y a un fichier par joueur nommé *UserX.csv*.
-Les données sont issues du site [Kaggle](https://www.kaggle.com/ruchi798/among-us-dataset). Vous pouvez les télécharger facilement en [cliquant ici](https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset).
+Les données sont issues du site [Kaggle](https://www.kaggle.com/ruchi798/among-us-dataset). Vous pouvez les télécharger facilement en [cliquant ici](https://github.com/asardell/programmation-r/tree/master/dataset).
 Les fichiers csv ont tous la même structure avec :
 
 - `Game.Completed.Date` : Date de la partie
@@ -282,7 +282,7 @@ kable(head(AmongUs,n = 20), "html") %>% kable_styling("striped", font_size = tai
 
 ## NBA 🏀
 
-Ce jeu de données`NBA.csv` décrit les tirs effectués au cours de la saison 2014-2015 de NBA. Le fichier est issu du site [ Kaggle ](https://www.kaggle.com/dansbecker/nba-shot-logs). Il a été adapté et modifié pour ce cours. Les données sont accessibles en [cliquant ici](https://github.com/AnthonySardellitti/programmation-r/tree/master/dataset).
+Ce jeu de données`NBA.csv` décrit les tirs effectués au cours de la saison 2014-2015 de NBA. Le fichier est issu du site [ Kaggle ](https://www.kaggle.com/dansbecker/nba-shot-logs). Il a été adapté et modifié pour ce cours. Les données sont accessibles en [cliquant ici](https://github.com/asardell/programmation-r/tree/master/dataset).
 
 Voici la présentation du jeu de données :
 
@@ -341,7 +341,7 @@ dim(df)
 kable(head(df,n = 20), "html") %>% kable_styling("striped", font_size = taille) %>% scroll_box(width = "100%", height = "400px")
 ```
 
-## TV shows 📺
+## TV Shows 📺
 
 Le dataset `tv_shows.csv` qui décrit les notes d'évaluation des films et séries disponibles sur diverses plateformes de diffusion en continu. Le fichier est issu du site [Kaggle ](https://www.kaggle.com/ruchi798/tv-shows-on-netflix-prime-video-hulu-and-disney).
 
