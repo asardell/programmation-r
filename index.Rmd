@@ -1,6 +1,6 @@
 ---
 title: "Apprendre à programmer avec R"
-author: "Anthony SARDELLITTI"
+author: "asardell"
 date: "`r Sys.Date()`"
 description: "Apprendre à programmer avec R"
 site: bookdown::bookdown_site
