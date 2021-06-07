@@ -24,7 +24,7 @@
 <meta name="author" content="asardell" />
 
 
-<meta name="date" content="2021-05-02" />
+<meta name="date" content="2021-06-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1105,14 +1105,14 @@ LGA
 <span id="cb681-2"><a href="jointures.html#cb681-2"></a>start.time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</span>
 <span id="cb681-3"><a href="jointures.html#cb681-3"></a>requete &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> flights,<span class="dt">y =</span> airlines, <span class="dt">by =</span> <span class="st">&quot;carrier&quot;</span>,<span class="dt">all.x =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb681-4"><a href="jointures.html#cb681-4"></a><span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>start.time</span></code></pre></div>
-<pre><code>## Time difference of 2.241998 secs</code></pre>
+<pre><code>## Time difference of 2.889002 secs</code></pre>
 <div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="jointures.html#cb683-1"></a><span class="co">#jointure avec dplyr</span></span>
 <span id="cb683-2"><a href="jointures.html#cb683-2"></a>start.time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</span>
 <span id="cb683-3"><a href="jointures.html#cb683-3"></a>requete &lt;-<span class="st"> </span><span class="kw">left_join</span>(<span class="dt">x =</span> flights, <span class="dt">y =</span> airlines, <span class="dt">by =</span> <span class="st">&quot;carrier&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Column `carrier` joining factor and character vector, coercing
 ## into character vector</code></pre>
 <div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="jointures.html#cb685-1"></a><span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>start.time</span></code></pre></div>
-<pre><code>## Time difference of 0.175997 secs</code></pre>
+<pre><code>## Time difference of 0.1920011 secs</code></pre>
 <div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="jointures.html#cb687-1"></a>requete <span class="op">%&gt;%</span></span>
 <span id="cb687-2"><a href="jointures.html#cb687-2"></a><span class="st">  </span><span class="kw">group_by</span>(name) <span class="op">%&gt;%</span></span>
 <span id="cb687-3"><a href="jointures.html#cb687-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">nb_vols =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
@@ -1165,7 +1165,7 @@ ExpressJet Airlines Inc. 
 <span id="cb688-3"><a href="jointures.html#cb688-3"></a>requete &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> flights,<span class="dt">y =</span> airports[,<span class="kw">c</span>(<span class="st">&quot;faa&quot;</span>,<span class="st">&quot;tzone&quot;</span>)], </span>
 <span id="cb688-4"><a href="jointures.html#cb688-4"></a>                 <span class="dt">by.x =</span> <span class="st">&quot;dest&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;faa&quot;</span>, <span class="dt">all.x =</span>  <span class="ot">TRUE</span>)</span>
 <span id="cb688-5"><a href="jointures.html#cb688-5"></a><span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>start.time</span></code></pre></div>
-<pre><code>## Time difference of 1.058514 secs</code></pre>
+<pre><code>## Time difference of 0.9130001 secs</code></pre>
 <div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="jointures.html#cb690-1"></a><span class="co">#jointure avec dplyr</span></span>
 <span id="cb690-2"><a href="jointures.html#cb690-2"></a>start.time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</span>
 <span id="cb690-3"><a href="jointures.html#cb690-3"></a>requete &lt;-<span class="st"> </span><span class="kw">left_join</span>(<span class="dt">x =</span> flights, </span>
@@ -1174,7 +1174,7 @@ ExpressJet Airlines Inc. 
 <pre><code>## Warning: Column `dest`/`faa` joining factor and character vector, coercing
 ## into character vector</code></pre>
 <div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="jointures.html#cb692-1"></a><span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>start.time</span></code></pre></div>
-<pre><code>## Time difference of 0.1639991 secs</code></pre>
+<pre><code>## Time difference of 0.157999 secs</code></pre>
 <div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="jointures.html#cb694-1"></a>requete <span class="op">%&gt;%</span></span>
 <span id="cb694-2"><a href="jointures.html#cb694-2"></a><span class="st">  </span><span class="kw">group_by</span>(tzone) <span class="op">%&gt;%</span></span>
 <span id="cb694-3"><a href="jointures.html#cb694-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">nb_vols =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
@@ -1268,7 +1268,7 @@ America/Anchorage
 <span id="cb695-4"><a href="jointures.html#cb695-4"></a>                     <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;year&quot;</span> =<span class="st"> &quot;year&quot;</span>, <span class="st">&quot;month&quot;</span> =<span class="st"> &quot;month&quot;</span>, <span class="st">&quot;day&quot;</span> =<span class="st"> &quot;day&quot;</span>,</span>
 <span id="cb695-5"><a href="jointures.html#cb695-5"></a>                            <span class="st">&quot;hour&quot;</span> =<span class="st"> &quot;hour&quot;</span> , <span class="st">&quot;origin&quot;</span> =<span class="st"> &quot;origin&quot;</span>), <span class="dt">all.x =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb695-6"><a href="jointures.html#cb695-6"></a><span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>start.time</span></code></pre></div>
-<pre><code>## Time difference of 1.543527 secs</code></pre>
+<pre><code>## Time difference of 1.616985 secs</code></pre>
 <div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="jointures.html#cb697-1"></a><span class="co">#jointure avec dplyr</span></span>
 <span id="cb697-2"><a href="jointures.html#cb697-2"></a>start.time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</span>
 <span id="cb697-3"><a href="jointures.html#cb697-3"></a>requete &lt;-<span class="st"> </span><span class="kw">left_join</span>(<span class="dt">x =</span> flights, <span class="dt">y =</span> weather,</span>
@@ -1277,7 +1277,7 @@ America/Anchorage
 <pre><code>## Warning: Column `origin` joining factor and character vector, coercing into
 ## character vector</code></pre>
 <div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="jointures.html#cb699-1"></a><span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>start.time</span></code></pre></div>
-<pre><code>## Time difference of 0.1900928 secs</code></pre>
+<pre><code>## Time difference of 0.2329979 secs</code></pre>
 <div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="jointures.html#cb701-1"></a>requete <span class="op">%&gt;%</span></span>
 <span id="cb701-2"><a href="jointures.html#cb701-2"></a><span class="st">  </span><span class="kw">select</span>(year, month, day, hour, origin, origin, precip) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb701-3"><a href="jointures.html#cb701-3"></a><span class="st">  </span><span class="kw">distinct</span>() <span class="op">%&gt;%</span></span>
