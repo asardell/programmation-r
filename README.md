@@ -8,7 +8,7 @@ Le code source de ce cours est disponible sur [ github](https://github.com/asard
 
 
 
-Liste des choses à modifier/ajouter :
+Liste des choses à modifier/ajouter:
 
 * ajouter les symboles logiques dans la partie filtre
 * la gestion des NA pour les filtres
