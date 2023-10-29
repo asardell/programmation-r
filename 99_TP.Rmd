@@ -164,7 +164,7 @@ Pour chaque question suivante, affectez le résultat de la requête dans un obje
 
 ```{r}
 #Calculez la vitesse moyenne par generation
-requete_0 <- aggregate(formula = speed ~ generation, data = pokemon , FUN = mean)
+requete_0 <- aggregate(x = speed ~ generation, data = pokemon , FUN = mean)
 dim(requete_0)
 ```
 
@@ -727,5 +727,112 @@ b. Calculer le coefficient de corrélation entre les notes utilisateurs et les n
 
 
 
+## TP Formation
 
+Complétez les exercices suivants en utilisant. Créez les vecteurs demandés et répondez aux questions en sélectionnant les éléments appropriés dans les vecteurs.
+
+### Création de vecteur
+
+1. Créer un vecteur appelé "nombres" contenant les chiffres de 1 à 10.
+1. Créer un vecteur appelé "mois" contenant les noms des mois de l'année.
+1. Créer un vecteur appelé "notes" contenant les notes [8, 12, 15, 17, 20].
+1. Créer un vecteur appelé "contrats" contenant les contrat "CDI", "CDD", "Alternance", "Intérim".
+1. Créer un vecteur appelé "voyelles" contenant les lettres "a", "e", "i", "o", et "u".
+
+### Manipulation de vecteur
+
+
+1. Sélectionner la première voyelle du vecteur.
+1. Sélectionner la dernière voyelle du vecteur.
+1. Sélectionner les deux premières voyelles du vecteur.
+1. Sélectionner toutes les voyelles du vecteur sauf la dernière.
+1. Sélectionnez les deux premières notes du vecteur "notes" et créez un nouveau vecteur avec ces notes en utilisant.
+1. Sélectionner les éléments du vecteur "nombres" qui sont supérieurs ou égaux à 5 en utilisant la notation.
+1. Sélectionner les voyelles "e" et "o" du vecteur "voyelles" en utilisant la notation.
+1. Créer un vecteur appelé "t1"  à partir de "mois" contenant les mois du premier trimestre (janvier, février, mars).
+1. Sélectionner les contrats "CDI" et "Intérim" du vecteur "contrats" en utilisant la notation `[ ]`.
+
+
+### Simulation de vecteur
+
+La fonction `sample()` permet de générer un échantillon aléatoire à partir d'une liste de modalités
+
+```{r}
+sample(x = c("football","basket","tennis"),
+       size = 10, replace = TRUE)
+```
+
+1. Créer un vecteur appelé "sample_contrat" avec un échantillonnage d'une centaine de contrat tiré au sort dans le vecteur "contrats".
+1. Créer un vecteur appelé "sample_age" avec une centaine d'âge tiré au sort entre 10 et 80 ans.
+1. Créer un vecteur appelé "sample_genre" avec un échantillonnage d'une centaine de genre tiré au sort parmi "homme", "femme" où la probabilité de tomber sur un homme est de 35%.
+
+
+### Statistique sur les vecteurs
+
+1. Calculer la moyenne d'âge.
+1. Calculer l'âge minimum.
+1. Calculer l'âge maximum.
+1. Calculer l'âge médian.
+1. Calculer la variance de l'âge.
+1. Calculer l'écart-type de l'âge.
+1. Compter la répartition du nombre de contrat.
+1. Compter la répartition du nombre de genre en pourcentage.
+
+Simulation de loi statistique :
+
+La fonction `runif()` permet de simuler des échantillons aléatoires selon une loi uniforme.
+
+```{r}
+test  = runif(n = 1000, min = 0, max = 5)
+hist(test)
+```
+
+1. Créer un vecteur appelé "sample_anciennete" avec une centaine d'anciennete en mois basée sur une loi uniforme de 0 à 120.
+1. Modifier ce vecteur pour obtenir des mois entier avec la fonction `truncate()`
+1. Construire un histogramme avec la fonction `hist()`.
+
+La fonction `rnorm()` permet de simuler des échantillons aléatoires selon une loi normale où l'argument `mean` est la moyenne théorique.
+
+```{r}
+test  = rnorm(n = 1000, mean = 50)
+hist(test)
+```
+
+1. Créer un vecteur appelé "sample_salaire" avec une centaine de salaire basée sur une loi normale avec  une moyenne théorique de 1700 €
+1. Calculer le salaire moyen.
+1. Calculer le salaire médian.
+1. Calculer l'écart-type.
+1. Calculer la masse salariale.
+1. Modifier ce vecteur pour obtenir des salaire avec une décimale disponible avec la fonction `round`()`
+1. Construire un histogramme avec la fonction `hist()`.
+
+### Représentation graphique
+
+1. Construire un diagramme en barre de la répartition du genre avec la fonction `barplot()`.
+1. Construire un diagramme circulaire de la répartition des contrats avec la fonction `pie()`.
+1. Construire une boîte à moustache de la distribution du salaire avec la fonction `boxplot()`.
+1. Construire des boîtes à moustache de la distribution du salaire en fonction du genre.
+1. Construire une nuage de points du salaire en fonction de l'ancienneté avec la fonction `plot()`.
+
+### Construire un dataframe 
+
+La fonction `data.frame()` permet de créer un tableau à partir de vecteur **de même longueur**. 
+
+```{r}
+a <- c(1,2,3)
+b <- c("Luca","Madeleine","François")
+df <- data.frame(a,b)
+df
+```
+1. Construire un data frame appelé "df" à partir des vecteurs `sample_genre` `sample_anciennete`, `sample_contrat`, `sample_age` et `sample_salaire`.
+1. Compter le nombre de lignes avec la fonction `nrow()`.
+1. Compter le nombre de colonnes avec la fonction `ncol()`.
+1. Afficher les 3 premières lignes avec la fonction `head()`.
+1. Afficher un résumé des données avec la fonction `summary()`.
+1. Afficher le nom des colonnnes avec la fonction `colnames()`.
+1. Renommer les colonnes en supprimant le préfixe "sample_".
+1. Supprimer la colonne "anciennete"
+1. Créer une colonne appelé "salaire_net" qui correspond à 80% du salaire brut.
+1. Créer une colonne appelé "anciennete_annee" qui correspond au nombre d'année d'ancienneté.
+1. Exporter ce data frame en fichier *.csv* avec la fonction `write.csv()`.
 
