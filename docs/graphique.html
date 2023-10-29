@@ -4,36 +4,34 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 6 Représentation Graphique | Apprendre à programmer avec R</title>
-  <meta name="description" content="Chapitre 6 Représentation Graphique | Apprendre à programmer avec R" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <title>Chapitre 5 Représentation Graphique | index.html.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 6 Représentation Graphique | Apprendre à programmer avec R" />
+  <meta property="og:title" content="Chapitre 5 Représentation Graphique | index.html.knit" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Chapitre 6 Représentation Graphique | Apprendre à programmer avec R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 6 Représentation Graphique | Apprendre à programmer avec R" />
+  <meta name="twitter:title" content="Chapitre 5 Représentation Graphique | index.html.knit" />
   
-  <meta name="twitter:description" content="Chapitre 6 Représentation Graphique | Apprendre à programmer avec R" />
+  
   
 
-<meta name="author" content="asardell" />
 
 
-<meta name="date" content="2021-06-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="manipulation-objet.html"/>
+<link rel="prev" href="manipulation_objet.html"/>
 <link rel="next" href="algo.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,23 +47,26 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,13 +86,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -104,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -116,6 +117,11 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
 </head>
@@ -130,218 +136,264 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Préface</a></li>
-<li class="chapter" data-level="2" data-path="presentation.html"><a href="presentation.html"><i class="fa fa-check"></i><b>2</b> Présentation</a><ul>
-<li class="chapter" data-level="2.1" data-path="presentation.html"><a href="presentation.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="presentation.html"><a href="presentation.html#à-propos-de-r"><i class="fa fa-check"></i><b>2.1.1</b> À propos de R</a></li>
-<li class="chapter" data-level="2.1.2" data-path="presentation.html"><a href="presentation.html#à-propos-de-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> À propos de RStudio</a></li>
-<li class="chapter" data-level="2.1.3" data-path="presentation.html"><a href="presentation.html#à-propos-du-tidyverse"><i class="fa fa-check"></i><b>2.1.3</b> À propos du <em>tidyverse</em></a></li>
-<li class="chapter" data-level="2.1.4" data-path="presentation.html"><a href="presentation.html#structure-du-document"><i class="fa fa-check"></i><b>2.1.4</b> Structure du document</a></li>
-<li class="chapter" data-level="2.1.5" data-path="presentation.html"><a href="presentation.html#prérequis"><i class="fa fa-check"></i><b>2.1.5</b> Prérequis</a></li>
+<li class="chapter" data-level="1" data-path="presentation.html"><a href="presentation.html"><i class="fa fa-check"></i><b>1</b> Présentation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="presentation.html"><a href="presentation.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="presentation.html"><a href="presentation.html#à-propos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> À propos de R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="presentation.html"><a href="presentation.html#à-propos-de-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> À propos de RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="presentation.html"><a href="presentation.html#à-propos-du-tidyverse"><i class="fa fa-check"></i><b>1.1.3</b> À propos du <em>tidyverse</em></a></li>
+<li class="chapter" data-level="1.1.4" data-path="presentation.html"><a href="presentation.html#structure-du-document"><i class="fa fa-check"></i><b>1.1.4</b> Structure du document</a></li>
+<li class="chapter" data-level="1.1.5" data-path="presentation.html"><a href="presentation.html#prérequis"><i class="fa fa-check"></i><b>1.1.5</b> Prérequis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="presentation.html"><a href="presentation.html#prise-en-main"><i class="fa fa-check"></i><b>2.2</b> Prise en main</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="presentation.html"><a href="presentation.html#la-console"><i class="fa fa-check"></i><b>2.2.1</b> La console</a></li>
-<li class="chapter" data-level="2.2.2" data-path="presentation.html"><a href="presentation.html#objets"><i class="fa fa-check"></i><b>2.2.2</b> Objets</a></li>
-<li class="chapter" data-level="2.2.3" data-path="presentation.html"><a href="presentation.html#fonctions"><i class="fa fa-check"></i><b>2.2.3</b> Fonctions</a></li>
+<li class="chapter" data-level="1.2" data-path="presentation.html"><a href="presentation.html#prise-en-main"><i class="fa fa-check"></i><b>1.2</b> Prise en main</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="presentation.html"><a href="presentation.html#la-console"><i class="fa fa-check"></i><b>1.2.1</b> La console</a></li>
+<li class="chapter" data-level="1.2.2" data-path="presentation.html"><a href="presentation.html#objets"><i class="fa fa-check"></i><b>1.2.2</b> Objets</a></li>
+<li class="chapter" data-level="1.2.3" data-path="presentation.html"><a href="presentation.html#fonctions"><i class="fa fa-check"></i><b>1.2.3</b> Fonctions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="presentation.html"><a href="presentation.html#fonctions-de-tests-et-comparaisons"><i class="fa fa-check"></i><b>2.3</b> Fonctions de tests et comparaisons</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="presentation.html"><a href="presentation.html#opérateurs-de-comparaisons"><i class="fa fa-check"></i><b>2.3.1</b> Opérateurs de comparaisons</a></li>
-<li class="chapter" data-level="2.3.2" data-path="presentation.html"><a href="presentation.html#opérateurs-logiques"><i class="fa fa-check"></i><b>2.3.2</b> Opérateurs logiques</a></li>
-<li class="chapter" data-level="2.3.3" data-path="presentation.html"><a href="presentation.html#fonctions-logiques"><i class="fa fa-check"></i><b>2.3.3</b> Fonctions logiques</a></li>
+<li class="chapter" data-level="1.3" data-path="presentation.html"><a href="presentation.html#fonctions-de-tests-et-comparaisons"><i class="fa fa-check"></i><b>1.3</b> Fonctions de tests et comparaisons</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="presentation.html"><a href="presentation.html#opérateurs-de-comparaisons"><i class="fa fa-check"></i><b>1.3.1</b> Opérateurs de comparaisons</a></li>
+<li class="chapter" data-level="1.3.2" data-path="presentation.html"><a href="presentation.html#opérateurs-logiques"><i class="fa fa-check"></i><b>1.3.2</b> Opérateurs logiques</a></li>
+<li class="chapter" data-level="1.3.3" data-path="presentation.html"><a href="presentation.html#fonctions-logiques"><i class="fa fa-check"></i><b>1.3.3</b> Fonctions logiques</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="presentation.html"><a href="presentation.html#regrouper-ses-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>2.4</b> Regrouper ses commandes dans des scripts</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="presentation.html"><a href="presentation.html#commentaires"><i class="fa fa-check"></i><b>2.4.1</b> Commentaires</a></li>
+<li class="chapter" data-level="1.4" data-path="presentation.html"><a href="presentation.html#regrouper-ses-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>1.4</b> Regrouper ses commandes dans des scripts</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="presentation.html"><a href="presentation.html#commentaires"><i class="fa fa-check"></i><b>1.4.1</b> Commentaires</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="presentation.html"><a href="presentation.html#installer-et-charger-des-extensions-packages"><i class="fa fa-check"></i><b>2.5</b> Installer et charger des extensions (<em>packages</em>)</a></li>
-<li class="chapter" data-level="2.6" data-path="presentation.html"><a href="presentation.html#exercices"><i class="fa fa-check"></i><b>2.6</b> Exercices</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="presentation.html"><a href="presentation.html#sujet"><i class="fa fa-check"></i><b>2.6.1</b> Sujet</a></li>
-<li class="chapter" data-level="2.6.2" data-path="presentation.html"><a href="presentation.html#correction"><i class="fa fa-check"></i><b>2.6.2</b> Correction</a></li>
+<li class="chapter" data-level="1.5" data-path="presentation.html"><a href="presentation.html#installer-et-charger-des-extensions-packages"><i class="fa fa-check"></i><b>1.5</b> Installer et charger des extensions (<em>packages</em>)</a></li>
+<li class="chapter" data-level="1.6" data-path="presentation.html"><a href="presentation.html#exercices"><i class="fa fa-check"></i><b>1.6</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="presentation.html"><a href="presentation.html#sujet"><i class="fa fa-check"></i><b>1.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="1.6.2" data-path="presentation.html"><a href="presentation.html#correction"><i class="fa fa-check"></i><b>1.6.2</b> Correction</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="presentation.html"><a href="presentation.html#testez-vos-connaissances"><i class="fa fa-check"></i><b>2.7</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="1.7" data-path="presentation.html"><a href="presentation.html#testez-vos-connaissances"><i class="fa fa-check"></i><b>1.7</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="first-dataset.html"><a href="first-dataset.html"><i class="fa fa-check"></i><b>3</b> Premier travail avec des données</a><ul>
-<li class="chapter" data-level="3.1" data-path="first-dataset.html"><a href="first-dataset.html#jeu-de-données-dexemple"><i class="fa fa-check"></i><b>3.1</b> Jeu de données d’exemple</a></li>
-<li class="chapter" data-level="3.2" data-path="first-dataset.html"><a href="first-dataset.html#tableau-de-données-data-frame"><i class="fa fa-check"></i><b>3.2</b> Tableau de données (<em>data frame</em>)</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="first-dataset.html"><a href="first-dataset.html#structure-du-tableau"><i class="fa fa-check"></i><b>3.2.1</b> Structure du tableau</a></li>
-<li class="chapter" data-level="3.2.2" data-path="first-dataset.html"><a href="first-dataset.html#accéder-aux-variables-dun-tableau"><i class="fa fa-check"></i><b>3.2.2</b> Accéder aux variables d’un tableau</a></li>
-<li class="chapter" data-level="3.2.3" data-path="first-dataset.html"><a href="first-dataset.html#créer-une-nouvelle-variable"><i class="fa fa-check"></i><b>3.2.3</b> Créer une nouvelle variable</a></li>
+<li class="chapter" data-level="2" data-path="first_dataset.html"><a href="first_dataset.html"><i class="fa fa-check"></i><b>2</b> Premier travail avec des données</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="first_dataset.html"><a href="first_dataset.html#jeu-de-données-dexemple"><i class="fa fa-check"></i><b>2.1</b> Jeu de données d’exemple</a></li>
+<li class="chapter" data-level="2.2" data-path="first_dataset.html"><a href="first_dataset.html#tableau-de-données-data-frame"><i class="fa fa-check"></i><b>2.2</b> Tableau de données (<em>data frame</em>)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="first_dataset.html"><a href="first_dataset.html#structure-du-tableau"><i class="fa fa-check"></i><b>2.2.1</b> Structure du tableau</a></li>
+<li class="chapter" data-level="2.2.2" data-path="first_dataset.html"><a href="first_dataset.html#accéder-aux-variables-dun-tableau"><i class="fa fa-check"></i><b>2.2.2</b> Accéder aux variables d’un tableau</a></li>
+<li class="chapter" data-level="2.2.3" data-path="first_dataset.html"><a href="first_dataset.html#créer-une-nouvelle-variable"><i class="fa fa-check"></i><b>2.2.3</b> Créer une nouvelle variable</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="first-dataset.html"><a href="first-dataset.html#analyse-univariée"><i class="fa fa-check"></i><b>3.3</b> Analyse univariée</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="first-dataset.html"><a href="first-dataset.html#analyser-une-variable-quantitative"><i class="fa fa-check"></i><b>3.3.1</b> Analyser une variable quantitative</a></li>
-<li class="chapter" data-level="3.3.2" data-path="first-dataset.html"><a href="first-dataset.html#analyser-une-variable-qualitative"><i class="fa fa-check"></i><b>3.3.2</b> Analyser une variable qualitative</a></li>
+<li class="chapter" data-level="2.3" data-path="first_dataset.html"><a href="first_dataset.html#analyse-univariée"><i class="fa fa-check"></i><b>2.3</b> Analyse univariée</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="first_dataset.html"><a href="first_dataset.html#analyser-une-variable-quantitative"><i class="fa fa-check"></i><b>2.3.1</b> Analyser une variable quantitative</a></li>
+<li class="chapter" data-level="2.3.2" data-path="first_dataset.html"><a href="first_dataset.html#analyser-une-variable-qualitative"><i class="fa fa-check"></i><b>2.3.2</b> Analyser une variable qualitative</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="first-dataset.html"><a href="first-dataset.html#combiner-plusieurs-variables"><i class="fa fa-check"></i><b>3.4</b> Combiner plusieurs variables</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="first-dataset.html"><a href="first-dataset.html#créer-une-nouvelle-variable-1"><i class="fa fa-check"></i><b>3.4.1</b> Créer une nouvelle variable</a></li>
-<li class="chapter" data-level="3.4.2" data-path="first-dataset.html"><a href="first-dataset.html#créer-des-regroupements-de-modalités"><i class="fa fa-check"></i><b>3.4.2</b> Créer des regroupements de modalités</a></li>
-<li class="chapter" data-level="3.4.3" data-path="first-dataset.html"><a href="first-dataset.html#découper-une-variable-numérique-en-classes"><i class="fa fa-check"></i><b>3.4.3</b> Découper une variable numérique en classes</a></li>
+<li class="chapter" data-level="2.4" data-path="first_dataset.html"><a href="first_dataset.html#combiner-plusieurs-variables"><i class="fa fa-check"></i><b>2.4</b> Combiner plusieurs variables</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="first_dataset.html"><a href="first_dataset.html#créer-une-nouvelle-variable-1"><i class="fa fa-check"></i><b>2.4.1</b> Créer une nouvelle variable</a></li>
+<li class="chapter" data-level="2.4.2" data-path="first_dataset.html"><a href="first_dataset.html#créer-des-regroupements-de-modalités"><i class="fa fa-check"></i><b>2.4.2</b> Créer des regroupements de modalités</a></li>
+<li class="chapter" data-level="2.4.3" data-path="first_dataset.html"><a href="first_dataset.html#découper-une-variable-numérique-en-classes"><i class="fa fa-check"></i><b>2.4.3</b> Découper une variable numérique en classes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="first-dataset.html"><a href="first-dataset.html#exercices-1"><i class="fa fa-check"></i><b>3.5</b> Exercices</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="first-dataset.html"><a href="first-dataset.html#sujet-1"><i class="fa fa-check"></i><b>3.5.1</b> Sujet</a></li>
-<li class="chapter" data-level="3.5.2" data-path="first-dataset.html"><a href="first-dataset.html#correction-1"><i class="fa fa-check"></i><b>3.5.2</b> Correction</a></li>
+<li class="chapter" data-level="2.5" data-path="first_dataset.html"><a href="first_dataset.html#exercices-1"><i class="fa fa-check"></i><b>2.5</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="first_dataset.html"><a href="first_dataset.html#sujet-1"><i class="fa fa-check"></i><b>2.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="2.5.2" data-path="first_dataset.html"><a href="first_dataset.html#correction-1"><i class="fa fa-check"></i><b>2.5.2</b> Correction</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="first-dataset.html"><a href="first-dataset.html#testez-vos-connaissances-1"><i class="fa fa-check"></i><b>3.6</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="2.6" data-path="first_dataset.html"><a href="first_dataset.html#testez-vos-connaissances-1"><i class="fa fa-check"></i><b>2.6</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="first-import.html"><a href="first-import.html"><i class="fa fa-check"></i><b>4</b> Importer des données externes</a><ul>
-<li class="chapter" data-level="4.1" data-path="first-import.html"><a href="first-import.html#import-de-fichiers-csv"><i class="fa fa-check"></i><b>4.1</b> Import de fichiers csv</a></li>
-<li class="chapter" data-level="4.2" data-path="first-import.html"><a href="first-import.html#interface-interactive-dimport-de-fichiers"><i class="fa fa-check"></i><b>4.2</b> Interface interactive d’import de fichiers</a></li>
-<li class="chapter" data-level="4.3" data-path="first-import.html"><a href="first-import.html#modifier-le-répertoire-actif"><i class="fa fa-check"></i><b>4.3</b> Modifier le répertoire actif</a></li>
-<li class="chapter" data-level="4.4" data-path="first-import.html"><a href="first-import.html#import-depuis-un-fichier-excel"><i class="fa fa-check"></i><b>4.4</b> Import depuis un fichier Excel</a></li>
-<li class="chapter" data-level="4.5" data-path="first-import.html"><a href="first-import.html#export-de-données"><i class="fa fa-check"></i><b>4.5</b> Export de données</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="first-import.html"><a href="first-import.html#export-de-tableaux-de-données"><i class="fa fa-check"></i><b>4.5.1</b> Export de tableaux de données</a></li>
-<li class="chapter" data-level="4.5.2" data-path="first-import.html"><a href="first-import.html#sauvegarder-des-objets"><i class="fa fa-check"></i><b>4.5.2</b> Sauvegarder des objets</a></li>
+<li class="chapter" data-level="3" data-path="first_import.html"><a href="first_import.html"><i class="fa fa-check"></i><b>3</b> Importer des données externes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="first_import.html"><a href="first_import.html#import-de-fichiers-csv"><i class="fa fa-check"></i><b>3.1</b> Import de fichiers csv</a></li>
+<li class="chapter" data-level="3.2" data-path="first_import.html"><a href="first_import.html#interface-interactive-dimport-de-fichiers"><i class="fa fa-check"></i><b>3.2</b> Interface interactive d’import de fichiers</a></li>
+<li class="chapter" data-level="3.3" data-path="first_import.html"><a href="first_import.html#modifier-le-répertoire-actif"><i class="fa fa-check"></i><b>3.3</b> Modifier le répertoire actif</a></li>
+<li class="chapter" data-level="3.4" data-path="first_import.html"><a href="first_import.html#import-depuis-un-fichier-excel"><i class="fa fa-check"></i><b>3.4</b> Import depuis un fichier Excel</a></li>
+<li class="chapter" data-level="3.5" data-path="first_import.html"><a href="first_import.html#export-de-données"><i class="fa fa-check"></i><b>3.5</b> Export de données</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="first_import.html"><a href="first_import.html#export-de-tableaux-de-données"><i class="fa fa-check"></i><b>3.5.1</b> Export de tableaux de données</a></li>
+<li class="chapter" data-level="3.5.2" data-path="first_import.html"><a href="first_import.html#sauvegarder-des-objets"><i class="fa fa-check"></i><b>3.5.2</b> Sauvegarder des objets</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="first-import.html"><a href="first-import.html#exercices-2"><i class="fa fa-check"></i><b>4.6</b> Exercices</a><ul>
-<li class="chapter" data-level="4.6.1" data-path="first-import.html"><a href="first-import.html#sujet-2"><i class="fa fa-check"></i><b>4.6.1</b> Sujet</a></li>
-<li class="chapter" data-level="4.6.2" data-path="first-import.html"><a href="first-import.html#correction-2"><i class="fa fa-check"></i><b>4.6.2</b> Correction</a></li>
+<li class="chapter" data-level="3.6" data-path="first_import.html"><a href="first_import.html#exercices-2"><i class="fa fa-check"></i><b>3.6</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="first_import.html"><a href="first_import.html#sujet-2"><i class="fa fa-check"></i><b>3.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="3.6.2" data-path="first_import.html"><a href="first_import.html#correction-2"><i class="fa fa-check"></i><b>3.6.2</b> Correction</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="first-import.html"><a href="first-import.html#testez-vos-connaissances-2"><i class="fa fa-check"></i><b>4.7</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="3.7" data-path="first_import.html"><a href="first_import.html#testez-vos-connaissances-2"><i class="fa fa-check"></i><b>3.7</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="manipulation-objet.html"><a href="manipulation-objet.html"><i class="fa fa-check"></i><b>5</b> Manipulation des objets</a><ul>
-<li class="chapter" data-level="5.1" data-path="manipulation-objet.html"><a href="manipulation-objet.html#liste"><i class="fa fa-check"></i><b>5.1</b> Liste</a></li>
-<li class="chapter" data-level="5.2" data-path="manipulation-objet.html"><a href="manipulation-objet.html#matrice"><i class="fa fa-check"></i><b>5.2</b> Matrice</a></li>
-<li class="chapter" data-level="5.3" data-path="manipulation-objet.html"><a href="manipulation-objet.html#data-frame"><i class="fa fa-check"></i><b>5.3</b> Data frame</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="manipulation-objet.html"><a href="manipulation-objet.html#indexations-simples"><i class="fa fa-check"></i><b>5.3.1</b> Indexations simples</a></li>
-<li class="chapter" data-level="5.3.2" data-path="manipulation-objet.html"><a href="manipulation-objet.html#indexations-avec-des-booléens"><i class="fa fa-check"></i><b>5.3.2</b> Indexations avec des booléens</a></li>
-<li class="chapter" data-level="5.3.3" data-path="manipulation-objet.html"><a href="manipulation-objet.html#filtre-et-sélection-dans-un-data-frame"><i class="fa fa-check"></i><b>5.3.3</b> Filtre et sélection dans un data frame</a></li>
-<li class="chapter" data-level="5.3.4" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercices-3"><i class="fa fa-check"></i><b>5.3.4</b> Exercices</a></li>
-<li class="chapter" data-level="5.3.5" data-path="manipulation-objet.html"><a href="manipulation-objet.html#trier-un-data-frame"><i class="fa fa-check"></i><b>5.3.5</b> Trier un data frame</a></li>
-<li class="chapter" data-level="5.3.6" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercice"><i class="fa fa-check"></i><b>5.3.6</b> Exercice</a></li>
-<li class="chapter" data-level="5.3.7" data-path="manipulation-objet.html"><a href="manipulation-objet.html#agréger-des-données"><i class="fa fa-check"></i><b>5.3.7</b> Agréger des données</a></li>
-<li class="chapter" data-level="5.3.8" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercice-1"><i class="fa fa-check"></i><b>5.3.8</b> Exercice</a></li>
+<li class="chapter" data-level="4" data-path="manipulation_objet.html"><a href="manipulation_objet.html"><i class="fa fa-check"></i><b>4</b> Manipulation des objets</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="manipulation_objet.html"><a href="manipulation_objet.html#liste"><i class="fa fa-check"></i><b>4.1</b> Liste</a></li>
+<li class="chapter" data-level="4.2" data-path="manipulation_objet.html"><a href="manipulation_objet.html#matrice"><i class="fa fa-check"></i><b>4.2</b> Matrice</a></li>
+<li class="chapter" data-level="4.3" data-path="manipulation_objet.html"><a href="manipulation_objet.html#data-frame"><i class="fa fa-check"></i><b>4.3</b> Data frame</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="manipulation_objet.html"><a href="manipulation_objet.html#indexations-simples"><i class="fa fa-check"></i><b>4.3.1</b> Indexations simples</a></li>
+<li class="chapter" data-level="4.3.2" data-path="manipulation_objet.html"><a href="manipulation_objet.html#indexations-avec-des-booléens"><i class="fa fa-check"></i><b>4.3.2</b> Indexations avec des booléens</a></li>
+<li class="chapter" data-level="4.3.3" data-path="manipulation_objet.html"><a href="manipulation_objet.html#filtre-et-sélection-dans-un-data-frame"><i class="fa fa-check"></i><b>4.3.3</b> Filtre et sélection dans un data frame</a></li>
+<li class="chapter" data-level="4.3.4" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercices-3"><i class="fa fa-check"></i><b>4.3.4</b> Exercices</a></li>
+<li class="chapter" data-level="4.3.5" data-path="manipulation_objet.html"><a href="manipulation_objet.html#trier-un-data-frame"><i class="fa fa-check"></i><b>4.3.5</b> Trier un data frame</a></li>
+<li class="chapter" data-level="4.3.6" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercice"><i class="fa fa-check"></i><b>4.3.6</b> Exercice</a></li>
+<li class="chapter" data-level="4.3.7" data-path="manipulation_objet.html"><a href="manipulation_objet.html#agréger-des-données"><i class="fa fa-check"></i><b>4.3.7</b> Agréger des données</a></li>
+<li class="chapter" data-level="4.3.8" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercice-1"><i class="fa fa-check"></i><b>4.3.8</b> Exercice</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="manipulation-objet.html"><a href="manipulation-objet.html#testez-vos-connaissances-3"><i class="fa fa-check"></i><b>5.4</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulation_objet.html"><a href="manipulation_objet.html#testez-vos-connaissances-3"><i class="fa fa-check"></i><b>4.4</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="graphique.html"><a href="graphique.html"><i class="fa fa-check"></i><b>6</b> Représentation Graphique</a><ul>
-<li class="chapter" data-level="6.1" data-path="graphique.html"><a href="graphique.html#les-fenêtres-graphiques"><i class="fa fa-check"></i><b>6.1</b> Les fenêtres graphiques</a></li>
-<li class="chapter" data-level="6.2" data-path="graphique.html"><a href="graphique.html#les-fonctions-de-tracé-de-bas-niveau"><i class="fa fa-check"></i><b>6.2</b> Les fonctions de tracé de bas niveau</a></li>
-<li class="chapter" data-level="6.3" data-path="graphique.html"><a href="graphique.html#personnaliser-des-éléments-graphiques"><i class="fa fa-check"></i><b>6.3</b> Personnaliser des éléments graphiques</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="graphique.html"><a href="graphique.html#mise-en-forme"><i class="fa fa-check"></i><b>6.3.1</b> Mise en forme</a></li>
-<li class="chapter" data-level="6.3.2" data-path="graphique.html"><a href="graphique.html#gestion-des-couleurs"><i class="fa fa-check"></i><b>6.3.2</b> Gestion des couleurs</a></li>
+<li class="chapter" data-level="5" data-path="graphique.html"><a href="graphique.html"><i class="fa fa-check"></i><b>5</b> Représentation Graphique</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="graphique.html"><a href="graphique.html#les-fenêtres-graphiques"><i class="fa fa-check"></i><b>5.1</b> Les fenêtres graphiques</a></li>
+<li class="chapter" data-level="5.2" data-path="graphique.html"><a href="graphique.html#les-fonctions-de-tracé-de-bas-niveau"><i class="fa fa-check"></i><b>5.2</b> Les fonctions de tracé de bas niveau</a></li>
+<li class="chapter" data-level="5.3" data-path="graphique.html"><a href="graphique.html#personnaliser-des-éléments-graphiques"><i class="fa fa-check"></i><b>5.3</b> Personnaliser des éléments graphiques</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="graphique.html"><a href="graphique.html#mise-en-forme"><i class="fa fa-check"></i><b>5.3.1</b> Mise en forme</a></li>
+<li class="chapter" data-level="5.3.2" data-path="graphique.html"><a href="graphique.html#gestion-des-couleurs"><i class="fa fa-check"></i><b>5.3.2</b> Gestion des couleurs</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="graphique.html"><a href="graphique.html#type-de-graphique"><i class="fa fa-check"></i><b>6.4</b> Type de graphique</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="graphique.html"><a href="graphique.html#boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Boxplot</a></li>
-<li class="chapter" data-level="6.4.2" data-path="graphique.html"><a href="graphique.html#histogramme"><i class="fa fa-check"></i><b>6.4.2</b> Histogramme</a></li>
-<li class="chapter" data-level="6.4.3" data-path="graphique.html"><a href="graphique.html#diagramme-en-circulaire"><i class="fa fa-check"></i><b>6.4.3</b> Diagramme en circulaire</a></li>
-<li class="chapter" data-level="6.4.4" data-path="graphique.html"><a href="graphique.html#diagramme-en-barre"><i class="fa fa-check"></i><b>6.4.4</b> Diagramme en barre</a></li>
-<li class="chapter" data-level="6.4.5" data-path="graphique.html"><a href="graphique.html#nuage-de-points"><i class="fa fa-check"></i><b>6.4.5</b> Nuage de points</a></li>
+<li class="chapter" data-level="5.4" data-path="graphique.html"><a href="graphique.html#type-de-graphique"><i class="fa fa-check"></i><b>5.4</b> Type de graphique</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="graphique.html"><a href="graphique.html#boxplot"><i class="fa fa-check"></i><b>5.4.1</b> Boxplot</a></li>
+<li class="chapter" data-level="5.4.2" data-path="graphique.html"><a href="graphique.html#histogramme"><i class="fa fa-check"></i><b>5.4.2</b> Histogramme</a></li>
+<li class="chapter" data-level="5.4.3" data-path="graphique.html"><a href="graphique.html#diagramme-en-circulaire"><i class="fa fa-check"></i><b>5.4.3</b> Diagramme en circulaire</a></li>
+<li class="chapter" data-level="5.4.4" data-path="graphique.html"><a href="graphique.html#diagramme-en-barre"><i class="fa fa-check"></i><b>5.4.4</b> Diagramme en barre</a></li>
+<li class="chapter" data-level="5.4.5" data-path="graphique.html"><a href="graphique.html#nuage-de-points"><i class="fa fa-check"></i><b>5.4.5</b> Nuage de points</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="graphique.html"><a href="graphique.html#exercice-2"><i class="fa fa-check"></i><b>6.5</b> Exercice</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="graphique.html"><a href="graphique.html#sujet-6"><i class="fa fa-check"></i><b>6.5.1</b> Sujet</a></li>
-<li class="chapter" data-level="6.5.2" data-path="graphique.html"><a href="graphique.html#correction-6"><i class="fa fa-check"></i><b>6.5.2</b> Correction</a></li>
+<li class="chapter" data-level="5.5" data-path="graphique.html"><a href="graphique.html#exercice-2"><i class="fa fa-check"></i><b>5.5</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="graphique.html"><a href="graphique.html#sujet-6"><i class="fa fa-check"></i><b>5.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="5.5.2" data-path="graphique.html"><a href="graphique.html#correction-6"><i class="fa fa-check"></i><b>5.5.2</b> Correction</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="graphique.html"><a href="graphique.html#aller-plus-loin"><i class="fa fa-check"></i><b>6.6</b> Aller plus loin</a></li>
-<li class="chapter" data-level="6.7" data-path="graphique.html"><a href="graphique.html#testez-vos-connaissances-4"><i class="fa fa-check"></i><b>6.7</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="5.6" data-path="graphique.html"><a href="graphique.html#aller-plus-loin"><i class="fa fa-check"></i><b>5.6</b> Aller plus loin</a></li>
+<li class="chapter" data-level="5.7" data-path="graphique.html"><a href="graphique.html#testez-vos-connaissances-4"><i class="fa fa-check"></i><b>5.7</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="algo.html"><a href="algo.html"><i class="fa fa-check"></i><b>7</b> Algorithme</a><ul>
-<li class="chapter" data-level="7.1" data-path="algo.html"><a href="algo.html#construire-une-fonction"><i class="fa fa-check"></i><b>7.1</b> Construire une fonction</a></li>
-<li class="chapter" data-level="7.2" data-path="algo.html"><a href="algo.html#construire-une-structure-conditionnelle"><i class="fa fa-check"></i><b>7.2</b> Construire une structure conditionnelle</a></li>
-<li class="chapter" data-level="7.3" data-path="algo.html"><a href="algo.html#construire-une-boucle"><i class="fa fa-check"></i><b>7.3</b> Construire une boucle</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="algo.html"><a href="algo.html#la-boucle-for"><i class="fa fa-check"></i><b>7.3.1</b> La boucle <code>for</code></a></li>
-<li class="chapter" data-level="7.3.2" data-path="algo.html"><a href="algo.html#la-boucle-while"><i class="fa fa-check"></i><b>7.3.2</b> La boucle <code>while</code></a></li>
+<li class="chapter" data-level="6" data-path="algo.html"><a href="algo.html"><i class="fa fa-check"></i><b>6</b> Algorithme</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="algo.html"><a href="algo.html#construire-une-fonction"><i class="fa fa-check"></i><b>6.1</b> Construire une fonction</a></li>
+<li class="chapter" data-level="6.2" data-path="algo.html"><a href="algo.html#construire-une-structure-conditionnelle"><i class="fa fa-check"></i><b>6.2</b> Construire une structure conditionnelle</a></li>
+<li class="chapter" data-level="6.3" data-path="algo.html"><a href="algo.html#construire-une-boucle"><i class="fa fa-check"></i><b>6.3</b> Construire une boucle</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="algo.html"><a href="algo.html#la-boucle-for"><i class="fa fa-check"></i><b>6.3.1</b> La boucle <code>for</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="algo.html"><a href="algo.html#la-boucle-while"><i class="fa fa-check"></i><b>6.3.2</b> La boucle <code>while</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="algo.html"><a href="algo.html#exercice-3"><i class="fa fa-check"></i><b>7.4</b> Exercice</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="algo.html"><a href="algo.html#sujet-7"><i class="fa fa-check"></i><b>7.4.1</b> Sujet</a></li>
-<li class="chapter" data-level="7.4.2" data-path="algo.html"><a href="algo.html#correction-7"><i class="fa fa-check"></i><b>7.4.2</b> Correction</a></li>
+<li class="chapter" data-level="6.4" data-path="algo.html"><a href="algo.html#exercice-3"><i class="fa fa-check"></i><b>6.4</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="algo.html"><a href="algo.html#sujet-7"><i class="fa fa-check"></i><b>6.4.1</b> Sujet</a></li>
+<li class="chapter" data-level="6.4.2" data-path="algo.html"><a href="algo.html#correction-7"><i class="fa fa-check"></i><b>6.4.2</b> Correction</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="algo.html"><a href="algo.html#testez-vos-connaissances-5"><i class="fa fa-check"></i><b>7.5</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="6.5" data-path="algo.html"><a href="algo.html#testez-vos-connaissances-5"><i class="fa fa-check"></i><b>6.5</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="apply.html"><a href="apply.html"><i class="fa fa-check"></i><b>8</b> Les fonctions apply</a><ul>
-<li class="chapter" data-level="8.1" data-path="apply.html"><a href="apply.html#fonction-apply"><i class="fa fa-check"></i><b>8.1</b> Fonction apply</a></li>
-<li class="chapter" data-level="8.2" data-path="apply.html"><a href="apply.html#fonction-lapply"><i class="fa fa-check"></i><b>8.2</b> Fonction lapply</a></li>
-<li class="chapter" data-level="8.3" data-path="apply.html"><a href="apply.html#fonction-sapply"><i class="fa fa-check"></i><b>8.3</b> Fonction sapply</a></li>
-<li class="chapter" data-level="8.4" data-path="apply.html"><a href="apply.html#fonction-tapply"><i class="fa fa-check"></i><b>8.4</b> Fonction tapply</a></li>
-<li class="chapter" data-level="8.5" data-path="apply.html"><a href="apply.html#exercice-4"><i class="fa fa-check"></i><b>8.5</b> Exercice</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="apply.html"><a href="apply.html#sujet-8"><i class="fa fa-check"></i><b>8.5.1</b> Sujet</a></li>
-<li class="chapter" data-level="8.5.2" data-path="apply.html"><a href="apply.html#correction-8"><i class="fa fa-check"></i><b>8.5.2</b> Correction</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>9</b> Manipuler les données avec dplyr</a><ul>
-<li class="chapter" data-level="9.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-slice"><i class="fa fa-check"></i><b>9.1</b> La fonction <code>slice</code></a></li>
-<li class="chapter" data-level="9.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-filter"><i class="fa fa-check"></i><b>9.2</b> La fonction <code>filter</code></a></li>
-<li class="chapter" data-level="9.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-select"><i class="fa fa-check"></i><b>9.3</b> La fonction <code>select</code></a></li>
-<li class="chapter" data-level="9.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-arrange"><i class="fa fa-check"></i><b>9.4</b> La fonction <code>arrange</code></a></li>
-<li class="chapter" data-level="9.5" data-path="dplyr.html"><a href="dplyr.html#enchaîner-les-fonctions-avec-le-pipe"><i class="fa fa-check"></i><b>9.5</b> Enchaîner les fonctions avec le <em>pipe</em></a></li>
-<li class="chapter" data-level="9.6" data-path="dplyr.html"><a href="dplyr.html#la-fonction-group_by"><i class="fa fa-check"></i><b>9.6</b> La fonction <code>group_by</code></a></li>
-<li class="chapter" data-level="9.7" data-path="dplyr.html"><a href="dplyr.html#la-fonction-summarise"><i class="fa fa-check"></i><b>9.7</b> La fonction <code>summarise</code></a></li>
-<li class="chapter" data-level="9.8" data-path="dplyr.html"><a href="dplyr.html#autres-fonctions-utiles-de-dplyr"><i class="fa fa-check"></i><b>9.8</b> Autres fonctions utiles de dplyr</a><ul>
-<li class="chapter" data-level="9.8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-rename"><i class="fa fa-check"></i><b>9.8.1</b> La fonction <code>rename</code></a></li>
-<li class="chapter" data-level="9.8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-mutate"><i class="fa fa-check"></i><b>9.8.2</b> La fonction <code>mutate</code></a></li>
-<li class="chapter" data-level="9.8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-distinct"><i class="fa fa-check"></i><b>9.8.3</b> La fonction <code>distinct</code></a></li>
-<li class="chapter" data-level="9.8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-case_when"><i class="fa fa-check"></i><b>9.8.4</b> La fonction <code>case_when</code></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="chaines.html"><a href="chaines.html"><i class="fa fa-check"></i><b>10</b> Manipuler le texte et les dates</a><ul>
-<li class="chapter" data-level="10.1" data-path="chaines.html"><a href="chaines.html#manipulation-des-chaînes-de-caractères"><i class="fa fa-check"></i><b>10.1</b> Manipulation des chaînes de caractères</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="chaines.html"><a href="chaines.html#concaténer-des-chaînes"><i class="fa fa-check"></i><b>10.1.1</b> Concaténer des chaînes</a></li>
-<li class="chapter" data-level="10.1.2" data-path="chaines.html"><a href="chaines.html#majuscule-et-minuscule"><i class="fa fa-check"></i><b>10.1.2</b> Majuscule et minuscule</a></li>
-<li class="chapter" data-level="10.1.3" data-path="chaines.html"><a href="chaines.html#longueur-dune-chaîne"><i class="fa fa-check"></i><b>10.1.3</b> Longueur d’une chaîne</a></li>
-<li class="chapter" data-level="10.1.4" data-path="chaines.html"><a href="chaines.html#extraction-de-sous-chaînes"><i class="fa fa-check"></i><b>10.1.4</b> Extraction de sous-chaînes</a></li>
-<li class="chapter" data-level="10.1.5" data-path="chaines.html"><a href="chaines.html#remplacement-de-chaînes"><i class="fa fa-check"></i><b>10.1.5</b> Remplacement de chaînes</a></li>
-<li class="chapter" data-level="10.1.6" data-path="chaines.html"><a href="chaines.html#décomposition-dune-chaîne"><i class="fa fa-check"></i><b>10.1.6</b> Décomposition d’une chaîne</a></li>
-<li class="chapter" data-level="10.1.7" data-path="chaines.html"><a href="chaines.html#recherche-de-sous-chaîne"><i class="fa fa-check"></i><b>10.1.7</b> Recherche de sous-chaîne</a></li>
-<li class="chapter" data-level="10.1.8" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-1"><i class="fa fa-check"></i><b>10.1.8</b> Aller plus loin</a></li>
-</ul></li>
-<li class="chapter" data-level="10.2" data-path="chaines.html"><a href="chaines.html#manipulation-des-dates"><i class="fa fa-check"></i><b>10.2</b> Manipulation des dates</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="chaines.html"><a href="chaines.html#les-dates"><i class="fa fa-check"></i><b>10.2.1</b> Les dates</a></li>
-<li class="chapter" data-level="10.2.2" data-path="chaines.html"><a href="chaines.html#lhorloge"><i class="fa fa-check"></i><b>10.2.2</b> L’horloge</a></li>
-<li class="chapter" data-level="10.2.3" data-path="chaines.html"><a href="chaines.html#calcul-sur-les-dates"><i class="fa fa-check"></i><b>10.2.3</b> Calcul sur les dates</a></li>
-<li class="chapter" data-level="10.2.4" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-2"><i class="fa fa-check"></i><b>10.2.4</b> Aller plus loin</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="chaines.html"><a href="chaines.html#testez-vos-connaissances-6"><i class="fa fa-check"></i><b>10.3</b> Testez vos connaissances !</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="jointures.html"><a href="jointures.html"><i class="fa fa-check"></i><b>11</b> Jointures</a><ul>
-<li class="chapter" data-level="11.1" data-path="jointures.html"><a href="jointures.html#principe-1"><i class="fa fa-check"></i><b>11.1</b> Principe</a></li>
-<li class="chapter" data-level="11.2" data-path="jointures.html"><a href="jointures.html#types-de-jointures"><i class="fa fa-check"></i><b>11.2</b> Types de jointures</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="jointures.html"><a href="jointures.html#left-join"><i class="fa fa-check"></i><b>11.2.1</b> Left Join</a></li>
-<li class="chapter" data-level="11.2.2" data-path="jointures.html"><a href="jointures.html#right-join"><i class="fa fa-check"></i><b>11.2.2</b> Right Join</a></li>
-<li class="chapter" data-level="11.2.3" data-path="jointures.html"><a href="jointures.html#inner-join"><i class="fa fa-check"></i><b>11.2.3</b> Inner Join</a></li>
-<li class="chapter" data-level="11.2.4" data-path="jointures.html"><a href="jointures.html#full-join"><i class="fa fa-check"></i><b>11.2.4</b> Full Join</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="jointures.html"><a href="jointures.html#exercice-5"><i class="fa fa-check"></i><b>11.3</b> Exercice</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="jointures.html"><a href="jointures.html#sujet-9"><i class="fa fa-check"></i><b>11.3.1</b> Sujet</a></li>
-<li class="chapter" data-level="11.3.2" data-path="jointures.html"><a href="jointures.html#correction-9"><i class="fa fa-check"></i><b>11.3.2</b> Correction</a></li>
+<li class="chapter" data-level="7" data-path="apply.html"><a href="apply.html"><i class="fa fa-check"></i><b>7</b> Les fonctions apply</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="apply.html"><a href="apply.html#fonction-apply"><i class="fa fa-check"></i><b>7.1</b> Fonction apply</a></li>
+<li class="chapter" data-level="7.2" data-path="apply.html"><a href="apply.html#fonction-lapply"><i class="fa fa-check"></i><b>7.2</b> Fonction lapply</a></li>
+<li class="chapter" data-level="7.3" data-path="apply.html"><a href="apply.html#fonction-sapply"><i class="fa fa-check"></i><b>7.3</b> Fonction sapply</a></li>
+<li class="chapter" data-level="7.4" data-path="apply.html"><a href="apply.html#fonction-tapply"><i class="fa fa-check"></i><b>7.4</b> Fonction tapply</a></li>
+<li class="chapter" data-level="7.5" data-path="apply.html"><a href="apply.html#exercice-4"><i class="fa fa-check"></i><b>7.5</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="apply.html"><a href="apply.html#sujet-8"><i class="fa fa-check"></i><b>7.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="7.5.2" data-path="apply.html"><a href="apply.html#correction-8"><i class="fa fa-check"></i><b>7.5.2</b> Correction</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="express.html"><a href="express.html"><i class="fa fa-check"></i><b>12</b> R-Express 30’ ☕</a><ul>
-<li class="chapter" data-level="12.1" data-path="express.html"><a href="express.html#aller-hop-importez-des-données"><i class="fa fa-check"></i><b>12.1</b> Aller hop ! Importez des données</a></li>
-<li class="chapter" data-level="12.2" data-path="express.html"><a href="express.html#manipulez-votre-tableau"><i class="fa fa-check"></i><b>12.2</b> Manipulez votre tableau</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="express.html"><a href="express.html#dans-une-vue"><i class="fa fa-check"></i><b>12.2.1</b> Dans une vue</a></li>
-<li class="chapter" data-level="12.2.2" data-path="express.html"><a href="express.html#avec-dplyr"><i class="fa fa-check"></i><b>12.2.2</b> Avec <code>dplyr</code></a></li>
-<li class="chapter" data-level="12.2.3" data-path="express.html"><a href="express.html#sélectionner-certaines-colonnes"><i class="fa fa-check"></i><b>12.2.3</b> Sélectionner certaines colonnes</a></li>
-<li class="chapter" data-level="12.2.4" data-path="express.html"><a href="express.html#ajouter-des-filtres"><i class="fa fa-check"></i><b>12.2.4</b> Ajouter des filtres</a></li>
-<li class="chapter" data-level="12.2.5" data-path="express.html"><a href="express.html#trier-un-tableau"><i class="fa fa-check"></i><b>12.2.5</b> Trier un tableau</a></li>
+<li class="chapter" data-level="8" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>8</b> Manipuler les données avec dplyr</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-slice"><i class="fa fa-check"></i><b>8.1</b> La fonction <code>slice</code></a></li>
+<li class="chapter" data-level="8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-filter"><i class="fa fa-check"></i><b>8.2</b> La fonction <code>filter</code></a></li>
+<li class="chapter" data-level="8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-select"><i class="fa fa-check"></i><b>8.3</b> La fonction <code>select</code></a></li>
+<li class="chapter" data-level="8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-arrange"><i class="fa fa-check"></i><b>8.4</b> La fonction <code>arrange</code></a></li>
+<li class="chapter" data-level="8.5" data-path="dplyr.html"><a href="dplyr.html#enchaîner-les-fonctions-avec-le-pipe"><i class="fa fa-check"></i><b>8.5</b> Enchaîner les fonctions avec le <em>pipe</em></a></li>
+<li class="chapter" data-level="8.6" data-path="dplyr.html"><a href="dplyr.html#la-fonction-group_by"><i class="fa fa-check"></i><b>8.6</b> La fonction <code>group_by</code></a></li>
+<li class="chapter" data-level="8.7" data-path="dplyr.html"><a href="dplyr.html#la-fonction-summarise"><i class="fa fa-check"></i><b>8.7</b> La fonction <code>summarise</code></a></li>
+<li class="chapter" data-level="8.8" data-path="dplyr.html"><a href="dplyr.html#autres-fonctions-utiles-de-dplyr"><i class="fa fa-check"></i><b>8.8</b> Autres fonctions utiles de dplyr</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-rename"><i class="fa fa-check"></i><b>8.8.1</b> La fonction <code>rename</code></a></li>
+<li class="chapter" data-level="8.8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-mutate"><i class="fa fa-check"></i><b>8.8.2</b> La fonction <code>mutate</code></a></li>
+<li class="chapter" data-level="8.8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-distinct"><i class="fa fa-check"></i><b>8.8.3</b> La fonction <code>distinct</code></a></li>
+<li class="chapter" data-level="8.8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-case_when"><i class="fa fa-check"></i><b>8.8.4</b> La fonction <code>case_when</code></a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="express.html"><a href="express.html#des-graphiques-en-3-clics-avec-esquisse"><i class="fa fa-check"></i><b>12.3</b> Des graphiques en 3 clics avec <code>esquisse</code></a></li>
-<li class="chapter" data-level="12.4" data-path="express.html"><a href="express.html#en-bref"><i class="fa fa-check"></i><b>12.4</b> En bref</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="entrainement.html"><a href="entrainement.html"><i class="fa fa-check"></i><b>13</b> S’entrainer</a><ul>
-<li class="chapter" data-level="13.1" data-path="entrainement.html"><a href="entrainement.html#tp1"><i class="fa fa-check"></i><b>13.1</b> TP1</a></li>
-<li class="chapter" data-level="13.2" data-path="entrainement.html"><a href="entrainement.html#tp2"><i class="fa fa-check"></i><b>13.2</b> TP2</a></li>
-<li class="chapter" data-level="13.3" data-path="entrainement.html"><a href="entrainement.html#tp3"><i class="fa fa-check"></i><b>13.3</b> TP3</a></li>
-<li class="chapter" data-level="13.4" data-path="entrainement.html"><a href="entrainement.html#tp4"><i class="fa fa-check"></i><b>13.4</b> TP4</a></li>
-<li class="chapter" data-level="13.5" data-path="entrainement.html"><a href="entrainement.html#tp5---chercher-lerreur"><i class="fa fa-check"></i><b>13.5</b> TP5 - Chercher l’erreur</a></li>
-<li class="chapter" data-level="13.6" data-path="entrainement.html"><a href="entrainement.html#tp6---analyses-statistiques"><i class="fa fa-check"></i><b>13.6</b> TP6 - Analyses statistiques</a></li>
-<li class="chapter" data-level="13.7" data-path="entrainement.html"><a href="entrainement.html#tp7---analyse-de-film"><i class="fa fa-check"></i><b>13.7</b> TP7 - Analyse de film</a></li>
+<li class="chapter" data-level="9" data-path="chaines.html"><a href="chaines.html"><i class="fa fa-check"></i><b>9</b> Manipuler le texte et les dates</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chaines.html"><a href="chaines.html#manipulation-des-chaînes-de-caractères"><i class="fa fa-check"></i><b>9.1</b> Manipulation des chaînes de caractères</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="chaines.html"><a href="chaines.html#concaténer-des-chaînes"><i class="fa fa-check"></i><b>9.1.1</b> Concaténer des chaînes</a></li>
+<li class="chapter" data-level="9.1.2" data-path="chaines.html"><a href="chaines.html#majuscule-et-minuscule"><i class="fa fa-check"></i><b>9.1.2</b> Majuscule et minuscule</a></li>
+<li class="chapter" data-level="9.1.3" data-path="chaines.html"><a href="chaines.html#longueur-dune-chaîne"><i class="fa fa-check"></i><b>9.1.3</b> Longueur d’une chaîne</a></li>
+<li class="chapter" data-level="9.1.4" data-path="chaines.html"><a href="chaines.html#extraction-de-sous-chaînes"><i class="fa fa-check"></i><b>9.1.4</b> Extraction de sous-chaînes</a></li>
+<li class="chapter" data-level="9.1.5" data-path="chaines.html"><a href="chaines.html#remplacement-de-chaînes"><i class="fa fa-check"></i><b>9.1.5</b> Remplacement de chaînes</a></li>
+<li class="chapter" data-level="9.1.6" data-path="chaines.html"><a href="chaines.html#décomposition-dune-chaîne"><i class="fa fa-check"></i><b>9.1.6</b> Décomposition d’une chaîne</a></li>
+<li class="chapter" data-level="9.1.7" data-path="chaines.html"><a href="chaines.html#recherche-de-sous-chaîne"><i class="fa fa-check"></i><b>9.1.7</b> Recherche de sous-chaîne</a></li>
+<li class="chapter" data-level="9.1.8" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-1"><i class="fa fa-check"></i><b>9.1.8</b> Aller plus loin</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="all-dataset.html"><a href="all-dataset.html"><i class="fa fa-check"></i><b>14</b> Jeux de données utilisés</a><ul>
-<li class="chapter" data-level="14.1" data-path="all-dataset.html"><a href="all-dataset.html#iris"><i class="fa fa-check"></i><b>14.1</b> Iris 🌺</a></li>
-<li class="chapter" data-level="14.2" data-path="all-dataset.html"><a href="all-dataset.html#histoire-de-vie-hdv2003"><i class="fa fa-check"></i><b>14.2</b> Histoire de vie (hdv2003) 🗨</a></li>
-<li class="chapter" data-level="14.3" data-path="all-dataset.html"><a href="all-dataset.html#nyc-flights-2013"><i class="fa fa-check"></i><b>14.3</b> NYC Flights 2013 ✈</a><ul>
-<li class="chapter" data-level="14.3.1" data-path="all-dataset.html"><a href="all-dataset.html#flights"><i class="fa fa-check"></i><b>14.3.1</b> Flights</a></li>
-<li class="chapter" data-level="14.3.2" data-path="all-dataset.html"><a href="all-dataset.html#airlines"><i class="fa fa-check"></i><b>14.3.2</b> Airlines</a></li>
-<li class="chapter" data-level="14.3.3" data-path="all-dataset.html"><a href="all-dataset.html#airports"><i class="fa fa-check"></i><b>14.3.3</b> Airports</a></li>
-<li class="chapter" data-level="14.3.4" data-path="all-dataset.html"><a href="all-dataset.html#weather"><i class="fa fa-check"></i><b>14.3.4</b> Weather</a></li>
-<li class="chapter" data-level="14.3.5" data-path="all-dataset.html"><a href="all-dataset.html#planes"><i class="fa fa-check"></i><b>14.3.5</b> Planes</a></li>
+<li class="chapter" data-level="9.2" data-path="chaines.html"><a href="chaines.html#manipulation-des-dates"><i class="fa fa-check"></i><b>9.2</b> Manipulation des dates</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="chaines.html"><a href="chaines.html#les-dates"><i class="fa fa-check"></i><b>9.2.1</b> Les dates</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chaines.html"><a href="chaines.html#lhorloge"><i class="fa fa-check"></i><b>9.2.2</b> L’horloge</a></li>
+<li class="chapter" data-level="9.2.3" data-path="chaines.html"><a href="chaines.html#calcul-sur-les-dates"><i class="fa fa-check"></i><b>9.2.3</b> Calcul sur les dates</a></li>
+<li class="chapter" data-level="9.2.4" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-2"><i class="fa fa-check"></i><b>9.2.4</b> Aller plus loin</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="all-dataset.html"><a href="all-dataset.html#google"><i class="fa fa-check"></i><b>14.4</b> Google 📱</a></li>
-<li class="chapter" data-level="14.5" data-path="all-dataset.html"><a href="all-dataset.html#pokemon"><i class="fa fa-check"></i><b>14.5</b> Pokemon 🐾</a></li>
-<li class="chapter" data-level="14.6" data-path="all-dataset.html"><a href="all-dataset.html#star-wars"><i class="fa fa-check"></i><b>14.6</b> Star Wars 🎬</a></li>
-<li class="chapter" data-level="14.7" data-path="all-dataset.html"><a href="all-dataset.html#amongus"><i class="fa fa-check"></i><b>14.7</b> AmongUs 🔦</a></li>
-<li class="chapter" data-level="14.8" data-path="all-dataset.html"><a href="all-dataset.html#nba"><i class="fa fa-check"></i><b>14.8</b> NBA 🏀</a></li>
-<li class="chapter" data-level="14.9" data-path="all-dataset.html"><a href="all-dataset.html#students"><i class="fa fa-check"></i><b>14.9</b> Students 🎓</a></li>
-<li class="chapter" data-level="14.10" data-path="all-dataset.html"><a href="all-dataset.html#tv-shows"><i class="fa fa-check"></i><b>14.10</b> TV Shows 📺</a></li>
+<li class="chapter" data-level="9.3" data-path="chaines.html"><a href="chaines.html#testez-vos-connaissances-6"><i class="fa fa-check"></i><b>9.3</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="biblio.html"><a href="biblio.html"><i class="fa fa-check"></i><b>15</b> Bibliographie</a></li>
+<li class="chapter" data-level="10" data-path="jointures.html"><a href="jointures.html"><i class="fa fa-check"></i><b>10</b> Jointures</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="jointures.html"><a href="jointures.html#principe-1"><i class="fa fa-check"></i><b>10.1</b> Principe</a></li>
+<li class="chapter" data-level="10.2" data-path="jointures.html"><a href="jointures.html#types-de-jointures"><i class="fa fa-check"></i><b>10.2</b> Types de jointures</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="jointures.html"><a href="jointures.html#left-join"><i class="fa fa-check"></i><b>10.2.1</b> Left Join</a></li>
+<li class="chapter" data-level="10.2.2" data-path="jointures.html"><a href="jointures.html#right-join"><i class="fa fa-check"></i><b>10.2.2</b> Right Join</a></li>
+<li class="chapter" data-level="10.2.3" data-path="jointures.html"><a href="jointures.html#inner-join"><i class="fa fa-check"></i><b>10.2.3</b> Inner Join</a></li>
+<li class="chapter" data-level="10.2.4" data-path="jointures.html"><a href="jointures.html#full-join"><i class="fa fa-check"></i><b>10.2.4</b> Full Join</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="jointures.html"><a href="jointures.html#exercice-5"><i class="fa fa-check"></i><b>10.3</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="jointures.html"><a href="jointures.html#sujet-9"><i class="fa fa-check"></i><b>10.3.1</b> Sujet</a></li>
+<li class="chapter" data-level="10.3.2" data-path="jointures.html"><a href="jointures.html#correction-9"><i class="fa fa-check"></i><b>10.3.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="express.html"><a href="express.html"><i class="fa fa-check"></i><b>11</b> R-Express 30’ ☕</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="express.html"><a href="express.html#aller-hop-importez-des-données"><i class="fa fa-check"></i><b>11.1</b> Aller hop ! Importez des données</a></li>
+<li class="chapter" data-level="11.2" data-path="express.html"><a href="express.html#manipulez-votre-tableau"><i class="fa fa-check"></i><b>11.2</b> Manipulez votre tableau</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="express.html"><a href="express.html#dans-une-vue"><i class="fa fa-check"></i><b>11.2.1</b> Dans une vue</a></li>
+<li class="chapter" data-level="11.2.2" data-path="express.html"><a href="express.html#avec-dplyr"><i class="fa fa-check"></i><b>11.2.2</b> Avec <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.2.3" data-path="express.html"><a href="express.html#sélectionner-certaines-colonnes"><i class="fa fa-check"></i><b>11.2.3</b> Sélectionner certaines colonnes</a></li>
+<li class="chapter" data-level="11.2.4" data-path="express.html"><a href="express.html#ajouter-des-filtres"><i class="fa fa-check"></i><b>11.2.4</b> Ajouter des filtres</a></li>
+<li class="chapter" data-level="11.2.5" data-path="express.html"><a href="express.html#trier-un-tableau"><i class="fa fa-check"></i><b>11.2.5</b> Trier un tableau</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="express.html"><a href="express.html#des-graphiques-en-3-clics-avec-esquisse"><i class="fa fa-check"></i><b>11.3</b> Des graphiques en 3 clics avec <code>esquisse</code></a></li>
+<li class="chapter" data-level="11.4" data-path="express.html"><a href="express.html#en-bref"><i class="fa fa-check"></i><b>11.4</b> En bref</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="entrainement.html"><a href="entrainement.html"><i class="fa fa-check"></i><b>12</b> S’entrainer</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="entrainement.html"><a href="entrainement.html#tp1"><i class="fa fa-check"></i><b>12.1</b> TP1</a></li>
+<li class="chapter" data-level="12.2" data-path="entrainement.html"><a href="entrainement.html#tp2"><i class="fa fa-check"></i><b>12.2</b> TP2</a></li>
+<li class="chapter" data-level="12.3" data-path="entrainement.html"><a href="entrainement.html#tp3"><i class="fa fa-check"></i><b>12.3</b> TP3</a></li>
+<li class="chapter" data-level="12.4" data-path="entrainement.html"><a href="entrainement.html#tp4"><i class="fa fa-check"></i><b>12.4</b> TP4</a></li>
+<li class="chapter" data-level="12.5" data-path="entrainement.html"><a href="entrainement.html#tp5---chercher-lerreur"><i class="fa fa-check"></i><b>12.5</b> TP5 - Chercher l’erreur</a></li>
+<li class="chapter" data-level="12.6" data-path="entrainement.html"><a href="entrainement.html#tp6---analyses-statistiques"><i class="fa fa-check"></i><b>12.6</b> TP6 - Analyses statistiques</a></li>
+<li class="chapter" data-level="12.7" data-path="entrainement.html"><a href="entrainement.html#tp7---analyse-de-film"><i class="fa fa-check"></i><b>12.7</b> TP7 - Analyse de film</a></li>
+<li class="chapter" data-level="12.8" data-path="entrainement.html"><a href="entrainement.html#tp-formation"><i class="fa fa-check"></i><b>12.8</b> TP Formation</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="entrainement.html"><a href="entrainement.html#création-de-vecteur"><i class="fa fa-check"></i><b>12.8.1</b> Création de vecteur</a></li>
+<li class="chapter" data-level="12.8.2" data-path="entrainement.html"><a href="entrainement.html#manipulation-de-vecteur"><i class="fa fa-check"></i><b>12.8.2</b> Manipulation de vecteur</a></li>
+<li class="chapter" data-level="12.8.3" data-path="entrainement.html"><a href="entrainement.html#simulation-de-vecteur"><i class="fa fa-check"></i><b>12.8.3</b> Simulation de vecteur</a></li>
+<li class="chapter" data-level="12.8.4" data-path="entrainement.html"><a href="entrainement.html#statistique-sur-les-vecteurs"><i class="fa fa-check"></i><b>12.8.4</b> Statistique sur les vecteurs</a></li>
+<li class="chapter" data-level="12.8.5" data-path="entrainement.html"><a href="entrainement.html#représentation-graphique-1"><i class="fa fa-check"></i><b>12.8.5</b> Représentation graphique</a></li>
+<li class="chapter" data-level="12.8.6" data-path="entrainement.html"><a href="entrainement.html#construire-un-dataframe"><i class="fa fa-check"></i><b>12.8.6</b> Construire un dataframe</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="all_dataset.html"><a href="all_dataset.html"><i class="fa fa-check"></i><b>13</b> Jeux de données utilisés</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="all_dataset.html"><a href="all_dataset.html#iris"><i class="fa fa-check"></i><b>13.1</b> Iris 🌺</a></li>
+<li class="chapter" data-level="13.2" data-path="all_dataset.html"><a href="all_dataset.html#histoire-de-vie-hdv2003"><i class="fa fa-check"></i><b>13.2</b> Histoire de vie (hdv2003) 🗨</a></li>
+<li class="chapter" data-level="13.3" data-path="all_dataset.html"><a href="all_dataset.html#nyc-flights-2013"><i class="fa fa-check"></i><b>13.3</b> NYC Flights 2013 ✈</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="all_dataset.html"><a href="all_dataset.html#flights"><i class="fa fa-check"></i><b>13.3.1</b> Flights</a></li>
+<li class="chapter" data-level="13.3.2" data-path="all_dataset.html"><a href="all_dataset.html#airlines"><i class="fa fa-check"></i><b>13.3.2</b> Airlines</a></li>
+<li class="chapter" data-level="13.3.3" data-path="all_dataset.html"><a href="all_dataset.html#airports"><i class="fa fa-check"></i><b>13.3.3</b> Airports</a></li>
+<li class="chapter" data-level="13.3.4" data-path="all_dataset.html"><a href="all_dataset.html#weather"><i class="fa fa-check"></i><b>13.3.4</b> Weather</a></li>
+<li class="chapter" data-level="13.3.5" data-path="all_dataset.html"><a href="all_dataset.html#planes"><i class="fa fa-check"></i><b>13.3.5</b> Planes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="all_dataset.html"><a href="all_dataset.html#google"><i class="fa fa-check"></i><b>13.4</b> Google 📱</a></li>
+<li class="chapter" data-level="13.5" data-path="all_dataset.html"><a href="all_dataset.html#pokemon"><i class="fa fa-check"></i><b>13.5</b> Pokemon 🐾</a></li>
+<li class="chapter" data-level="13.6" data-path="all_dataset.html"><a href="all_dataset.html#star-wars"><i class="fa fa-check"></i><b>13.6</b> Star Wars 🎬</a></li>
+<li class="chapter" data-level="13.7" data-path="all_dataset.html"><a href="all_dataset.html#amongus"><i class="fa fa-check"></i><b>13.7</b> AmongUs 🔦</a></li>
+<li class="chapter" data-level="13.8" data-path="all_dataset.html"><a href="all_dataset.html#nba"><i class="fa fa-check"></i><b>13.8</b> NBA 🏀</a></li>
+<li class="chapter" data-level="13.9" data-path="all_dataset.html"><a href="all_dataset.html#students"><i class="fa fa-check"></i><b>13.9</b> Students 🎓</a></li>
+<li class="chapter" data-level="13.10" data-path="all_dataset.html"><a href="all_dataset.html#tv-shows"><i class="fa fa-check"></i><b>13.10</b> TV Shows 📺</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="biblio.html"><a href="biblio.html"><i class="fa fa-check"></i><b>14</b> Bibliographie</a></li>
 </ul>
 
       </nav>
@@ -351,7 +403,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Apprendre à programmer avec R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -359,8 +411,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="graphique" class="section level1">
-<h1><span class="header-section-number">Chapitre 6</span> Représentation Graphique</h1>
+<div id="graphique" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapitre 5</span> Représentation Graphique<a href="graphique.html#graphique" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Cette partie est destinée à présenter comment construire et personnaliser des graphiques sous R. Jusqu’à présent, on a abordé brièvement les graphiques univariés dans les parties précédentes à travers les fonctions <code>barplot</code>, <code>boxplot</code>, et <code>hist</code>.Volontairement, nous ferons les premiers pas sans utiliser le package <em>ggplot2</em> que nous verrons plus tard. Pour un tutoriel complet de <em>ggplot2</em> vous pouvez vous dirigez vers le cours de <a href="https://juba.github.io/tidyverse/08-ggplot2.html">Julien Barnier</a>
 <br>
 Pour illustrer les concepts, nous travaillerons sur les données iris. Un jeu de données de 150 fleurs réparties en 3 espèces différentes (<strong>setosa</strong>, <strong>versicolor</strong> et <strong>virginica</strong>) et caractérisées par 4 variables quantitatives.</p>
@@ -489,167 +541,167 @@ setosa
 </tr>
 </tbody>
 </table>
-<div id="les-fenêtres-graphiques" class="section level2">
-<h2><span class="header-section-number">6.1</span> Les fenêtres graphiques</h2>
+<div id="les-fenêtres-graphiques" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Les fenêtres graphiques<a href="graphique.html#les-fenêtres-graphiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fenêtre graphique de RStudio permet d’afficher les graphiques qui ont été générés.</p>
 <p><img src="img/plot.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Le bouton <strong>Export</strong> permet d’exporter le graphique en tant qu’image ou pdf.</p>
 <p><img src="img/plot_save.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>On peut aussi exporter un graphique avec la fonction <code>dev.print</code>.</p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="graphique.html#cb480-1"></a><span class="kw">dev.print</span>(<span class="dt">device =</span> png, <span class="dt">file =</span> <span class="st">&quot;export.png&quot;</span>, <span class="dt">width =</span> <span class="dv">600</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="graphique.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.print</span>(<span class="at">device =</span> png, <span class="at">file =</span> <span class="st">&quot;export.png&quot;</span>, <span class="at">width =</span> <span class="dv">600</span>)</span></code></pre></div>
 <p>Il est possible de découper la fenêtre graphique pour en afficher plusieurs à la fois. Pour cela on utilise la fonction <code>par</code> avec l’argument <code>mfrow</code> en précisant le découpage de la fenêtre.</p>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="graphique.html#cb481-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co">#fenêtre sur une ligne et deux colonnes</span></span>
-<span id="cb481-2"><a href="graphique.html#cb481-2"></a><span class="kw">plot</span>(iris<span class="op">$</span>Sepal.Length,iris<span class="op">$</span>Sepal.Width)</span>
-<span id="cb481-3"><a href="graphique.html#cb481-3"></a><span class="kw">plot</span>(iris<span class="op">$</span>Petal.Length,iris<span class="op">$</span>Petal.Width)</span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="graphique.html#cb481-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co">#fenêtre sur une ligne et deux colonnes</span></span>
+<span id="cb481-2"><a href="graphique.html#cb481-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length,iris<span class="sc">$</span>Sepal.Width)</span>
+<span id="cb481-3"><a href="graphique.html#cb481-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Petal.Length,iris<span class="sc">$</span>Petal.Width)</span></code></pre></div>
 <p><img src="img/2plot.png" width="40%" style="display: block; margin: auto;" /></p>
 <p>Pour réinitialiser le découpage de la fenêtre graphique, on redimensionne la fenêtre sur 1 x 1.</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="graphique.html#cb482-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="graphique.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
 </div>
-<div id="les-fonctions-de-tracé-de-bas-niveau" class="section level2">
-<h2><span class="header-section-number">6.2</span> Les fonctions de tracé de bas niveau</h2>
+<div id="les-fonctions-de-tracé-de-bas-niveau" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Les fonctions de tracé de bas niveau<a href="graphique.html#les-fonctions-de-tracé-de-bas-niveau" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Nous allons illustrer les fonctions graphiques du langage R à travers la représentation d’un nuage de points.
 Pour construire un nuage de points, on utilise la fonction <code>plot</code> en précisant les deux vecteurs numériques que l’on souhaite projeter.</p>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="graphique.html#cb483-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> iris<span class="op">$</span>Sepal.Length,<span class="dt">y =</span> iris<span class="op">$</span>Sepal.Width,</span>
-<span id="cb483-2"><a href="graphique.html#cb483-2"></a>     <span class="dt">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Sepal Width&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="graphique.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length,<span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width,</span>
+<span id="cb483-2"><a href="graphique.html#cb483-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Sepal Width&quot;</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-277-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Dans l’exemple ci-dessus, on précise les caractéristiques du graphique directement dans la fonction <code>plot</code>. Mais, il est également possible d’ajouter des éléments avec d’autres fonctions issues notamment du package <code>graphics</code> déjà chargé par défaut dans RStudio.</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="graphique.html#cb484-1"></a><span class="co">#Ajouter des éléments</span></span>
-<span id="cb484-2"><a href="graphique.html#cb484-2"></a><span class="kw">plot</span>(<span class="dt">x =</span> iris<span class="op">$</span>Sepal.Length,<span class="dt">y =</span> iris<span class="op">$</span>Sepal.Width, </span>
-<span id="cb484-3"><a href="graphique.html#cb484-3"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">9</span>),<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>),</span>
-<span id="cb484-4"><a href="graphique.html#cb484-4"></a>     <span class="dt">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Sepal Width&quot;</span>)</span>
-<span id="cb484-5"><a href="graphique.html#cb484-5"></a></span>
-<span id="cb484-6"><a href="graphique.html#cb484-6"></a><span class="co">#Ajouter un titre</span></span>
-<span id="cb484-7"><a href="graphique.html#cb484-7"></a><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Sepal Width and Sepal Length&quot;</span>)</span>
-<span id="cb484-8"><a href="graphique.html#cb484-8"></a></span>
-<span id="cb484-9"><a href="graphique.html#cb484-9"></a><span class="co">#Ajouter un sous titre</span></span>
-<span id="cb484-10"><a href="graphique.html#cb484-10"></a><span class="kw">mtext</span>(<span class="dt">text =</span> <span class="st">&quot;(Source : Iris)&quot;</span>,<span class="dt">side=</span><span class="dv">4</span>)</span>
-<span id="cb484-11"><a href="graphique.html#cb484-11"></a></span>
-<span id="cb484-12"><a href="graphique.html#cb484-12"></a><span class="co">#Ajouter des lignes</span></span>
-<span id="cb484-13"><a href="graphique.html#cb484-13"></a><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">3</span>)</span>
-<span id="cb484-14"><a href="graphique.html#cb484-14"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">6</span>)</span>
-<span id="cb484-15"><a href="graphique.html#cb484-15"></a></span>
-<span id="cb484-16"><a href="graphique.html#cb484-16"></a><span class="co">#Ajouter du texte</span></span>
-<span id="cb484-17"><a href="graphique.html#cb484-17"></a><span class="kw">text</span>(<span class="dt">x =</span> <span class="dv">5</span>,<span class="dt">y =</span> <span class="fl">1.5</span>,<span class="dt">labels =</span> <span class="st">&quot;Groupe 1&quot;</span>)</span>
-<span id="cb484-18"><a href="graphique.html#cb484-18"></a><span class="kw">text</span>(<span class="dt">x =</span> <span class="dv">5</span>,<span class="dt">y =</span> <span class="fl">4.5</span>,<span class="dt">labels =</span> <span class="st">&quot;Groupe 2&quot;</span>)</span>
-<span id="cb484-19"><a href="graphique.html#cb484-19"></a><span class="kw">text</span>(<span class="dt">x =</span> <span class="dv">7</span>,<span class="dt">y =</span> <span class="fl">4.5</span>,<span class="dt">labels =</span> <span class="st">&quot;Groupe 3&quot;</span>)</span>
-<span id="cb484-20"><a href="graphique.html#cb484-20"></a><span class="kw">text</span>(<span class="dt">x =</span> <span class="dv">7</span>,<span class="dt">y =</span> <span class="dv">2</span>,<span class="dt">labels =</span> <span class="st">&quot;Groupe 4&quot;</span>)</span>
-<span id="cb484-21"><a href="graphique.html#cb484-21"></a></span>
-<span id="cb484-22"><a href="graphique.html#cb484-22"></a><span class="co">#Ajouter des points</span></span>
-<span id="cb484-23"><a href="graphique.html#cb484-23"></a><span class="kw">points</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>),<span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="fl">4.5</span>,<span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="graphique.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Ajouter des éléments</span></span>
+<span id="cb484-2"><a href="graphique.html#cb484-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length,<span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width, </span>
+<span id="cb484-3"><a href="graphique.html#cb484-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">9</span>),<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>),</span>
+<span id="cb484-4"><a href="graphique.html#cb484-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Sepal Width&quot;</span>)</span>
+<span id="cb484-5"><a href="graphique.html#cb484-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb484-6"><a href="graphique.html#cb484-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Ajouter un titre</span></span>
+<span id="cb484-7"><a href="graphique.html#cb484-7" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Sepal Width and Sepal Length&quot;</span>)</span>
+<span id="cb484-8"><a href="graphique.html#cb484-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb484-9"><a href="graphique.html#cb484-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Ajouter un sous titre</span></span>
+<span id="cb484-10"><a href="graphique.html#cb484-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">text =</span> <span class="st">&quot;(Source : Iris)&quot;</span>,<span class="at">side=</span><span class="dv">4</span>)</span>
+<span id="cb484-11"><a href="graphique.html#cb484-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb484-12"><a href="graphique.html#cb484-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Ajouter des lignes</span></span>
+<span id="cb484-13"><a href="graphique.html#cb484-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">3</span>)</span>
+<span id="cb484-14"><a href="graphique.html#cb484-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">6</span>)</span>
+<span id="cb484-15"><a href="graphique.html#cb484-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb484-16"><a href="graphique.html#cb484-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Ajouter du texte</span></span>
+<span id="cb484-17"><a href="graphique.html#cb484-17" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="dv">5</span>,<span class="at">y =</span> <span class="fl">1.5</span>,<span class="at">labels =</span> <span class="st">&quot;Groupe 1&quot;</span>)</span>
+<span id="cb484-18"><a href="graphique.html#cb484-18" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="dv">5</span>,<span class="at">y =</span> <span class="fl">4.5</span>,<span class="at">labels =</span> <span class="st">&quot;Groupe 2&quot;</span>)</span>
+<span id="cb484-19"><a href="graphique.html#cb484-19" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="dv">7</span>,<span class="at">y =</span> <span class="fl">4.5</span>,<span class="at">labels =</span> <span class="st">&quot;Groupe 3&quot;</span>)</span>
+<span id="cb484-20"><a href="graphique.html#cb484-20" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="dv">7</span>,<span class="at">y =</span> <span class="dv">2</span>,<span class="at">labels =</span> <span class="st">&quot;Groupe 4&quot;</span>)</span>
+<span id="cb484-21"><a href="graphique.html#cb484-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb484-22"><a href="graphique.html#cb484-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Ajouter des points</span></span>
+<span id="cb484-23"><a href="graphique.html#cb484-23" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>),<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="fl">4.5</span>,<span class="dv">5</span>))</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-278-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Attention : Les fonctions des éléments graphiques ajoutent les éléments sur le graphique en cours de lecture dans la fenêtre graphique.</p>
 </div>
-<div id="personnaliser-des-éléments-graphiques" class="section level2">
-<h2><span class="header-section-number">6.3</span> Personnaliser des éléments graphiques</h2>
-<div id="mise-en-forme" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> Mise en forme</h3>
+<div id="personnaliser-des-éléments-graphiques" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Personnaliser des éléments graphiques<a href="graphique.html#personnaliser-des-éléments-graphiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="mise-en-forme" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Mise en forme<a href="graphique.html#mise-en-forme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>On peut aussi personnaliser les différents éléments du graphique en utilisant les arguments de chaque fonction.</p>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="graphique.html#cb485-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> iris<span class="op">$</span>Sepal.Length,<span class="dt">y =</span> iris<span class="op">$</span>Sepal.Width, </span>
-<span id="cb485-2"><a href="graphique.html#cb485-2"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">9</span>),<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>),</span>
-<span id="cb485-3"><a href="graphique.html#cb485-3"></a>     <span class="dt">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Sepal Width&quot;</span>,</span>
-<span id="cb485-4"><a href="graphique.html#cb485-4"></a>     <span class="dt">col =</span> iris<span class="op">$</span>Species, <span class="dt">pch =</span> <span class="dv">19</span> )</span>
-<span id="cb485-5"><a href="graphique.html#cb485-5"></a></span>
-<span id="cb485-6"><a href="graphique.html#cb485-6"></a><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Sepal Width and Sepal Length&quot;</span>, </span>
-<span id="cb485-7"><a href="graphique.html#cb485-7"></a>      <span class="dt">cex.main =</span> <span class="dv">2</span>,<span class="dt">font.main=</span><span class="dv">4</span>, <span class="dt">col.main=</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb485-8"><a href="graphique.html#cb485-8"></a></span>
-<span id="cb485-9"><a href="graphique.html#cb485-9"></a><span class="kw">mtext</span>(<span class="dt">text =</span> <span class="st">&quot;(Source : Iris)&quot;</span>,<span class="dt">side=</span><span class="dv">4</span>,  <span class="dt">font=</span><span class="dv">2</span>)</span>
-<span id="cb485-10"><a href="graphique.html#cb485-10"></a></span>
-<span id="cb485-11"><a href="graphique.html#cb485-11"></a><span class="kw">abline</span>(<span class="dt">h =</span> <span class="dv">3</span> , <span class="dt">lty =</span> <span class="dv">3</span> , <span class="dt">lwd =</span> <span class="dv">4</span>)</span>
-<span id="cb485-12"><a href="graphique.html#cb485-12"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">6</span> , <span class="dt">lty =</span> <span class="dv">3</span> , <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb485-13"><a href="graphique.html#cb485-13"></a></span>
-<span id="cb485-14"><a href="graphique.html#cb485-14"></a><span class="kw">text</span>(<span class="dt">x =</span> <span class="dv">5</span>,<span class="dt">y =</span> <span class="fl">1.5</span>,<span class="dt">labels =</span> <span class="st">&quot;Groupe 1&quot;</span>, <span class="dt">col =</span> <span class="dv">3</span>)</span>
-<span id="cb485-15"><a href="graphique.html#cb485-15"></a><span class="kw">text</span>(<span class="dt">x =</span> <span class="dv">5</span>,<span class="dt">y =</span> <span class="fl">4.5</span>,<span class="dt">labels =</span> <span class="st">&quot;Groupe 2&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>)</span>
-<span id="cb485-16"><a href="graphique.html#cb485-16"></a><span class="kw">text</span>(<span class="dt">x =</span> <span class="dv">7</span>,<span class="dt">y =</span> <span class="fl">4.5</span>,<span class="dt">labels =</span> <span class="st">&quot;Groupe 3&quot;</span>, <span class="dt">col =</span> <span class="dv">4</span>)</span>
-<span id="cb485-17"><a href="graphique.html#cb485-17"></a><span class="kw">text</span>(<span class="dt">x =</span> <span class="dv">7</span>,<span class="dt">y =</span> <span class="dv">2</span>,<span class="dt">labels =</span> <span class="st">&quot;Groupe 4&quot;</span>, <span class="dt">col =</span> <span class="dv">5</span>)</span>
-<span id="cb485-18"><a href="graphique.html#cb485-18"></a></span>
-<span id="cb485-19"><a href="graphique.html#cb485-19"></a><span class="kw">points</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>),<span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="fl">4.5</span>,<span class="dv">5</span>), <span class="dt">pch =</span> <span class="dv">4</span> , <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
-<span id="cb485-20"><a href="graphique.html#cb485-20"></a></span>
-<span id="cb485-21"><a href="graphique.html#cb485-21"></a><span class="kw">legend</span>(<span class="dt">x =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend=</span><span class="kw">levels</span>(iris<span class="op">$</span>Species),</span>
-<span id="cb485-22"><a href="graphique.html#cb485-22"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</span>
-<span id="cb485-23"><a href="graphique.html#cb485-23"></a></span>
-<span id="cb485-24"><a href="graphique.html#cb485-24"></a><span class="kw">legend</span>(<span class="dt">x =</span> <span class="fl">6.5</span>, <span class="dt">y=</span><span class="fl">1.5</span>, <span class="dt">legend=</span><span class="st">&quot;points </span><span class="ch">\n</span><span class="st"> supplémentaires&quot;</span>,</span>
-<span id="cb485-25"><a href="graphique.html#cb485-25"></a>       <span class="dt">pch =</span> <span class="dv">4</span>, <span class="dt">cex=</span><span class="fl">0.8</span> , <span class="dt">box.lty=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="graphique.html#cb485-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length,<span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width, </span>
+<span id="cb485-2"><a href="graphique.html#cb485-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">9</span>),<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>),</span>
+<span id="cb485-3"><a href="graphique.html#cb485-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Sepal Width&quot;</span>,</span>
+<span id="cb485-4"><a href="graphique.html#cb485-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> iris<span class="sc">$</span>Species, <span class="at">pch =</span> <span class="dv">19</span> )</span>
+<span id="cb485-5"><a href="graphique.html#cb485-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb485-6"><a href="graphique.html#cb485-6" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Sepal Width and Sepal Length&quot;</span>, </span>
+<span id="cb485-7"><a href="graphique.html#cb485-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">cex.main =</span> <span class="dv">2</span>,<span class="at">font.main=</span><span class="dv">4</span>, <span class="at">col.main=</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb485-8"><a href="graphique.html#cb485-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb485-9"><a href="graphique.html#cb485-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">text =</span> <span class="st">&quot;(Source : Iris)&quot;</span>,<span class="at">side=</span><span class="dv">4</span>,  <span class="at">font=</span><span class="dv">2</span>)</span>
+<span id="cb485-10"><a href="graphique.html#cb485-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb485-11"><a href="graphique.html#cb485-11" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">3</span> , <span class="at">lty =</span> <span class="dv">3</span> , <span class="at">lwd =</span> <span class="dv">4</span>)</span>
+<span id="cb485-12"><a href="graphique.html#cb485-12" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">6</span> , <span class="at">lty =</span> <span class="dv">3</span> , <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb485-13"><a href="graphique.html#cb485-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb485-14"><a href="graphique.html#cb485-14" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="dv">5</span>,<span class="at">y =</span> <span class="fl">1.5</span>,<span class="at">labels =</span> <span class="st">&quot;Groupe 1&quot;</span>, <span class="at">col =</span> <span class="dv">3</span>)</span>
+<span id="cb485-15"><a href="graphique.html#cb485-15" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="dv">5</span>,<span class="at">y =</span> <span class="fl">4.5</span>,<span class="at">labels =</span> <span class="st">&quot;Groupe 2&quot;</span>, <span class="at">col =</span> <span class="dv">2</span>)</span>
+<span id="cb485-16"><a href="graphique.html#cb485-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="dv">7</span>,<span class="at">y =</span> <span class="fl">4.5</span>,<span class="at">labels =</span> <span class="st">&quot;Groupe 3&quot;</span>, <span class="at">col =</span> <span class="dv">4</span>)</span>
+<span id="cb485-17"><a href="graphique.html#cb485-17" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="dv">7</span>,<span class="at">y =</span> <span class="dv">2</span>,<span class="at">labels =</span> <span class="st">&quot;Groupe 4&quot;</span>, <span class="at">col =</span> <span class="dv">5</span>)</span>
+<span id="cb485-18"><a href="graphique.html#cb485-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb485-19"><a href="graphique.html#cb485-19" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>),<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="fl">4.5</span>,<span class="dv">5</span>), <span class="at">pch =</span> <span class="dv">4</span> , <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb485-20"><a href="graphique.html#cb485-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb485-21"><a href="graphique.html#cb485-21" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">legend=</span><span class="fu">levels</span>(iris<span class="sc">$</span>Species),</span>
+<span id="cb485-22"><a href="graphique.html#cb485-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb485-23"><a href="graphique.html#cb485-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb485-24"><a href="graphique.html#cb485-24" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="fl">6.5</span>, <span class="at">y=</span><span class="fl">1.5</span>, <span class="at">legend=</span><span class="st">&quot;points </span><span class="sc">\n</span><span class="st"> supplémentaires&quot;</span>,</span>
+<span id="cb485-25"><a href="graphique.html#cb485-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">cex=</span><span class="fl">0.8</span> , <span class="at">box.lty=</span><span class="dv">0</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-279-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Par exemple l’argument <code>pch</code> définit la forme du point et l’argument <code>lty</code> la forme du trait. Voici une table de correspondance :</p>
-<p><img src="img/element.PNG" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="img/element.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="gestion-des-couleurs" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> Gestion des couleurs</h3>
+<div id="gestion-des-couleurs" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Gestion des couleurs<a href="graphique.html#gestion-des-couleurs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Dans R, la gestion des couleurs est assez simple. Jusqu’à présent, pour construire les graphiques on se contentait de renseigner les arguments <code>col</code> des fonctions avec le nom d’une couleur comme <em>red</em>, <em>blue</em>, ou de préciser des numéros dans des vecteurs comme <em>c(1,2,3)</em>. Mais comment R fait-il pour interpréter cela ?</p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="graphique.html#cb486-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> iris<span class="op">$</span>Sepal.Length,<span class="dt">y =</span> iris<span class="op">$</span>Sepal.Width, </span>
-<span id="cb486-2"><a href="graphique.html#cb486-2"></a>    <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="graphique.html#cb487-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> iris<span class="op">$</span>Sepal.Length,<span class="dt">y =</span> iris<span class="op">$</span>Sepal.Width, </span>
-<span id="cb487-2"><a href="graphique.html#cb487-2"></a>    <span class="dt">col =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="graphique.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length,<span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width, </span>
+<span id="cb486-2"><a href="graphique.html#cb486-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="graphique.html#cb487-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length,<span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width, </span>
+<span id="cb487-2"><a href="graphique.html#cb487-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p>En réalité, il existe une palette par défaut dans R. Elle est composée de 8 couleurs. On peut les retrouver avec la fonction <code>palette()</code>.</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="graphique.html#cb488-1"></a><span class="kw">palette</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;black&quot;   &quot;red&quot;     &quot;green3&quot;  &quot;blue&quot;    &quot;cyan&quot;    &quot;magenta&quot; &quot;yellow&quot; 
-## [8] &quot;gray&quot;</code></pre>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="graphique.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="fu">palette</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;black&quot;   &quot;#DF536B&quot; &quot;#61D04F&quot; &quot;#2297E6&quot; &quot;#28E2E5&quot; &quot;#CD0BBC&quot; &quot;#F5C710&quot;
+## [8] &quot;gray62&quot;</code></pre>
 <p>Ainsi, on peut définir les couleurs que l’on souhaite dans cette palette en précisant le nom ou le numéro de la couleur. C’est pourquoi, il est possible de définir les couleurs de différentes catégories si le vecteur est défini en tant que <code>factor</code>.</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="graphique.html#cb490-1"></a><span class="kw">class</span>(iris<span class="op">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="graphique.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="graphique.html#cb492-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> iris<span class="op">$</span>Sepal.Length,<span class="dt">y =</span> iris<span class="op">$</span>Sepal.Width, </span>
-<span id="cb492-2"><a href="graphique.html#cb492-2"></a>    <span class="dt">col =</span> iris<span class="op">$</span>Species, <span class="dt">pch  =</span> <span class="dv">19</span>)</span>
-<span id="cb492-3"><a href="graphique.html#cb492-3"></a></span>
-<span id="cb492-4"><a href="graphique.html#cb492-4"></a><span class="kw">legend</span>(<span class="dt">x =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend=</span><span class="kw">levels</span>(iris<span class="op">$</span>Species),</span>
-<span id="cb492-5"><a href="graphique.html#cb492-5"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="graphique.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length,<span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width, </span>
+<span id="cb492-2"><a href="graphique.html#cb492-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> iris<span class="sc">$</span>Species, <span class="at">pch  =</span> <span class="dv">19</span>)</span>
+<span id="cb492-3"><a href="graphique.html#cb492-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb492-4"><a href="graphique.html#cb492-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">legend=</span><span class="fu">levels</span>(iris<span class="sc">$</span>Species),</span>
+<span id="cb492-5"><a href="graphique.html#cb492-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-284-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Dans R, un vecteur de type <code>factor</code> est stocker au format numérique en mémoire ou chaque nombre représente l’indice du niveau associé à la catégorie.</p>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="graphique.html#cb493-1"></a><span class="kw">levels</span>(iris<span class="op">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="graphique.html#cb493-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
 <pre><code>## [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
 <p>L’espèce <em>setosa</em> prendra la valeur 1, <em>versicolor</em> la valeur 2 et <em>virignica</em> la valeur 3. Ces niveaux seront donc associés aux 3 premières couleurs de la palette par défaut.</p>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="graphique.html#cb495-1"></a><span class="kw">palette</span>()[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
-<pre><code>## [1] &quot;black&quot;  &quot;red&quot;    &quot;green3&quot;</code></pre>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="graphique.html#cb495-1" aria-hidden="true" tabindex="-1"></a><span class="fu">palette</span>()[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;black&quot;   &quot;#DF536B&quot; &quot;#61D04F&quot;</code></pre>
 <p>On aura donc black pour <em>setosa</em>, red pour <em>versicolor</em> et green3 pour <em>virginica</em>.
 Attention donc lorsqu’on souhaite représenter des points selon une variable qualitative.
 Dans l’exemple ci-dessous, on définit 3 couleurs sans tenir compte de l’espèce et nous n’obtenons pas du tout le même résultat.</p>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="graphique.html#cb497-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> iris<span class="op">$</span>Sepal.Length,<span class="dt">y =</span> iris<span class="op">$</span>Sepal.Width, </span>
-<span id="cb497-2"><a href="graphique.html#cb497-2"></a>    <span class="dt">col =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">pch  =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="graphique.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length,<span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width, </span>
+<span id="cb497-2"><a href="graphique.html#cb497-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">pch  =</span> <span class="dv">19</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-287-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>En précisant uniquement 3 couleurs, l’argument <code>col</code> va en réalité prendre en entrée un vecteur de longueur 150 ou le trio de couleur sera répliqué 50 fois pour qu’à chaque fleur soit associée une couleur.</p>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="graphique.html#cb498-1"></a>trio_replique &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dv">50</span>)</span>
-<span id="cb498-2"><a href="graphique.html#cb498-2"></a>trio_replique</span></code></pre></div>
-<pre><code>##   [1] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2
-##  [36] 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1
-##  [71] 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3
-## [106] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2
-## [141] 3 1 2 3 1 2 3 1 2 3</code></pre>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="graphique.html#cb498-1" aria-hidden="true" tabindex="-1"></a>trio_replique <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dv">50</span>)</span>
+<span id="cb498-2"><a href="graphique.html#cb498-2" aria-hidden="true" tabindex="-1"></a>trio_replique</span></code></pre></div>
+<pre><code>##   [1] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1
+##  [38] 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2
+##  [75] 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3
+## [112] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1
+## [149] 2 3</code></pre>
 <p>On obtient le même graphique que ci-dessous et en l’occurrence les deux sont faux car les couleurs ne sont pas définies en fonction des espèces.</p>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="graphique.html#cb500-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> iris<span class="op">$</span>Sepal.Length,<span class="dt">y =</span> iris<span class="op">$</span>Sepal.Width, </span>
-<span id="cb500-2"><a href="graphique.html#cb500-2"></a>    <span class="dt">col =</span> trio_replique, <span class="dt">pch  =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="graphique.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Sepal.Length,<span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width, </span>
+<span id="cb500-2"><a href="graphique.html#cb500-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> trio_replique, <span class="at">pch  =</span> <span class="dv">19</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-289-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>De plus, on constate que nous sommes limitées en nombre de couleurs. Dès lors que nous souhaitons représenter plus de 8 couleurs, nous faisons face au phénomène de réplication de R.</p>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="graphique.html#cb501-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">20</span>),<span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,  <span class="dt">cex=</span><span class="dv">4</span>)</span>
-<span id="cb501-2"><a href="graphique.html#cb501-2"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="fl">8.5</span>)</span>
-<span id="cb501-3"><a href="graphique.html#cb501-3"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="fl">16.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="graphique.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">20</span>),<span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,  <span class="at">cex=</span><span class="dv">4</span>)</span>
+<span id="cb501-2"><a href="graphique.html#cb501-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fl">8.5</span>)</span>
+<span id="cb501-3"><a href="graphique.html#cb501-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fl">16.5</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-290-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>On peut alors utiliser la fonction <code>colors()</code> qui propose une palette de plus de 650 couleurs avec le même mécanisme que la palette par défaut.</p>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="graphique.html#cb502-1"></a><span class="kw">head</span>(<span class="kw">colors</span>(), <span class="dt">n =</span> <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="graphique.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">colors</span>(), <span class="at">n =</span> <span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;white&quot;         &quot;aliceblue&quot;     &quot;antiquewhite&quot;  &quot;antiquewhite1&quot;
 ##  [5] &quot;antiquewhite2&quot; &quot;antiquewhite3&quot; &quot;antiquewhite4&quot; &quot;aquamarine&quot;   
 ##  [9] &quot;aquamarine1&quot;   &quot;aquamarine2&quot;   &quot;aquamarine3&quot;   &quot;aquamarine4&quot;  
 ## [13] &quot;azure&quot;         &quot;azure1&quot;        &quot;azure2&quot;        &quot;azure3&quot;       
 ## [17] &quot;azure4&quot;        &quot;beige&quot;         &quot;bisque&quot;        &quot;bisque1&quot;</code></pre>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="graphique.html#cb504-1"></a><span class="kw">length</span>(<span class="kw">colors</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="graphique.html#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">colors</span>())</span></code></pre></div>
 <pre><code>## [1] 657</code></pre>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="graphique.html#cb506-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">20</span>),<span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col=</span> <span class="kw">c</span>(<span class="st">&quot;antiquewhite2&quot;</span>,<span class="st">&quot;aquamarine2&quot;</span>, <span class="st">&quot;azure2&quot;</span>), <span class="dt">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="graphique.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">20</span>),<span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span> <span class="fu">c</span>(<span class="st">&quot;antiquewhite2&quot;</span>,<span class="st">&quot;aquamarine2&quot;</span>, <span class="st">&quot;azure2&quot;</span>), <span class="at">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-292-1.png" width="768" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="graphique.html#cb507-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">20</span>),<span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col=</span> <span class="kw">c</span>(<span class="st">&quot;antiquewhite2&quot;</span>,<span class="st">&quot;aquamarine2&quot;</span>, <span class="st">&quot;azure2&quot;</span>) , <span class="dt">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="graphique.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">20</span>),<span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span> <span class="fu">c</span>(<span class="st">&quot;antiquewhite2&quot;</span>,<span class="st">&quot;aquamarine2&quot;</span>, <span class="st">&quot;azure2&quot;</span>) , <span class="at">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-293-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Pour personnaliser les couleurs dans R, on utilise donc des vecteurs en appelant les couleurs par leur nom ou leur indice. Cependant, en mémoire les couleurs sont codées en héxadécimales. C’est avec ce format que nous allons pouvoir créer notre propre palette de couleurs. Pour cela, il suffit de construire un vecteur avec les valeurs en héxadécimales des couleurs qu’on souhaite. On peut également utiliser la fonction <code>rgb</code> et l’argument <code>alpha</code> pour gérer la transparence. Le site <a href="https://htmlcolorcodes.com/fr/" class="uri">https://htmlcolorcodes.com/fr/</a> propose toutes les couleurs qu’il est possible de définir.</p>
 <p><img src="img/palette.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="graphique.html#cb508-1"></a>ma_palette &lt;-<span class="st"> </span><span class="kw">c</span>( <span class="dt">vert =</span> <span class="st">&quot;#2FB846&quot;</span>, </span>
-<span id="cb508-2"><a href="graphique.html#cb508-2"></a>                 <span class="dt">bleu =</span> <span class="kw">rgb</span>(<span class="dt">red =</span> <span class="dv">4</span><span class="op">/</span><span class="dv">255</span>,<span class="dt">green =</span> <span class="dv">12</span><span class="op">/</span><span class="dv">255</span> ,<span class="dt">blue =</span> <span class="dv">250</span><span class="op">/</span><span class="dv">255</span> , <span class="dt">alpha =</span> <span class="fl">0.5</span>))</span>
-<span id="cb508-3"><a href="graphique.html#cb508-3"></a>ma_palette</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="graphique.html#cb508-1" aria-hidden="true" tabindex="-1"></a>ma_palette <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="at">vert =</span> <span class="st">&quot;#2FB846&quot;</span>, </span>
+<span id="cb508-2"><a href="graphique.html#cb508-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">bleu =</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">4</span><span class="sc">/</span><span class="dv">255</span>,<span class="at">green =</span> <span class="dv">12</span><span class="sc">/</span><span class="dv">255</span> ,<span class="at">blue =</span> <span class="dv">250</span><span class="sc">/</span><span class="dv">255</span> , <span class="at">alpha =</span> <span class="fl">0.5</span>))</span>
+<span id="cb508-3"><a href="graphique.html#cb508-3" aria-hidden="true" tabindex="-1"></a>ma_palette</span></code></pre></div>
 <pre><code>##        vert        bleu 
 ##   &quot;#2FB846&quot; &quot;#040CFA80&quot;</code></pre>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="graphique.html#cb510-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb510-2"><a href="graphique.html#cb510-2"></a><span class="kw">plot</span>(<span class="dt">x =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">20</span>),<span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col=</span> ma_palette , <span class="dt">cex =</span> <span class="dv">4</span>)</span>
-<span id="cb510-3"><a href="graphique.html#cb510-3"></a><span class="kw">plot</span>(<span class="dt">x =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">20</span>),<span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col=</span> ma_palette[<span class="kw">c</span>(<span class="st">&quot;vert&quot;</span>)] , <span class="dt">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="graphique.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb510-2"><a href="graphique.html#cb510-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">20</span>),<span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span> ma_palette , <span class="at">cex =</span> <span class="dv">4</span>)</span>
+<span id="cb510-3"><a href="graphique.html#cb510-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">20</span>),<span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span> ma_palette[<span class="fu">c</span>(<span class="st">&quot;vert&quot;</span>)] , <span class="at">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-296-1.png" width="1152" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="type-de-graphique" class="section level2">
-<h2><span class="header-section-number">6.4</span> Type de graphique</h2>
+<div id="type-de-graphique" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Type de graphique<a href="graphique.html#type-de-graphique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Dans cette partie, nous allons énumérer les graphiques les plus populaires illustrés avec le dataset des applications <em>google</em>. Les différents éléments de personnalisation abordés précédemment sont disponibles pour n’importe quel type de graphique.</p>
 <p><br></p>
 <p>Le dataset <code>google.csv</code> décrit des applications du store google.
@@ -1347,57 +1399,57 @@ Everyone
 </tbody>
 </table>
 </div>
-<div id="boxplot" class="section level3">
-<h3><span class="header-section-number">6.4.1</span> Boxplot</h3>
+<div id="boxplot" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Boxplot<a href="graphique.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Les points représentent les outliers. L’argument <code>horizontal</code> permet de représenter le graphique à l’horizontal. D’autres arguments sont disponibles (cf : aide).</p>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="graphique.html#cb511-1"></a><span class="kw">boxplot</span>(<span class="dt">x =</span> google<span class="op">$</span>Rating, <span class="dt">main =</span> <span class="st">&quot;Distribution des notes des utilisateurs&quot;</span>, </span>
-<span id="cb511-2"><a href="graphique.html#cb511-2"></a>        <span class="dt">horizontal =</span> <span class="ot">TRUE</span>,<span class="dt">col =</span> ma_palette)</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="graphique.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">x =</span> google<span class="sc">$</span>Rating, <span class="at">main =</span> <span class="st">&quot;Distribution des notes des utilisateurs&quot;</span>, </span>
+<span id="cb511-2"><a href="graphique.html#cb511-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,<span class="at">col =</span> ma_palette)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-298-1.png" width="1152" /></p>
 <p>Il est possible de construire un boxplot dans un cadre bivarié :</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="graphique.html#cb512-1"></a><span class="kw">boxplot</span>(<span class="dt">formula =</span> google<span class="op">$</span>Rating <span class="op">~</span><span class="st"> </span>google<span class="op">$</span>Content.Rating,</span>
-<span id="cb512-2"><a href="graphique.html#cb512-2"></a>        <span class="dt">main =</span> <span class="st">&quot;Distribution des notes des utilisateurs&quot;</span>,</span>
-<span id="cb512-3"><a href="graphique.html#cb512-3"></a>        <span class="dt">col =</span> <span class="kw">c</span>(ma_palette, <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="graphique.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">formula =</span> google<span class="sc">$</span>Rating <span class="sc">~</span> google<span class="sc">$</span>Content.Rating,</span>
+<span id="cb512-2"><a href="graphique.html#cb512-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Distribution des notes des utilisateurs&quot;</span>,</span>
+<span id="cb512-3"><a href="graphique.html#cb512-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(ma_palette, <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-299-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Ici on utilise les couleurs de palette différentes.</p>
 </div>
-<div id="histogramme" class="section level3">
-<h3><span class="header-section-number">6.4.2</span> Histogramme</h3>
+<div id="histogramme" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Histogramme<a href="graphique.html#histogramme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>L’argument <code>breaks</code> permet de définir le nombre de classe et <code>probability</code> d’afficher la densité plutôt que les effectifs ou fréquence. D’autres arguments sont disponibles (cf : aide).</p>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="graphique.html#cb513-1"></a><span class="kw">hist</span>(<span class="dt">x =</span> google<span class="op">$</span>Rating, <span class="dt">main =</span> <span class="st">&quot;Distribution des notes des utilisateurs&quot;</span>,</span>
-<span id="cb513-2"><a href="graphique.html#cb513-2"></a>     <span class="dt">col =</span> ma_palette[<span class="dv">2</span>] , <span class="dt">breaks =</span> <span class="dv">8</span>, <span class="dt">probability =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="graphique.html#cb513-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> google<span class="sc">$</span>Rating, <span class="at">main =</span> <span class="st">&quot;Distribution des notes des utilisateurs&quot;</span>,</span>
+<span id="cb513-2"><a href="graphique.html#cb513-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> ma_palette[<span class="dv">2</span>] , <span class="at">breaks =</span> <span class="dv">8</span>, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-300-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>La fonction <code>lines</code> permet d’ajouter une courbe sur un graphique existant. Ici on représente la courbe densité avec la fonction <code>density</code>.</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="graphique.html#cb514-1"></a><span class="kw">hist</span>(<span class="dt">x =</span> google<span class="op">$</span>Rating, <span class="dt">main =</span> <span class="st">&quot;Distribution des notes des utilisateurs&quot;</span>,</span>
-<span id="cb514-2"><a href="graphique.html#cb514-2"></a>     <span class="dt">col =</span> ma_palette[<span class="dv">2</span>] , <span class="dt">breaks =</span> <span class="dv">8</span>, <span class="dt">probability =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb514-3"><a href="graphique.html#cb514-3"></a><span class="kw">lines</span>(<span class="kw">density</span>(google<span class="op">$</span>Rating), <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">col =</span> ma_palette[<span class="dv">1</span>], <span class="dt">lwd =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="graphique.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> google<span class="sc">$</span>Rating, <span class="at">main =</span> <span class="st">&quot;Distribution des notes des utilisateurs&quot;</span>,</span>
+<span id="cb514-2"><a href="graphique.html#cb514-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> ma_palette[<span class="dv">2</span>] , <span class="at">breaks =</span> <span class="dv">8</span>, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb514-3"><a href="graphique.html#cb514-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(google<span class="sc">$</span>Rating), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> ma_palette[<span class="dv">1</span>], <span class="at">lwd =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-301-1.png" width="1152" style="display: block; margin: auto;" /></p>
 </div>
-<div id="diagramme-en-circulaire" class="section level3">
-<h3><span class="header-section-number">6.4.3</span> Diagramme en circulaire</h3>
+<div id="diagramme-en-circulaire" class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Diagramme en circulaire<a href="graphique.html#diagramme-en-circulaire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>L’argument <code>labels</code> permet de renseigner les étiquettes du graphique. Si on souhaite afficher les étiquettes en pourcentage, il faut calculer un tri à plat avec les pourcentages. D’autres arguments sont disponibles (cf : aide).</p>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="graphique.html#cb515-1"></a>tri_a_plat &lt;-<span class="st"> </span><span class="kw">table</span>(google<span class="op">$</span>Type)</span>
-<span id="cb515-2"><a href="graphique.html#cb515-2"></a>tri_a_plat</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="graphique.html#cb515-1" aria-hidden="true" tabindex="-1"></a>tri_a_plat <span class="ot">&lt;-</span> <span class="fu">table</span>(google<span class="sc">$</span>Type)</span>
+<span id="cb515-2"><a href="graphique.html#cb515-2" aria-hidden="true" tabindex="-1"></a>tri_a_plat</span></code></pre></div>
 <pre><code>## 
 ## Free Paid 
 ## 7592  604</code></pre>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="graphique.html#cb517-1"></a><span class="kw">paste</span>(<span class="kw">rownames</span>(tri_a_plat),tri_a_plat)</span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="graphique.html#cb517-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="fu">rownames</span>(tri_a_plat),tri_a_plat)</span></code></pre></div>
 <pre><code>## [1] &quot;Free 7592&quot; &quot;Paid 604&quot;</code></pre>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="graphique.html#cb519-1"></a><span class="kw">pie</span>(<span class="dt">x =</span> tri_a_plat, <span class="dt">main =</span> <span class="st">&quot;Repartition du nombre d&#39;applications par type&quot;</span>,</span>
-<span id="cb519-2"><a href="graphique.html#cb519-2"></a>    <span class="dt">col =</span> ma_palette, <span class="dt">labels =</span> <span class="kw">paste</span>(<span class="kw">rownames</span>(tri_a_plat),tri_a_plat))</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="graphique.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="at">x =</span> tri_a_plat, <span class="at">main =</span> <span class="st">&quot;Repartition du nombre d&#39;applications par type&quot;</span>,</span>
+<span id="cb519-2"><a href="graphique.html#cb519-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> ma_palette, <span class="at">labels =</span> <span class="fu">paste</span>(<span class="fu">rownames</span>(tri_a_plat),tri_a_plat))</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-302-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
-<div id="diagramme-en-barre" class="section level3">
-<h3><span class="header-section-number">6.4.4</span> Diagramme en barre</h3>
+<div id="diagramme-en-barre" class="section level3 hasAnchor" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> Diagramme en barre<a href="graphique.html#diagramme-en-barre" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Même principe pour le diagramme en barre, on doit calculer un tri à plat dans un premier temps. L’argument <code>horiz</code> permet de représenter le graphique à l’horizontal. D’autres arguments sont disponibles (cf : aide).</p>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="graphique.html#cb520-1"></a>tri_a_plat &lt;-<span class="st"> </span><span class="kw">table</span>(google<span class="op">$</span>Type)</span>
-<span id="cb520-2"><a href="graphique.html#cb520-2"></a></span>
-<span id="cb520-3"><a href="graphique.html#cb520-3"></a><span class="kw">barplot</span>(<span class="dt">height =</span> tri_a_plat, </span>
-<span id="cb520-4"><a href="graphique.html#cb520-4"></a>        <span class="dt">main =</span> <span class="st">&quot;Repartition du nombre d&#39;applications par type&quot;</span>,</span>
-<span id="cb520-5"><a href="graphique.html#cb520-5"></a>    <span class="dt">col =</span> <span class="kw">colors</span>()[<span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">99</span>)], <span class="dt">horiz =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="graphique.html#cb520-1" aria-hidden="true" tabindex="-1"></a>tri_a_plat <span class="ot">&lt;-</span> <span class="fu">table</span>(google<span class="sc">$</span>Type)</span>
+<span id="cb520-2"><a href="graphique.html#cb520-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb520-3"><a href="graphique.html#cb520-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="at">height =</span> tri_a_plat, </span>
+<span id="cb520-4"><a href="graphique.html#cb520-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Repartition du nombre d&#39;applications par type&quot;</span>,</span>
+<span id="cb520-5"><a href="graphique.html#cb520-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">colors</span>()[<span class="fu">c</span>(<span class="dv">45</span>,<span class="dv">99</span>)], <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-303-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Il est possible de construire un diagramme en barre dans un cadre bivarié. L’argument <code>beside</code> permet de préciser si on souhaite un diagramme empilé ou non. La fonction <code>prop.table</code> permet d’obtenir un tableau en pourcentage.</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="graphique.html#cb521-1"></a>tri_croise &lt;-<span class="st"> </span><span class="kw">prop.table</span>(<span class="kw">table</span>(google<span class="op">$</span>Content.Rating, google<span class="op">$</span>Type))</span>
-<span id="cb521-2"><a href="graphique.html#cb521-2"></a>tri_croise</span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="graphique.html#cb521-1" aria-hidden="true" tabindex="-1"></a>tri_croise <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(google<span class="sc">$</span>Content.Rating, google<span class="sc">$</span>Type))</span>
+<span id="cb521-2"><a href="graphique.html#cb521-2" aria-hidden="true" tabindex="-1"></a>tri_croise</span></code></pre></div>
 <pre><code>##                  
 ##                           Free         Paid
 ##   Adults only 18+ 0.0003660322 0.0000000000
@@ -1406,31 +1458,32 @@ Everyone
 ##   Mature 17+      0.0417276720 0.0018301611
 ##   Teen            0.1057833089 0.0054904832
 ##   Unrated         0.0001220107 0.0000000000</code></pre>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="graphique.html#cb523-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb523-2"><a href="graphique.html#cb523-2"></a><span class="kw">barplot</span>(<span class="dt">height =</span> tri_croise, <span class="dt">legend =</span> <span class="kw">rownames</span>(tri_croise))</span>
-<span id="cb523-3"><a href="graphique.html#cb523-3"></a><span class="kw">barplot</span>(<span class="dt">height =</span> tri_croise, <span class="dt">legend =</span> <span class="kw">rownames</span>(tri_croise) ,  <span class="dt">beside =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="graphique.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb523-2"><a href="graphique.html#cb523-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="at">height =</span> tri_croise, <span class="at">legend =</span> <span class="fu">rownames</span>(tri_croise))</span>
+<span id="cb523-3"><a href="graphique.html#cb523-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="at">height =</span> tri_croise, <span class="at">legend =</span> <span class="fu">rownames</span>(tri_croise) ,  <span class="at">beside =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-304-1.png" width="1152" style="display: block; margin: auto;" /></p>
 </div>
-<div id="nuage-de-points" class="section level3">
-<h3><span class="header-section-number">6.4.5</span> Nuage de points</h3>
+<div id="nuage-de-points" class="section level3 hasAnchor" number="5.4.5">
+<h3><span class="header-section-number">5.4.5</span> Nuage de points<a href="graphique.html#nuage-de-points" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ici on représente un nuage de points avec la présentation par défaut.</p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="graphique.html#cb524-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> google<span class="op">$</span>Reviews, <span class="dt">y =</span> google<span class="op">$</span>Rating)</span></code></pre></div>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="graphique.html#cb524-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> google<span class="sc">$</span>Reviews, <span class="at">y =</span> google<span class="sc">$</span>Rating)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-305-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Puis le même en y ajoutant des éléments de personnalisation.</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="graphique.html#cb525-1"></a><span class="kw">class</span>(google<span class="op">$</span>Content.Rating)</span></code></pre></div>
-<pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="graphique.html#cb527-1"></a><span class="kw">plot</span>(<span class="dt">x =</span> google<span class="op">$</span>Reviews, <span class="dt">y =</span> google<span class="op">$</span>Rating, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>, </span>
-<span id="cb527-2"><a href="graphique.html#cb527-2"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">3e+7</span>), <span class="dt">col =</span> google<span class="op">$</span>Content.Rating)</span>
-<span id="cb527-3"><a href="graphique.html#cb527-3"></a></span>
-<span id="cb527-4"><a href="graphique.html#cb527-4"></a><span class="kw">legend</span>(<span class="dt">x =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend=</span><span class="kw">levels</span>(google<span class="op">$</span>Content.Rating),</span>
-<span id="cb527-5"><a href="graphique.html#cb527-5"></a>      <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(<span class="kw">levels</span>(google<span class="op">$</span>Content.Rating)), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="graphique.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(google<span class="sc">$</span>Content.Rating)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="graphique.html#cb527-1" aria-hidden="true" tabindex="-1"></a>google<span class="sc">$</span>Content.Rating <span class="ot">=</span> <span class="fu">as.factor</span>(google<span class="sc">$</span>Content.Rating)</span>
+<span id="cb527-2"><a href="graphique.html#cb527-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> google<span class="sc">$</span>Reviews, <span class="at">y =</span> google<span class="sc">$</span>Rating, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="fl">0.5</span>, </span>
+<span id="cb527-3"><a href="graphique.html#cb527-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">3e+7</span>), <span class="at">col =</span> google<span class="sc">$</span>Content.Rating)</span>
+<span id="cb527-4"><a href="graphique.html#cb527-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb527-5"><a href="graphique.html#cb527-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">legend=</span><span class="fu">levels</span>(google<span class="sc">$</span>Content.Rating),</span>
+<span id="cb527-6"><a href="graphique.html#cb527-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(google<span class="sc">$</span>Content.Rating)), <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-306-1.png" width="1152" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="exercice-2" class="section level2">
-<h2><span class="header-section-number">6.5</span> Exercice</h2>
-<div id="sujet-6" class="section level3">
-<h3><span class="header-section-number">6.5.1</span> Sujet</h3>
+<div id="exercice-2" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Exercice<a href="graphique.html#exercice-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sujet-6" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Sujet<a href="graphique.html#sujet-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Dans ce TD, on utilise le fichier <code>pokemon.xlsx</code> qui décrit les statistiques des pokemon des deux premières générations.
 Le fichier est issu du site <a href="https://www.kaggle.com/rounakbanik/pokemon">Kaggle</a>. Il a été adapté pour ce TP. Voici une description des données :</p>
 <ul>
@@ -2160,140 +2213,143 @@ NA
 </ol>
 <p><img src="index.html_files/figure-html/unnamed-chunk-319-1.png" width="1152" style="display: block; margin: auto;" /></p>
 </div>
-<div id="correction-6" class="section level3">
-<h3><span class="header-section-number">6.5.2</span> Correction</h3>
+<div id="correction-6" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Correction<a href="graphique.html#correction-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: lower-alpha">
 <li>Importez le jeu de données <code>pokemon.xlsx</code> à l’aide du package <code>readxl</code>.</li>
 </ol>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="graphique.html#cb530-1"></a><span class="kw">library</span>(readxl)</span>
-<span id="cb530-2"><a href="graphique.html#cb530-2"></a>pokemon &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="dt">path =</span> <span class="st">&quot;./dataset/pokemon.xlsx&quot;</span>, <span class="dt">sheet =</span> <span class="st">&quot;pokemon&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="graphique.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb530-2"><a href="graphique.html#cb530-2" aria-hidden="true" tabindex="-1"></a>pokemon <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;./dataset/pokemon.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;pokemon&quot;</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Combien de lignes, colonnes sont présentes dans cette table ?</li>
 </ol>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="graphique.html#cb531-1"></a><span class="kw">dim</span>(pokemon)</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="graphique.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(pokemon)</span></code></pre></div>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Affichez le nom des colonnes</li>
 </ol>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="graphique.html#cb532-1"></a><span class="kw">colnames</span>(pokemon)</span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="graphique.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(pokemon)</span></code></pre></div>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Affichez un résumé des données</li>
 </ol>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="graphique.html#cb533-1"></a><span class="kw">summary</span>(pokemon)</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="graphique.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pokemon)</span></code></pre></div>
 <ol start="5" style="list-style-type: lower-alpha">
 <li>Construire un diagramme en barre du nombre de pokemon par <code>type</code> avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.</li>
 </ol>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="graphique.html#cb534-1"></a>count &lt;-<span class="st"> </span><span class="kw">table</span>(pokemon<span class="op">$</span>type)</span>
-<span id="cb534-2"><a href="graphique.html#cb534-2"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb534-3"><a href="graphique.html#cb534-3"></a><span class="kw">barplot</span>(count, <span class="dt">cex.names =</span> <span class="fl">0.4</span>)</span>
-<span id="cb534-4"><a href="graphique.html#cb534-4"></a><span class="kw">barplot</span>(<span class="kw">sort</span>(count, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>), </span>
-<span id="cb534-5"><a href="graphique.html#cb534-5"></a>        <span class="dt">horiz =</span> <span class="ot">TRUE</span>, <span class="dt">las =</span> <span class="dv">2</span>, </span>
-<span id="cb534-6"><a href="graphique.html#cb534-6"></a>        <span class="dt">xlab =</span> <span class="st">&quot;Nombre de pokemon&quot;</span>,</span>
-<span id="cb534-7"><a href="graphique.html#cb534-7"></a>        <span class="dt">col =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">col.main =</span> <span class="st">&quot;blue&quot;</span>,</span>
-<span id="cb534-8"><a href="graphique.html#cb534-8"></a>        <span class="dt">main =</span> <span class="st">&quot;Nombre de pokemon </span><span class="ch">\n</span><span class="st"> par type&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="graphique.html#cb534-1" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="fu">table</span>(pokemon<span class="sc">$</span>type)</span>
+<span id="cb534-2"><a href="graphique.html#cb534-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb534-3"><a href="graphique.html#cb534-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(count, <span class="at">cex.names =</span> <span class="fl">0.4</span>)</span>
+<span id="cb534-4"><a href="graphique.html#cb534-4" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(count, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb534-5"><a href="graphique.html#cb534-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horiz =</span> <span class="cn">TRUE</span>, <span class="at">las =</span> <span class="dv">2</span>, </span>
+<span id="cb534-6"><a href="graphique.html#cb534-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Nombre de pokemon&quot;</span>,</span>
+<span id="cb534-7"><a href="graphique.html#cb534-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">col.main =</span> <span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb534-8"><a href="graphique.html#cb534-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Nombre de pokemon </span><span class="sc">\n</span><span class="st"> par type&quot;</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-324-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <ol start="6" style="list-style-type: lower-alpha">
 <li>Construire un diagramme circulaire présentant la répartition du nombre de pokemon légendaires ou non (<code>is_legendary</code>) avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.</li>
 </ol>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="graphique.html#cb535-1"></a>count &lt;-<span class="st"> </span><span class="kw">table</span>(pokemon<span class="op">$</span>is_legendary)</span>
-<span id="cb535-2"><a href="graphique.html#cb535-2"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb535-3"><a href="graphique.html#cb535-3"></a><span class="kw">pie</span>(count)</span>
-<span id="cb535-4"><a href="graphique.html#cb535-4"></a><span class="kw">pie</span>(count, <span class="dt">main =</span> <span class="st">&quot;Repartition pokemon </span><span class="ch">\n</span><span class="st"> legendaire ou non&quot;</span>,</span>
-<span id="cb535-5"><a href="graphique.html#cb535-5"></a>    <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;blue&quot;</span>), </span>
-<span id="cb535-6"><a href="graphique.html#cb535-6"></a>    <span class="dt">col.main =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">labels =</span></span>
-<span id="cb535-7"><a href="graphique.html#cb535-7"></a>      <span class="kw">paste</span>(<span class="kw">rownames</span>(count),count))</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="graphique.html#cb535-1" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="fu">table</span>(pokemon<span class="sc">$</span>is_legendary)</span>
+<span id="cb535-2"><a href="graphique.html#cb535-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb535-3"><a href="graphique.html#cb535-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(count)</span>
+<span id="cb535-4"><a href="graphique.html#cb535-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(count, <span class="at">main =</span> <span class="st">&quot;Repartition pokemon </span><span class="sc">\n</span><span class="st"> legendaire ou non&quot;</span>,</span>
+<span id="cb535-5"><a href="graphique.html#cb535-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;blue&quot;</span>), </span>
+<span id="cb535-6"><a href="graphique.html#cb535-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.main =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">labels =</span></span>
+<span id="cb535-7"><a href="graphique.html#cb535-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">paste</span>(<span class="fu">rownames</span>(count),count))</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-325-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <ol start="7" style="list-style-type: lower-alpha">
 <li>Construire un diagramme empilé présentant la répartition en <strong>pourcentage</strong> du nombre de pokemon légendaires ou non pour chaque génération avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.</li>
 </ol>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="graphique.html#cb536-1"></a>count &lt;-<span class="st"> </span><span class="kw">table</span>(pokemon<span class="op">$</span>is_legendary, pokemon<span class="op">$</span>generation)</span>
-<span id="cb536-2"><a href="graphique.html#cb536-2"></a>count_freq &lt;-<span class="st"> </span><span class="kw">prop.table</span>(count,<span class="dt">margin =</span> <span class="dv">2</span>)</span>
-<span id="cb536-3"><a href="graphique.html#cb536-3"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb536-4"><a href="graphique.html#cb536-4"></a><span class="kw">barplot</span>(count_freq, <span class="dt">legend =</span> <span class="kw">rownames</span>(count_freq))</span>
-<span id="cb536-5"><a href="graphique.html#cb536-5"></a></span>
-<span id="cb536-6"><a href="graphique.html#cb536-6"></a><span class="kw">barplot</span>(count_freq, <span class="dt">las =</span> <span class="dv">2</span>, <span class="dt">xlab =</span> <span class="st">&quot;Nombre de pokemon&quot;</span>,</span>
-<span id="cb536-7"><a href="graphique.html#cb536-7"></a>        <span class="dt">main =</span> <span class="st">&quot;Nb pokemon par generation si legendaire&quot;</span>, </span>
-<span id="cb536-8"><a href="graphique.html#cb536-8"></a>        <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;blue&quot;</span>), </span>
-<span id="cb536-9"><a href="graphique.html#cb536-9"></a>        <span class="dt">legend =</span> <span class="kw">rownames</span>(count_freq), <span class="dt">beside =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="graphique.html#cb536-1" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="fu">table</span>(pokemon<span class="sc">$</span>is_legendary, pokemon<span class="sc">$</span>generation)</span>
+<span id="cb536-2"><a href="graphique.html#cb536-2" aria-hidden="true" tabindex="-1"></a>count_freq <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(count,<span class="at">margin =</span> <span class="dv">2</span>)</span>
+<span id="cb536-3"><a href="graphique.html#cb536-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb536-4"><a href="graphique.html#cb536-4" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(count_freq, <span class="at">legend =</span> <span class="fu">rownames</span>(count_freq))</span>
+<span id="cb536-5"><a href="graphique.html#cb536-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb536-6"><a href="graphique.html#cb536-6" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(count_freq, <span class="at">las =</span> <span class="dv">2</span>, <span class="at">xlab =</span> <span class="st">&quot;Nombre de pokemon&quot;</span>,</span>
+<span id="cb536-7"><a href="graphique.html#cb536-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Nb pokemon par generation si legendaire&quot;</span>, </span>
+<span id="cb536-8"><a href="graphique.html#cb536-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;blue&quot;</span>), </span>
+<span id="cb536-9"><a href="graphique.html#cb536-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">rownames</span>(count_freq), <span class="at">beside =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-326-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <ol start="8" style="list-style-type: lower-alpha">
 <li>Construire un histogramme de la distribution de la vitesse (<code>speed</code>) des pokemon avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.</li>
 </ol>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="graphique.html#cb537-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb537-2"><a href="graphique.html#cb537-2"></a><span class="kw">hist</span>(<span class="dt">x =</span> pokemon<span class="op">$</span>speed)</span>
-<span id="cb537-3"><a href="graphique.html#cb537-3"></a></span>
-<span id="cb537-4"><a href="graphique.html#cb537-4"></a><span class="kw">hist</span>(<span class="dt">x =</span> pokemon<span class="op">$</span>speed, <span class="dt">breaks =</span> <span class="dv">20</span>, </span>
-<span id="cb537-5"><a href="graphique.html#cb537-5"></a>     <span class="dt">probability =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb537-6"><a href="graphique.html#cb537-6"></a>     <span class="dt">col =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Vitesse&quot;</span>,</span>
-<span id="cb537-7"><a href="graphique.html#cb537-7"></a>     <span class="dt">main =</span> <span class="st">&quot;Histo. de la vitesse des pokemon&quot;</span>,</span>
-<span id="cb537-8"><a href="graphique.html#cb537-8"></a>     <span class="dt">col.main =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="graphique.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb537-2"><a href="graphique.html#cb537-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> pokemon<span class="sc">$</span>speed)</span>
+<span id="cb537-3"><a href="graphique.html#cb537-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb537-4"><a href="graphique.html#cb537-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> pokemon<span class="sc">$</span>speed, <span class="at">breaks =</span> <span class="dv">20</span>, </span>
+<span id="cb537-5"><a href="graphique.html#cb537-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">probability =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb537-6"><a href="graphique.html#cb537-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Vitesse&quot;</span>,</span>
+<span id="cb537-7"><a href="graphique.html#cb537-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histo. de la vitesse des pokemon&quot;</span>,</span>
+<span id="cb537-8"><a href="graphique.html#cb537-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">col.main =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-327-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: lower-roman">
 <li>Construire un nuage de points de la vitesse (<code>speed</code>) et du poids (<code>weight_kg</code>) des pokemon avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous. Puis, calculez le coefficient de corrélation entre ces deux variables avec la fonction <code>cor</code>.</li>
 </ol>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="graphique.html#cb538-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb538-2"><a href="graphique.html#cb538-2"></a><span class="kw">plot</span>(<span class="dt">x =</span> pokemon<span class="op">$</span>speed, <span class="dt">y =</span> pokemon<span class="op">$</span>weight_kg)</span>
-<span id="cb538-3"><a href="graphique.html#cb538-3"></a></span>
-<span id="cb538-4"><a href="graphique.html#cb538-4"></a><span class="kw">plot</span>(<span class="dt">x =</span> pokemon<span class="op">$</span>speed, <span class="dt">y =</span> pokemon<span class="op">$</span>weight_kg, </span>
-<span id="cb538-5"><a href="graphique.html#cb538-5"></a>     <span class="dt">col =</span> <span class="kw">as.factor</span>(pokemon<span class="op">$</span>is_legendary))</span>
-<span id="cb538-6"><a href="graphique.html#cb538-6"></a></span>
-<span id="cb538-7"><a href="graphique.html#cb538-7"></a><span class="kw">legend</span>(<span class="dt">x =</span> <span class="st">&quot;topright&quot;</span>, </span>
-<span id="cb538-8"><a href="graphique.html#cb538-8"></a>       <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;Legendaire : Oui&quot;</span>, <span class="st">&quot;Legendaire : Non&quot;</span>), </span>
-<span id="cb538-9"><a href="graphique.html#cb538-9"></a>       <span class="dt">col=</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">cex=</span><span class="dv">1</span>, <span class="dt">pch =</span> <span class="dv">1</span>)</span>
-<span id="cb538-10"><a href="graphique.html#cb538-10"></a></span>
-<span id="cb538-11"><a href="graphique.html#cb538-11"></a><span class="co">#On récupère les statistiques de Mewtwo</span></span>
-<span id="cb538-12"><a href="graphique.html#cb538-12"></a>Mewtwo &lt;-<span class="st"> </span>pokemon[pokemon<span class="op">$</span>nom <span class="op">==</span><span class="st"> &quot;Mewtwo&quot;</span>,</span>
-<span id="cb538-13"><a href="graphique.html#cb538-13"></a>                      <span class="kw">c</span>(<span class="st">&quot;speed&quot;</span>, <span class="st">&quot;weight_kg&quot;</span>)]</span>
-<span id="cb538-14"><a href="graphique.html#cb538-14"></a></span>
-<span id="cb538-15"><a href="graphique.html#cb538-15"></a><span class="co">#On les affiche avec la fonction text</span></span>
-<span id="cb538-16"><a href="graphique.html#cb538-16"></a><span class="kw">text</span>(<span class="dt">x =</span> Mewtwo[<span class="dv">1</span>], <span class="dt">y =</span> Mewtwo[<span class="dv">2</span>]<span class="op">+</span><span class="dv">40</span>,</span>
-<span id="cb538-17"><a href="graphique.html#cb538-17"></a>     <span class="dt">labels =</span> <span class="st">&quot;Mewtwo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="graphique.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb538-2"><a href="graphique.html#cb538-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> pokemon<span class="sc">$</span>speed, <span class="at">y =</span> pokemon<span class="sc">$</span>weight_kg)</span>
+<span id="cb538-3"><a href="graphique.html#cb538-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb538-4"><a href="graphique.html#cb538-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> pokemon<span class="sc">$</span>speed, <span class="at">y =</span> pokemon<span class="sc">$</span>weight_kg, </span>
+<span id="cb538-5"><a href="graphique.html#cb538-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">as.factor</span>(pokemon<span class="sc">$</span>is_legendary))</span>
+<span id="cb538-6"><a href="graphique.html#cb538-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb538-7"><a href="graphique.html#cb538-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topright&quot;</span>, </span>
+<span id="cb538-8"><a href="graphique.html#cb538-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Legendaire : Oui&quot;</span>, <span class="st">&quot;Legendaire : Non&quot;</span>), </span>
+<span id="cb538-9"><a href="graphique.html#cb538-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">cex=</span><span class="dv">1</span>, <span class="at">pch =</span> <span class="dv">1</span>)</span>
+<span id="cb538-10"><a href="graphique.html#cb538-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb538-11"><a href="graphique.html#cb538-11" aria-hidden="true" tabindex="-1"></a><span class="co">#On récupère les statistiques de Mewtwo</span></span>
+<span id="cb538-12"><a href="graphique.html#cb538-12" aria-hidden="true" tabindex="-1"></a>Mewtwo <span class="ot">&lt;-</span> pokemon[pokemon<span class="sc">$</span>nom <span class="sc">==</span> <span class="st">&quot;Mewtwo&quot;</span>,</span>
+<span id="cb538-13"><a href="graphique.html#cb538-13" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">c</span>(<span class="st">&quot;speed&quot;</span>, <span class="st">&quot;weight_kg&quot;</span>)]</span>
+<span id="cb538-14"><a href="graphique.html#cb538-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb538-15"><a href="graphique.html#cb538-15" aria-hidden="true" tabindex="-1"></a><span class="co">#On les affiche avec la fonction text</span></span>
+<span id="cb538-16"><a href="graphique.html#cb538-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> Mewtwo[<span class="dv">1</span>], <span class="at">y =</span> Mewtwo[<span class="dv">2</span>]<span class="sc">+</span><span class="dv">40</span>,</span>
+<span id="cb538-17"><a href="graphique.html#cb538-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="st">&quot;Mewtwo&quot;</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-328-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="graphique.html#cb539-1"></a><span class="co">#argument use pour gérer les NA (voir aide)</span></span>
-<span id="cb539-2"><a href="graphique.html#cb539-2"></a><span class="kw">cor</span>(<span class="dt">x =</span> pokemon<span class="op">$</span>speed, <span class="dt">y =</span> pokemon<span class="op">$</span>weight_kg, </span>
-<span id="cb539-3"><a href="graphique.html#cb539-3"></a>    <span class="dt">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="graphique.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="co">#argument use pour gérer les NA (voir aide)</span></span>
+<span id="cb539-2"><a href="graphique.html#cb539-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x =</span> pokemon<span class="sc">$</span>speed, <span class="at">y =</span> pokemon<span class="sc">$</span>weight_kg, </span>
+<span id="cb539-3"><a href="graphique.html#cb539-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1525117</code></pre>
 <ol start="10" style="list-style-type: lower-alpha">
 <li>Construire un diagramme en boîte de la distribution de la statistique <code>speed</code> des pokemon avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.</li>
 </ol>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="graphique.html#cb541-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb541-2"><a href="graphique.html#cb541-2"></a><span class="kw">boxplot</span>(<span class="dt">x =</span> pokemon<span class="op">$</span>speed, <span class="dt">main =</span> <span class="st">&quot;Boxplot Speed&quot;</span>)</span>
-<span id="cb541-3"><a href="graphique.html#cb541-3"></a></span>
-<span id="cb541-4"><a href="graphique.html#cb541-4"></a><span class="kw">boxplot</span>(<span class="dt">x =</span> pokemon<span class="op">$</span>speed, <span class="dt">main =</span> <span class="st">&quot;Boxplot Speed&quot;</span>,</span>
-<span id="cb541-5"><a href="graphique.html#cb541-5"></a>        <span class="dt">range =</span> <span class="dv">0</span>, <span class="dt">xlab =</span> <span class="st">&quot;Speed&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;yellow&quot;</span>)</span>
-<span id="cb541-6"><a href="graphique.html#cb541-6"></a></span>
-<span id="cb541-7"><a href="graphique.html#cb541-7"></a><span class="kw">points</span>(<span class="kw">mean</span>(pokemon<span class="op">$</span>speed,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
-<span id="cb541-8"><a href="graphique.html#cb541-8"></a>       <span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb541-9"><a href="graphique.html#cb541-9"></a></span>
-<span id="cb541-10"><a href="graphique.html#cb541-10"></a><span class="kw">legend</span>(<span class="dt">x =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend=</span> <span class="st">&quot;Moyenne&quot;</span>,</span>
-<span id="cb541-11"><a href="graphique.html#cb541-11"></a>       <span class="dt">col=</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="graphique.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb541-2"><a href="graphique.html#cb541-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">x =</span> pokemon<span class="sc">$</span>speed, <span class="at">main =</span> <span class="st">&quot;Boxplot Speed&quot;</span>)</span>
+<span id="cb541-3"><a href="graphique.html#cb541-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-4"><a href="graphique.html#cb541-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">x =</span> pokemon<span class="sc">$</span>speed, <span class="at">main =</span> <span class="st">&quot;Boxplot Speed&quot;</span>,</span>
+<span id="cb541-5"><a href="graphique.html#cb541-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">range =</span> <span class="dv">0</span>, <span class="at">xlab =</span> <span class="st">&quot;Speed&quot;</span>, <span class="at">col =</span> <span class="st">&quot;yellow&quot;</span>)</span>
+<span id="cb541-6"><a href="graphique.html#cb541-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-7"><a href="graphique.html#cb541-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">mean</span>(pokemon<span class="sc">$</span>speed,<span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb541-8"><a href="graphique.html#cb541-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb541-9"><a href="graphique.html#cb541-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-10"><a href="graphique.html#cb541-10" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">legend=</span> <span class="st">&quot;Moyenne&quot;</span>,</span>
+<span id="cb541-11"><a href="graphique.html#cb541-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span> <span class="st">&quot;blue&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-330-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <ol start="11" style="list-style-type: lower-alpha">
 <li>Construire un diagramme en boîte de la distribution de la statistique <code>attack</code> des pokemon selon le <code>type</code> avec les paramètres par défaut puis essayez de le personnaliser comme ci-dessous.</li>
 </ol>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="graphique.html#cb542-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb542-2"><a href="graphique.html#cb542-2"></a><span class="kw">boxplot</span>(<span class="dt">formula =</span> attack <span class="op">~</span><span class="st"> </span>type,</span>
-<span id="cb542-3"><a href="graphique.html#cb542-3"></a>        <span class="dt">data =</span> pokemon, </span>
-<span id="cb542-4"><a href="graphique.html#cb542-4"></a>        <span class="dt">main =</span> <span class="st">&quot;Boxplot Attack vs Type&quot;</span>)</span>
-<span id="cb542-5"><a href="graphique.html#cb542-5"></a></span>
-<span id="cb542-6"><a href="graphique.html#cb542-6"></a><span class="kw">boxplot</span>(<span class="dt">formula =</span> attack <span class="op">~</span><span class="st"> </span>type,</span>
-<span id="cb542-7"><a href="graphique.html#cb542-7"></a>        <span class="dt">data =</span> pokemon, </span>
-<span id="cb542-8"><a href="graphique.html#cb542-8"></a>        <span class="dt">main =</span> <span class="st">&quot;Boxplot Attack vs Type&quot;</span>, </span>
-<span id="cb542-9"><a href="graphique.html#cb542-9"></a>        <span class="dt">las =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="kw">colors</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="graphique.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb542-2"><a href="graphique.html#cb542-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">formula =</span> attack <span class="sc">~</span> type,</span>
+<span id="cb542-3"><a href="graphique.html#cb542-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> pokemon, </span>
+<span id="cb542-4"><a href="graphique.html#cb542-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Boxplot Attack vs Type&quot;</span>)</span>
+<span id="cb542-5"><a href="graphique.html#cb542-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb542-6"><a href="graphique.html#cb542-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">formula =</span> attack <span class="sc">~</span> type,</span>
+<span id="cb542-7"><a href="graphique.html#cb542-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> pokemon, </span>
+<span id="cb542-8"><a href="graphique.html#cb542-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Boxplot Attack vs Type&quot;</span>, </span>
+<span id="cb542-9"><a href="graphique.html#cb542-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">las =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="fu">colors</span>())</span></code></pre></div>
 <p><img src="index.html_files/figure-html/unnamed-chunk-331-1.png" width="1152" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="aller-plus-loin" class="section level2">
-<h2><span class="header-section-number">6.6</span> Aller plus loin</h2>
+<div id="aller-plus-loin" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Aller plus loin<a href="graphique.html#aller-plus-loin" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Utiliser le package <em>ggplot2</em> avec le cours de <a href="https://juba.github.io/tidyverse/08-ggplot2.html">Julien Barnier</a></li>
 <li>Constuire des graphiques avec l’interface <em>esquisse</em> avec le cours de <a href="https://dreamrs.github.io/esquisse/articles/get-started.html">Dreams Rs</a></li>
 <li>Utiliser des widgets HTML avec la <a href="https://www.htmlwidgets.org/showcase_leaflet.html">Galerie</a> pour construire des graphiques dynamiques</li>
 </ul>
 </div>
-<div id="testez-vos-connaissances-4" class="section level2">
-<h2><span class="header-section-number">6.7</span> Testez vos connaissances !</h2>
+<div id="testez-vos-connaissances-4" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Testez vos connaissances !<a href="graphique.html#testez-vos-connaissances-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-<img src="img/kahoot.png" title="fig:" alt="Quiz" />
+<div class="figure">
+<img src="img/kahoot.png" alt="" />
+<p class="caption">Quiz</p>
+</div>
 </p>
 <p>Testez vos connaissances sur ce chapitre avec ce quiz (10 min) en <a href="https://kahoot.it/challenge/08690258?challenge-id=93264293-c5c0-4eb8-8381-2ba18c649ca3_1616285108760">cliquant ici</a>.</p>
 
@@ -2304,12 +2360,11 @@ NA
           </div>
         </div>
       </div>
-<a href="manipulation-objet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="manipulation_objet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="algo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -2328,6 +2383,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -2348,6 +2404,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -2361,7 +2421,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

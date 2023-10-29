@@ -355,6 +355,7 @@ Puis le même en y ajoutant des éléments de personnalisation.
 
 ```{r, fig.align = "center",fig.width= 12, fig.height=4}
 class(google$Content.Rating)
+google$Content.Rating = as.factor(google$Content.Rating)
 plot(x = google$Reviews, y = google$Rating, pch = 19, cex = 0.5, 
      xlim = c(0,3e+7), col = google$Content.Rating)
 

@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 2 Premier travail avec des données | index.html.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 2 Premier travail avec des données | index.html.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 2 Premier travail avec des données | index.html.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="presentation.html"/>
+<link rel="next" href="first_import.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="presentation.html"><a href="presentation.html"><i class="fa fa-check"></i><b>1</b> Présentation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="presentation.html"><a href="presentation.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="presentation.html"><a href="presentation.html#à-propos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> À propos de R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="presentation.html"><a href="presentation.html#à-propos-de-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> À propos de RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="presentation.html"><a href="presentation.html#à-propos-du-tidyverse"><i class="fa fa-check"></i><b>1.1.3</b> À propos du <em>tidyverse</em></a></li>
+<li class="chapter" data-level="1.1.4" data-path="presentation.html"><a href="presentation.html#structure-du-document"><i class="fa fa-check"></i><b>1.1.4</b> Structure du document</a></li>
+<li class="chapter" data-level="1.1.5" data-path="presentation.html"><a href="presentation.html#prérequis"><i class="fa fa-check"></i><b>1.1.5</b> Prérequis</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="presentation.html"><a href="presentation.html#prise-en-main"><i class="fa fa-check"></i><b>1.2</b> Prise en main</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="presentation.html"><a href="presentation.html#la-console"><i class="fa fa-check"></i><b>1.2.1</b> La console</a></li>
+<li class="chapter" data-level="1.2.2" data-path="presentation.html"><a href="presentation.html#objets"><i class="fa fa-check"></i><b>1.2.2</b> Objets</a></li>
+<li class="chapter" data-level="1.2.3" data-path="presentation.html"><a href="presentation.html#fonctions"><i class="fa fa-check"></i><b>1.2.3</b> Fonctions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="presentation.html"><a href="presentation.html#fonctions-de-tests-et-comparaisons"><i class="fa fa-check"></i><b>1.3</b> Fonctions de tests et comparaisons</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="presentation.html"><a href="presentation.html#opérateurs-de-comparaisons"><i class="fa fa-check"></i><b>1.3.1</b> Opérateurs de comparaisons</a></li>
+<li class="chapter" data-level="1.3.2" data-path="presentation.html"><a href="presentation.html#opérateurs-logiques"><i class="fa fa-check"></i><b>1.3.2</b> Opérateurs logiques</a></li>
+<li class="chapter" data-level="1.3.3" data-path="presentation.html"><a href="presentation.html#fonctions-logiques"><i class="fa fa-check"></i><b>1.3.3</b> Fonctions logiques</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="presentation.html"><a href="presentation.html#regrouper-ses-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>1.4</b> Regrouper ses commandes dans des scripts</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="presentation.html"><a href="presentation.html#commentaires"><i class="fa fa-check"></i><b>1.4.1</b> Commentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="presentation.html"><a href="presentation.html#installer-et-charger-des-extensions-packages"><i class="fa fa-check"></i><b>1.5</b> Installer et charger des extensions (<em>packages</em>)</a></li>
+<li class="chapter" data-level="1.6" data-path="presentation.html"><a href="presentation.html#exercices"><i class="fa fa-check"></i><b>1.6</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="presentation.html"><a href="presentation.html#sujet"><i class="fa fa-check"></i><b>1.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="1.6.2" data-path="presentation.html"><a href="presentation.html#correction"><i class="fa fa-check"></i><b>1.6.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="presentation.html"><a href="presentation.html#testez-vos-connaissances"><i class="fa fa-check"></i><b>1.7</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="first_dataset.html"><a href="first_dataset.html"><i class="fa fa-check"></i><b>2</b> Premier travail avec des données</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="first_dataset.html"><a href="first_dataset.html#jeu-de-données-dexemple"><i class="fa fa-check"></i><b>2.1</b> Jeu de données d’exemple</a></li>
+<li class="chapter" data-level="2.2" data-path="first_dataset.html"><a href="first_dataset.html#tableau-de-données-data-frame"><i class="fa fa-check"></i><b>2.2</b> Tableau de données (<em>data frame</em>)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="first_dataset.html"><a href="first_dataset.html#structure-du-tableau"><i class="fa fa-check"></i><b>2.2.1</b> Structure du tableau</a></li>
+<li class="chapter" data-level="2.2.2" data-path="first_dataset.html"><a href="first_dataset.html#accéder-aux-variables-dun-tableau"><i class="fa fa-check"></i><b>2.2.2</b> Accéder aux variables d’un tableau</a></li>
+<li class="chapter" data-level="2.2.3" data-path="first_dataset.html"><a href="first_dataset.html#créer-une-nouvelle-variable"><i class="fa fa-check"></i><b>2.2.3</b> Créer une nouvelle variable</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="first_dataset.html"><a href="first_dataset.html#analyse-univariée"><i class="fa fa-check"></i><b>2.3</b> Analyse univariée</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="first_dataset.html"><a href="first_dataset.html#analyser-une-variable-quantitative"><i class="fa fa-check"></i><b>2.3.1</b> Analyser une variable quantitative</a></li>
+<li class="chapter" data-level="2.3.2" data-path="first_dataset.html"><a href="first_dataset.html#analyser-une-variable-qualitative"><i class="fa fa-check"></i><b>2.3.2</b> Analyser une variable qualitative</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="first_dataset.html"><a href="first_dataset.html#combiner-plusieurs-variables"><i class="fa fa-check"></i><b>2.4</b> Combiner plusieurs variables</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="first_dataset.html"><a href="first_dataset.html#créer-une-nouvelle-variable-1"><i class="fa fa-check"></i><b>2.4.1</b> Créer une nouvelle variable</a></li>
+<li class="chapter" data-level="2.4.2" data-path="first_dataset.html"><a href="first_dataset.html#créer-des-regroupements-de-modalités"><i class="fa fa-check"></i><b>2.4.2</b> Créer des regroupements de modalités</a></li>
+<li class="chapter" data-level="2.4.3" data-path="first_dataset.html"><a href="first_dataset.html#découper-une-variable-numérique-en-classes"><i class="fa fa-check"></i><b>2.4.3</b> Découper une variable numérique en classes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="first_dataset.html"><a href="first_dataset.html#exercices-1"><i class="fa fa-check"></i><b>2.5</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="first_dataset.html"><a href="first_dataset.html#sujet-1"><i class="fa fa-check"></i><b>2.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="2.5.2" data-path="first_dataset.html"><a href="first_dataset.html#correction-1"><i class="fa fa-check"></i><b>2.5.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="first_dataset.html"><a href="first_dataset.html#testez-vos-connaissances-1"><i class="fa fa-check"></i><b>2.6</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="first_import.html"><a href="first_import.html"><i class="fa fa-check"></i><b>3</b> Importer des données externes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="first_import.html"><a href="first_import.html#import-de-fichiers-csv"><i class="fa fa-check"></i><b>3.1</b> Import de fichiers csv</a></li>
+<li class="chapter" data-level="3.2" data-path="first_import.html"><a href="first_import.html#interface-interactive-dimport-de-fichiers"><i class="fa fa-check"></i><b>3.2</b> Interface interactive d’import de fichiers</a></li>
+<li class="chapter" data-level="3.3" data-path="first_import.html"><a href="first_import.html#modifier-le-répertoire-actif"><i class="fa fa-check"></i><b>3.3</b> Modifier le répertoire actif</a></li>
+<li class="chapter" data-level="3.4" data-path="first_import.html"><a href="first_import.html#import-depuis-un-fichier-excel"><i class="fa fa-check"></i><b>3.4</b> Import depuis un fichier Excel</a></li>
+<li class="chapter" data-level="3.5" data-path="first_import.html"><a href="first_import.html#export-de-données"><i class="fa fa-check"></i><b>3.5</b> Export de données</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="first_import.html"><a href="first_import.html#export-de-tableaux-de-données"><i class="fa fa-check"></i><b>3.5.1</b> Export de tableaux de données</a></li>
+<li class="chapter" data-level="3.5.2" data-path="first_import.html"><a href="first_import.html#sauvegarder-des-objets"><i class="fa fa-check"></i><b>3.5.2</b> Sauvegarder des objets</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="first_import.html"><a href="first_import.html#exercices-2"><i class="fa fa-check"></i><b>3.6</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="first_import.html"><a href="first_import.html#sujet-2"><i class="fa fa-check"></i><b>3.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="3.6.2" data-path="first_import.html"><a href="first_import.html#correction-2"><i class="fa fa-check"></i><b>3.6.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="first_import.html"><a href="first_import.html#testez-vos-connaissances-2"><i class="fa fa-check"></i><b>3.7</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="manipulation_objet.html"><a href="manipulation_objet.html"><i class="fa fa-check"></i><b>4</b> Manipulation des objets</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="manipulation_objet.html"><a href="manipulation_objet.html#liste"><i class="fa fa-check"></i><b>4.1</b> Liste</a></li>
+<li class="chapter" data-level="4.2" data-path="manipulation_objet.html"><a href="manipulation_objet.html#matrice"><i class="fa fa-check"></i><b>4.2</b> Matrice</a></li>
+<li class="chapter" data-level="4.3" data-path="manipulation_objet.html"><a href="manipulation_objet.html#data-frame"><i class="fa fa-check"></i><b>4.3</b> Data frame</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="manipulation_objet.html"><a href="manipulation_objet.html#indexations-simples"><i class="fa fa-check"></i><b>4.3.1</b> Indexations simples</a></li>
+<li class="chapter" data-level="4.3.2" data-path="manipulation_objet.html"><a href="manipulation_objet.html#indexations-avec-des-booléens"><i class="fa fa-check"></i><b>4.3.2</b> Indexations avec des booléens</a></li>
+<li class="chapter" data-level="4.3.3" data-path="manipulation_objet.html"><a href="manipulation_objet.html#filtre-et-sélection-dans-un-data-frame"><i class="fa fa-check"></i><b>4.3.3</b> Filtre et sélection dans un data frame</a></li>
+<li class="chapter" data-level="4.3.4" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercices-3"><i class="fa fa-check"></i><b>4.3.4</b> Exercices</a></li>
+<li class="chapter" data-level="4.3.5" data-path="manipulation_objet.html"><a href="manipulation_objet.html#trier-un-data-frame"><i class="fa fa-check"></i><b>4.3.5</b> Trier un data frame</a></li>
+<li class="chapter" data-level="4.3.6" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercice"><i class="fa fa-check"></i><b>4.3.6</b> Exercice</a></li>
+<li class="chapter" data-level="4.3.7" data-path="manipulation_objet.html"><a href="manipulation_objet.html#agréger-des-données"><i class="fa fa-check"></i><b>4.3.7</b> Agréger des données</a></li>
+<li class="chapter" data-level="4.3.8" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercice-1"><i class="fa fa-check"></i><b>4.3.8</b> Exercice</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="manipulation_objet.html"><a href="manipulation_objet.html#testez-vos-connaissances-3"><i class="fa fa-check"></i><b>4.4</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="graphique.html"><a href="graphique.html"><i class="fa fa-check"></i><b>5</b> Représentation Graphique</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="graphique.html"><a href="graphique.html#les-fenêtres-graphiques"><i class="fa fa-check"></i><b>5.1</b> Les fenêtres graphiques</a></li>
+<li class="chapter" data-level="5.2" data-path="graphique.html"><a href="graphique.html#les-fonctions-de-tracé-de-bas-niveau"><i class="fa fa-check"></i><b>5.2</b> Les fonctions de tracé de bas niveau</a></li>
+<li class="chapter" data-level="5.3" data-path="graphique.html"><a href="graphique.html#personnaliser-des-éléments-graphiques"><i class="fa fa-check"></i><b>5.3</b> Personnaliser des éléments graphiques</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="graphique.html"><a href="graphique.html#mise-en-forme"><i class="fa fa-check"></i><b>5.3.1</b> Mise en forme</a></li>
+<li class="chapter" data-level="5.3.2" data-path="graphique.html"><a href="graphique.html#gestion-des-couleurs"><i class="fa fa-check"></i><b>5.3.2</b> Gestion des couleurs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="graphique.html"><a href="graphique.html#type-de-graphique"><i class="fa fa-check"></i><b>5.4</b> Type de graphique</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="graphique.html"><a href="graphique.html#boxplot"><i class="fa fa-check"></i><b>5.4.1</b> Boxplot</a></li>
+<li class="chapter" data-level="5.4.2" data-path="graphique.html"><a href="graphique.html#histogramme"><i class="fa fa-check"></i><b>5.4.2</b> Histogramme</a></li>
+<li class="chapter" data-level="5.4.3" data-path="graphique.html"><a href="graphique.html#diagramme-en-circulaire"><i class="fa fa-check"></i><b>5.4.3</b> Diagramme en circulaire</a></li>
+<li class="chapter" data-level="5.4.4" data-path="graphique.html"><a href="graphique.html#diagramme-en-barre"><i class="fa fa-check"></i><b>5.4.4</b> Diagramme en barre</a></li>
+<li class="chapter" data-level="5.4.5" data-path="graphique.html"><a href="graphique.html#nuage-de-points"><i class="fa fa-check"></i><b>5.4.5</b> Nuage de points</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="graphique.html"><a href="graphique.html#exercice-2"><i class="fa fa-check"></i><b>5.5</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="graphique.html"><a href="graphique.html#sujet-6"><i class="fa fa-check"></i><b>5.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="5.5.2" data-path="graphique.html"><a href="graphique.html#correction-6"><i class="fa fa-check"></i><b>5.5.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="graphique.html"><a href="graphique.html#aller-plus-loin"><i class="fa fa-check"></i><b>5.6</b> Aller plus loin</a></li>
+<li class="chapter" data-level="5.7" data-path="graphique.html"><a href="graphique.html#testez-vos-connaissances-4"><i class="fa fa-check"></i><b>5.7</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="algo.html"><a href="algo.html"><i class="fa fa-check"></i><b>6</b> Algorithme</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="algo.html"><a href="algo.html#construire-une-fonction"><i class="fa fa-check"></i><b>6.1</b> Construire une fonction</a></li>
+<li class="chapter" data-level="6.2" data-path="algo.html"><a href="algo.html#construire-une-structure-conditionnelle"><i class="fa fa-check"></i><b>6.2</b> Construire une structure conditionnelle</a></li>
+<li class="chapter" data-level="6.3" data-path="algo.html"><a href="algo.html#construire-une-boucle"><i class="fa fa-check"></i><b>6.3</b> Construire une boucle</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="algo.html"><a href="algo.html#la-boucle-for"><i class="fa fa-check"></i><b>6.3.1</b> La boucle <code>for</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="algo.html"><a href="algo.html#la-boucle-while"><i class="fa fa-check"></i><b>6.3.2</b> La boucle <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="algo.html"><a href="algo.html#exercice-3"><i class="fa fa-check"></i><b>6.4</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="algo.html"><a href="algo.html#sujet-7"><i class="fa fa-check"></i><b>6.4.1</b> Sujet</a></li>
+<li class="chapter" data-level="6.4.2" data-path="algo.html"><a href="algo.html#correction-7"><i class="fa fa-check"></i><b>6.4.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="algo.html"><a href="algo.html#testez-vos-connaissances-5"><i class="fa fa-check"></i><b>6.5</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="apply.html"><a href="apply.html"><i class="fa fa-check"></i><b>7</b> Les fonctions apply</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="apply.html"><a href="apply.html#fonction-apply"><i class="fa fa-check"></i><b>7.1</b> Fonction apply</a></li>
+<li class="chapter" data-level="7.2" data-path="apply.html"><a href="apply.html#fonction-lapply"><i class="fa fa-check"></i><b>7.2</b> Fonction lapply</a></li>
+<li class="chapter" data-level="7.3" data-path="apply.html"><a href="apply.html#fonction-sapply"><i class="fa fa-check"></i><b>7.3</b> Fonction sapply</a></li>
+<li class="chapter" data-level="7.4" data-path="apply.html"><a href="apply.html#fonction-tapply"><i class="fa fa-check"></i><b>7.4</b> Fonction tapply</a></li>
+<li class="chapter" data-level="7.5" data-path="apply.html"><a href="apply.html#exercice-4"><i class="fa fa-check"></i><b>7.5</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="apply.html"><a href="apply.html#sujet-8"><i class="fa fa-check"></i><b>7.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="7.5.2" data-path="apply.html"><a href="apply.html#correction-8"><i class="fa fa-check"></i><b>7.5.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>8</b> Manipuler les données avec dplyr</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-slice"><i class="fa fa-check"></i><b>8.1</b> La fonction <code>slice</code></a></li>
+<li class="chapter" data-level="8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-filter"><i class="fa fa-check"></i><b>8.2</b> La fonction <code>filter</code></a></li>
+<li class="chapter" data-level="8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-select"><i class="fa fa-check"></i><b>8.3</b> La fonction <code>select</code></a></li>
+<li class="chapter" data-level="8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-arrange"><i class="fa fa-check"></i><b>8.4</b> La fonction <code>arrange</code></a></li>
+<li class="chapter" data-level="8.5" data-path="dplyr.html"><a href="dplyr.html#enchaîner-les-fonctions-avec-le-pipe"><i class="fa fa-check"></i><b>8.5</b> Enchaîner les fonctions avec le <em>pipe</em></a></li>
+<li class="chapter" data-level="8.6" data-path="dplyr.html"><a href="dplyr.html#la-fonction-group_by"><i class="fa fa-check"></i><b>8.6</b> La fonction <code>group_by</code></a></li>
+<li class="chapter" data-level="8.7" data-path="dplyr.html"><a href="dplyr.html#la-fonction-summarise"><i class="fa fa-check"></i><b>8.7</b> La fonction <code>summarise</code></a></li>
+<li class="chapter" data-level="8.8" data-path="dplyr.html"><a href="dplyr.html#autres-fonctions-utiles-de-dplyr"><i class="fa fa-check"></i><b>8.8</b> Autres fonctions utiles de dplyr</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-rename"><i class="fa fa-check"></i><b>8.8.1</b> La fonction <code>rename</code></a></li>
+<li class="chapter" data-level="8.8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-mutate"><i class="fa fa-check"></i><b>8.8.2</b> La fonction <code>mutate</code></a></li>
+<li class="chapter" data-level="8.8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-distinct"><i class="fa fa-check"></i><b>8.8.3</b> La fonction <code>distinct</code></a></li>
+<li class="chapter" data-level="8.8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-case_when"><i class="fa fa-check"></i><b>8.8.4</b> La fonction <code>case_when</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chaines.html"><a href="chaines.html"><i class="fa fa-check"></i><b>9</b> Manipuler le texte et les dates</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chaines.html"><a href="chaines.html#manipulation-des-chaînes-de-caractères"><i class="fa fa-check"></i><b>9.1</b> Manipulation des chaînes de caractères</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="chaines.html"><a href="chaines.html#concaténer-des-chaînes"><i class="fa fa-check"></i><b>9.1.1</b> Concaténer des chaînes</a></li>
+<li class="chapter" data-level="9.1.2" data-path="chaines.html"><a href="chaines.html#majuscule-et-minuscule"><i class="fa fa-check"></i><b>9.1.2</b> Majuscule et minuscule</a></li>
+<li class="chapter" data-level="9.1.3" data-path="chaines.html"><a href="chaines.html#longueur-dune-chaîne"><i class="fa fa-check"></i><b>9.1.3</b> Longueur d’une chaîne</a></li>
+<li class="chapter" data-level="9.1.4" data-path="chaines.html"><a href="chaines.html#extraction-de-sous-chaînes"><i class="fa fa-check"></i><b>9.1.4</b> Extraction de sous-chaînes</a></li>
+<li class="chapter" data-level="9.1.5" data-path="chaines.html"><a href="chaines.html#remplacement-de-chaînes"><i class="fa fa-check"></i><b>9.1.5</b> Remplacement de chaînes</a></li>
+<li class="chapter" data-level="9.1.6" data-path="chaines.html"><a href="chaines.html#décomposition-dune-chaîne"><i class="fa fa-check"></i><b>9.1.6</b> Décomposition d’une chaîne</a></li>
+<li class="chapter" data-level="9.1.7" data-path="chaines.html"><a href="chaines.html#recherche-de-sous-chaîne"><i class="fa fa-check"></i><b>9.1.7</b> Recherche de sous-chaîne</a></li>
+<li class="chapter" data-level="9.1.8" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-1"><i class="fa fa-check"></i><b>9.1.8</b> Aller plus loin</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="chaines.html"><a href="chaines.html#manipulation-des-dates"><i class="fa fa-check"></i><b>9.2</b> Manipulation des dates</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="chaines.html"><a href="chaines.html#les-dates"><i class="fa fa-check"></i><b>9.2.1</b> Les dates</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chaines.html"><a href="chaines.html#lhorloge"><i class="fa fa-check"></i><b>9.2.2</b> L’horloge</a></li>
+<li class="chapter" data-level="9.2.3" data-path="chaines.html"><a href="chaines.html#calcul-sur-les-dates"><i class="fa fa-check"></i><b>9.2.3</b> Calcul sur les dates</a></li>
+<li class="chapter" data-level="9.2.4" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-2"><i class="fa fa-check"></i><b>9.2.4</b> Aller plus loin</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chaines.html"><a href="chaines.html#testez-vos-connaissances-6"><i class="fa fa-check"></i><b>9.3</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="jointures.html"><a href="jointures.html"><i class="fa fa-check"></i><b>10</b> Jointures</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="jointures.html"><a href="jointures.html#principe-1"><i class="fa fa-check"></i><b>10.1</b> Principe</a></li>
+<li class="chapter" data-level="10.2" data-path="jointures.html"><a href="jointures.html#types-de-jointures"><i class="fa fa-check"></i><b>10.2</b> Types de jointures</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="jointures.html"><a href="jointures.html#left-join"><i class="fa fa-check"></i><b>10.2.1</b> Left Join</a></li>
+<li class="chapter" data-level="10.2.2" data-path="jointures.html"><a href="jointures.html#right-join"><i class="fa fa-check"></i><b>10.2.2</b> Right Join</a></li>
+<li class="chapter" data-level="10.2.3" data-path="jointures.html"><a href="jointures.html#inner-join"><i class="fa fa-check"></i><b>10.2.3</b> Inner Join</a></li>
+<li class="chapter" data-level="10.2.4" data-path="jointures.html"><a href="jointures.html#full-join"><i class="fa fa-check"></i><b>10.2.4</b> Full Join</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="jointures.html"><a href="jointures.html#exercice-5"><i class="fa fa-check"></i><b>10.3</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="jointures.html"><a href="jointures.html#sujet-9"><i class="fa fa-check"></i><b>10.3.1</b> Sujet</a></li>
+<li class="chapter" data-level="10.3.2" data-path="jointures.html"><a href="jointures.html#correction-9"><i class="fa fa-check"></i><b>10.3.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="express.html"><a href="express.html"><i class="fa fa-check"></i><b>11</b> R-Express 30’ ☕</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="express.html"><a href="express.html#aller-hop-importez-des-données"><i class="fa fa-check"></i><b>11.1</b> Aller hop ! Importez des données</a></li>
+<li class="chapter" data-level="11.2" data-path="express.html"><a href="express.html#manipulez-votre-tableau"><i class="fa fa-check"></i><b>11.2</b> Manipulez votre tableau</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="express.html"><a href="express.html#dans-une-vue"><i class="fa fa-check"></i><b>11.2.1</b> Dans une vue</a></li>
+<li class="chapter" data-level="11.2.2" data-path="express.html"><a href="express.html#avec-dplyr"><i class="fa fa-check"></i><b>11.2.2</b> Avec <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.2.3" data-path="express.html"><a href="express.html#sélectionner-certaines-colonnes"><i class="fa fa-check"></i><b>11.2.3</b> Sélectionner certaines colonnes</a></li>
+<li class="chapter" data-level="11.2.4" data-path="express.html"><a href="express.html#ajouter-des-filtres"><i class="fa fa-check"></i><b>11.2.4</b> Ajouter des filtres</a></li>
+<li class="chapter" data-level="11.2.5" data-path="express.html"><a href="express.html#trier-un-tableau"><i class="fa fa-check"></i><b>11.2.5</b> Trier un tableau</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="express.html"><a href="express.html#des-graphiques-en-3-clics-avec-esquisse"><i class="fa fa-check"></i><b>11.3</b> Des graphiques en 3 clics avec <code>esquisse</code></a></li>
+<li class="chapter" data-level="11.4" data-path="express.html"><a href="express.html#en-bref"><i class="fa fa-check"></i><b>11.4</b> En bref</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="entrainement.html"><a href="entrainement.html"><i class="fa fa-check"></i><b>12</b> S’entrainer</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="entrainement.html"><a href="entrainement.html#tp1"><i class="fa fa-check"></i><b>12.1</b> TP1</a></li>
+<li class="chapter" data-level="12.2" data-path="entrainement.html"><a href="entrainement.html#tp2"><i class="fa fa-check"></i><b>12.2</b> TP2</a></li>
+<li class="chapter" data-level="12.3" data-path="entrainement.html"><a href="entrainement.html#tp3"><i class="fa fa-check"></i><b>12.3</b> TP3</a></li>
+<li class="chapter" data-level="12.4" data-path="entrainement.html"><a href="entrainement.html#tp4"><i class="fa fa-check"></i><b>12.4</b> TP4</a></li>
+<li class="chapter" data-level="12.5" data-path="entrainement.html"><a href="entrainement.html#tp5---chercher-lerreur"><i class="fa fa-check"></i><b>12.5</b> TP5 - Chercher l’erreur</a></li>
+<li class="chapter" data-level="12.6" data-path="entrainement.html"><a href="entrainement.html#tp6---analyses-statistiques"><i class="fa fa-check"></i><b>12.6</b> TP6 - Analyses statistiques</a></li>
+<li class="chapter" data-level="12.7" data-path="entrainement.html"><a href="entrainement.html#tp7---analyse-de-film"><i class="fa fa-check"></i><b>12.7</b> TP7 - Analyse de film</a></li>
+<li class="chapter" data-level="12.8" data-path="entrainement.html"><a href="entrainement.html#tp-formation"><i class="fa fa-check"></i><b>12.8</b> TP Formation</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="entrainement.html"><a href="entrainement.html#création-de-vecteur"><i class="fa fa-check"></i><b>12.8.1</b> Création de vecteur</a></li>
+<li class="chapter" data-level="12.8.2" data-path="entrainement.html"><a href="entrainement.html#manipulation-de-vecteur"><i class="fa fa-check"></i><b>12.8.2</b> Manipulation de vecteur</a></li>
+<li class="chapter" data-level="12.8.3" data-path="entrainement.html"><a href="entrainement.html#simulation-de-vecteur"><i class="fa fa-check"></i><b>12.8.3</b> Simulation de vecteur</a></li>
+<li class="chapter" data-level="12.8.4" data-path="entrainement.html"><a href="entrainement.html#statistique-sur-les-vecteurs"><i class="fa fa-check"></i><b>12.8.4</b> Statistique sur les vecteurs</a></li>
+<li class="chapter" data-level="12.8.5" data-path="entrainement.html"><a href="entrainement.html#représentation-graphique-1"><i class="fa fa-check"></i><b>12.8.5</b> Représentation graphique</a></li>
+<li class="chapter" data-level="12.8.6" data-path="entrainement.html"><a href="entrainement.html#construire-un-dataframe"><i class="fa fa-check"></i><b>12.8.6</b> Construire un dataframe</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="all_dataset.html"><a href="all_dataset.html"><i class="fa fa-check"></i><b>13</b> Jeux de données utilisés</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="all_dataset.html"><a href="all_dataset.html#iris"><i class="fa fa-check"></i><b>13.1</b> Iris 🌺</a></li>
+<li class="chapter" data-level="13.2" data-path="all_dataset.html"><a href="all_dataset.html#histoire-de-vie-hdv2003"><i class="fa fa-check"></i><b>13.2</b> Histoire de vie (hdv2003) 🗨</a></li>
+<li class="chapter" data-level="13.3" data-path="all_dataset.html"><a href="all_dataset.html#nyc-flights-2013"><i class="fa fa-check"></i><b>13.3</b> NYC Flights 2013 ✈</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="all_dataset.html"><a href="all_dataset.html#flights"><i class="fa fa-check"></i><b>13.3.1</b> Flights</a></li>
+<li class="chapter" data-level="13.3.2" data-path="all_dataset.html"><a href="all_dataset.html#airlines"><i class="fa fa-check"></i><b>13.3.2</b> Airlines</a></li>
+<li class="chapter" data-level="13.3.3" data-path="all_dataset.html"><a href="all_dataset.html#airports"><i class="fa fa-check"></i><b>13.3.3</b> Airports</a></li>
+<li class="chapter" data-level="13.3.4" data-path="all_dataset.html"><a href="all_dataset.html#weather"><i class="fa fa-check"></i><b>13.3.4</b> Weather</a></li>
+<li class="chapter" data-level="13.3.5" data-path="all_dataset.html"><a href="all_dataset.html#planes"><i class="fa fa-check"></i><b>13.3.5</b> Planes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="all_dataset.html"><a href="all_dataset.html#google"><i class="fa fa-check"></i><b>13.4</b> Google 📱</a></li>
+<li class="chapter" data-level="13.5" data-path="all_dataset.html"><a href="all_dataset.html#pokemon"><i class="fa fa-check"></i><b>13.5</b> Pokemon 🐾</a></li>
+<li class="chapter" data-level="13.6" data-path="all_dataset.html"><a href="all_dataset.html#star-wars"><i class="fa fa-check"></i><b>13.6</b> Star Wars 🎬</a></li>
+<li class="chapter" data-level="13.7" data-path="all_dataset.html"><a href="all_dataset.html#amongus"><i class="fa fa-check"></i><b>13.7</b> AmongUs 🔦</a></li>
+<li class="chapter" data-level="13.8" data-path="all_dataset.html"><a href="all_dataset.html#nba"><i class="fa fa-check"></i><b>13.8</b> NBA 🏀</a></li>
+<li class="chapter" data-level="13.9" data-path="all_dataset.html"><a href="all_dataset.html#students"><i class="fa fa-check"></i><b>13.9</b> Students 🎓</a></li>
+<li class="chapter" data-level="13.10" data-path="all_dataset.html"><a href="all_dataset.html#tv-shows"><i class="fa fa-check"></i><b>13.10</b> TV Shows 📺</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="biblio.html"><a href="biblio.html"><i class="fa fa-check"></i><b>14</b> Bibliographie</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="first_dataset" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapitre 2</span> Premier travail avec des données<a href="first_dataset.html#first_dataset" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Certaines parties de ce chapitre sont extraites du cours de Julien Barnier “Introduction à R et au tidyverse” (<a href="https://juba.github.io/tidyverse" class="uri">https://juba.github.io/tidyverse</a>)</p>
+<div id="jeu-de-données-dexemple" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Jeu de données d’exemple<a href="first_dataset.html#jeu-de-données-dexemple" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dans cette partie nous allons (enfin) travailler sur des “vraies” données, et utiliser un jeu de données présent dans l’extension <code>questionr</code>. Nous devons donc avant toute chose installer cette extension.</p>
+<p>Pour installer ce package, deux possibilités :</p>
+<ul>
+<li>Dans l’onglet <em>Packages</em> de la zone de l’écran en bas à droite, cliquez sur le bouton <em>Install</em>. Dans le dialogue qui s’ouvre, entrez “questionr” dans le champ <em>Packages</em> puis cliquez sur <em>Install</em>.</li>
+<li>Saisissez directement la commande suivante dans la console : <code>install.packages("questionr")</code></li>
+</ul>
+<p>Dans les deux cas, tout un tas de messages devraient s’afficher dans la console. Attendez que l’invite de commandes <code>&gt;</code> apparaisse à nouveau.</p>
+<p>Le jeu de données que nous allons utiliser est un extrait de l’enquête <em>Histoire de vie</em> réalisée par l’INSEE en 2003. Il contient 2000 individus et 20 variables.</p>
+<p>Pour pouvoir utiliser ces données, il faut d’abord charger l’extension <code>questionr</code> (après l’avoir installée, bien entendu) :</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="first_dataset.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(questionr)</span></code></pre></div>
+<p>L’utilisation de <code>library</code> permet de rendre “disponibles”, dans notre session R, les fonctions et jeux de données inclus dans l’extension.</p>
+<p>Nous devons ensuite indiquer à R que nous souhaitons accéder au jeu de données à l’aide de la commande <code>data</code> :</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="first_dataset.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(hdv2003)</span></code></pre></div>
+<p>Cette commande ne renvoie aucun résultat particulier (sauf en cas d’erreur), mais vous devriez voir apparaître dans l’onglet <em>Environment</em> de RStudio un nouvel objet nommé <code>hdv2003</code> :</p>
+<p>
+<div class="figure">
+<img src="img/rstudio_environment.png" alt="" />
+<p class="caption">Onglet <em>Environment</em></p>
+</div>
+</p>
+<p>Cet objet est d’un type nouveau : il s’agit d’un tableau de données.</p>
+</div>
+<div id="tableau-de-données-data-frame" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Tableau de données (<em>data frame</em>)<a href="first_dataset.html#tableau-de-données-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un <em>data frame</em> (ou tableau de données, ou table) est un type d’objet R qui contient des données au format tabulaire, avec les observations en ligne et les variables en colonnes, comme dans une feuille de tableur de type LibreOffice ou Excel.</p>
+<p>Si on se contente d’exécuter le nom de notre tableau de données :</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="first_dataset.html#cb215-1" aria-hidden="true" tabindex="-1"></a>hdv2003</span></code></pre></div>
+<p>R va, comme à son habitude, nous l’afficher dans la console, ce qui est tout sauf utile.</p>
+<p>Une autre manière d’afficher le contenu du tableau est de cliquer sur l’icône en forme de tableau à droite du nom de l’objet dans l’onglet <em>Environment</em> :</p>
+<p>
+<div class="figure">
+<img src="img/rstudio_view_icon.png" alt="" />
+<p class="caption">View icon</p>
+</div>
+</p>
+<p>Ou d’utiliser la fonction <code>View</code> :</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="first_dataset.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(<span class="at">x =</span> hdv2003)</span></code></pre></div>
+<p>Dans les deux cas votre tableau devrait s’afficher dans RStudio avec une interface de type tableur :</p>
+<p>
+<div class="figure">
+<img src="img/rstudio_view.png" alt="" />
+<p class="caption">Interface “View”</p>
+</div>
+</p>
+<p>Il est important de comprendre que l’objet <code>hdv2003</code> contient <em>l’intégralité</em> des données du tableau.
+On voit donc qu’un objet peut contenir des données de types très différents (simple nombre, texte, vecteur, tableau de données entier), et être potentiellement de très grande taille<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
+<p>Sous R, on peut importer ou créer autant de tableaux de données qu’on le souhaite, dans les limites des capacités de sa machine.</p>
+<p>Un <em>data frame</em> peut être manipulé comme les autres objets vus précédemment. On peut par exemple faire :</p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="first_dataset.html#cb217-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> hdv2003</span></code></pre></div>
+<p>ce qui va entraîner la copie de l’ensemble de nos données dans un nouvel objet nommé <code>d</code>. Ceci peut paraître parfaitement inutile mais a en fait l’avantage de fournir un objet avec un nom beaucoup plus court, ce qui diminuera la quantité de texte à saisir par la suite.</p>
+<p><strong>Pour résumer</strong>, comme nous avons désormais décidé de saisir nos commandes dans un script et non plus directement dans la console, les premières lignes de notre fichier de travail sur les données de l’enquête <em>Histoire de vie</em> pourraient donc ressembler à ceci :</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="first_dataset.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Chargement des extensions nécessaires</span></span>
+<span id="cb218-2"><a href="first_dataset.html#cb218-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(questionr)</span>
+<span id="cb218-3"><a href="first_dataset.html#cb218-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Jeu de données hdv2003</span></span>
+<span id="cb218-4"><a href="first_dataset.html#cb218-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(hdv2003)</span>
+<span id="cb218-5"><a href="first_dataset.html#cb218-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> hdv2003</span></code></pre></div>
+<div id="structure-du-tableau" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Structure du tableau<a href="first_dataset.html#structure-du-tableau" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Un tableau étant un objet comme un autre, on peut lui appliquer des fonctions. Par exemple, <code>nrow</code> et <code>ncol</code> retournent le nombre de lignes et de colonnes du tableau :</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="first_dataset.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="at">x =</span> d)</span></code></pre></div>
+<pre><code>## [1] 2000</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="first_dataset.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="at">x =</span> d)</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>La fonction <code>dim</code> renvoie ses dimensions, donc les deux nombres précédents :</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="first_dataset.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="at">x =</span> d)</span></code></pre></div>
+<pre><code>## [1] 2000   20</code></pre>
+<p>La fonction <code>names</code> retourne les noms des colonnes du tableau, c’est-à-dire la liste de nos <em>variables</em> :</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="first_dataset.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="at">x =</span> d)</span></code></pre></div>
+<pre><code>##  [1] &quot;id&quot;            &quot;age&quot;           &quot;sexe&quot;          &quot;nivetud&quot;      
+##  [5] &quot;poids&quot;         &quot;occup&quot;         &quot;qualif&quot;        &quot;freres.soeurs&quot;
+##  [9] &quot;clso&quot;          &quot;relig&quot;         &quot;trav.imp&quot;      &quot;trav.satisf&quot;  
+## [13] &quot;hard.rock&quot;     &quot;lecture.bd&quot;    &quot;peche.chasse&quot;  &quot;cuisine&quot;      
+## [17] &quot;bricol&quot;        &quot;cinema&quot;        &quot;sport&quot;         &quot;heures.tv&quot;</code></pre>
+<p>On peut aussi utiliser la fonction <code>colnames</code> :</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="first_dataset.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(<span class="at">x =</span> d)</span></code></pre></div>
+<pre><code>##  [1] &quot;id&quot;            &quot;age&quot;           &quot;sexe&quot;          &quot;nivetud&quot;      
+##  [5] &quot;poids&quot;         &quot;occup&quot;         &quot;qualif&quot;        &quot;freres.soeurs&quot;
+##  [9] &quot;clso&quot;          &quot;relig&quot;         &quot;trav.imp&quot;      &quot;trav.satisf&quot;  
+## [13] &quot;hard.rock&quot;     &quot;lecture.bd&quot;    &quot;peche.chasse&quot;  &quot;cuisine&quot;      
+## [17] &quot;bricol&quot;        &quot;cinema&quot;        &quot;sport&quot;         &quot;heures.tv&quot;</code></pre>
+<p>Enfin, la fonction <code>str</code> renvoie un descriptif plus détaillé de la structure du tableau. Elle liste les différentes variables, indique leur type <a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> et affiche les premières valeurs :</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="first_dataset.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="at">object =</span> d)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    2000 obs. of  20 variables:
+##  $ id           : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ age          : int  28 23 59 34 71 35 60 47 20 28 ...
+##  $ sexe         : Factor w/ 2 levels &quot;Homme&quot;,&quot;Femme&quot;: 2 2 1 1 2 2 2 1 2 1 ...
+##  $ nivetud      : Factor w/ 8 levels &quot;N&#39;a jamais fait d&#39;etudes&quot;,..: 8 NA 3 8 3 6 3 6 NA 7 ...
+##  $ poids        : num  2634 9738 3994 5732 4329 ...
+##  $ occup        : Factor w/ 7 levels &quot;Exerce une profession&quot;,..: 1 3 1 1 4 1 6 1 3 1 ...
+##  $ qualif       : Factor w/ 7 levels &quot;Ouvrier specialise&quot;,..: 6 NA 3 3 6 6 2 2 NA 7 ...
+##  $ freres.soeurs: int  8 2 2 1 0 5 1 5 4 2 ...
+##  $ clso         : Factor w/ 3 levels &quot;Oui&quot;,&quot;Non&quot;,&quot;Ne sait pas&quot;: 1 1 2 2 1 2 1 2 1 2 ...
+##  $ relig        : Factor w/ 6 levels &quot;Pratiquant regulier&quot;,..: 4 4 4 3 1 4 3 4 3 2 ...
+##  $ trav.imp     : Factor w/ 4 levels &quot;Le plus important&quot;,..: 4 NA 2 3 NA 1 NA 4 NA 3 ...
+##  $ trav.satisf  : Factor w/ 3 levels &quot;Satisfaction&quot;,..: 2 NA 3 1 NA 3 NA 2 NA 1 ...
+##  $ hard.rock    : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ lecture.bd   : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ peche.chasse : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 1 1 1 1 1 2 2 1 1 ...
+##  $ cuisine      : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 2 1 1 2 1 1 2 2 1 1 ...
+##  $ bricol       : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 1 1 2 1 1 1 2 1 1 ...
+##  $ cinema       : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 2 1 2 1 2 1 1 2 2 ...
+##  $ sport        : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 2 2 2 1 2 1 1 1 2 ...
+##  $ heures.tv    : num  0 1 0 2 3 2 2.9 1 2 2 ...</code></pre>
+<p>Sous RStudio, on peut afficher à tout moment la structure d’un objet en cliquant sur l’icône de triangle sur fond bleu à gauche du nom de l’objet dans l’onglet <em>Environment</em> :</p>
+<p>
+<div class="figure">
+<img src="img/rstudio_environment_str.png" alt="" />
+<p class="caption">Structure d’un objet</p>
+</div>
+</p>
+</div>
+<div id="accéder-aux-variables-dun-tableau" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Accéder aux variables d’un tableau<a href="first_dataset.html#accéder-aux-variables-dun-tableau" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Une opération très importante est l’accès aux variables du tableau (à ses colonnes) pour pouvoir les manipuler, effectuer des calculs, etc. On utilise pour cela l’opérateur <code>$</code>, qui permet d’accéder aux colonnes du tableau. Ainsi, si l’on tape :</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="first_dataset.html#cb231-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>sexe</span></code></pre></div>
+<pre><code>##   [1] Femme Femme Homme Homme Femme Femme Femme Homme Femme Homme Femme Homme
+##  [13] Femme Femme Femme Femme Homme Femme Homme Femme Femme Homme Femme Femme
+##  [25] Femme Homme Femme Homme Homme Homme Homme Homme Homme Homme Femme Femme
+##  [37] Homme Femme Femme Homme Femme Homme Homme Femme Femme Homme Femme Femme
+##  [49] Femme Femme Homme Femme Homme Femme Homme Femme Femme Femme Homme Femme
+##  [61] Femme Homme Homme Homme Homme Femme Homme Homme Femme Femme Homme Homme
+##  [73] Femme Femme Femme Femme Homme Femme Femme Femme Femme Femme Femme Homme
+##  [85] Homme Femme Homme Homme Homme Homme Homme Femme Homme Femme Femme Femme
+##  [97] Homme Homme Femme Femme Femme Homme Femme Homme Homme Femme Femme Femme
+## [109] Femme Homme Homme Homme Homme Homme Femme Homme Homme Femme Homme Homme
+## [121] Femme Femme Femme Homme Femme Femme Homme Femme Femme Homme Femme Homme
+## [133] Femme Femme Femme Homme Homme Homme Homme Homme Homme Homme Homme Femme
+## [145] Homme Homme Homme Femme Femme Femme Homme Femme Femme Femme Femme Homme
+## [157] Femme Homme Homme Homme Femme Homme Femme Homme Femme Homme Homme Femme
+## [169] Femme Femme Homme Femme Homme Femme Femme Femme Homme Homme Homme Femme
+## [181] Homme Femme Femme Homme Homme Femme Femme Femme Femme Femme Homme Homme
+## [193] Femme Homme Homme Femme Homme Femme Homme Femme
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 1800 entries ]
+## Levels: Homme Femme</code></pre>
+<p>R va nous afficher l’ensemble des valeurs de notre variable <code>sexe</code> dans la console, ce qui est à nouveau fort peu utile. Mais cela nous permet de constater que <code>d$sexe</code> est un vecteur de chaînes de caractères tels qu’on en a déjà rencontré précédemment. Pour le moment, on ne fait pas attention à <code>Levels: Homme Femme</code></p>
+<p>La fonction <code>table$colonne</code> renvoie donc la colonne nommée <code>colonne</code> du tableau <code>table</code>, c’est-à-dire un vecteur, en général de nombres ou de chaînes de caractères.</p>
+<p>Si on souhaite afficher seulement les premières ou dernières valeurs d’une variable, on peut utiliser les fonctions <code>head</code> et <code>tail</code> :</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="first_dataset.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="at">x =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 28 23 59 34 71 35</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="first_dataset.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="at">x =</span> d<span class="sc">$</span>age, <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1] 52 42 50 41 46 45 46 24 24 66</code></pre>
+<p>Le deuxième argument numérique permet d’indiquer le nombre de valeurs à afficher.</p>
+</div>
+<div id="créer-une-nouvelle-variable" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Créer une nouvelle variable<a href="first_dataset.html#créer-une-nouvelle-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On peut aussi utiliser l’opérateur <code>$</code> pour créer une nouvelle variable dans notre tableau : pour cela, il suffit de lui assigner une valeur.</p>
+<p>Par exemple, la variable <code>heures.tv</code> contient le nombre d’heures passées quotidiennement devant la télé :</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="first_dataset.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="at">x =</span> d<span class="sc">$</span>heures.tv, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1] 0.0 1.0 0.0 2.0 3.0 2.0 2.9 1.0 2.0 2.0</code></pre>
+<p>On peut vouloir créer une nouvelle variable dans notre tableau qui contienne la même durée mais en minutes. On va donc créer une nouvelle variable <code>minutes.tv</code> de la manière suivante :</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="first_dataset.html#cb239-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>minutes.tv <span class="ot">&lt;-</span> d<span class="sc">$</span>heures.tv <span class="sc">*</span> <span class="dv">60</span></span></code></pre></div>
+<p>On peut alors constater, soit visuellement soit dans la console, qu’une nouvelle variable (une nouvelle colonne) a bien été ajoutée au tableau :</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="first_dataset.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="at">x =</span> d<span class="sc">$</span>minutes.tv)</span></code></pre></div>
+<pre><code>## [1]   0  60   0 120 180 120</code></pre>
+<p>On peut également supprimer une colonne d’un data frame en utilisant <code>&lt;- NULL</code></p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="first_dataset.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="co">#création d&#39;une colonne temporaire</span></span>
+<span id="cb242-2"><a href="first_dataset.html#cb242-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>temp <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb242-3"><a href="first_dataset.html#cb242-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-4"><a href="first_dataset.html#cb242-4" aria-hidden="true" tabindex="-1"></a><span class="co">#vérification de la création de la colonne</span></span>
+<span id="cb242-5"><a href="first_dataset.html#cb242-5" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>temp</span></code></pre></div>
+<pre><code>##   [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+##  [26] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+##  [51] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+##  [76] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+## [101] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+## [126] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+## [151] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+## [176] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 1800 entries ]</code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="first_dataset.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co">#nombre de colonne avant la suppression</span></span>
+<span id="cb244-2"><a href="first_dataset.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="at">x =</span> d)</span></code></pre></div>
+<pre><code>## [1] 22</code></pre>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="first_dataset.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="co">#suppression de la colonne</span></span>
+<span id="cb246-2"><a href="first_dataset.html#cb246-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>temp <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb246-3"><a href="first_dataset.html#cb246-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-4"><a href="first_dataset.html#cb246-4" aria-hidden="true" tabindex="-1"></a><span class="co">#nombre de colonne après la suppression</span></span>
+<span id="cb246-5"><a href="first_dataset.html#cb246-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="at">x =</span> d)</span></code></pre></div>
+<pre><code>## [1] 21</code></pre>
+</div>
+</div>
+<div id="analyse-univariée" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Analyse univariée<a href="first_dataset.html#analyse-univariée" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>On a donc désormais accès à un tableau de données <code>d</code>, dont les lignes sont des observations (des individus enquêtés), et les colonnes des variables (des caractéristiques de chacun de ces individus), et on sait accéder à ces variables grâce à l’opérateur <code>$</code>.</p>
+<p>Si on souhaite analyser ces variables, les méthodes et fonctions utilisées seront différentes selon qu’il s’agit d’une variable <em>quantitative</em> (variable numérique pouvant prendre un grand nombre de valeurs : l’âge, le revenu, un pourcentage…) ou d’une variable <em>qualitative</em> (variable pouvant prendre un nombre limité de valeurs appelées modalités : le sexe, la profession, le dernier diplôme obtenu, etc.).</p>
+<div id="analyser-une-variable-quantitative" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Analyser une variable quantitative<a href="first_dataset.html#analyser-une-variable-quantitative" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Une variable quantitative est une variable de type numérique (un nombre) qui peut prendre un grand nombre de valeurs. On en a plusieurs dans notre jeu de données, notamment l’âge (variable <code>age</code>) ou le nombre d’heures passées devant la télé (<code>heures.tv</code>).</p>
+<div id="indicateurs-de-position" class="section level4 hasAnchor" number="2.3.1.1">
+<h4><span class="header-section-number">2.3.1.1</span> Indicateurs de position<a href="first_dataset.html#indicateurs-de-position" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Caractériser une variable quantitative, c’est essayer de décrire la manière dont ses valeurs se répartissent, ou se distribuent.</p>
+<p>Pour cela on peut commencer par regarder les valeurs extrêmes, avec les fonctions <code>min</code>, <code>max</code> ou <code>range</code> :</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="first_dataset.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(<span class="at">x =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 18</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="first_dataset.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(<span class="at">x =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 97</code></pre>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="first_dataset.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(<span class="at">x =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 18 97</code></pre>
+<p>On peut aussi calculer des indicateurs de <em>position</em> : ceux-ci indiquent autour de quel nombre se répartissent les valeurs de la variable. Il y en a plusieurs, le plus connu étant la moyenne, qu’on peut calculer avec la fonction <code>mean</code> :</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="first_dataset.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">x =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 48.157</code></pre>
+<p>Il existe aussi la médiane, qui est la valeur qui sépare notre population en deux : on a la moitié de nos observations en-dessous, et la moitié au-dessus. Elle se calcule avec la fonction <code>median</code> :</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="first_dataset.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="at">x =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 48</code></pre>
+<p>Une différence entre les deux indicateurs est que la médiane est beaucoup moins sensible aux valeurs “extrêmes” : on dit qu’elle est plus <em>robuste</em>. Ainsi, en 2013, le salaire net <em>moyen</em> des salariés à temps plein en France était de 2202 euros, tandis que le salaire net <em>médian</em> n’était que de 1772 euros. La différence étant due à des très hauts salaires qui “tirent” la moyenne vers le haut.</p>
+</div>
+<div id="indicateurs-de-dispersion" class="section level4 hasAnchor" number="2.3.1.2">
+<h4><span class="header-section-number">2.3.1.2</span> Indicateurs de dispersion<a href="first_dataset.html#indicateurs-de-dispersion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Les indicateurs de dispersion permettent de mesurer si les valeurs sont plutôt regroupées ou au contraire plutôt dispersées.</p>
+<p>L’indicateur le plus simple est l’étendue de la distribution, qui décrit l’écart maximal observé entre les observations :</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="first_dataset.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(d<span class="sc">$</span>age) <span class="sc">-</span> <span class="fu">min</span>(d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 79</code></pre>
+<p>Les indicateurs de dispersion les plus utilisés sont la variance ou, de manière équivalente, l’écart-type (qui est égal à la racine carrée de la variance). On obtient la première avec la fonction <code>var</code>, et le second avec <code>sd</code> (abréviation de <em>standard deviation</em>) :</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="first_dataset.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="at">x =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 287.0249</code></pre>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="first_dataset.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(<span class="at">x =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 16.94181</code></pre>
+<p>Plus la variance ou l’écart-type sont élevés, plus les valeurs sont dispersées autour de la moyenne. À l’inverse, plus ils sont faibles et plus les valeurs sont regroupées.</p>
+<p>Une autre manière de mesurer la dispersion est de calculer les quartiles :</p>
+<ul>
+<li>le premier quartile est la valeur pour laquelle on a 25% des observations en dessous et 75% au-dessus</li>
+<li>le deuxième quartile est la valeur pour laquelle on a 50% des observations en dessous et 50% au-dessus (c’est donc la médiane)</li>
+<li>le troisième quartile est la valeur pour laquelle on a 75% des observations en dessous et 25% au-dessus</li>
+</ul>
+<p>On peut les calculer avec la fonction <code>quantile</code> :</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="first_dataset.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Premier quartile</span></span>
+<span id="cb264-2"><a href="first_dataset.html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="at">x =</span> d<span class="sc">$</span>age, <span class="at">probs =</span> <span class="fl">0.25</span>)</span></code></pre></div>
+<pre><code>## 25% 
+##  35</code></pre>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="first_dataset.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Troisième quartile</span></span>
+<span id="cb266-2"><a href="first_dataset.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="at">x =</span> d<span class="sc">$</span>age, <span class="at">probs =</span> <span class="fl">0.75</span>)</span></code></pre></div>
+<pre><code>## 75% 
+##  60</code></pre>
+<p>L’argument <code>quantile</code> prend deux arguments principaux : le vecteur dont on veut calculer le quantile, et un argument <code>prob</code> qui indique quel quantile on souhaite obtenir. <code>prob</code> prend une valeur entre 0 et 1 : 0.5 est la médiane, 0.25 le premier quartile, 0.1 le premier décile, etc.
+Par défaut, la fonction quantile affiche le min, max et les quartiles de la série :</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="first_dataset.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="at">x =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>##   0%  25%  50%  75% 100% 
+##   18   35   48   60   97</code></pre>
+<p>Attention !
+L’ensemble les fonctions statistiques sont sensibles à la présence de valeurs manquantes <code>NA</code>. On utilisera l’argument <code>na.rm = TRUE</code> pour éviter les erreurs.</p>
+<p>Notons enfin que la fonction <code>summary</code> permet d’obtenir d’un coup plusieurs indicateurs classiques :</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="first_dataset.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="at">object =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   18.00   35.00   48.00   48.16   60.00   97.00</code></pre>
+</div>
+<div id="représentation-graphique" class="section level4 hasAnchor" number="2.3.1.3">
+<h4><span class="header-section-number">2.3.1.3</span> Représentation graphique<a href="first_dataset.html#représentation-graphique" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>L’outil le plus utile pour étudier la distribution des valeurs d’une variable quantitative reste la représentation graphique.</p>
+<p>La représentation la plus courante est sans doute l’histogramme. On peut l’obtenir avec la fonction <code>hist</code> :</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="first_dataset.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> d<span class="sc">$</span>age)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-130-1.png" width="1152" /></p>
+<p>Cette fonction n’a pas pour effet direct d’effectuer un calcul ou de nous renvoyer un résultat : elle génère un graphique qui va s’afficher dans l’onglet <em>Plots</em> de RStudio.</p>
+<p>On peut personnaliser l’apparence de l’histogramme en ajoutant des arguments supplémentaires à la fonction <code>hist</code>. L’argument le plus important est <code>breaks</code>, qui permet d’indiquer le nombre de classes que l’on souhaite.</p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="first_dataset.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> d<span class="sc">$</span>age, <span class="at">breaks =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-131-1.png" width="1152" /></p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="first_dataset.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> d<span class="sc">$</span>age, <span class="at">breaks =</span> <span class="dv">70</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-132-1.png" width="1152" /></p>
+<p>Le choix d’un “bon” nombre de classes pour un histogramme n’est pas un problème simple : si on a trop peu de classes, on risque d’effacer quasiment toutes les variations, et si on en a trop on risque d’avoir trop de détails et de masquer les grandes tendances.</p>
+<p>Les arguments de <code>hist</code> permettent également de modifier la présentation du graphique. On peut ainsi changer la couleur des barres avec <code>col</code><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>, le titre avec <code>main</code>, les étiquettes des axes avec <code>xlab</code> et <code>ylab</code>, etc. :</p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="first_dataset.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> d<span class="sc">$</span>age, <span class="at">col =</span> <span class="st">&quot;skyblue&quot;</span>,</span>
+<span id="cb275-2"><a href="first_dataset.html#cb275-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Répartition des ages des enquêtés&quot;</span>,</span>
+<span id="cb275-3"><a href="first_dataset.html#cb275-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;age&quot;</span>,</span>
+<span id="cb275-4"><a href="first_dataset.html#cb275-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Effectif&quot;</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-133-1.png" width="1152" /></p>
+<p>La fonction <code>hist</code> fait partie des fonctions graphique de base de R. Elle est souvent associée au graphique boîtes à moustaches (<em>boxplot</em>) qui permet de résumer la distribution d’une variable quantitative à travers les quartiles notamment.</p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="first_dataset.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">x =</span> d<span class="sc">$</span>age, <span class="at">main =</span> <span class="st">&quot;Distribution de l&#39;age&quot;</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-134-1.png" width="384" /></p>
+</div>
+</div>
+<div id="analyser-une-variable-qualitative" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Analyser une variable qualitative<a href="first_dataset.html#analyser-une-variable-qualitative" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Une variable qualitative est une variable qui ne peut prendre qu’un nombre limité de valeurs, appelées modalités. Dans notre jeu de données on trouvera par exemple le sexe (<code>sexe</code>), le niveau d’études (<code>nivetud</code>), la catégorie socio-professionnelle (<code>qualif</code>)…</p>
+<p>À noter qu’une variable qualitative peut tout-à-fait être numérique, et que certaines variables peuvent être traitées soit comme quantitatives, soit comme qualitatives : c’est le cas par exemple du nombre d’enfants ou du nombre de frères et soeurs.</p>
+<div id="tri-à-plat" class="section level4 hasAnchor" number="2.3.2.1">
+<h4><span class="header-section-number">2.3.2.1</span> Tri à plat<a href="first_dataset.html#tri-à-plat" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>L’outil le plus utilisé pour représenter la répartition des valeurs d’une variable qualitative est le <em>tri à plat</em> : il s’agit simplement de compter, pour chacune des valeurs possibles de la variable (pour chacune des modalités), le nombre d’observations ayant cette valeur. Un tri à plat s’obtient sous R à l’aide de la fonction <code>table</code> :</p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="first_dataset.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">x =</span> d<span class="sc">$</span>sexe)</span></code></pre></div>
+<pre><code>## x
+## Homme Femme 
+##   899  1101</code></pre>
+<p>Ce tableau nous indique donc que parmi nos enquêtés on trouve 899 hommes et 1101 femmes.</p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="first_dataset.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">x =</span> d<span class="sc">$</span>qualif)</span></code></pre></div>
+<pre><code>## x
+##       Ouvrier specialise         Ouvrier qualifie               Technicien 
+##                      203                      292                       86 
+## Profession intermediaire                    Cadre                  Employe 
+##                      160                      260                      594 
+##                    Autre 
+##                       58</code></pre>
+<p>Un tableau de ce type peut être affiché ou stocké dans un objet, et on peut à son tour lui appliquer des fonctions. Par exemple, la fonction <code>sort</code> permet de trier le tri à plat selon la valeur de l’effectif. On peut donc faire :</p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="first_dataset.html#cb281-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">x =</span> d<span class="sc">$</span>qualif)</span>
+<span id="cb281-2"><a href="first_dataset.html#cb281-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(tab)</span></code></pre></div>
+<pre><code>## x
+##                    Autre               Technicien Profession intermediaire 
+##                       58                       86                      160 
+##       Ouvrier specialise                    Cadre         Ouvrier qualifie 
+##                      203                      260                      292 
+##                  Employe 
+##                      594</code></pre>
+<p>Attention, par défaut la fonction <code>table</code> n’affiche pas les valeurs manquantes (<code>NA</code>). Si on souhaite les inclure il faut utiliser l’argument <code>useNA = "always"</code>, soit : <code>table(d$qualif, useNA = "always")</code>. À noter qu’on peut aussi appliquer <code>summary</code> à une variable qualitative. Le résultat est également le tri à plat de la variable, avec en plus le nombre de valeurs manquantes éventuelles :</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="first_dataset.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="at">object =</span> d<span class="sc">$</span>qualif)</span></code></pre></div>
+<pre><code>##       Ouvrier specialise         Ouvrier qualifie               Technicien 
+##                      203                      292                       86 
+## Profession intermediaire                    Cadre                  Employe 
+##                      160                      260                      594 
+##                    Autre                     NA&#39;s 
+##                       58                      347</code></pre>
+<p>Par défaut ces tris à plat sont en effectifs et ne sont donc pas toujours très lisibles, notamment quand on a des effectifs importants. On leur rajoute donc en général la répartition en pourcentages. Pour cela, nous allons utiliser la fonction <code>freq</code> de l’extension <code>questionr</code>, qui devra donc avoir précédemment été chargée avec <code>library(questionr)</code> :</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="first_dataset.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="do">## À rajouter en haut de script et à exécuter</span></span>
+<span id="cb285-2"><a href="first_dataset.html#cb285-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(questionr)</span></code></pre></div>
+<p>On peut alors utiliser la fonction :</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="first_dataset.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(<span class="at">x =</span> d<span class="sc">$</span>qualif)</span></code></pre></div>
+<pre><code>##                            n    % val%
+## Ouvrier specialise       203 10.2 12.3
+## Ouvrier qualifie         292 14.6 17.7
+## Technicien                86  4.3  5.2
+## Profession intermediaire 160  8.0  9.7
+## Cadre                    260 13.0 15.7
+## Employe                  594 29.7 35.9
+## Autre                     58  2.9  3.5
+## NA                       347 17.3   NA</code></pre>
+<p>La colonne <code>n</code> représente les effectifs de chaque catégorie, la colonne <code>%</code> le pourcentage, et la colonne <code>val%</code> le pourcentage calculé sur les valeurs valides, donc en excluant les <code>NA</code>. Une ligne a également été rajoutée pour indiquer le nombre et la proportion de <code>NA</code>.</p>
+<p><code>freq</code> accepte un certain nombre d’arguments pour personnaliser son affichage. Par exemple :</p>
+<ul>
+<li><code>valid</code> indique si on souhaite ou non afficher les pourcentages sur les valeurs valides</li>
+<li><code>cum</code> indique si on souhaite ou non afficher les pourcentages cumulés</li>
+<li><code>total</code> permet d’ajouter une ligne avec les effectifs totaux</li>
+<li><code>sort</code> permet de trier le tableau par fréquence croissante (<code>sort="inc"</code>) ou décroissante (<code>sort="dec"</code>).</li>
+</ul>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="first_dataset.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(<span class="at">x =</span> d<span class="sc">$</span>qualif, <span class="at">valid =</span> <span class="cn">FALSE</span>, <span class="at">total =</span> <span class="cn">TRUE</span>, <span class="at">sort =</span> <span class="st">&quot;dec&quot;</span>)</span></code></pre></div>
+<pre><code>##                             n     %
+## Employe                   594  29.7
+## Ouvrier qualifie          292  14.6
+## Cadre                     260  13.0
+## Ouvrier specialise        203  10.2
+## Profession intermediaire  160   8.0
+## Technicien                 86   4.3
+## Autre                      58   2.9
+## NA                        347  17.3
+## Total                    2000 100.0</code></pre>
+</div>
+<div id="représentations-graphiques" class="section level4 hasAnchor" number="2.3.2.2">
+<h4><span class="header-section-number">2.3.2.2</span> Représentations graphiques<a href="first_dataset.html#représentations-graphiques" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>On peut représenter graphiquement le tri à plat d’une variable qualitative avec un diagramme en barres, obtenu avec la fonction <code>barplot</code>. Attention, contrairement à <code>hist</code> cette fonction ne s’applique pas directement à la variable mais au résultat du tri à plat de cette variable, calculé avec <code>table</code>. Il faut donc procéder en deux étapes :</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="first_dataset.html#cb290-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>( <span class="at">x =</span> d<span class="sc">$</span>qualif )</span>
+<span id="cb290-2"><a href="first_dataset.html#cb290-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="at">height =</span> tab, <span class="at">main =</span> <span class="st">&#39;Répartition par qualification&#39;</span>, <span class="at">las=</span> <span class="dv">2</span>, <span class="at">cex.names =</span> <span class="fl">0.4</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-144-1.png" width="1152" /></p>
+<p>L’argument <code>las</code> permet de pivoter les étiquettes et <code>cex.names</code> la taille de la police.
+On peut aussi trier le tri à plat avec la fonction <code>sort</code> avant de le représenter graphiquement, ce qui peut faciliter la lecture du graphique :</p>
+<p>La fonction <code>pie</code> permet de construire un diagramme circulaire. Il fonctionne de la même manière que la fonction <code>barplot</code>.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="first_dataset.html#cb291-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">x =</span> d<span class="sc">$</span>sexe)</span>
+<span id="cb291-2"><a href="first_dataset.html#cb291-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="at">x =</span> tab)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-145-1.png" width="1152" /></p>
+</div>
+</div>
+</div>
+<div id="combiner-plusieurs-variables" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Combiner plusieurs variables<a href="first_dataset.html#combiner-plusieurs-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="créer-une-nouvelle-variable-1" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Créer une nouvelle variable<a href="first_dataset.html#créer-une-nouvelle-variable-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On peut aussi utiliser l’opérateur <code>$</code> pour créer une nouvelle variable dans un data frame : pour cela, il suffit de lui assigner une valeur.</p>
+<p>Par exemple dans le jeu de données <code>hdv2003</code>, la variable <code>heures.tv</code> contient le nombre d’heures passées quotidiennement devant la télé. On peut vouloir créer une nouvelle variable dans notre tableau qui contienne la même durée mais en minutes. On va donc créer une nouvelle variable <code>minutes.tv</code> de la manière suivante :</p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="first_dataset.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="co">#par convention on ne modifie jamais le fichier source</span></span>
+<span id="cb292-2"><a href="first_dataset.html#cb292-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> hdv2003</span>
+<span id="cb292-3"><a href="first_dataset.html#cb292-3" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>minutes.tv <span class="ot">&lt;-</span> d<span class="sc">$</span>heures.tv <span class="sc">*</span> <span class="dv">60</span></span></code></pre></div>
+</div>
+<div id="créer-des-regroupements-de-modalités" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Créer des regroupements de modalités<a href="first_dataset.html#créer-des-regroupements-de-modalités" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Parfois, on veut créer une nouvelle variable en partant des valeurs d’une ou plusieurs autres variables. La fonction <code>ifelse</code> permet de construire des regroupements simples. Elle se construit comme la fonction <code>si</code> d’excel.</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="first_dataset.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;ifelse&quot;</span>)</span></code></pre></div>
+<p>Toujours dans le jeu de données <code>hdv2003</code>, on souhaite créer une variable <em>actif</em> / <em>inactif</em> basée sur la variable <code>occup</code> telle que :</p>
+<table>
+<thead>
+<tr class="header">
+<th>occup</th>
+<th>Regroupement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exerce une profession</td>
+<td>actif</td>
+</tr>
+<tr class="even">
+<td>Etudiant, eleve</td>
+<td>inactif</td>
+</tr>
+<tr class="odd">
+<td>Chomeur</td>
+<td>inactif</td>
+</tr>
+<tr class="even">
+<td>Retraite</td>
+<td>inactif</td>
+</tr>
+<tr class="odd">
+<td>Retire des affaires</td>
+<td>inactif</td>
+</tr>
+<tr class="even">
+<td>Au foyer</td>
+<td>inactif</td>
+</tr>
+<tr class="odd">
+<td>Autre inactif</td>
+<td>inactif</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="first_dataset.html#cb294-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>occupGroup <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="at">test =</span> (d<span class="sc">$</span>occup <span class="sc">==</span> <span class="st">&quot;Exerce une profession&quot;</span>),</span>
+<span id="cb294-2"><a href="first_dataset.html#cb294-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">yes =</span> <span class="st">&quot;actif&quot;</span>,</span>
+<span id="cb294-3"><a href="first_dataset.html#cb294-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">no =</span> <span class="st">&quot;inactif&quot;</span>)</span>
+<span id="cb294-4"><a href="first_dataset.html#cb294-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb294-5"><a href="first_dataset.html#cb294-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>occupGroup)</span></code></pre></div>
+<pre><code>## 
+##   actif inactif 
+##    1049     951</code></pre>
+<p>Cependant, la population active regroupe la population active occupée (appelée aussi « population active ayant un emploi ») et les chômeurs.</p>
+<p>On opère donc un nouveau regroupement en plaçant cette fois-ci les chômeurs avec les actifs :</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="first_dataset.html#cb296-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>occupGroup <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="at">test =</span> (d<span class="sc">$</span>occup <span class="sc">==</span> <span class="st">&quot;Exerce une profession&quot;</span> <span class="sc">|</span> d<span class="sc">$</span>occup <span class="sc">==</span> <span class="st">&quot;Chomeur&quot;</span>),</span>
+<span id="cb296-2"><a href="first_dataset.html#cb296-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">yes =</span> <span class="st">&quot;actif&quot;</span>,</span>
+<span id="cb296-3"><a href="first_dataset.html#cb296-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">no =</span> <span class="st">&quot;inactif&quot;</span>)</span>
+<span id="cb296-4"><a href="first_dataset.html#cb296-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb296-5"><a href="first_dataset.html#cb296-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>occupGroup)</span></code></pre></div>
+<pre><code>## 
+##   actif inactif 
+##    1183     817</code></pre>
+<p>Lorsqu’on travaille sur la même variable et pour éviter l’utilisation de “OU” répétés, on utilise le mot clé <code>%in%</code>.</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="first_dataset.html#cb298-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>occupGroup <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="at">test =</span> (d<span class="sc">$</span>occup <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Exerce une profession&quot;</span>,<span class="st">&quot;Chomeur&quot;</span>)),</span>
+<span id="cb298-2"><a href="first_dataset.html#cb298-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">yes =</span> <span class="st">&quot;actif&quot;</span>,</span>
+<span id="cb298-3"><a href="first_dataset.html#cb298-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">no =</span> <span class="st">&quot;inactif&quot;</span>)</span>
+<span id="cb298-4"><a href="first_dataset.html#cb298-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb298-5"><a href="first_dataset.html#cb298-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>occupGroup)</span></code></pre></div>
+<pre><code>## 
+##   actif inactif 
+##    1183     817</code></pre>
+</div>
+<div id="découper-une-variable-numérique-en-classes" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Découper une variable numérique en classes<a href="first_dataset.html#découper-une-variable-numérique-en-classes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Une autre opération relativement courante consiste à découper une variable numérique en classes. Par exemple, on voudra transformer la variable âge avec des catégories : Moins de 30 euros, 30-50 ans, plus de 50 ans, etc.
+Pour cela, on utilise la fonction <code>cut</code>.</p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="first_dataset.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;cut&quot;</span>)</span></code></pre></div>
+<p>Si on donne un nombre entier à l’argument breaks, un nombre correspondant de classes d’amplitudes égales sont automatiquement calculées. Il est souvent préférable cependant d’avoir des limites “rondes”, on peut alors spécifier ces dernières manuellement en passant un vecteur à breaks :</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="first_dataset.html#cb301-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>ageGroup <span class="ot">&lt;-</span> <span class="fu">cut</span>(<span class="at">x =</span> d<span class="sc">$</span>age, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="fu">min</span>(d<span class="sc">$</span>age),<span class="dv">30</span>,<span class="dv">50</span>,<span class="fu">max</span>(d<span class="sc">$</span>age)) ,</span>
+<span id="cb301-2"><a href="first_dataset.html#cb301-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">include.lowest =</span>  <span class="cn">TRUE</span>)</span>
+<span id="cb301-3"><a href="first_dataset.html#cb301-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-4"><a href="first_dataset.html#cb301-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>ageGroup)</span></code></pre></div>
+<pre><code>## 
+## [18,30] (30,50] (50,97] 
+##     351     780     869</code></pre>
+<p>Ici on a été obligé d’ajouter l’argument <code>include.lowest = TRUE</code> car sinon la valeur 18 n’aurait pas été incluse, et on aurait eu des valeurs manquantes.</p>
+</div>
+</div>
+<div id="exercices-1" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Exercices<a href="first_dataset.html#exercices-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sujet-1" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Sujet<a href="first_dataset.html#sujet-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Exercice 1</strong></p>
+<p>Créer un nouveau script qui effectue les actions suivantes :</p>
+<ol style="list-style-type: lower-alpha">
+<li>charger l’extension <code>questionr</code></li>
+<li>charger le jeu de données nommé <code>hdv2003</code></li>
+<li>copier le jeu de données dans un nouvel objet nommé <code>df</code></li>
+<li>afficher les dimensions et la liste des variables de <code>df</code></li>
+</ol>
+<p><strong>Exercice 2</strong></p>
+<p>On souhaite étudier la répartition du temps passé devant la télévision par les enquêtés (variable <code>heures.tv</code>). Pour cela, affichez les principaux indicateurs de cette variable : valeur minimale, maximale, moyenne, médiane et écart-type. Représentez ensuite sa distribution par un histogramme en 10 classes.</p>
+<p><strong>Exercice 3</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>On s’intéresse maintenant à l’importance accordée par les enquêtés à leur travail (variable <code>trav.imp</code>). Faites un tri à plat des effectifs des modalités de cette variable avec la commande <code>table</code>.</p></li>
+<li><p>Faites un tri à plat affichant à la fois les effectifs et les pourcentages de chaque modalité. Y’a-t-il des valeurs manquantes ?</p></li>
+<li><p>Représentez graphiquement les effectifs des modalités à l’aide d’un graphique en barres.</p></li>
+<li><p>Utilisez l’argument <code>col</code> de la fonction <code>barplot</code> pour modifier la couleur du graphique en
+<code>tomato</code>.</p></li>
+</ol>
+</div>
+<div id="correction-1" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Correction<a href="first_dataset.html#correction-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Exercice 1</strong></p>
+<p>Créer un nouveau script qui effectue les actions suivantes :</p>
+<ol style="list-style-type: lower-alpha">
+<li>charger l’extension <code>questionr</code></li>
+</ol>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="first_dataset.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(questionr)</span></code></pre></div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>charger le jeu de données nommé <code>hdv2003</code></li>
+</ol>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="first_dataset.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(hdv2003)</span></code></pre></div>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>copier le jeu de données dans un nouvel objet nommé <code>df</code></li>
+</ol>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="first_dataset.html#cb305-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> hdv2003</span></code></pre></div>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>afficher les dimensions et la liste des variables de <code>df</code></li>
+</ol>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="first_dataset.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="at">x =</span> df)</span>
+<span id="cb306-2"><a href="first_dataset.html#cb306-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="at">x =</span> df)</span></code></pre></div>
+<p><strong>Exercice 2</strong></p>
+<p>On souhaite étudier la répartition du temps passé devant la télévision par les enquêtés (variable <code>heures.tv</code>). Pour cela, affichez les principaux indicateurs de cette variable : valeur minimale, maximale, moyenne, médiane et écart-type. Représentez ensuite sa distribution par un histogramme en 10 classes.</p>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="first_dataset.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="at">object =</span> df<span class="sc">$</span>heures.tv)</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="first_dataset.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(<span class="at">x =</span> df<span class="sc">$</span>heures.tv)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="first_dataset.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> df<span class="sc">$</span>heures.tv, <span class="at">breaks =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p><strong>Exercice 3</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>On s’intéresse maintenant à l’importance accordée par les enquêtés à leur travail (variable <code>trav.imp</code>). Faites un tri à plat des effectifs des modalités de cette variable avec la commande <code>table</code>.</li>
+</ol>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="first_dataset.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">x =</span> df<span class="sc">$</span>trav.imp)</span></code></pre></div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Faites un tri à plat affichant à la fois les effectifs et les pourcentages de chaque modalité. Y’a-t-il des valeurs manquantes ?</li>
+</ol>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="first_dataset.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(<span class="at">x =</span> df<span class="sc">$</span>trav.imp)</span></code></pre></div>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Représentez graphiquement les effectifs des modalités à l’aide d’un graphique en barres.</li>
+</ol>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="first_dataset.html#cb312-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="at">x =</span> <span class="fu">table</span>(<span class="at">x =</span> df<span class="sc">$</span>trav.imp))</span>
+<span id="cb312-2"><a href="first_dataset.html#cb312-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="at">height =</span> tab)</span></code></pre></div>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Utilisez l’argument <code>col</code> de la fonction <code>barplot</code> pour modifier la couleur du graphique en <code>tomato</code>.</li>
+</ol>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="first_dataset.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="at">height =</span> tab, <span class="at">col =</span> <span class="st">&quot;tomato&quot;</span>)</span></code></pre></div>
+<p>Tapez <code>colors()</code> dans la console pour afficher l’ensemble des noms de couleurs disponibles dans R.</p>
+</div>
+</div>
+<div id="testez-vos-connaissances-1" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Testez vos connaissances !<a href="first_dataset.html#testez-vos-connaissances-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>
+<div class="figure">
+<img src="img/kahoot.png" alt="" />
+<p class="caption">Quiz</p>
+</div>
+</p>
+<p>Testez vos connaissances sur ce chapitre avec ce quiz (10 min) en <a href="https://kahoot.it/challenge/04610047?challenge-id=93264293-c5c0-4eb8-8381-2ba18c649ca3_1616285400556">cliquant ici</a>.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>La seule limite pour la taille d’un objet étant la mémoire vive (RAM) de la machine sur laquelle tourne la session R.<a href="first_dataset.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Les différents types de variables seront décrits plus en détail dans un autre TD sur les recodages.<a href="first_dataset.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Les différentes manières de spécifier des couleurs seront abordées plus tard.<a href="first_dataset.html#fnref6" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="presentation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="first_import.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

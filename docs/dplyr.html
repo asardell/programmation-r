@@ -4,27 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 9 Manipuler les données avec dplyr | Apprendre à programmer avec R</title>
-  <meta name="description" content="Chapitre 9 Manipuler les données avec dplyr | Apprendre à programmer avec R" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <title>Chapitre 8 Manipuler les données avec dplyr | index.html.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 9 Manipuler les données avec dplyr | Apprendre à programmer avec R" />
+  <meta property="og:title" content="Chapitre 8 Manipuler les données avec dplyr | index.html.knit" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Chapitre 9 Manipuler les données avec dplyr | Apprendre à programmer avec R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 9 Manipuler les données avec dplyr | Apprendre à programmer avec R" />
+  <meta name="twitter:title" content="Chapitre 8 Manipuler les données avec dplyr | index.html.knit" />
   
-  <meta name="twitter:description" content="Chapitre 9 Manipuler les données avec dplyr | Apprendre à programmer avec R" />
+  
   
 
-<meta name="author" content="asardell" />
 
 
-<meta name="date" content="2021-06-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +30,8 @@
   
 <link rel="prev" href="apply.html"/>
 <link rel="next" href="chaines.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,23 +47,26 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,13 +86,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -104,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -116,6 +117,11 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
 </head>
@@ -130,218 +136,264 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Préface</a></li>
-<li class="chapter" data-level="2" data-path="presentation.html"><a href="presentation.html"><i class="fa fa-check"></i><b>2</b> Présentation</a><ul>
-<li class="chapter" data-level="2.1" data-path="presentation.html"><a href="presentation.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="presentation.html"><a href="presentation.html#à-propos-de-r"><i class="fa fa-check"></i><b>2.1.1</b> À propos de R</a></li>
-<li class="chapter" data-level="2.1.2" data-path="presentation.html"><a href="presentation.html#à-propos-de-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> À propos de RStudio</a></li>
-<li class="chapter" data-level="2.1.3" data-path="presentation.html"><a href="presentation.html#à-propos-du-tidyverse"><i class="fa fa-check"></i><b>2.1.3</b> À propos du <em>tidyverse</em></a></li>
-<li class="chapter" data-level="2.1.4" data-path="presentation.html"><a href="presentation.html#structure-du-document"><i class="fa fa-check"></i><b>2.1.4</b> Structure du document</a></li>
-<li class="chapter" data-level="2.1.5" data-path="presentation.html"><a href="presentation.html#prérequis"><i class="fa fa-check"></i><b>2.1.5</b> Prérequis</a></li>
+<li class="chapter" data-level="1" data-path="presentation.html"><a href="presentation.html"><i class="fa fa-check"></i><b>1</b> Présentation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="presentation.html"><a href="presentation.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="presentation.html"><a href="presentation.html#à-propos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> À propos de R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="presentation.html"><a href="presentation.html#à-propos-de-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> À propos de RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="presentation.html"><a href="presentation.html#à-propos-du-tidyverse"><i class="fa fa-check"></i><b>1.1.3</b> À propos du <em>tidyverse</em></a></li>
+<li class="chapter" data-level="1.1.4" data-path="presentation.html"><a href="presentation.html#structure-du-document"><i class="fa fa-check"></i><b>1.1.4</b> Structure du document</a></li>
+<li class="chapter" data-level="1.1.5" data-path="presentation.html"><a href="presentation.html#prérequis"><i class="fa fa-check"></i><b>1.1.5</b> Prérequis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="presentation.html"><a href="presentation.html#prise-en-main"><i class="fa fa-check"></i><b>2.2</b> Prise en main</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="presentation.html"><a href="presentation.html#la-console"><i class="fa fa-check"></i><b>2.2.1</b> La console</a></li>
-<li class="chapter" data-level="2.2.2" data-path="presentation.html"><a href="presentation.html#objets"><i class="fa fa-check"></i><b>2.2.2</b> Objets</a></li>
-<li class="chapter" data-level="2.2.3" data-path="presentation.html"><a href="presentation.html#fonctions"><i class="fa fa-check"></i><b>2.2.3</b> Fonctions</a></li>
+<li class="chapter" data-level="1.2" data-path="presentation.html"><a href="presentation.html#prise-en-main"><i class="fa fa-check"></i><b>1.2</b> Prise en main</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="presentation.html"><a href="presentation.html#la-console"><i class="fa fa-check"></i><b>1.2.1</b> La console</a></li>
+<li class="chapter" data-level="1.2.2" data-path="presentation.html"><a href="presentation.html#objets"><i class="fa fa-check"></i><b>1.2.2</b> Objets</a></li>
+<li class="chapter" data-level="1.2.3" data-path="presentation.html"><a href="presentation.html#fonctions"><i class="fa fa-check"></i><b>1.2.3</b> Fonctions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="presentation.html"><a href="presentation.html#fonctions-de-tests-et-comparaisons"><i class="fa fa-check"></i><b>2.3</b> Fonctions de tests et comparaisons</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="presentation.html"><a href="presentation.html#opérateurs-de-comparaisons"><i class="fa fa-check"></i><b>2.3.1</b> Opérateurs de comparaisons</a></li>
-<li class="chapter" data-level="2.3.2" data-path="presentation.html"><a href="presentation.html#opérateurs-logiques"><i class="fa fa-check"></i><b>2.3.2</b> Opérateurs logiques</a></li>
-<li class="chapter" data-level="2.3.3" data-path="presentation.html"><a href="presentation.html#fonctions-logiques"><i class="fa fa-check"></i><b>2.3.3</b> Fonctions logiques</a></li>
+<li class="chapter" data-level="1.3" data-path="presentation.html"><a href="presentation.html#fonctions-de-tests-et-comparaisons"><i class="fa fa-check"></i><b>1.3</b> Fonctions de tests et comparaisons</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="presentation.html"><a href="presentation.html#opérateurs-de-comparaisons"><i class="fa fa-check"></i><b>1.3.1</b> Opérateurs de comparaisons</a></li>
+<li class="chapter" data-level="1.3.2" data-path="presentation.html"><a href="presentation.html#opérateurs-logiques"><i class="fa fa-check"></i><b>1.3.2</b> Opérateurs logiques</a></li>
+<li class="chapter" data-level="1.3.3" data-path="presentation.html"><a href="presentation.html#fonctions-logiques"><i class="fa fa-check"></i><b>1.3.3</b> Fonctions logiques</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="presentation.html"><a href="presentation.html#regrouper-ses-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>2.4</b> Regrouper ses commandes dans des scripts</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="presentation.html"><a href="presentation.html#commentaires"><i class="fa fa-check"></i><b>2.4.1</b> Commentaires</a></li>
+<li class="chapter" data-level="1.4" data-path="presentation.html"><a href="presentation.html#regrouper-ses-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>1.4</b> Regrouper ses commandes dans des scripts</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="presentation.html"><a href="presentation.html#commentaires"><i class="fa fa-check"></i><b>1.4.1</b> Commentaires</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="presentation.html"><a href="presentation.html#installer-et-charger-des-extensions-packages"><i class="fa fa-check"></i><b>2.5</b> Installer et charger des extensions (<em>packages</em>)</a></li>
-<li class="chapter" data-level="2.6" data-path="presentation.html"><a href="presentation.html#exercices"><i class="fa fa-check"></i><b>2.6</b> Exercices</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="presentation.html"><a href="presentation.html#sujet"><i class="fa fa-check"></i><b>2.6.1</b> Sujet</a></li>
-<li class="chapter" data-level="2.6.2" data-path="presentation.html"><a href="presentation.html#correction"><i class="fa fa-check"></i><b>2.6.2</b> Correction</a></li>
+<li class="chapter" data-level="1.5" data-path="presentation.html"><a href="presentation.html#installer-et-charger-des-extensions-packages"><i class="fa fa-check"></i><b>1.5</b> Installer et charger des extensions (<em>packages</em>)</a></li>
+<li class="chapter" data-level="1.6" data-path="presentation.html"><a href="presentation.html#exercices"><i class="fa fa-check"></i><b>1.6</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="presentation.html"><a href="presentation.html#sujet"><i class="fa fa-check"></i><b>1.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="1.6.2" data-path="presentation.html"><a href="presentation.html#correction"><i class="fa fa-check"></i><b>1.6.2</b> Correction</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="presentation.html"><a href="presentation.html#testez-vos-connaissances"><i class="fa fa-check"></i><b>2.7</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="1.7" data-path="presentation.html"><a href="presentation.html#testez-vos-connaissances"><i class="fa fa-check"></i><b>1.7</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="first-dataset.html"><a href="first-dataset.html"><i class="fa fa-check"></i><b>3</b> Premier travail avec des données</a><ul>
-<li class="chapter" data-level="3.1" data-path="first-dataset.html"><a href="first-dataset.html#jeu-de-données-dexemple"><i class="fa fa-check"></i><b>3.1</b> Jeu de données d’exemple</a></li>
-<li class="chapter" data-level="3.2" data-path="first-dataset.html"><a href="first-dataset.html#tableau-de-données-data-frame"><i class="fa fa-check"></i><b>3.2</b> Tableau de données (<em>data frame</em>)</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="first-dataset.html"><a href="first-dataset.html#structure-du-tableau"><i class="fa fa-check"></i><b>3.2.1</b> Structure du tableau</a></li>
-<li class="chapter" data-level="3.2.2" data-path="first-dataset.html"><a href="first-dataset.html#accéder-aux-variables-dun-tableau"><i class="fa fa-check"></i><b>3.2.2</b> Accéder aux variables d’un tableau</a></li>
-<li class="chapter" data-level="3.2.3" data-path="first-dataset.html"><a href="first-dataset.html#créer-une-nouvelle-variable"><i class="fa fa-check"></i><b>3.2.3</b> Créer une nouvelle variable</a></li>
+<li class="chapter" data-level="2" data-path="first_dataset.html"><a href="first_dataset.html"><i class="fa fa-check"></i><b>2</b> Premier travail avec des données</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="first_dataset.html"><a href="first_dataset.html#jeu-de-données-dexemple"><i class="fa fa-check"></i><b>2.1</b> Jeu de données d’exemple</a></li>
+<li class="chapter" data-level="2.2" data-path="first_dataset.html"><a href="first_dataset.html#tableau-de-données-data-frame"><i class="fa fa-check"></i><b>2.2</b> Tableau de données (<em>data frame</em>)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="first_dataset.html"><a href="first_dataset.html#structure-du-tableau"><i class="fa fa-check"></i><b>2.2.1</b> Structure du tableau</a></li>
+<li class="chapter" data-level="2.2.2" data-path="first_dataset.html"><a href="first_dataset.html#accéder-aux-variables-dun-tableau"><i class="fa fa-check"></i><b>2.2.2</b> Accéder aux variables d’un tableau</a></li>
+<li class="chapter" data-level="2.2.3" data-path="first_dataset.html"><a href="first_dataset.html#créer-une-nouvelle-variable"><i class="fa fa-check"></i><b>2.2.3</b> Créer une nouvelle variable</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="first-dataset.html"><a href="first-dataset.html#analyse-univariée"><i class="fa fa-check"></i><b>3.3</b> Analyse univariée</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="first-dataset.html"><a href="first-dataset.html#analyser-une-variable-quantitative"><i class="fa fa-check"></i><b>3.3.1</b> Analyser une variable quantitative</a></li>
-<li class="chapter" data-level="3.3.2" data-path="first-dataset.html"><a href="first-dataset.html#analyser-une-variable-qualitative"><i class="fa fa-check"></i><b>3.3.2</b> Analyser une variable qualitative</a></li>
+<li class="chapter" data-level="2.3" data-path="first_dataset.html"><a href="first_dataset.html#analyse-univariée"><i class="fa fa-check"></i><b>2.3</b> Analyse univariée</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="first_dataset.html"><a href="first_dataset.html#analyser-une-variable-quantitative"><i class="fa fa-check"></i><b>2.3.1</b> Analyser une variable quantitative</a></li>
+<li class="chapter" data-level="2.3.2" data-path="first_dataset.html"><a href="first_dataset.html#analyser-une-variable-qualitative"><i class="fa fa-check"></i><b>2.3.2</b> Analyser une variable qualitative</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="first-dataset.html"><a href="first-dataset.html#combiner-plusieurs-variables"><i class="fa fa-check"></i><b>3.4</b> Combiner plusieurs variables</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="first-dataset.html"><a href="first-dataset.html#créer-une-nouvelle-variable-1"><i class="fa fa-check"></i><b>3.4.1</b> Créer une nouvelle variable</a></li>
-<li class="chapter" data-level="3.4.2" data-path="first-dataset.html"><a href="first-dataset.html#créer-des-regroupements-de-modalités"><i class="fa fa-check"></i><b>3.4.2</b> Créer des regroupements de modalités</a></li>
-<li class="chapter" data-level="3.4.3" data-path="first-dataset.html"><a href="first-dataset.html#découper-une-variable-numérique-en-classes"><i class="fa fa-check"></i><b>3.4.3</b> Découper une variable numérique en classes</a></li>
+<li class="chapter" data-level="2.4" data-path="first_dataset.html"><a href="first_dataset.html#combiner-plusieurs-variables"><i class="fa fa-check"></i><b>2.4</b> Combiner plusieurs variables</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="first_dataset.html"><a href="first_dataset.html#créer-une-nouvelle-variable-1"><i class="fa fa-check"></i><b>2.4.1</b> Créer une nouvelle variable</a></li>
+<li class="chapter" data-level="2.4.2" data-path="first_dataset.html"><a href="first_dataset.html#créer-des-regroupements-de-modalités"><i class="fa fa-check"></i><b>2.4.2</b> Créer des regroupements de modalités</a></li>
+<li class="chapter" data-level="2.4.3" data-path="first_dataset.html"><a href="first_dataset.html#découper-une-variable-numérique-en-classes"><i class="fa fa-check"></i><b>2.4.3</b> Découper une variable numérique en classes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="first-dataset.html"><a href="first-dataset.html#exercices-1"><i class="fa fa-check"></i><b>3.5</b> Exercices</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="first-dataset.html"><a href="first-dataset.html#sujet-1"><i class="fa fa-check"></i><b>3.5.1</b> Sujet</a></li>
-<li class="chapter" data-level="3.5.2" data-path="first-dataset.html"><a href="first-dataset.html#correction-1"><i class="fa fa-check"></i><b>3.5.2</b> Correction</a></li>
+<li class="chapter" data-level="2.5" data-path="first_dataset.html"><a href="first_dataset.html#exercices-1"><i class="fa fa-check"></i><b>2.5</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="first_dataset.html"><a href="first_dataset.html#sujet-1"><i class="fa fa-check"></i><b>2.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="2.5.2" data-path="first_dataset.html"><a href="first_dataset.html#correction-1"><i class="fa fa-check"></i><b>2.5.2</b> Correction</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="first-dataset.html"><a href="first-dataset.html#testez-vos-connaissances-1"><i class="fa fa-check"></i><b>3.6</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="2.6" data-path="first_dataset.html"><a href="first_dataset.html#testez-vos-connaissances-1"><i class="fa fa-check"></i><b>2.6</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="first-import.html"><a href="first-import.html"><i class="fa fa-check"></i><b>4</b> Importer des données externes</a><ul>
-<li class="chapter" data-level="4.1" data-path="first-import.html"><a href="first-import.html#import-de-fichiers-csv"><i class="fa fa-check"></i><b>4.1</b> Import de fichiers csv</a></li>
-<li class="chapter" data-level="4.2" data-path="first-import.html"><a href="first-import.html#interface-interactive-dimport-de-fichiers"><i class="fa fa-check"></i><b>4.2</b> Interface interactive d’import de fichiers</a></li>
-<li class="chapter" data-level="4.3" data-path="first-import.html"><a href="first-import.html#modifier-le-répertoire-actif"><i class="fa fa-check"></i><b>4.3</b> Modifier le répertoire actif</a></li>
-<li class="chapter" data-level="4.4" data-path="first-import.html"><a href="first-import.html#import-depuis-un-fichier-excel"><i class="fa fa-check"></i><b>4.4</b> Import depuis un fichier Excel</a></li>
-<li class="chapter" data-level="4.5" data-path="first-import.html"><a href="first-import.html#export-de-données"><i class="fa fa-check"></i><b>4.5</b> Export de données</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="first-import.html"><a href="first-import.html#export-de-tableaux-de-données"><i class="fa fa-check"></i><b>4.5.1</b> Export de tableaux de données</a></li>
-<li class="chapter" data-level="4.5.2" data-path="first-import.html"><a href="first-import.html#sauvegarder-des-objets"><i class="fa fa-check"></i><b>4.5.2</b> Sauvegarder des objets</a></li>
+<li class="chapter" data-level="3" data-path="first_import.html"><a href="first_import.html"><i class="fa fa-check"></i><b>3</b> Importer des données externes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="first_import.html"><a href="first_import.html#import-de-fichiers-csv"><i class="fa fa-check"></i><b>3.1</b> Import de fichiers csv</a></li>
+<li class="chapter" data-level="3.2" data-path="first_import.html"><a href="first_import.html#interface-interactive-dimport-de-fichiers"><i class="fa fa-check"></i><b>3.2</b> Interface interactive d’import de fichiers</a></li>
+<li class="chapter" data-level="3.3" data-path="first_import.html"><a href="first_import.html#modifier-le-répertoire-actif"><i class="fa fa-check"></i><b>3.3</b> Modifier le répertoire actif</a></li>
+<li class="chapter" data-level="3.4" data-path="first_import.html"><a href="first_import.html#import-depuis-un-fichier-excel"><i class="fa fa-check"></i><b>3.4</b> Import depuis un fichier Excel</a></li>
+<li class="chapter" data-level="3.5" data-path="first_import.html"><a href="first_import.html#export-de-données"><i class="fa fa-check"></i><b>3.5</b> Export de données</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="first_import.html"><a href="first_import.html#export-de-tableaux-de-données"><i class="fa fa-check"></i><b>3.5.1</b> Export de tableaux de données</a></li>
+<li class="chapter" data-level="3.5.2" data-path="first_import.html"><a href="first_import.html#sauvegarder-des-objets"><i class="fa fa-check"></i><b>3.5.2</b> Sauvegarder des objets</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="first-import.html"><a href="first-import.html#exercices-2"><i class="fa fa-check"></i><b>4.6</b> Exercices</a><ul>
-<li class="chapter" data-level="4.6.1" data-path="first-import.html"><a href="first-import.html#sujet-2"><i class="fa fa-check"></i><b>4.6.1</b> Sujet</a></li>
-<li class="chapter" data-level="4.6.2" data-path="first-import.html"><a href="first-import.html#correction-2"><i class="fa fa-check"></i><b>4.6.2</b> Correction</a></li>
+<li class="chapter" data-level="3.6" data-path="first_import.html"><a href="first_import.html#exercices-2"><i class="fa fa-check"></i><b>3.6</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="first_import.html"><a href="first_import.html#sujet-2"><i class="fa fa-check"></i><b>3.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="3.6.2" data-path="first_import.html"><a href="first_import.html#correction-2"><i class="fa fa-check"></i><b>3.6.2</b> Correction</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="first-import.html"><a href="first-import.html#testez-vos-connaissances-2"><i class="fa fa-check"></i><b>4.7</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="3.7" data-path="first_import.html"><a href="first_import.html#testez-vos-connaissances-2"><i class="fa fa-check"></i><b>3.7</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="manipulation-objet.html"><a href="manipulation-objet.html"><i class="fa fa-check"></i><b>5</b> Manipulation des objets</a><ul>
-<li class="chapter" data-level="5.1" data-path="manipulation-objet.html"><a href="manipulation-objet.html#liste"><i class="fa fa-check"></i><b>5.1</b> Liste</a></li>
-<li class="chapter" data-level="5.2" data-path="manipulation-objet.html"><a href="manipulation-objet.html#matrice"><i class="fa fa-check"></i><b>5.2</b> Matrice</a></li>
-<li class="chapter" data-level="5.3" data-path="manipulation-objet.html"><a href="manipulation-objet.html#data-frame"><i class="fa fa-check"></i><b>5.3</b> Data frame</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="manipulation-objet.html"><a href="manipulation-objet.html#indexations-simples"><i class="fa fa-check"></i><b>5.3.1</b> Indexations simples</a></li>
-<li class="chapter" data-level="5.3.2" data-path="manipulation-objet.html"><a href="manipulation-objet.html#indexations-avec-des-booléens"><i class="fa fa-check"></i><b>5.3.2</b> Indexations avec des booléens</a></li>
-<li class="chapter" data-level="5.3.3" data-path="manipulation-objet.html"><a href="manipulation-objet.html#filtre-et-sélection-dans-un-data-frame"><i class="fa fa-check"></i><b>5.3.3</b> Filtre et sélection dans un data frame</a></li>
-<li class="chapter" data-level="5.3.4" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercices-3"><i class="fa fa-check"></i><b>5.3.4</b> Exercices</a></li>
-<li class="chapter" data-level="5.3.5" data-path="manipulation-objet.html"><a href="manipulation-objet.html#trier-un-data-frame"><i class="fa fa-check"></i><b>5.3.5</b> Trier un data frame</a></li>
-<li class="chapter" data-level="5.3.6" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercice"><i class="fa fa-check"></i><b>5.3.6</b> Exercice</a></li>
-<li class="chapter" data-level="5.3.7" data-path="manipulation-objet.html"><a href="manipulation-objet.html#agréger-des-données"><i class="fa fa-check"></i><b>5.3.7</b> Agréger des données</a></li>
-<li class="chapter" data-level="5.3.8" data-path="manipulation-objet.html"><a href="manipulation-objet.html#exercice-1"><i class="fa fa-check"></i><b>5.3.8</b> Exercice</a></li>
+<li class="chapter" data-level="4" data-path="manipulation_objet.html"><a href="manipulation_objet.html"><i class="fa fa-check"></i><b>4</b> Manipulation des objets</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="manipulation_objet.html"><a href="manipulation_objet.html#liste"><i class="fa fa-check"></i><b>4.1</b> Liste</a></li>
+<li class="chapter" data-level="4.2" data-path="manipulation_objet.html"><a href="manipulation_objet.html#matrice"><i class="fa fa-check"></i><b>4.2</b> Matrice</a></li>
+<li class="chapter" data-level="4.3" data-path="manipulation_objet.html"><a href="manipulation_objet.html#data-frame"><i class="fa fa-check"></i><b>4.3</b> Data frame</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="manipulation_objet.html"><a href="manipulation_objet.html#indexations-simples"><i class="fa fa-check"></i><b>4.3.1</b> Indexations simples</a></li>
+<li class="chapter" data-level="4.3.2" data-path="manipulation_objet.html"><a href="manipulation_objet.html#indexations-avec-des-booléens"><i class="fa fa-check"></i><b>4.3.2</b> Indexations avec des booléens</a></li>
+<li class="chapter" data-level="4.3.3" data-path="manipulation_objet.html"><a href="manipulation_objet.html#filtre-et-sélection-dans-un-data-frame"><i class="fa fa-check"></i><b>4.3.3</b> Filtre et sélection dans un data frame</a></li>
+<li class="chapter" data-level="4.3.4" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercices-3"><i class="fa fa-check"></i><b>4.3.4</b> Exercices</a></li>
+<li class="chapter" data-level="4.3.5" data-path="manipulation_objet.html"><a href="manipulation_objet.html#trier-un-data-frame"><i class="fa fa-check"></i><b>4.3.5</b> Trier un data frame</a></li>
+<li class="chapter" data-level="4.3.6" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercice"><i class="fa fa-check"></i><b>4.3.6</b> Exercice</a></li>
+<li class="chapter" data-level="4.3.7" data-path="manipulation_objet.html"><a href="manipulation_objet.html#agréger-des-données"><i class="fa fa-check"></i><b>4.3.7</b> Agréger des données</a></li>
+<li class="chapter" data-level="4.3.8" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercice-1"><i class="fa fa-check"></i><b>4.3.8</b> Exercice</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="manipulation-objet.html"><a href="manipulation-objet.html#testez-vos-connaissances-3"><i class="fa fa-check"></i><b>5.4</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulation_objet.html"><a href="manipulation_objet.html#testez-vos-connaissances-3"><i class="fa fa-check"></i><b>4.4</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="graphique.html"><a href="graphique.html"><i class="fa fa-check"></i><b>6</b> Représentation Graphique</a><ul>
-<li class="chapter" data-level="6.1" data-path="graphique.html"><a href="graphique.html#les-fenêtres-graphiques"><i class="fa fa-check"></i><b>6.1</b> Les fenêtres graphiques</a></li>
-<li class="chapter" data-level="6.2" data-path="graphique.html"><a href="graphique.html#les-fonctions-de-tracé-de-bas-niveau"><i class="fa fa-check"></i><b>6.2</b> Les fonctions de tracé de bas niveau</a></li>
-<li class="chapter" data-level="6.3" data-path="graphique.html"><a href="graphique.html#personnaliser-des-éléments-graphiques"><i class="fa fa-check"></i><b>6.3</b> Personnaliser des éléments graphiques</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="graphique.html"><a href="graphique.html#mise-en-forme"><i class="fa fa-check"></i><b>6.3.1</b> Mise en forme</a></li>
-<li class="chapter" data-level="6.3.2" data-path="graphique.html"><a href="graphique.html#gestion-des-couleurs"><i class="fa fa-check"></i><b>6.3.2</b> Gestion des couleurs</a></li>
+<li class="chapter" data-level="5" data-path="graphique.html"><a href="graphique.html"><i class="fa fa-check"></i><b>5</b> Représentation Graphique</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="graphique.html"><a href="graphique.html#les-fenêtres-graphiques"><i class="fa fa-check"></i><b>5.1</b> Les fenêtres graphiques</a></li>
+<li class="chapter" data-level="5.2" data-path="graphique.html"><a href="graphique.html#les-fonctions-de-tracé-de-bas-niveau"><i class="fa fa-check"></i><b>5.2</b> Les fonctions de tracé de bas niveau</a></li>
+<li class="chapter" data-level="5.3" data-path="graphique.html"><a href="graphique.html#personnaliser-des-éléments-graphiques"><i class="fa fa-check"></i><b>5.3</b> Personnaliser des éléments graphiques</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="graphique.html"><a href="graphique.html#mise-en-forme"><i class="fa fa-check"></i><b>5.3.1</b> Mise en forme</a></li>
+<li class="chapter" data-level="5.3.2" data-path="graphique.html"><a href="graphique.html#gestion-des-couleurs"><i class="fa fa-check"></i><b>5.3.2</b> Gestion des couleurs</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="graphique.html"><a href="graphique.html#type-de-graphique"><i class="fa fa-check"></i><b>6.4</b> Type de graphique</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="graphique.html"><a href="graphique.html#boxplot"><i class="fa fa-check"></i><b>6.4.1</b> Boxplot</a></li>
-<li class="chapter" data-level="6.4.2" data-path="graphique.html"><a href="graphique.html#histogramme"><i class="fa fa-check"></i><b>6.4.2</b> Histogramme</a></li>
-<li class="chapter" data-level="6.4.3" data-path="graphique.html"><a href="graphique.html#diagramme-en-circulaire"><i class="fa fa-check"></i><b>6.4.3</b> Diagramme en circulaire</a></li>
-<li class="chapter" data-level="6.4.4" data-path="graphique.html"><a href="graphique.html#diagramme-en-barre"><i class="fa fa-check"></i><b>6.4.4</b> Diagramme en barre</a></li>
-<li class="chapter" data-level="6.4.5" data-path="graphique.html"><a href="graphique.html#nuage-de-points"><i class="fa fa-check"></i><b>6.4.5</b> Nuage de points</a></li>
+<li class="chapter" data-level="5.4" data-path="graphique.html"><a href="graphique.html#type-de-graphique"><i class="fa fa-check"></i><b>5.4</b> Type de graphique</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="graphique.html"><a href="graphique.html#boxplot"><i class="fa fa-check"></i><b>5.4.1</b> Boxplot</a></li>
+<li class="chapter" data-level="5.4.2" data-path="graphique.html"><a href="graphique.html#histogramme"><i class="fa fa-check"></i><b>5.4.2</b> Histogramme</a></li>
+<li class="chapter" data-level="5.4.3" data-path="graphique.html"><a href="graphique.html#diagramme-en-circulaire"><i class="fa fa-check"></i><b>5.4.3</b> Diagramme en circulaire</a></li>
+<li class="chapter" data-level="5.4.4" data-path="graphique.html"><a href="graphique.html#diagramme-en-barre"><i class="fa fa-check"></i><b>5.4.4</b> Diagramme en barre</a></li>
+<li class="chapter" data-level="5.4.5" data-path="graphique.html"><a href="graphique.html#nuage-de-points"><i class="fa fa-check"></i><b>5.4.5</b> Nuage de points</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="graphique.html"><a href="graphique.html#exercice-2"><i class="fa fa-check"></i><b>6.5</b> Exercice</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="graphique.html"><a href="graphique.html#sujet-6"><i class="fa fa-check"></i><b>6.5.1</b> Sujet</a></li>
-<li class="chapter" data-level="6.5.2" data-path="graphique.html"><a href="graphique.html#correction-6"><i class="fa fa-check"></i><b>6.5.2</b> Correction</a></li>
+<li class="chapter" data-level="5.5" data-path="graphique.html"><a href="graphique.html#exercice-2"><i class="fa fa-check"></i><b>5.5</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="graphique.html"><a href="graphique.html#sujet-6"><i class="fa fa-check"></i><b>5.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="5.5.2" data-path="graphique.html"><a href="graphique.html#correction-6"><i class="fa fa-check"></i><b>5.5.2</b> Correction</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="graphique.html"><a href="graphique.html#aller-plus-loin"><i class="fa fa-check"></i><b>6.6</b> Aller plus loin</a></li>
-<li class="chapter" data-level="6.7" data-path="graphique.html"><a href="graphique.html#testez-vos-connaissances-4"><i class="fa fa-check"></i><b>6.7</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="5.6" data-path="graphique.html"><a href="graphique.html#aller-plus-loin"><i class="fa fa-check"></i><b>5.6</b> Aller plus loin</a></li>
+<li class="chapter" data-level="5.7" data-path="graphique.html"><a href="graphique.html#testez-vos-connaissances-4"><i class="fa fa-check"></i><b>5.7</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="algo.html"><a href="algo.html"><i class="fa fa-check"></i><b>7</b> Algorithme</a><ul>
-<li class="chapter" data-level="7.1" data-path="algo.html"><a href="algo.html#construire-une-fonction"><i class="fa fa-check"></i><b>7.1</b> Construire une fonction</a></li>
-<li class="chapter" data-level="7.2" data-path="algo.html"><a href="algo.html#construire-une-structure-conditionnelle"><i class="fa fa-check"></i><b>7.2</b> Construire une structure conditionnelle</a></li>
-<li class="chapter" data-level="7.3" data-path="algo.html"><a href="algo.html#construire-une-boucle"><i class="fa fa-check"></i><b>7.3</b> Construire une boucle</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="algo.html"><a href="algo.html#la-boucle-for"><i class="fa fa-check"></i><b>7.3.1</b> La boucle <code>for</code></a></li>
-<li class="chapter" data-level="7.3.2" data-path="algo.html"><a href="algo.html#la-boucle-while"><i class="fa fa-check"></i><b>7.3.2</b> La boucle <code>while</code></a></li>
+<li class="chapter" data-level="6" data-path="algo.html"><a href="algo.html"><i class="fa fa-check"></i><b>6</b> Algorithme</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="algo.html"><a href="algo.html#construire-une-fonction"><i class="fa fa-check"></i><b>6.1</b> Construire une fonction</a></li>
+<li class="chapter" data-level="6.2" data-path="algo.html"><a href="algo.html#construire-une-structure-conditionnelle"><i class="fa fa-check"></i><b>6.2</b> Construire une structure conditionnelle</a></li>
+<li class="chapter" data-level="6.3" data-path="algo.html"><a href="algo.html#construire-une-boucle"><i class="fa fa-check"></i><b>6.3</b> Construire une boucle</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="algo.html"><a href="algo.html#la-boucle-for"><i class="fa fa-check"></i><b>6.3.1</b> La boucle <code>for</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="algo.html"><a href="algo.html#la-boucle-while"><i class="fa fa-check"></i><b>6.3.2</b> La boucle <code>while</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="algo.html"><a href="algo.html#exercice-3"><i class="fa fa-check"></i><b>7.4</b> Exercice</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="algo.html"><a href="algo.html#sujet-7"><i class="fa fa-check"></i><b>7.4.1</b> Sujet</a></li>
-<li class="chapter" data-level="7.4.2" data-path="algo.html"><a href="algo.html#correction-7"><i class="fa fa-check"></i><b>7.4.2</b> Correction</a></li>
+<li class="chapter" data-level="6.4" data-path="algo.html"><a href="algo.html#exercice-3"><i class="fa fa-check"></i><b>6.4</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="algo.html"><a href="algo.html#sujet-7"><i class="fa fa-check"></i><b>6.4.1</b> Sujet</a></li>
+<li class="chapter" data-level="6.4.2" data-path="algo.html"><a href="algo.html#correction-7"><i class="fa fa-check"></i><b>6.4.2</b> Correction</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="algo.html"><a href="algo.html#testez-vos-connaissances-5"><i class="fa fa-check"></i><b>7.5</b> Testez vos connaissances !</a></li>
+<li class="chapter" data-level="6.5" data-path="algo.html"><a href="algo.html#testez-vos-connaissances-5"><i class="fa fa-check"></i><b>6.5</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="apply.html"><a href="apply.html"><i class="fa fa-check"></i><b>8</b> Les fonctions apply</a><ul>
-<li class="chapter" data-level="8.1" data-path="apply.html"><a href="apply.html#fonction-apply"><i class="fa fa-check"></i><b>8.1</b> Fonction apply</a></li>
-<li class="chapter" data-level="8.2" data-path="apply.html"><a href="apply.html#fonction-lapply"><i class="fa fa-check"></i><b>8.2</b> Fonction lapply</a></li>
-<li class="chapter" data-level="8.3" data-path="apply.html"><a href="apply.html#fonction-sapply"><i class="fa fa-check"></i><b>8.3</b> Fonction sapply</a></li>
-<li class="chapter" data-level="8.4" data-path="apply.html"><a href="apply.html#fonction-tapply"><i class="fa fa-check"></i><b>8.4</b> Fonction tapply</a></li>
-<li class="chapter" data-level="8.5" data-path="apply.html"><a href="apply.html#exercice-4"><i class="fa fa-check"></i><b>8.5</b> Exercice</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="apply.html"><a href="apply.html#sujet-8"><i class="fa fa-check"></i><b>8.5.1</b> Sujet</a></li>
-<li class="chapter" data-level="8.5.2" data-path="apply.html"><a href="apply.html#correction-8"><i class="fa fa-check"></i><b>8.5.2</b> Correction</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>9</b> Manipuler les données avec dplyr</a><ul>
-<li class="chapter" data-level="9.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-slice"><i class="fa fa-check"></i><b>9.1</b> La fonction <code>slice</code></a></li>
-<li class="chapter" data-level="9.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-filter"><i class="fa fa-check"></i><b>9.2</b> La fonction <code>filter</code></a></li>
-<li class="chapter" data-level="9.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-select"><i class="fa fa-check"></i><b>9.3</b> La fonction <code>select</code></a></li>
-<li class="chapter" data-level="9.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-arrange"><i class="fa fa-check"></i><b>9.4</b> La fonction <code>arrange</code></a></li>
-<li class="chapter" data-level="9.5" data-path="dplyr.html"><a href="dplyr.html#enchaîner-les-fonctions-avec-le-pipe"><i class="fa fa-check"></i><b>9.5</b> Enchaîner les fonctions avec le <em>pipe</em></a></li>
-<li class="chapter" data-level="9.6" data-path="dplyr.html"><a href="dplyr.html#la-fonction-group_by"><i class="fa fa-check"></i><b>9.6</b> La fonction <code>group_by</code></a></li>
-<li class="chapter" data-level="9.7" data-path="dplyr.html"><a href="dplyr.html#la-fonction-summarise"><i class="fa fa-check"></i><b>9.7</b> La fonction <code>summarise</code></a></li>
-<li class="chapter" data-level="9.8" data-path="dplyr.html"><a href="dplyr.html#autres-fonctions-utiles-de-dplyr"><i class="fa fa-check"></i><b>9.8</b> Autres fonctions utiles de dplyr</a><ul>
-<li class="chapter" data-level="9.8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-rename"><i class="fa fa-check"></i><b>9.8.1</b> La fonction <code>rename</code></a></li>
-<li class="chapter" data-level="9.8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-mutate"><i class="fa fa-check"></i><b>9.8.2</b> La fonction <code>mutate</code></a></li>
-<li class="chapter" data-level="9.8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-distinct"><i class="fa fa-check"></i><b>9.8.3</b> La fonction <code>distinct</code></a></li>
-<li class="chapter" data-level="9.8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-case_when"><i class="fa fa-check"></i><b>9.8.4</b> La fonction <code>case_when</code></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="chaines.html"><a href="chaines.html"><i class="fa fa-check"></i><b>10</b> Manipuler le texte et les dates</a><ul>
-<li class="chapter" data-level="10.1" data-path="chaines.html"><a href="chaines.html#manipulation-des-chaînes-de-caractères"><i class="fa fa-check"></i><b>10.1</b> Manipulation des chaînes de caractères</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="chaines.html"><a href="chaines.html#concaténer-des-chaînes"><i class="fa fa-check"></i><b>10.1.1</b> Concaténer des chaînes</a></li>
-<li class="chapter" data-level="10.1.2" data-path="chaines.html"><a href="chaines.html#majuscule-et-minuscule"><i class="fa fa-check"></i><b>10.1.2</b> Majuscule et minuscule</a></li>
-<li class="chapter" data-level="10.1.3" data-path="chaines.html"><a href="chaines.html#longueur-dune-chaîne"><i class="fa fa-check"></i><b>10.1.3</b> Longueur d’une chaîne</a></li>
-<li class="chapter" data-level="10.1.4" data-path="chaines.html"><a href="chaines.html#extraction-de-sous-chaînes"><i class="fa fa-check"></i><b>10.1.4</b> Extraction de sous-chaînes</a></li>
-<li class="chapter" data-level="10.1.5" data-path="chaines.html"><a href="chaines.html#remplacement-de-chaînes"><i class="fa fa-check"></i><b>10.1.5</b> Remplacement de chaînes</a></li>
-<li class="chapter" data-level="10.1.6" data-path="chaines.html"><a href="chaines.html#décomposition-dune-chaîne"><i class="fa fa-check"></i><b>10.1.6</b> Décomposition d’une chaîne</a></li>
-<li class="chapter" data-level="10.1.7" data-path="chaines.html"><a href="chaines.html#recherche-de-sous-chaîne"><i class="fa fa-check"></i><b>10.1.7</b> Recherche de sous-chaîne</a></li>
-<li class="chapter" data-level="10.1.8" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-1"><i class="fa fa-check"></i><b>10.1.8</b> Aller plus loin</a></li>
-</ul></li>
-<li class="chapter" data-level="10.2" data-path="chaines.html"><a href="chaines.html#manipulation-des-dates"><i class="fa fa-check"></i><b>10.2</b> Manipulation des dates</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="chaines.html"><a href="chaines.html#les-dates"><i class="fa fa-check"></i><b>10.2.1</b> Les dates</a></li>
-<li class="chapter" data-level="10.2.2" data-path="chaines.html"><a href="chaines.html#lhorloge"><i class="fa fa-check"></i><b>10.2.2</b> L’horloge</a></li>
-<li class="chapter" data-level="10.2.3" data-path="chaines.html"><a href="chaines.html#calcul-sur-les-dates"><i class="fa fa-check"></i><b>10.2.3</b> Calcul sur les dates</a></li>
-<li class="chapter" data-level="10.2.4" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-2"><i class="fa fa-check"></i><b>10.2.4</b> Aller plus loin</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="chaines.html"><a href="chaines.html#testez-vos-connaissances-6"><i class="fa fa-check"></i><b>10.3</b> Testez vos connaissances !</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="jointures.html"><a href="jointures.html"><i class="fa fa-check"></i><b>11</b> Jointures</a><ul>
-<li class="chapter" data-level="11.1" data-path="jointures.html"><a href="jointures.html#principe-1"><i class="fa fa-check"></i><b>11.1</b> Principe</a></li>
-<li class="chapter" data-level="11.2" data-path="jointures.html"><a href="jointures.html#types-de-jointures"><i class="fa fa-check"></i><b>11.2</b> Types de jointures</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="jointures.html"><a href="jointures.html#left-join"><i class="fa fa-check"></i><b>11.2.1</b> Left Join</a></li>
-<li class="chapter" data-level="11.2.2" data-path="jointures.html"><a href="jointures.html#right-join"><i class="fa fa-check"></i><b>11.2.2</b> Right Join</a></li>
-<li class="chapter" data-level="11.2.3" data-path="jointures.html"><a href="jointures.html#inner-join"><i class="fa fa-check"></i><b>11.2.3</b> Inner Join</a></li>
-<li class="chapter" data-level="11.2.4" data-path="jointures.html"><a href="jointures.html#full-join"><i class="fa fa-check"></i><b>11.2.4</b> Full Join</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="jointures.html"><a href="jointures.html#exercice-5"><i class="fa fa-check"></i><b>11.3</b> Exercice</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="jointures.html"><a href="jointures.html#sujet-9"><i class="fa fa-check"></i><b>11.3.1</b> Sujet</a></li>
-<li class="chapter" data-level="11.3.2" data-path="jointures.html"><a href="jointures.html#correction-9"><i class="fa fa-check"></i><b>11.3.2</b> Correction</a></li>
+<li class="chapter" data-level="7" data-path="apply.html"><a href="apply.html"><i class="fa fa-check"></i><b>7</b> Les fonctions apply</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="apply.html"><a href="apply.html#fonction-apply"><i class="fa fa-check"></i><b>7.1</b> Fonction apply</a></li>
+<li class="chapter" data-level="7.2" data-path="apply.html"><a href="apply.html#fonction-lapply"><i class="fa fa-check"></i><b>7.2</b> Fonction lapply</a></li>
+<li class="chapter" data-level="7.3" data-path="apply.html"><a href="apply.html#fonction-sapply"><i class="fa fa-check"></i><b>7.3</b> Fonction sapply</a></li>
+<li class="chapter" data-level="7.4" data-path="apply.html"><a href="apply.html#fonction-tapply"><i class="fa fa-check"></i><b>7.4</b> Fonction tapply</a></li>
+<li class="chapter" data-level="7.5" data-path="apply.html"><a href="apply.html#exercice-4"><i class="fa fa-check"></i><b>7.5</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="apply.html"><a href="apply.html#sujet-8"><i class="fa fa-check"></i><b>7.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="7.5.2" data-path="apply.html"><a href="apply.html#correction-8"><i class="fa fa-check"></i><b>7.5.2</b> Correction</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="express.html"><a href="express.html"><i class="fa fa-check"></i><b>12</b> R-Express 30’ ☕</a><ul>
-<li class="chapter" data-level="12.1" data-path="express.html"><a href="express.html#aller-hop-importez-des-données"><i class="fa fa-check"></i><b>12.1</b> Aller hop ! Importez des données</a></li>
-<li class="chapter" data-level="12.2" data-path="express.html"><a href="express.html#manipulez-votre-tableau"><i class="fa fa-check"></i><b>12.2</b> Manipulez votre tableau</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="express.html"><a href="express.html#dans-une-vue"><i class="fa fa-check"></i><b>12.2.1</b> Dans une vue</a></li>
-<li class="chapter" data-level="12.2.2" data-path="express.html"><a href="express.html#avec-dplyr"><i class="fa fa-check"></i><b>12.2.2</b> Avec <code>dplyr</code></a></li>
-<li class="chapter" data-level="12.2.3" data-path="express.html"><a href="express.html#sélectionner-certaines-colonnes"><i class="fa fa-check"></i><b>12.2.3</b> Sélectionner certaines colonnes</a></li>
-<li class="chapter" data-level="12.2.4" data-path="express.html"><a href="express.html#ajouter-des-filtres"><i class="fa fa-check"></i><b>12.2.4</b> Ajouter des filtres</a></li>
-<li class="chapter" data-level="12.2.5" data-path="express.html"><a href="express.html#trier-un-tableau"><i class="fa fa-check"></i><b>12.2.5</b> Trier un tableau</a></li>
+<li class="chapter" data-level="8" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>8</b> Manipuler les données avec dplyr</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-slice"><i class="fa fa-check"></i><b>8.1</b> La fonction <code>slice</code></a></li>
+<li class="chapter" data-level="8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-filter"><i class="fa fa-check"></i><b>8.2</b> La fonction <code>filter</code></a></li>
+<li class="chapter" data-level="8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-select"><i class="fa fa-check"></i><b>8.3</b> La fonction <code>select</code></a></li>
+<li class="chapter" data-level="8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-arrange"><i class="fa fa-check"></i><b>8.4</b> La fonction <code>arrange</code></a></li>
+<li class="chapter" data-level="8.5" data-path="dplyr.html"><a href="dplyr.html#enchaîner-les-fonctions-avec-le-pipe"><i class="fa fa-check"></i><b>8.5</b> Enchaîner les fonctions avec le <em>pipe</em></a></li>
+<li class="chapter" data-level="8.6" data-path="dplyr.html"><a href="dplyr.html#la-fonction-group_by"><i class="fa fa-check"></i><b>8.6</b> La fonction <code>group_by</code></a></li>
+<li class="chapter" data-level="8.7" data-path="dplyr.html"><a href="dplyr.html#la-fonction-summarise"><i class="fa fa-check"></i><b>8.7</b> La fonction <code>summarise</code></a></li>
+<li class="chapter" data-level="8.8" data-path="dplyr.html"><a href="dplyr.html#autres-fonctions-utiles-de-dplyr"><i class="fa fa-check"></i><b>8.8</b> Autres fonctions utiles de dplyr</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-rename"><i class="fa fa-check"></i><b>8.8.1</b> La fonction <code>rename</code></a></li>
+<li class="chapter" data-level="8.8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-mutate"><i class="fa fa-check"></i><b>8.8.2</b> La fonction <code>mutate</code></a></li>
+<li class="chapter" data-level="8.8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-distinct"><i class="fa fa-check"></i><b>8.8.3</b> La fonction <code>distinct</code></a></li>
+<li class="chapter" data-level="8.8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-case_when"><i class="fa fa-check"></i><b>8.8.4</b> La fonction <code>case_when</code></a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="express.html"><a href="express.html#des-graphiques-en-3-clics-avec-esquisse"><i class="fa fa-check"></i><b>12.3</b> Des graphiques en 3 clics avec <code>esquisse</code></a></li>
-<li class="chapter" data-level="12.4" data-path="express.html"><a href="express.html#en-bref"><i class="fa fa-check"></i><b>12.4</b> En bref</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="entrainement.html"><a href="entrainement.html"><i class="fa fa-check"></i><b>13</b> S’entrainer</a><ul>
-<li class="chapter" data-level="13.1" data-path="entrainement.html"><a href="entrainement.html#tp1"><i class="fa fa-check"></i><b>13.1</b> TP1</a></li>
-<li class="chapter" data-level="13.2" data-path="entrainement.html"><a href="entrainement.html#tp2"><i class="fa fa-check"></i><b>13.2</b> TP2</a></li>
-<li class="chapter" data-level="13.3" data-path="entrainement.html"><a href="entrainement.html#tp3"><i class="fa fa-check"></i><b>13.3</b> TP3</a></li>
-<li class="chapter" data-level="13.4" data-path="entrainement.html"><a href="entrainement.html#tp4"><i class="fa fa-check"></i><b>13.4</b> TP4</a></li>
-<li class="chapter" data-level="13.5" data-path="entrainement.html"><a href="entrainement.html#tp5---chercher-lerreur"><i class="fa fa-check"></i><b>13.5</b> TP5 - Chercher l’erreur</a></li>
-<li class="chapter" data-level="13.6" data-path="entrainement.html"><a href="entrainement.html#tp6---analyses-statistiques"><i class="fa fa-check"></i><b>13.6</b> TP6 - Analyses statistiques</a></li>
-<li class="chapter" data-level="13.7" data-path="entrainement.html"><a href="entrainement.html#tp7---analyse-de-film"><i class="fa fa-check"></i><b>13.7</b> TP7 - Analyse de film</a></li>
+<li class="chapter" data-level="9" data-path="chaines.html"><a href="chaines.html"><i class="fa fa-check"></i><b>9</b> Manipuler le texte et les dates</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chaines.html"><a href="chaines.html#manipulation-des-chaînes-de-caractères"><i class="fa fa-check"></i><b>9.1</b> Manipulation des chaînes de caractères</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="chaines.html"><a href="chaines.html#concaténer-des-chaînes"><i class="fa fa-check"></i><b>9.1.1</b> Concaténer des chaînes</a></li>
+<li class="chapter" data-level="9.1.2" data-path="chaines.html"><a href="chaines.html#majuscule-et-minuscule"><i class="fa fa-check"></i><b>9.1.2</b> Majuscule et minuscule</a></li>
+<li class="chapter" data-level="9.1.3" data-path="chaines.html"><a href="chaines.html#longueur-dune-chaîne"><i class="fa fa-check"></i><b>9.1.3</b> Longueur d’une chaîne</a></li>
+<li class="chapter" data-level="9.1.4" data-path="chaines.html"><a href="chaines.html#extraction-de-sous-chaînes"><i class="fa fa-check"></i><b>9.1.4</b> Extraction de sous-chaînes</a></li>
+<li class="chapter" data-level="9.1.5" data-path="chaines.html"><a href="chaines.html#remplacement-de-chaînes"><i class="fa fa-check"></i><b>9.1.5</b> Remplacement de chaînes</a></li>
+<li class="chapter" data-level="9.1.6" data-path="chaines.html"><a href="chaines.html#décomposition-dune-chaîne"><i class="fa fa-check"></i><b>9.1.6</b> Décomposition d’une chaîne</a></li>
+<li class="chapter" data-level="9.1.7" data-path="chaines.html"><a href="chaines.html#recherche-de-sous-chaîne"><i class="fa fa-check"></i><b>9.1.7</b> Recherche de sous-chaîne</a></li>
+<li class="chapter" data-level="9.1.8" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-1"><i class="fa fa-check"></i><b>9.1.8</b> Aller plus loin</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="all-dataset.html"><a href="all-dataset.html"><i class="fa fa-check"></i><b>14</b> Jeux de données utilisés</a><ul>
-<li class="chapter" data-level="14.1" data-path="all-dataset.html"><a href="all-dataset.html#iris"><i class="fa fa-check"></i><b>14.1</b> Iris 🌺</a></li>
-<li class="chapter" data-level="14.2" data-path="all-dataset.html"><a href="all-dataset.html#histoire-de-vie-hdv2003"><i class="fa fa-check"></i><b>14.2</b> Histoire de vie (hdv2003) 🗨</a></li>
-<li class="chapter" data-level="14.3" data-path="all-dataset.html"><a href="all-dataset.html#nyc-flights-2013"><i class="fa fa-check"></i><b>14.3</b> NYC Flights 2013 ✈</a><ul>
-<li class="chapter" data-level="14.3.1" data-path="all-dataset.html"><a href="all-dataset.html#flights"><i class="fa fa-check"></i><b>14.3.1</b> Flights</a></li>
-<li class="chapter" data-level="14.3.2" data-path="all-dataset.html"><a href="all-dataset.html#airlines"><i class="fa fa-check"></i><b>14.3.2</b> Airlines</a></li>
-<li class="chapter" data-level="14.3.3" data-path="all-dataset.html"><a href="all-dataset.html#airports"><i class="fa fa-check"></i><b>14.3.3</b> Airports</a></li>
-<li class="chapter" data-level="14.3.4" data-path="all-dataset.html"><a href="all-dataset.html#weather"><i class="fa fa-check"></i><b>14.3.4</b> Weather</a></li>
-<li class="chapter" data-level="14.3.5" data-path="all-dataset.html"><a href="all-dataset.html#planes"><i class="fa fa-check"></i><b>14.3.5</b> Planes</a></li>
+<li class="chapter" data-level="9.2" data-path="chaines.html"><a href="chaines.html#manipulation-des-dates"><i class="fa fa-check"></i><b>9.2</b> Manipulation des dates</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="chaines.html"><a href="chaines.html#les-dates"><i class="fa fa-check"></i><b>9.2.1</b> Les dates</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chaines.html"><a href="chaines.html#lhorloge"><i class="fa fa-check"></i><b>9.2.2</b> L’horloge</a></li>
+<li class="chapter" data-level="9.2.3" data-path="chaines.html"><a href="chaines.html#calcul-sur-les-dates"><i class="fa fa-check"></i><b>9.2.3</b> Calcul sur les dates</a></li>
+<li class="chapter" data-level="9.2.4" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-2"><i class="fa fa-check"></i><b>9.2.4</b> Aller plus loin</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="all-dataset.html"><a href="all-dataset.html#google"><i class="fa fa-check"></i><b>14.4</b> Google 📱</a></li>
-<li class="chapter" data-level="14.5" data-path="all-dataset.html"><a href="all-dataset.html#pokemon"><i class="fa fa-check"></i><b>14.5</b> Pokemon 🐾</a></li>
-<li class="chapter" data-level="14.6" data-path="all-dataset.html"><a href="all-dataset.html#star-wars"><i class="fa fa-check"></i><b>14.6</b> Star Wars 🎬</a></li>
-<li class="chapter" data-level="14.7" data-path="all-dataset.html"><a href="all-dataset.html#amongus"><i class="fa fa-check"></i><b>14.7</b> AmongUs 🔦</a></li>
-<li class="chapter" data-level="14.8" data-path="all-dataset.html"><a href="all-dataset.html#nba"><i class="fa fa-check"></i><b>14.8</b> NBA 🏀</a></li>
-<li class="chapter" data-level="14.9" data-path="all-dataset.html"><a href="all-dataset.html#students"><i class="fa fa-check"></i><b>14.9</b> Students 🎓</a></li>
-<li class="chapter" data-level="14.10" data-path="all-dataset.html"><a href="all-dataset.html#tv-shows"><i class="fa fa-check"></i><b>14.10</b> TV Shows 📺</a></li>
+<li class="chapter" data-level="9.3" data-path="chaines.html"><a href="chaines.html#testez-vos-connaissances-6"><i class="fa fa-check"></i><b>9.3</b> Testez vos connaissances !</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="biblio.html"><a href="biblio.html"><i class="fa fa-check"></i><b>15</b> Bibliographie</a></li>
+<li class="chapter" data-level="10" data-path="jointures.html"><a href="jointures.html"><i class="fa fa-check"></i><b>10</b> Jointures</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="jointures.html"><a href="jointures.html#principe-1"><i class="fa fa-check"></i><b>10.1</b> Principe</a></li>
+<li class="chapter" data-level="10.2" data-path="jointures.html"><a href="jointures.html#types-de-jointures"><i class="fa fa-check"></i><b>10.2</b> Types de jointures</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="jointures.html"><a href="jointures.html#left-join"><i class="fa fa-check"></i><b>10.2.1</b> Left Join</a></li>
+<li class="chapter" data-level="10.2.2" data-path="jointures.html"><a href="jointures.html#right-join"><i class="fa fa-check"></i><b>10.2.2</b> Right Join</a></li>
+<li class="chapter" data-level="10.2.3" data-path="jointures.html"><a href="jointures.html#inner-join"><i class="fa fa-check"></i><b>10.2.3</b> Inner Join</a></li>
+<li class="chapter" data-level="10.2.4" data-path="jointures.html"><a href="jointures.html#full-join"><i class="fa fa-check"></i><b>10.2.4</b> Full Join</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="jointures.html"><a href="jointures.html#exercice-5"><i class="fa fa-check"></i><b>10.3</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="jointures.html"><a href="jointures.html#sujet-9"><i class="fa fa-check"></i><b>10.3.1</b> Sujet</a></li>
+<li class="chapter" data-level="10.3.2" data-path="jointures.html"><a href="jointures.html#correction-9"><i class="fa fa-check"></i><b>10.3.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="express.html"><a href="express.html"><i class="fa fa-check"></i><b>11</b> R-Express 30’ ☕</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="express.html"><a href="express.html#aller-hop-importez-des-données"><i class="fa fa-check"></i><b>11.1</b> Aller hop ! Importez des données</a></li>
+<li class="chapter" data-level="11.2" data-path="express.html"><a href="express.html#manipulez-votre-tableau"><i class="fa fa-check"></i><b>11.2</b> Manipulez votre tableau</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="express.html"><a href="express.html#dans-une-vue"><i class="fa fa-check"></i><b>11.2.1</b> Dans une vue</a></li>
+<li class="chapter" data-level="11.2.2" data-path="express.html"><a href="express.html#avec-dplyr"><i class="fa fa-check"></i><b>11.2.2</b> Avec <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.2.3" data-path="express.html"><a href="express.html#sélectionner-certaines-colonnes"><i class="fa fa-check"></i><b>11.2.3</b> Sélectionner certaines colonnes</a></li>
+<li class="chapter" data-level="11.2.4" data-path="express.html"><a href="express.html#ajouter-des-filtres"><i class="fa fa-check"></i><b>11.2.4</b> Ajouter des filtres</a></li>
+<li class="chapter" data-level="11.2.5" data-path="express.html"><a href="express.html#trier-un-tableau"><i class="fa fa-check"></i><b>11.2.5</b> Trier un tableau</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="express.html"><a href="express.html#des-graphiques-en-3-clics-avec-esquisse"><i class="fa fa-check"></i><b>11.3</b> Des graphiques en 3 clics avec <code>esquisse</code></a></li>
+<li class="chapter" data-level="11.4" data-path="express.html"><a href="express.html#en-bref"><i class="fa fa-check"></i><b>11.4</b> En bref</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="entrainement.html"><a href="entrainement.html"><i class="fa fa-check"></i><b>12</b> S’entrainer</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="entrainement.html"><a href="entrainement.html#tp1"><i class="fa fa-check"></i><b>12.1</b> TP1</a></li>
+<li class="chapter" data-level="12.2" data-path="entrainement.html"><a href="entrainement.html#tp2"><i class="fa fa-check"></i><b>12.2</b> TP2</a></li>
+<li class="chapter" data-level="12.3" data-path="entrainement.html"><a href="entrainement.html#tp3"><i class="fa fa-check"></i><b>12.3</b> TP3</a></li>
+<li class="chapter" data-level="12.4" data-path="entrainement.html"><a href="entrainement.html#tp4"><i class="fa fa-check"></i><b>12.4</b> TP4</a></li>
+<li class="chapter" data-level="12.5" data-path="entrainement.html"><a href="entrainement.html#tp5---chercher-lerreur"><i class="fa fa-check"></i><b>12.5</b> TP5 - Chercher l’erreur</a></li>
+<li class="chapter" data-level="12.6" data-path="entrainement.html"><a href="entrainement.html#tp6---analyses-statistiques"><i class="fa fa-check"></i><b>12.6</b> TP6 - Analyses statistiques</a></li>
+<li class="chapter" data-level="12.7" data-path="entrainement.html"><a href="entrainement.html#tp7---analyse-de-film"><i class="fa fa-check"></i><b>12.7</b> TP7 - Analyse de film</a></li>
+<li class="chapter" data-level="12.8" data-path="entrainement.html"><a href="entrainement.html#tp-formation"><i class="fa fa-check"></i><b>12.8</b> TP Formation</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="entrainement.html"><a href="entrainement.html#création-de-vecteur"><i class="fa fa-check"></i><b>12.8.1</b> Création de vecteur</a></li>
+<li class="chapter" data-level="12.8.2" data-path="entrainement.html"><a href="entrainement.html#manipulation-de-vecteur"><i class="fa fa-check"></i><b>12.8.2</b> Manipulation de vecteur</a></li>
+<li class="chapter" data-level="12.8.3" data-path="entrainement.html"><a href="entrainement.html#simulation-de-vecteur"><i class="fa fa-check"></i><b>12.8.3</b> Simulation de vecteur</a></li>
+<li class="chapter" data-level="12.8.4" data-path="entrainement.html"><a href="entrainement.html#statistique-sur-les-vecteurs"><i class="fa fa-check"></i><b>12.8.4</b> Statistique sur les vecteurs</a></li>
+<li class="chapter" data-level="12.8.5" data-path="entrainement.html"><a href="entrainement.html#représentation-graphique-1"><i class="fa fa-check"></i><b>12.8.5</b> Représentation graphique</a></li>
+<li class="chapter" data-level="12.8.6" data-path="entrainement.html"><a href="entrainement.html#construire-un-dataframe"><i class="fa fa-check"></i><b>12.8.6</b> Construire un dataframe</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="all_dataset.html"><a href="all_dataset.html"><i class="fa fa-check"></i><b>13</b> Jeux de données utilisés</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="all_dataset.html"><a href="all_dataset.html#iris"><i class="fa fa-check"></i><b>13.1</b> Iris 🌺</a></li>
+<li class="chapter" data-level="13.2" data-path="all_dataset.html"><a href="all_dataset.html#histoire-de-vie-hdv2003"><i class="fa fa-check"></i><b>13.2</b> Histoire de vie (hdv2003) 🗨</a></li>
+<li class="chapter" data-level="13.3" data-path="all_dataset.html"><a href="all_dataset.html#nyc-flights-2013"><i class="fa fa-check"></i><b>13.3</b> NYC Flights 2013 ✈</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="all_dataset.html"><a href="all_dataset.html#flights"><i class="fa fa-check"></i><b>13.3.1</b> Flights</a></li>
+<li class="chapter" data-level="13.3.2" data-path="all_dataset.html"><a href="all_dataset.html#airlines"><i class="fa fa-check"></i><b>13.3.2</b> Airlines</a></li>
+<li class="chapter" data-level="13.3.3" data-path="all_dataset.html"><a href="all_dataset.html#airports"><i class="fa fa-check"></i><b>13.3.3</b> Airports</a></li>
+<li class="chapter" data-level="13.3.4" data-path="all_dataset.html"><a href="all_dataset.html#weather"><i class="fa fa-check"></i><b>13.3.4</b> Weather</a></li>
+<li class="chapter" data-level="13.3.5" data-path="all_dataset.html"><a href="all_dataset.html#planes"><i class="fa fa-check"></i><b>13.3.5</b> Planes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="all_dataset.html"><a href="all_dataset.html#google"><i class="fa fa-check"></i><b>13.4</b> Google 📱</a></li>
+<li class="chapter" data-level="13.5" data-path="all_dataset.html"><a href="all_dataset.html#pokemon"><i class="fa fa-check"></i><b>13.5</b> Pokemon 🐾</a></li>
+<li class="chapter" data-level="13.6" data-path="all_dataset.html"><a href="all_dataset.html#star-wars"><i class="fa fa-check"></i><b>13.6</b> Star Wars 🎬</a></li>
+<li class="chapter" data-level="13.7" data-path="all_dataset.html"><a href="all_dataset.html#amongus"><i class="fa fa-check"></i><b>13.7</b> AmongUs 🔦</a></li>
+<li class="chapter" data-level="13.8" data-path="all_dataset.html"><a href="all_dataset.html#nba"><i class="fa fa-check"></i><b>13.8</b> NBA 🏀</a></li>
+<li class="chapter" data-level="13.9" data-path="all_dataset.html"><a href="all_dataset.html#students"><i class="fa fa-check"></i><b>13.9</b> Students 🎓</a></li>
+<li class="chapter" data-level="13.10" data-path="all_dataset.html"><a href="all_dataset.html#tv-shows"><i class="fa fa-check"></i><b>13.10</b> TV Shows 📺</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="biblio.html"><a href="biblio.html"><i class="fa fa-check"></i><b>14</b> Bibliographie</a></li>
 </ul>
 
       </nav>
@@ -351,7 +403,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Apprendre à programmer avec R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -359,8 +411,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dplyr" class="section level1">
-<h1><span class="header-section-number">Chapitre 9</span> Manipuler les données avec dplyr</h1>
+<div id="dplyr" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapitre 8</span> Manipuler les données avec dplyr<a href="dplyr.html#dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Certaines parties de ce chapitre sont extraites du cours de Julien Barnier “Introduction à R et au tidyverse” (<a href="https://juba.github.io/tidyverse" class="uri">https://juba.github.io/tidyverse</a>)</p>
 <p>Le package <code>dplyr</code> est une extension facilitant le traitement et la manipulation de données contenues dans une ou plusieurs tables. Elle propose une syntaxe claire et cohérente. Ses fonctions sont en général plus rapides que leur équivalent sous R de base, elles permettent donc de traiter efficacement des données de grande dimension.</p>
 <p>Les fonctions de ce package peuvent s’appliquer à des tableaux de type <code>data.frame</code> ou <code>tibble</code> (package <code>tibble</code> de tidyverse), et elles retournent systématiquement un `tibble.</p>
@@ -2320,53 +2372,53 @@ Mesa Airlines Inc. 
 </table>
 </div>
 <p>On va charger les trois tables du jeu de données :</p>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="dplyr.html#cb586-1"></a><span class="kw">library</span>(nycflights13)</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="dplyr.html#cb586-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span></code></pre></div>
 <p>Trois objets correspondant aux trois tables ont dû apparaître dans votre environnement.</p>
 <p>On charge le package <code>dplyr</code> :</p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="dplyr.html#cb587-1"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
-<div id="la-fonction-slice" class="section level2">
-<h2><span class="header-section-number">9.1</span> La fonction <code>slice</code></h2>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="dplyr.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div id="la-fonction-slice" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> La fonction <code>slice</code><a href="dplyr.html#la-fonction-slice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>slice</code> sélectionne des lignes du tableau selon leur position. On lui passe un chiffre ou un vecteur de chiffres.</p>
 <p>Si on souhaite sélectionner la 345e ligne du tableau <code>airports</code> :</p>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="dplyr.html#cb588-1"></a><span class="kw">slice</span>(airports, <span class="dv">345</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="dplyr.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice</span>(airports, <span class="dv">345</span>)</span></code></pre></div>
 <p>Si on veut sélectionner les 5 premières lignes :</p>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="dplyr.html#cb589-1"></a><span class="kw">slice</span>(airports, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="dplyr.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice</span>(airports, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
 </div>
-<div id="la-fonction-filter" class="section level2">
-<h2><span class="header-section-number">9.2</span> La fonction <code>filter</code></h2>
+<div id="la-fonction-filter" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> La fonction <code>filter</code><a href="dplyr.html#la-fonction-filter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>filter</code> sélectionne des lignes d’une table selon une condition. On lui passe en paramètre un test, et seules les lignes pour lesquelles ce test renvoie <code>TRUE</code> sont conservées.</p>
 <p>Par exemple, si on veut sélectionner les vols du mois de janvier, on peut filtrer sur la variable <code>month</code> de la manière suivante :</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="dplyr.html#cb590-1"></a><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="dplyr.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>Si on veut uniquement les vols avec un retard au départ (variable <code>dep_delay</code>) compris entre 10 et 15 minutes :</p>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="dplyr.html#cb591-1"></a><span class="kw">filter</span>(flights, dep_delay <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span> <span class="op">&amp;</span><span class="st"> </span>dep_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="dplyr.html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, dep_delay <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> dep_delay <span class="sc">&lt;=</span> <span class="dv">15</span>)</span></code></pre></div>
 <p>On peut également placer des fonctions dans les tests, qui nous permettent par exemple de sélectionner les vols avec la plus grande distance :</p>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="dplyr.html#cb592-1"></a><span class="kw">filter</span>(flights, distance <span class="op">==</span><span class="st"> </span><span class="kw">max</span>(distance))</span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="dplyr.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, distance <span class="sc">==</span> <span class="fu">max</span>(distance))</span></code></pre></div>
 </div>
-<div id="la-fonction-select" class="section level2">
-<h2><span class="header-section-number">9.3</span> La fonction <code>select</code></h2>
+<div id="la-fonction-select" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> La fonction <code>select</code><a href="dplyr.html#la-fonction-select" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>select</code> permet de sélectionner des colonnes d’un tableau de données. Ainsi, si on veut extraire les colonnes <code>lat</code> et <code>lon</code> du tableau airports :</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="dplyr.html#cb593-1"></a><span class="kw">select</span>(airports, lat, lon)</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="dplyr.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(airports, lat, lon)</span></code></pre></div>
 <p>Si on fait précéder le nom d’un <code>-</code>, la colonne est éliminée plutôt que sélectionnée :</p>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="dplyr.html#cb594-1"></a><span class="kw">select</span>(airports, <span class="op">-</span>lat, <span class="op">-</span>lon)</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="dplyr.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(airports, <span class="sc">-</span>lat, <span class="sc">-</span>lon)</span></code></pre></div>
 <p>La syntaxe <code>colonne1:colonne2</code> permet de sélectionner toutes les colonnes situées entre <code>colonne1</code> et <code>colonne2</code> incluses :</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="dplyr.html#cb595-1"></a><span class="kw">select</span>(flights, year<span class="op">:</span>day)</span></code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="dplyr.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(flights, year<span class="sc">:</span>day)</span></code></pre></div>
 <p><code>select</code> peut être utilisée pour réordonner les colonnes d’une table en utilisant la fonction <code>everything()</code>, qui sélectionne l’ensemble des colonnes non encore sélectionnées. Ainsi, si on souhaite faire passer la colonne <code>name</code> en première position de la table <code>airports</code>, on peut faire :</p>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="dplyr.html#cb596-1"></a><span class="kw">select</span>(airports, name, <span class="kw">everything</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="dplyr.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(airports, name, <span class="fu">everything</span>())</span></code></pre></div>
 </div>
-<div id="la-fonction-arrange" class="section level2">
-<h2><span class="header-section-number">9.4</span> La fonction <code>arrange</code></h2>
+<div id="la-fonction-arrange" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> La fonction <code>arrange</code><a href="dplyr.html#la-fonction-arrange" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>arrange</code> réordonne les lignes d’un tableau selon une ou plusieurs colonnes. Ainsi, si on veut trier le tableau <code>flights</code> selon le retard au départ croissant :</p>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="dplyr.html#cb597-1"></a><span class="kw">arrange</span>(flights, dep_delay)</span></code></pre></div>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="dplyr.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(flights, dep_delay)</span></code></pre></div>
 <p>On peut trier selon plusieurs colonnes. Par exemple selon le mois, puis selon le retard au départ :</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="dplyr.html#cb598-1"></a><span class="kw">arrange</span>(flights, month, dep_delay)</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="dplyr.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(flights, month, dep_delay)</span></code></pre></div>
 <p>Si on veut trier selon une colonne par ordre décroissant, on lui applique la fonction <code>desc()</code> :</p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="dplyr.html#cb599-1"></a><span class="kw">arrange</span>(flights, <span class="kw">desc</span>(dep_delay))</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="dplyr.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(flights, <span class="fu">desc</span>(dep_delay))</span></code></pre></div>
 </div>
-<div id="enchaîner-les-fonctions-avec-le-pipe" class="section level2">
-<h2><span class="header-section-number">9.5</span> Enchaîner les fonctions avec le <em>pipe</em></h2>
+<div id="enchaîner-les-fonctions-avec-le-pipe" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Enchaîner les fonctions avec le <em>pipe</em><a href="dplyr.html#enchaîner-les-fonctions-avec-le-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Quand on manipule un tableau de données, il est très fréquent d’enchaîner plusieurs opérations. On va par exemple extraire une sous-population avec <code>filter</code>, sélectionner des colonnes avec <code>select</code> puis trier selon une variable avec <code>arrange</code>, etc.</p>
 <p>Quand on veut enchaîner des opérations, on peut le faire de différentes manières. La première est d’effectuer toutes les opérations en une fois en les “emboîtant” :</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="dplyr.html#cb600-1"></a><span class="kw">arrange</span>(<span class="kw">select</span>(<span class="kw">filter</span>(flights, dest <span class="op">==</span><span class="st"> &quot;LAX&quot;</span>), dep_delay, arr_delay), dep_delay)</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="dplyr.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">select</span>(<span class="fu">filter</span>(flights, dest <span class="sc">==</span> <span class="st">&quot;LAX&quot;</span>), dep_delay, arr_delay), dep_delay)</span></code></pre></div>
 <p>Cette notation a plusieurs inconvénients :</p>
 <ul>
 <li>elle est peu lisible</li>
@@ -2374,106 +2426,106 @@ Mesa Airlines Inc. 
 <li>Il est difficile de voir quel paramètre se rapporte à quelle fonction</li>
 </ul>
 <p>Une autre manière de faire est d’effectuer les opérations les unes après les autres, en stockant les résultats intermédiaires dans un objet temporaire :</p>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="dplyr.html#cb601-1"></a>tmp &lt;-<span class="st"> </span><span class="kw">filter</span>(flights, dest <span class="op">==</span><span class="st"> &quot;LAX&quot;</span>)</span>
-<span id="cb601-2"><a href="dplyr.html#cb601-2"></a>tmp &lt;-<span class="st"> </span><span class="kw">select</span>(tmp, dep_delay, arr_delay)</span>
-<span id="cb601-3"><a href="dplyr.html#cb601-3"></a><span class="kw">arrange</span>(tmp, dep_delay)</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="dplyr.html#cb601-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, dest <span class="sc">==</span> <span class="st">&quot;LAX&quot;</span>)</span>
+<span id="cb601-2"><a href="dplyr.html#cb601-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">select</span>(tmp, dep_delay, arr_delay)</span>
+<span id="cb601-3"><a href="dplyr.html#cb601-3" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(tmp, dep_delay)</span></code></pre></div>
 <p>C’est nettement plus lisible, l’ordre des opérations est le bon, et les paramètres sont bien rattachés à leur fonction. Par contre, ça reste un peu “verbeux”, et on crée un objet temporaire <code>tmp</code> dont on n’a pas réellement besoin.</p>
 <p>Pour simplifier et améliorer encore la lisibilité du code, on va utiliser un nouvel opérateur, baptisé <em>pipe</em><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>. Le <em>pipe</em> se note <code>%&gt;%</code>, et son fonctionnement est le suivant : si j’exécute <code>expr %&gt;% f</code>, alors le résultat de l’expression <code>expr</code>, à gauche du <em>pipe</em>, sera passé comme premier argument à la fonction <code>f</code>, à droite du <em>pipe</em>, ce qui revient à exécuter <code>f(expr)</code>.</p>
 <p>Ainsi les deux expressions suivantes sont rigoureusement équivalentes :</p>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="dplyr.html#cb602-1"></a><span class="kw">filter</span>(flights, dest <span class="op">==</span><span class="st"> &quot;LAX&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="dplyr.html#cb603-1"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(dest <span class="op">==</span><span class="st"> &quot;LAX&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="dplyr.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, dest <span class="sc">==</span> <span class="st">&quot;LAX&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="dplyr.html#cb603-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">&quot;LAX&quot;</span>)</span></code></pre></div>
 <p>Ce qui est intéressant dans cette histoire, c’est qu’on va pouvoir enchaîner les <em>pipes</em>. Plutôt que d’écrire :</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="dplyr.html#cb604-1"></a><span class="kw">select</span>(<span class="kw">filter</span>(flights, dest <span class="op">==</span><span class="st"> &quot;LAX&quot;</span>), dep_delay, arr_delay)</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="dplyr.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(<span class="fu">filter</span>(flights, dest <span class="sc">==</span> <span class="st">&quot;LAX&quot;</span>), dep_delay, arr_delay)</span></code></pre></div>
 <p>On va pouvoir faire :</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="dplyr.html#cb605-1"></a>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb605-2"><a href="dplyr.html#cb605-2"></a><span class="st">  </span><span class="kw">filter</span>(dest <span class="op">==</span><span class="st"> &quot;LAX&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb605-3"><a href="dplyr.html#cb605-3"></a><span class="st">  </span><span class="kw">select</span>(dep_delay, arr_delay)</span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="dplyr.html#cb605-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb605-2"><a href="dplyr.html#cb605-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">&quot;LAX&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb605-3"><a href="dplyr.html#cb605-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dep_delay, arr_delay)</span></code></pre></div>
 <p>Si la liste des fonctions enchaînées est longue, on peut les répartir sur plusieurs lignes à condition que l’opérateur <code>%&gt;%</code> soit en fin de ligne.</p>
 <p>À chaque fois, le résultat de ce qui se trouve à gauche du <em>pipe</em> est passé comme premier argument à ce qui se trouve à droite : on part de l’objet <code>flights</code>, qu’on passe comme premier argument à la fonction <code>filter</code>, puis on passe le résultat de ce <code>filter</code> comme premier argument du <code>select</code>.</p>
 <p>Le résultat final est le même avec les deux syntaxes, mais avec le <em>pipe</em> l’ordre des opérations correspond à l’ordre naturel de leur exécution, et on n’a pas eu besoin de créer d’objet intermédiaire.
 Évidemment, il est naturel de vouloir récupérer le résultat final d’un <em>pipeline</em> pour le stocker dans un objet. Par exemple, on peut stocker le résultat du <em>pipeline</em> dans un nouvel objet.
 L’utilisation du <em>pipe</em> n’est pas obligatoire, mais elle rend les scripts plus lisibles et plus rapides à saisir.</p>
 </div>
-<div id="la-fonction-group_by" class="section level2">
-<h2><span class="header-section-number">9.6</span> La fonction <code>group_by</code></h2>
+<div id="la-fonction-group_by" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> La fonction <code>group_by</code><a href="dplyr.html#la-fonction-group_by" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Un élément très important de <code>dplyr</code> est la fonction <code>group_by</code>. Elle permet de définir des groupes de lignes à partir des valeurs d’une ou plusieurs colonnes. Par exemple, on peut grouper les vols selon leur mois :</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="dplyr.html#cb606-1"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month)</span></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="dplyr.html#cb606-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month)</span></code></pre></div>
 <p>Par défaut ceci ne fait rien de visible, à part l’apparition d’une mention <code>Groups</code> dans l’affichage du résultat. Mais à partir du moment où des groupes ont été définis, les fonctions comme <code>slice</code>, <code>mutate</code> ou <code>summarise</code> vont en tenir compte lors de leurs opérations.</p>
 <p>Par exemple, si on applique <code>slice</code> à un tableau préalablement groupé, il va sélectionner les lignes aux positions indiquées <em>pour chaque groupe</em>. Ainsi la commande suivante affiche le premier vol de chaque mois, selon leur ordre d’apparition dans le tableau :</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="dplyr.html#cb607-1"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="dplyr.html#cb607-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span>)</span></code></pre></div>
 <p>On peut grouper selon plusieurs variables à la fois, il suffit de les indiquer dans la clause du <code>group_by</code>.</p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="dplyr.html#cb608-1"></a>flights <span class="op">%&gt;%</span></span>
-<span id="cb608-2"><a href="dplyr.html#cb608-2"></a><span class="st">  </span><span class="kw">group_by</span>(month, dest)</span></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="dplyr.html#cb608-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb608-2"><a href="dplyr.html#cb608-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(month, dest)</span></code></pre></div>
 </div>
-<div id="la-fonction-summarise" class="section level2">
-<h2><span class="header-section-number">9.7</span> La fonction <code>summarise</code></h2>
+<div id="la-fonction-summarise" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> La fonction <code>summarise</code><a href="dplyr.html#la-fonction-summarise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>summarise</code> permet d’agréger les lignes du tableau en effectuant une opération “résumée” sur une ou plusieurs colonnes. Par exemple, si on souhaite connaître les retards moyens au départ et à l’arrivée pour l’ensemble des vols du tableau <code>flights</code> :</p>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="dplyr.html#cb609-1"></a>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb609-2"><a href="dplyr.html#cb609-2"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">retard_dep =</span> <span class="kw">mean</span>(dep_delay, <span class="dt">na.rm=</span><span class="ot">TRUE</span>),</span>
-<span id="cb609-3"><a href="dplyr.html#cb609-3"></a>            <span class="dt">retard_arr =</span> <span class="kw">mean</span>(arr_delay, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="dplyr.html#cb609-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb609-2"><a href="dplyr.html#cb609-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">retard_dep =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb609-3"><a href="dplyr.html#cb609-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">retard_arr =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <p>Cette fonction est en général utilisée avec <code>group_by</code>, puisqu’elle permet du coup d’agréger et résumer les lignes du tableau groupe par groupe. Si on souhaite calculer le délai maximum, le délai minimum et le délai moyen au départ pour chaque mois, on pourra faire :</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="dplyr.html#cb610-1"></a>flights <span class="op">%&gt;%</span></span>
-<span id="cb610-2"><a href="dplyr.html#cb610-2"></a><span class="st">  </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span></span>
-<span id="cb610-3"><a href="dplyr.html#cb610-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">max_delay =</span> <span class="kw">max</span>(dep_delay, <span class="dt">na.rm=</span><span class="ot">TRUE</span>),</span>
-<span id="cb610-4"><a href="dplyr.html#cb610-4"></a>            <span class="dt">min_delay =</span> <span class="kw">min</span>(dep_delay, <span class="dt">na.rm=</span><span class="ot">TRUE</span>),</span>
-<span id="cb610-5"><a href="dplyr.html#cb610-5"></a>            <span class="dt">mean_delay =</span> <span class="kw">mean</span>(dep_delay, <span class="dt">na.rm=</span><span class="ot">TRUE</span>),</span>
-<span id="cb610-6"><a href="dplyr.html#cb610-6"></a>            <span class="dt">nb =</span> <span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="dplyr.html#cb610-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb610-2"><a href="dplyr.html#cb610-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span></span>
+<span id="cb610-3"><a href="dplyr.html#cb610-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">max_delay =</span> <span class="fu">max</span>(dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb610-4"><a href="dplyr.html#cb610-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">min_delay =</span> <span class="fu">min</span>(dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb610-5"><a href="dplyr.html#cb610-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb610-6"><a href="dplyr.html#cb610-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">nb =</span> <span class="fu">n</span>())</span></code></pre></div>
 <p><code>summarise</code> dispose d’un opérateur spécial, <code>n()</code>, qui retourne le nombre de lignes du groupe.</p>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="dplyr.html#cb611-1"></a><span class="kw">help</span>(summarise)</span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="dplyr.html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(summarise)</span></code></pre></div>
 </div>
-<div id="autres-fonctions-utiles-de-dplyr" class="section level2">
-<h2><span class="header-section-number">9.8</span> Autres fonctions utiles de dplyr</h2>
-<div id="la-fonction-rename" class="section level3">
-<h3><span class="header-section-number">9.8.1</span> La fonction <code>rename</code></h3>
+<div id="autres-fonctions-utiles-de-dplyr" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> Autres fonctions utiles de dplyr<a href="dplyr.html#autres-fonctions-utiles-de-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="la-fonction-rename" class="section level3 hasAnchor" number="8.8.1">
+<h3><span class="header-section-number">8.8.1</span> La fonction <code>rename</code><a href="dplyr.html#la-fonction-rename" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La fonction <code>rename</code> permet de renommer des colonnes. On l’utilise en lui passant des paramètres de la forme <code>nouveau_nom = ancien_nom</code>. Ainsi, si on veut renommer les colonnes <code>lon</code> et <code>lat</code> de <code>airports</code> en <code>longitude</code> et <code>latitude</code> :</p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="dplyr.html#cb612-1"></a><span class="kw">rename</span>(airports, <span class="dt">longitude =</span> lon, <span class="dt">latitude =</span> lat)</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="dplyr.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(airports, <span class="at">longitude =</span> lon, <span class="at">latitude =</span> lat)</span></code></pre></div>
 <p>Même si cela est déconseillé, si les noms de colonnes comportent des espaces ou des caractères spéciaux, on peut les entourer de guillemets (<code>"</code>) ou de quotes inverses (<code>`</code>) :</p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="dplyr.html#cb613-1"></a>tmp &lt;-<span class="st"> </span><span class="kw">rename</span>(flights, </span>
-<span id="cb613-2"><a href="dplyr.html#cb613-2"></a>              <span class="st">&quot;retard départ&quot;</span> =<span class="st"> </span>dep_delay,</span>
-<span id="cb613-3"><a href="dplyr.html#cb613-3"></a>              <span class="st">&quot;retard arrivée&quot;</span> =<span class="st"> </span>arr_delay)</span>
-<span id="cb613-4"><a href="dplyr.html#cb613-4"></a><span class="kw">select</span>(tmp, <span class="st">`</span><span class="dt">retard départ</span><span class="st">`</span>, <span class="st">`</span><span class="dt">retard arrivée</span><span class="st">`</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="dplyr.html#cb613-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">rename</span>(flights, </span>
+<span id="cb613-2"><a href="dplyr.html#cb613-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;retard départ&quot;</span> <span class="ot">=</span> dep_delay,</span>
+<span id="cb613-3"><a href="dplyr.html#cb613-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;retard arrivée&quot;</span> <span class="ot">=</span> arr_delay)</span>
+<span id="cb613-4"><a href="dplyr.html#cb613-4" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(tmp, <span class="st">`</span><span class="at">retard départ</span><span class="st">`</span>, <span class="st">`</span><span class="at">retard arrivée</span><span class="st">`</span>)</span></code></pre></div>
 </div>
-<div id="la-fonction-mutate" class="section level3">
-<h3><span class="header-section-number">9.8.2</span> La fonction <code>mutate</code></h3>
+<div id="la-fonction-mutate" class="section level3 hasAnchor" number="8.8.2">
+<h3><span class="header-section-number">8.8.2</span> La fonction <code>mutate</code><a href="dplyr.html#la-fonction-mutate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La fonction <code>mutate</code> permet de créer de nouvelles colonnes dans le tableau de données, en général à partir de variables existantes.</p>
 <p>Par exemple, la table <code>flights</code> contient la durée du vol en minutes. Si on veut créer une nouvelle variable <code>duree_h</code> avec cette durée en heures, on peut faire :</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="dplyr.html#cb614-1"></a>flights &lt;-<span class="st"> </span><span class="kw">mutate</span>(flights, <span class="dt">duree_h =</span> air_time <span class="op">/</span><span class="st"> </span><span class="dv">60</span>)</span>
-<span id="cb614-2"><a href="dplyr.html#cb614-2"></a><span class="kw">select</span>(flights, air_time, duree_h)</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="dplyr.html#cb614-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">mutate</span>(flights, <span class="at">duree_h =</span> air_time <span class="sc">/</span> <span class="dv">60</span>)</span>
+<span id="cb614-2"><a href="dplyr.html#cb614-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(flights, air_time, duree_h)</span></code></pre></div>
 <p>On peut créer plusieurs nouvelles colonnes en une seule commande, et les expressions successives peuvent prendre en compte les résultats des calculs précédents. L’exemple suivant convertit d’abord la durée en heures dans une variable <code>duree_h</code> et la distance en kilomètres dans une variable <code>distance_km</code>, puis utilise ces nouvelles colonnes pour calculer la vitesse en km/h.</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="dplyr.html#cb615-1"></a>flights &lt;-<span class="st"> </span><span class="kw">mutate</span>(flights, </span>
-<span id="cb615-2"><a href="dplyr.html#cb615-2"></a>                  <span class="dt">duree_h =</span> air_time <span class="op">/</span><span class="st"> </span><span class="dv">60</span>,</span>
-<span id="cb615-3"><a href="dplyr.html#cb615-3"></a>                  <span class="dt">distance_km =</span> distance <span class="op">/</span><span class="st"> </span><span class="fl">0.62137</span>,</span>
-<span id="cb615-4"><a href="dplyr.html#cb615-4"></a>                  <span class="dt">vitesse =</span> distance_km <span class="op">/</span><span class="st"> </span>duree_h)</span>
-<span id="cb615-5"><a href="dplyr.html#cb615-5"></a><span class="kw">select</span>(flights, air_time, duree_h, distance, distance_km, vitesse)</span></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="dplyr.html#cb615-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">mutate</span>(flights, </span>
+<span id="cb615-2"><a href="dplyr.html#cb615-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">duree_h =</span> air_time <span class="sc">/</span> <span class="dv">60</span>,</span>
+<span id="cb615-3"><a href="dplyr.html#cb615-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">distance_km =</span> distance <span class="sc">/</span> <span class="fl">0.62137</span>,</span>
+<span id="cb615-4"><a href="dplyr.html#cb615-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">vitesse =</span> distance_km <span class="sc">/</span> duree_h)</span>
+<span id="cb615-5"><a href="dplyr.html#cb615-5" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(flights, air_time, duree_h, distance, distance_km, vitesse)</span></code></pre></div>
 <p>À noter que <code>mutate</code> est évidemment parfaitement compatible avec les fonctions de recodages comme <code>case_when</code>.</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="dplyr.html#cb616-1"></a>flights &lt;-<span class="st"> </span><span class="kw">mutate</span>(flights,</span>
-<span id="cb616-2"><a href="dplyr.html#cb616-2"></a>                  <span class="dt">type_retard =</span> <span class="kw">case_when</span>(</span>
-<span id="cb616-3"><a href="dplyr.html#cb616-3"></a>                    dep_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Retard départ et arrivée&quot;</span>,</span>
-<span id="cb616-4"><a href="dplyr.html#cb616-4"></a>                    dep_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>arr_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Retard départ&quot;</span>,</span>
-<span id="cb616-5"><a href="dplyr.html#cb616-5"></a>                    dep_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Retard arrivée&quot;</span>,</span>
-<span id="cb616-6"><a href="dplyr.html#cb616-6"></a>                    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;Aucun retard&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="dplyr.html#cb616-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">mutate</span>(flights,</span>
+<span id="cb616-2"><a href="dplyr.html#cb616-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">type_retard =</span> <span class="fu">case_when</span>(</span>
+<span id="cb616-3"><a href="dplyr.html#cb616-3" aria-hidden="true" tabindex="-1"></a>                    dep_delay <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> arr_delay <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Retard départ et arrivée&quot;</span>,</span>
+<span id="cb616-4"><a href="dplyr.html#cb616-4" aria-hidden="true" tabindex="-1"></a>                    dep_delay <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> arr_delay <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Retard départ&quot;</span>,</span>
+<span id="cb616-5"><a href="dplyr.html#cb616-5" aria-hidden="true" tabindex="-1"></a>                    dep_delay <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> arr_delay <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Retard arrivée&quot;</span>,</span>
+<span id="cb616-6"><a href="dplyr.html#cb616-6" aria-hidden="true" tabindex="-1"></a>                    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Aucun retard&quot;</span>))</span></code></pre></div>
 </div>
-<div id="la-fonction-distinct" class="section level3">
-<h3><span class="header-section-number">9.8.3</span> La fonction <code>distinct</code></h3>
+<div id="la-fonction-distinct" class="section level3 hasAnchor" number="8.8.3">
+<h3><span class="header-section-number">8.8.3</span> La fonction <code>distinct</code><a href="dplyr.html#la-fonction-distinct" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La fonction <code>distinct</code> filtre les lignes du tableau pour ne conserver que les lignes distinctes, en supprimant toutes les lignes en double.</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="dplyr.html#cb617-1"></a>flights <span class="op">%&gt;%</span></span>
-<span id="cb617-2"><a href="dplyr.html#cb617-2"></a><span class="st">  </span><span class="kw">select</span>(day, month) <span class="op">%&gt;%</span></span>
-<span id="cb617-3"><a href="dplyr.html#cb617-3"></a><span class="st">  </span>distinct</span></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="dplyr.html#cb617-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb617-2"><a href="dplyr.html#cb617-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(day, month) <span class="sc">%&gt;%</span></span>
+<span id="cb617-3"><a href="dplyr.html#cb617-3" aria-hidden="true" tabindex="-1"></a>  distinct</span></code></pre></div>
 <p>On peut lui spécifier une liste de variables : dans ce cas, pour toutes les observations ayant des valeurs identiques pour les variables en question, <code>distinct</code> ne conservera que la première d’entre elles.</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="dplyr.html#cb618-1"></a>flights <span class="op">%&gt;%</span></span>
-<span id="cb618-2"><a href="dplyr.html#cb618-2"></a><span class="st">  </span><span class="kw">distinct</span>(month, day)</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="dplyr.html#cb618-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb618-2"><a href="dplyr.html#cb618-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(month, day)</span></code></pre></div>
 </div>
-<div id="la-fonction-case_when" class="section level3">
-<h3><span class="header-section-number">9.8.4</span> La fonction <code>case_when</code></h3>
+<div id="la-fonction-case_when" class="section level3 hasAnchor" number="8.8.4">
+<h3><span class="header-section-number">8.8.4</span> La fonction <code>case_when</code><a href="dplyr.html#la-fonction-case_when" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La fonction <code>case_when</code> est une généralisation de la fonction <code>if_else</code>(du package <code>dplyr</code>) ou <code>ifelse</code> (du package de <code>base</code>) qui permet d’indiquer plusieurs tests et leurs valeurs associées.</p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="dplyr.html#cb619-1"></a>flights &lt;-<span class="st"> </span><span class="kw">mutate</span>(flights,</span>
-<span id="cb619-2"><a href="dplyr.html#cb619-2"></a>                  <span class="dt">type_retard =</span> <span class="kw">case_when</span>(</span>
-<span id="cb619-3"><a href="dplyr.html#cb619-3"></a>                    dep_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Retard départ et arrivée&quot;</span>,</span>
-<span id="cb619-4"><a href="dplyr.html#cb619-4"></a>                    dep_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>arr_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Retard départ&quot;</span>,</span>
-<span id="cb619-5"><a href="dplyr.html#cb619-5"></a>                    dep_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Retard arrivée&quot;</span>,</span>
-<span id="cb619-6"><a href="dplyr.html#cb619-6"></a>                    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;Aucun retard&quot;</span>))</span>
-<span id="cb619-7"><a href="dplyr.html#cb619-7"></a></span>
-<span id="cb619-8"><a href="dplyr.html#cb619-8"></a><span class="kw">select</span>(flights, dep_delay, arr_delay , type_retard)</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="dplyr.html#cb619-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">mutate</span>(flights,</span>
+<span id="cb619-2"><a href="dplyr.html#cb619-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">type_retard =</span> <span class="fu">case_when</span>(</span>
+<span id="cb619-3"><a href="dplyr.html#cb619-3" aria-hidden="true" tabindex="-1"></a>                    dep_delay <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> arr_delay <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Retard départ et arrivée&quot;</span>,</span>
+<span id="cb619-4"><a href="dplyr.html#cb619-4" aria-hidden="true" tabindex="-1"></a>                    dep_delay <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> arr_delay <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Retard départ&quot;</span>,</span>
+<span id="cb619-5"><a href="dplyr.html#cb619-5" aria-hidden="true" tabindex="-1"></a>                    dep_delay <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> arr_delay <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Retard arrivée&quot;</span>,</span>
+<span id="cb619-6"><a href="dplyr.html#cb619-6" aria-hidden="true" tabindex="-1"></a>                    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Aucun retard&quot;</span>))</span>
+<span id="cb619-7"><a href="dplyr.html#cb619-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb619-8"><a href="dplyr.html#cb619-8" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(flights, dep_delay, arr_delay , type_retard)</span></code></pre></div>
 
 </div>
 </div>
@@ -2494,7 +2546,6 @@ L’utilisation du <em>pipe</em> n’est pas obligatoire, mais elle rend les scr
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -2513,6 +2564,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -2533,6 +2585,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -2546,7 +2602,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

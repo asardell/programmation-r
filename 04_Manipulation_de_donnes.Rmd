@@ -510,7 +510,7 @@ Il faut préciser dans la fonction le champ avec lequel on souhaite grouper les 
 Ici, on calcule le retard moyen au départ pour chaque aéroport d'origine :
 
 ```{r}
-agregation <- aggregate(formula = dep_delay ~ origin, data = flights , FUN = mean)
+agregation <- aggregate(x = dep_delay ~ origin, data = flights , FUN = mean)
 ```
 
 ```{r, echo=FALSE}
@@ -522,7 +522,7 @@ On peut également grouper les données selon plusieurs champs qu'on renseigne a
 Ici on calcule le retard moyen au départ pour chaque aéroport d'origine et chaque mois :
 
 ```{r}
-agregation <- aggregate(formula = dep_delay ~ origin + month, 
+agregation <- aggregate(x = dep_delay ~ origin + month, 
                          data = flights , FUN = mean)
 ```
 
@@ -532,10 +532,10 @@ kable(head(agregation))
 ```
 
 
-Le raccourci '**.**' dans l'argument `formula` permet d'agréger toutes les colonnes en fonction '**~**' d'une ou plusieurs.
+Le raccourci '**.**' dans l'argument `x` permet d'agréger toutes les colonnes en fonction '**~**' d'une ou plusieurs.
 
 ```{r}
-agregation <- aggregate(formula = . ~ origin, 
+agregation <- aggregate(x = . ~ origin, 
                          data = flights[ , c("origin","dep_delay","arr_delay","distance")],
                          FUN = mean)
 ```
@@ -562,7 +562,7 @@ c. Calculez le nombre de vols par aéroport d'origine
 a. Calculez le retard maximum au départ de chaque aéroport
 
 ```{r}
-agregationA <- aggregate(formula = dep_delay ~ origin, data = flights, FUN = max)
+agregationA <- aggregate(x = dep_delay ~ origin, data = flights, FUN = max)
 ```
 
 ```{r, echo=FALSE}
@@ -573,7 +573,7 @@ kable(agregationA)
 b. Calculez l'écart-type sur les retards au départ et l'arrivée pour chaque aéroport d'origine
 
 ```{r}
-agregationB <- aggregate(formula = . ~ origin, 
+agregationB <- aggregate(x = . ~ origin, 
                          data = flights[ , c("origin","dep_delay", "arr_delay")],
                          FUN = sd)
 ```
@@ -586,7 +586,7 @@ kable(agregationB)
 c. Calculez le nombre de vols par aéroport d'origine
 
 ```{r}
-agregationC <- aggregate(formula = tailnum ~ origin, 
+agregationC <- aggregate(x = tailnum ~ origin, 
                          data = flights,
                          FUN = length)
 ```
