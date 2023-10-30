@@ -371,6 +371,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.8.4" data-path="entrainement.html"><a href="entrainement.html#statistique-sur-les-vecteurs"><i class="fa fa-check"></i><b>12.8.4</b> Statistique sur les vecteurs</a></li>
 <li class="chapter" data-level="12.8.5" data-path="entrainement.html"><a href="entrainement.html#représentation-graphique-1"><i class="fa fa-check"></i><b>12.8.5</b> Représentation graphique</a></li>
 <li class="chapter" data-level="12.8.6" data-path="entrainement.html"><a href="entrainement.html#construire-un-dataframe"><i class="fa fa-check"></i><b>12.8.6</b> Construire un dataframe</a></li>
+<li class="chapter" data-level="12.8.7" data-path="entrainement.html"><a href="entrainement.html#manipuler-un-dataframe"><i class="fa fa-check"></i><b>12.8.7</b> Manipuler un dataframe</a></li>
+<li class="chapter" data-level="12.8.8" data-path="entrainement.html"><a href="entrainement.html#filtrer-un-dataframe"><i class="fa fa-check"></i><b>12.8.8</b> Filtrer un dataframe</a></li>
+<li class="chapter" data-level="12.8.9" data-path="entrainement.html"><a href="entrainement.html#trier-un-dataframe"><i class="fa fa-check"></i><b>12.8.9</b> Trier un dataframe</a></li>
+<li class="chapter" data-level="12.8.10" data-path="entrainement.html"><a href="entrainement.html#agréger-les-données"><i class="fa fa-check"></i><b>12.8.10</b> Agréger les données</a></li>
+<li class="chapter" data-level="12.8.11" data-path="entrainement.html"><a href="entrainement.html#lusage-du-pipe"><i class="fa fa-check"></i><b>12.8.11</b> L’usage du pipe %&gt;%</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="all_dataset.html"><a href="all_dataset.html"><i class="fa fa-check"></i><b>13</b> Jeux de données utilisés</a>
@@ -1157,12 +1162,12 @@ LGA
 <span id="cb681-2"><a href="jointures.html#cb681-2" aria-hidden="true" tabindex="-1"></a>start.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb681-3"><a href="jointures.html#cb681-3" aria-hidden="true" tabindex="-1"></a>requete <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> flights,<span class="at">y =</span> airlines, <span class="at">by =</span> <span class="st">&quot;carrier&quot;</span>,<span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb681-4"><a href="jointures.html#cb681-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> start.time</span></code></pre></div>
-<pre><code>## Time difference of 6.207961 secs</code></pre>
+<pre><code>## Time difference of 5.607109 secs</code></pre>
 <div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="jointures.html#cb683-1" aria-hidden="true" tabindex="-1"></a><span class="co">#jointure avec dplyr</span></span>
 <span id="cb683-2"><a href="jointures.html#cb683-2" aria-hidden="true" tabindex="-1"></a>start.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb683-3"><a href="jointures.html#cb683-3" aria-hidden="true" tabindex="-1"></a>requete <span class="ot">&lt;-</span> <span class="fu">left_join</span>(<span class="at">x =</span> flights, <span class="at">y =</span> airlines, <span class="at">by =</span> <span class="st">&quot;carrier&quot;</span>)</span>
 <span id="cb683-4"><a href="jointures.html#cb683-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> start.time</span></code></pre></div>
-<pre><code>## Time difference of 0.2985649 secs</code></pre>
+<pre><code>## Time difference of 0.2309139 secs</code></pre>
 <div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="jointures.html#cb685-1" aria-hidden="true" tabindex="-1"></a>requete <span class="sc">%&gt;%</span></span>
 <span id="cb685-2"><a href="jointures.html#cb685-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span></span>
 <span id="cb685-3"><a href="jointures.html#cb685-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">nb_vols =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
@@ -1215,14 +1220,14 @@ ExpressJet Airlines Inc. 
 <span id="cb686-3"><a href="jointures.html#cb686-3" aria-hidden="true" tabindex="-1"></a>requete <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> flights,<span class="at">y =</span> airports[,<span class="fu">c</span>(<span class="st">&quot;faa&quot;</span>,<span class="st">&quot;tzone&quot;</span>)], </span>
 <span id="cb686-4"><a href="jointures.html#cb686-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">by.x =</span> <span class="st">&quot;dest&quot;</span>, <span class="at">by.y =</span> <span class="st">&quot;faa&quot;</span>, <span class="at">all.x =</span>  <span class="cn">TRUE</span>)</span>
 <span id="cb686-5"><a href="jointures.html#cb686-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> start.time</span></code></pre></div>
-<pre><code>## Time difference of 8.403465 secs</code></pre>
+<pre><code>## Time difference of 8.844525 secs</code></pre>
 <div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="jointures.html#cb688-1" aria-hidden="true" tabindex="-1"></a><span class="co">#jointure avec dplyr</span></span>
 <span id="cb688-2"><a href="jointures.html#cb688-2" aria-hidden="true" tabindex="-1"></a>start.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb688-3"><a href="jointures.html#cb688-3" aria-hidden="true" tabindex="-1"></a>requete <span class="ot">&lt;-</span> <span class="fu">left_join</span>(<span class="at">x =</span> flights, </span>
 <span id="cb688-4"><a href="jointures.html#cb688-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> <span class="fu">select</span>(airports, <span class="fu">c</span>(<span class="st">&quot;faa&quot;</span>,<span class="st">&quot;tzone&quot;</span>)),</span>
 <span id="cb688-5"><a href="jointures.html#cb688-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;dest&quot;</span> <span class="ot">=</span> <span class="st">&quot;faa&quot;</span>))</span>
 <span id="cb688-6"><a href="jointures.html#cb688-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> start.time</span></code></pre></div>
-<pre><code>## Time difference of 0.1079819 secs</code></pre>
+<pre><code>## Time difference of 0.1289661 secs</code></pre>
 <div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="jointures.html#cb690-1" aria-hidden="true" tabindex="-1"></a>requete <span class="sc">%&gt;%</span></span>
 <span id="cb690-2"><a href="jointures.html#cb690-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tzone) <span class="sc">%&gt;%</span></span>
 <span id="cb690-3"><a href="jointures.html#cb690-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">nb_vols =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
@@ -1316,14 +1321,14 @@ America/Anchorage
 <span id="cb691-4"><a href="jointures.html#cb691-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span> <span class="ot">=</span> <span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span> <span class="ot">=</span> <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span> <span class="ot">=</span> <span class="st">&quot;day&quot;</span>,</span>
 <span id="cb691-5"><a href="jointures.html#cb691-5" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;hour&quot;</span> <span class="ot">=</span> <span class="st">&quot;hour&quot;</span> , <span class="st">&quot;origin&quot;</span> <span class="ot">=</span> <span class="st">&quot;origin&quot;</span>), <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb691-6"><a href="jointures.html#cb691-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> start.time</span></code></pre></div>
-<pre><code>## Time difference of 3.513414 secs</code></pre>
+<pre><code>## Time difference of 3.950691 secs</code></pre>
 <div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="jointures.html#cb693-1" aria-hidden="true" tabindex="-1"></a><span class="co">#jointure avec dplyr</span></span>
 <span id="cb693-2"><a href="jointures.html#cb693-2" aria-hidden="true" tabindex="-1"></a>start.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb693-3"><a href="jointures.html#cb693-3" aria-hidden="true" tabindex="-1"></a>requete <span class="ot">&lt;-</span> <span class="fu">left_join</span>(<span class="at">x =</span> flights, <span class="at">y =</span> weather,</span>
 <span id="cb693-4"><a href="jointures.html#cb693-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span> <span class="ot">=</span> <span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span> <span class="ot">=</span> <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span> <span class="ot">=</span> <span class="st">&quot;day&quot;</span>,</span>
 <span id="cb693-5"><a href="jointures.html#cb693-5" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;hour&quot;</span> <span class="ot">=</span> <span class="st">&quot;hour&quot;</span> , <span class="st">&quot;origin&quot;</span> <span class="ot">=</span> <span class="st">&quot;origin&quot;</span>))</span>
 <span id="cb693-6"><a href="jointures.html#cb693-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> start.time</span></code></pre></div>
-<pre><code>## Time difference of 0.4380391 secs</code></pre>
+<pre><code>## Time difference of 0.5583439 secs</code></pre>
 <div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="jointures.html#cb695-1" aria-hidden="true" tabindex="-1"></a>requete <span class="sc">%&gt;%</span></span>
 <span id="cb695-2"><a href="jointures.html#cb695-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, month, day, hour, origin, origin, precip) <span class="sc">%&gt;%</span> </span>
 <span id="cb695-3"><a href="jointures.html#cb695-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span></span>

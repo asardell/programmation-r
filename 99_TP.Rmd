@@ -763,7 +763,7 @@ sample(x = c("football","basket","tennis"),
 ```
 
 1. Créer un vecteur appelé "sample_contrat" avec un échantillonnage d'une centaine de contrat tiré au sort dans le vecteur "contrats".
-1. Créer un vecteur appelé "sample_age" avec une centaine d'âge tiré au sort entre 10 et 80 ans.
+1. Créer un vecteur appelé "sample_age" avec une centaine d'âge tiré au sort entre 17 et 70 ans.
 1. Créer un vecteur appelé "sample_genre" avec un échantillonnage d'une centaine de genre tiré au sort parmi "homme", "femme" où la probabilité de tomber sur un homme est de 35%.
 
 
@@ -775,6 +775,7 @@ sample(x = c("football","basket","tennis"),
 1. Calculer l'âge médian.
 1. Calculer la variance de l'âge.
 1. Calculer l'écart-type de l'âge.
+1. Calculer les quantiles de l'âge.
 1. Compter la répartition du nombre de contrat.
 1. Compter la répartition du nombre de genre en pourcentage.
 
@@ -803,6 +804,7 @@ hist(test)
 1. Calculer le salaire médian.
 1. Calculer l'écart-type.
 1. Calculer la masse salariale.
+1. Calculer les déciles de la distribution des salaires.
 1. Modifier ce vecteur pour obtenir des salaire avec une décimale disponible avec la fonction `round`()`
 1. Construire un histogramme avec la fonction `hist()`.
 
@@ -834,5 +836,81 @@ df
 1. Supprimer la colonne "anciennete"
 1. Créer une colonne appelé "salaire_net" qui correspond à 80% du salaire brut.
 1. Créer une colonne appelé "anciennete_annee" qui correspond au nombre d'année d'ancienneté.
-1. Exporter ce data frame en fichier *.csv* avec la fonction `write.csv()`.
+1. Avec la fonction `cut()`, créer une colonne appelé "tranche_salaire" qui est un découpage en tranche de 500€.
+1. Créer une colonne appelé "anciennete_annee" qui correspond au nombre d'année d'ancienneté.
+1. Avec la fonction `ifelse()`, créer une colonne appelé "prime" qui prend la valeur "oui" si le salarié à plus de 3 ans d'ancienneté, sinon "non".
+1. Exporter ce data frame en fichier *df.csv* avec la fonction `write.csv()`.
+1. Supprimer l'objet "df" avec la fonction `rm()`.
+1. Importer le fichier *df.csv* dans un objet appelé "df" avec la fonction `read_csv()`.
+
+### Manipuler un dataframe 
+
+Pour répondre à ces questions, utilisez la syntaxe `[ ]`.
+
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les deux premières colonnes.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement la colonne "contrat" et "age".
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement toutes les colonnes sauf la dernière.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les 25 premières lignes.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les lignes 10 à 20 et 50 à 100.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les 25 premières lignes et les colonnes "genre", "age", "contrat" dans ce sens.
+
+Même exercice mais avec le package `dplyr` avec ses fonctions `slice()` et `select()`.
+
+### Filtrer un dataframe 
+
+Pour répondre à ces questions, utilisez la fonction `subset()`.
+
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les personnes de plus de 40 ans.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les personnes de 30 ans plus.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les personnes en CDD.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les personnes en CDD qui gagne plus de 1500€.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les personnes en CDD qui gagne plus de 1500€.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les personnes qui gagne entre 1500 et 1900€.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement toutes les personnes sauf celles en CDI
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement toutes les personnes sauf celles de 50 ans.
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les personnes en CDD OU en alternance
+
+Même exercice mais avec le package `dplyr` et sa foncton `filter()`.
+
+### Trier un dataframe 
+
+Pour répondre à ces questions, utilisez le package `dplyr` et sa foncton `arrange()`.
+
+1. Créer un nouveau data frame appelé "dfTest" trié par âge croissant.
+1. Créer un nouveau data frame appelé "dfTest" trié par salaire décroissant.
+1. Créer un nouveau data frame appelé "dfTest" trié par contrat puis par salaire décroissant.
+1. Créer un nouveau data frame appelé "dfTest" trié par âge décroissant puis par salaire décroissant.
+1. Créer un nouveau data frame appelé "dfTest" trié par genre, puis âge croissant puis par salaire décroissant.
+
+### Agréger les données
+
+Pour répondre à ces questions, utilisez le package `dplyr` et ses fonction `group_by()` et ` summarise()`.
+
+1. Créer un nouveau data frame appelé "dfAgg" avec l'âge moyen par type de contrat.
+1. Créer un nouveau data frame appelé "dfAgg" avec le salaire moyen ET l'ancienneté moyenne par type de genre.
+1. Créer un nouveau data frame appelé "dfAgg" avec le salaire moyen par type de contrat ET le genre.
+1. Créer un nouveau data frame appelé "dfAgg" avec le salaire min/max ET l'ancienneté min/max par type contrat.
+1. Créer un nouveau data frame appelé "dfAgg" avec le nombre de salarié par genre ET type de contrat.
+1. Créer un nouveau data frame appelé "dfAgg" avec le nombre de salarié par genre.
+
+
+### L'usage du pipe %>% 
+
+Pour répondre à ces questions, utilisez le raccourci `%>%`.
+
+```{r, echo=FALSE}
+library(dplyr)
+```
+```{r}
+a <- c("CDD","CDI","Alternance","Intérim")
+a %>% 
+  sample(size = 10, replace = TRUE) %>% 
+  table() 
+```
+
+1. Créer un nouveau data frame appelé "dfTest" avec les personnes de plus de 30 ans.
+1. Calculer ensuite le salaire moyen et l'ancienneté moyenne selon le genre et le type de contrat.
+1. Trier ensuite par moyenne de salaire décroissante.
+1. Filtrer ensuite sur les salaire moyens de plus de 1500€.
+1. Exporter cet objet R avec la fonction `save()`.
 

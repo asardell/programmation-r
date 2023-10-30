@@ -371,6 +371,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.8.4" data-path="entrainement.html"><a href="entrainement.html#statistique-sur-les-vecteurs"><i class="fa fa-check"></i><b>12.8.4</b> Statistique sur les vecteurs</a></li>
 <li class="chapter" data-level="12.8.5" data-path="entrainement.html"><a href="entrainement.html#représentation-graphique-1"><i class="fa fa-check"></i><b>12.8.5</b> Représentation graphique</a></li>
 <li class="chapter" data-level="12.8.6" data-path="entrainement.html"><a href="entrainement.html#construire-un-dataframe"><i class="fa fa-check"></i><b>12.8.6</b> Construire un dataframe</a></li>
+<li class="chapter" data-level="12.8.7" data-path="entrainement.html"><a href="entrainement.html#manipuler-un-dataframe"><i class="fa fa-check"></i><b>12.8.7</b> Manipuler un dataframe</a></li>
+<li class="chapter" data-level="12.8.8" data-path="entrainement.html"><a href="entrainement.html#filtrer-un-dataframe"><i class="fa fa-check"></i><b>12.8.8</b> Filtrer un dataframe</a></li>
+<li class="chapter" data-level="12.8.9" data-path="entrainement.html"><a href="entrainement.html#trier-un-dataframe"><i class="fa fa-check"></i><b>12.8.9</b> Trier un dataframe</a></li>
+<li class="chapter" data-level="12.8.10" data-path="entrainement.html"><a href="entrainement.html#agréger-les-données"><i class="fa fa-check"></i><b>12.8.10</b> Agréger les données</a></li>
+<li class="chapter" data-level="12.8.11" data-path="entrainement.html"><a href="entrainement.html#lusage-du-pipe"><i class="fa fa-check"></i><b>12.8.11</b> L’usage du pipe %&gt;%</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="all_dataset.html"><a href="all_dataset.html"><i class="fa fa-check"></i><b>13</b> Jeux de données utilisés</a>
@@ -4542,11 +4547,11 @@ On utilise le fichier <code>tv_shows.csv</code> qui décrit les notes d’évalu
 <p>La fonction <code>sample()</code> permet de générer un échantillon aléatoire à partir d’une liste de modalités</p>
 <div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="entrainement.html#cb738-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;football&quot;</span>,<span class="st">&quot;basket&quot;</span>,<span class="st">&quot;tennis&quot;</span>),</span>
 <span id="cb738-2"><a href="entrainement.html#cb738-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;tennis&quot;   &quot;tennis&quot;   &quot;basket&quot;   &quot;football&quot; &quot;basket&quot;   &quot;tennis&quot;  
-##  [7] &quot;football&quot; &quot;football&quot; &quot;football&quot; &quot;football&quot;</code></pre>
+<pre><code>##  [1] &quot;football&quot; &quot;tennis&quot;   &quot;football&quot; &quot;football&quot; &quot;basket&quot;   &quot;tennis&quot;  
+##  [7] &quot;football&quot; &quot;tennis&quot;   &quot;basket&quot;   &quot;football&quot;</code></pre>
 <ol style="list-style-type: decimal">
 <li>Créer un vecteur appelé “sample_contrat” avec un échantillonnage d’une centaine de contrat tiré au sort dans le vecteur “contrats”.</li>
-<li>Créer un vecteur appelé “sample_age” avec une centaine d’âge tiré au sort entre 10 et 80 ans.</li>
+<li>Créer un vecteur appelé “sample_age” avec une centaine d’âge tiré au sort entre 17 et 70 ans.</li>
 <li>Créer un vecteur appelé “sample_genre” avec un échantillonnage d’une centaine de genre tiré au sort parmi “homme”, “femme” où la probabilité de tomber sur un homme est de 35%.</li>
 </ol>
 </div>
@@ -4559,6 +4564,7 @@ On utilise le fichier <code>tv_shows.csv</code> qui décrit les notes d’évalu
 <li>Calculer l’âge médian.</li>
 <li>Calculer la variance de l’âge.</li>
 <li>Calculer l’écart-type de l’âge.</li>
+<li>Calculer les quantiles de l’âge.</li>
 <li>Compter la répartition du nombre de contrat.</li>
 <li>Compter la répartition du nombre de genre en pourcentage.</li>
 </ol>
@@ -4582,6 +4588,7 @@ On utilise le fichier <code>tv_shows.csv</code> qui décrit les notes d’évalu
 <li>Calculer le salaire médian.</li>
 <li>Calculer l’écart-type.</li>
 <li>Calculer la masse salariale.</li>
+<li>Calculer les déciles de la distribution des salaires.</li>
 <li>Modifier ce vecteur pour obtenir des salaire avec une décimale disponible avec la fonction <code>round</code>()`</li>
 <li>Construire un histogramme avec la fonction <code>hist()</code>.</li>
 </ol>
@@ -4618,7 +4625,82 @@ On utilise le fichier <code>tv_shows.csv</code> qui décrit les notes d’évalu
 <li>Supprimer la colonne “anciennete”</li>
 <li>Créer une colonne appelé “salaire_net” qui correspond à 80% du salaire brut.</li>
 <li>Créer une colonne appelé “anciennete_annee” qui correspond au nombre d’année d’ancienneté.</li>
-<li>Exporter ce data frame en fichier <em>.csv</em> avec la fonction <code>write.csv()</code>.</li>
+<li>Avec la fonction <code>cut()</code>, créer une colonne appelé “tranche_salaire” qui est un découpage en tranche de 500€.</li>
+<li>Créer une colonne appelé “anciennete_annee” qui correspond au nombre d’année d’ancienneté.</li>
+<li>Avec la fonction <code>ifelse()</code>, créer une colonne appelé “prime” qui prend la valeur “oui” si le salarié à plus de 3 ans d’ancienneté, sinon “non”.</li>
+<li>Exporter ce data frame en fichier <em>df.csv</em> avec la fonction <code>write.csv()</code>.</li>
+<li>Supprimer l’objet “df” avec la fonction <code>rm()</code>.</li>
+<li>Importer le fichier <em>df.csv</em> dans un objet appelé “df” avec la fonction <code>read_csv()</code>.</li>
+</ol>
+</div>
+<div id="manipuler-un-dataframe" class="section level3 hasAnchor" number="12.8.7">
+<h3><span class="header-section-number">12.8.7</span> Manipuler un dataframe<a href="entrainement.html#manipuler-un-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour répondre à ces questions, utilisez la syntaxe <code>[ ]</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les deux premières colonnes.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement la colonne “contrat” et “age”.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement toutes les colonnes sauf la dernière.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les 25 premières lignes.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les lignes 10 à 20 et 50 à 100.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les 25 premières lignes et les colonnes “genre”, “age”, “contrat” dans ce sens.</li>
+</ol>
+<p>Même exercice mais avec le package <code>dplyr</code> avec ses fonctions <code>slice()</code> et <code>select()</code>.</p>
+</div>
+<div id="filtrer-un-dataframe" class="section level3 hasAnchor" number="12.8.8">
+<h3><span class="header-section-number">12.8.8</span> Filtrer un dataframe<a href="entrainement.html#filtrer-un-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour répondre à ces questions, utilisez la fonction <code>subset()</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les personnes de plus de 40 ans.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les personnes de 30 ans plus.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les personnes en CDD.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les personnes en CDD qui gagne plus de 1500€.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les personnes en CDD qui gagne plus de 1500€.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les personnes qui gagne entre 1500 et 1900€.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement toutes les personnes sauf celles en CDI</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement toutes les personnes sauf celles de 50 ans.</li>
+<li>Créer un nouveau data frame appelé “dfTest” avec uniquement les personnes en CDD OU en alternance</li>
+</ol>
+<p>Même exercice mais avec le package <code>dplyr</code> et sa foncton <code>filter()</code>.</p>
+</div>
+<div id="trier-un-dataframe" class="section level3 hasAnchor" number="12.8.9">
+<h3><span class="header-section-number">12.8.9</span> Trier un dataframe<a href="entrainement.html#trier-un-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour répondre à ces questions, utilisez le package <code>dplyr</code> et sa foncton <code>arrange()</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Créer un nouveau data frame appelé “dfTest” trié par âge croissant.</li>
+<li>Créer un nouveau data frame appelé “dfTest” trié par salaire décroissant.</li>
+<li>Créer un nouveau data frame appelé “dfTest” trié par contrat puis par salaire décroissant.</li>
+<li>Créer un nouveau data frame appelé “dfTest” trié par âge décroissant puis par salaire décroissant.</li>
+<li>Créer un nouveau data frame appelé “dfTest” trié par genre, puis âge croissant puis par salaire décroissant.</li>
+</ol>
+</div>
+<div id="agréger-les-données" class="section level3 hasAnchor" number="12.8.10">
+<h3><span class="header-section-number">12.8.10</span> Agréger les données<a href="entrainement.html#agréger-les-données" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour répondre à ces questions, utilisez le package <code>dplyr</code> et ses fonction <code>group_by()</code> et <code>summarise()</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Créer un nouveau data frame appelé “dfAgg” avec l’âge moyen par type de contrat.</li>
+<li>Créer un nouveau data frame appelé “dfAgg” avec le salaire moyen ET l’ancienneté moyenne par type de genre.</li>
+<li>Créer un nouveau data frame appelé “dfAgg” avec le salaire moyen par type de contrat ET le genre.</li>
+<li>Créer un nouveau data frame appelé “dfAgg” avec le salaire min/max ET l’ancienneté min/max par type contrat.</li>
+<li>Créer un nouveau data frame appelé “dfAgg” avec le nombre de salarié par genre ET type de contrat.</li>
+<li>Créer un nouveau data frame appelé “dfAgg” avec le nombre de salarié par genre.</li>
+</ol>
+</div>
+<div id="lusage-du-pipe" class="section level3 hasAnchor" number="12.8.11">
+<h3><span class="header-section-number">12.8.11</span> L’usage du pipe %&gt;%<a href="entrainement.html#lusage-du-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour répondre à ces questions, utilisez le raccourci <code>%&gt;%</code>.</p>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="entrainement.html#cb744-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;CDD&quot;</span>,<span class="st">&quot;CDI&quot;</span>,<span class="st">&quot;Alternance&quot;</span>,<span class="st">&quot;Intérim&quot;</span>)</span>
+<span id="cb744-2"><a href="entrainement.html#cb744-2" aria-hidden="true" tabindex="-1"></a>a <span class="sc">%&gt;%</span> </span>
+<span id="cb744-3"><a href="entrainement.html#cb744-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb744-4"><a href="entrainement.html#cb744-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>() </span></code></pre></div>
+<pre><code>## .
+## Alternance        CDD        CDI    Intérim 
+##          3          5          1          1</code></pre>
+<ol style="list-style-type: decimal">
+<li>Créer un nouveau data frame appelé “dfTest” avec les personnes de plus de 30 ans.</li>
+<li>Calculer ensuite le salaire moyen et l’ancienneté moyenne selon le genre et le type de contrat.</li>
+<li>Trier ensuite par moyenne de salaire décroissante.</li>
+<li>Filtrer ensuite sur les salaire moyens de plus de 1500€.</li>
+<li>Exporter cet objet R avec la fonction <code>save()</code>.</li>
 </ol>
 
 </div>

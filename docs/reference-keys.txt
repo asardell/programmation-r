@@ -181,6 +181,11 @@ simulation-de-vecteur
 statistique-sur-les-vecteurs
 représentation-graphique-1
 construire-un-dataframe
+manipuler-un-dataframe
+filtrer-un-dataframe
+trier-un-dataframe
+agréger-les-données
+lusage-du-pipe
 all_dataset
 iris
 histoire-de-vie-hdv2003

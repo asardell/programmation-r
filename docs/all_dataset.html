@@ -371,6 +371,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.8.4" data-path="entrainement.html"><a href="entrainement.html#statistique-sur-les-vecteurs"><i class="fa fa-check"></i><b>12.8.4</b> Statistique sur les vecteurs</a></li>
 <li class="chapter" data-level="12.8.5" data-path="entrainement.html"><a href="entrainement.html#représentation-graphique-1"><i class="fa fa-check"></i><b>12.8.5</b> Représentation graphique</a></li>
 <li class="chapter" data-level="12.8.6" data-path="entrainement.html"><a href="entrainement.html#construire-un-dataframe"><i class="fa fa-check"></i><b>12.8.6</b> Construire un dataframe</a></li>
+<li class="chapter" data-level="12.8.7" data-path="entrainement.html"><a href="entrainement.html#manipuler-un-dataframe"><i class="fa fa-check"></i><b>12.8.7</b> Manipuler un dataframe</a></li>
+<li class="chapter" data-level="12.8.8" data-path="entrainement.html"><a href="entrainement.html#filtrer-un-dataframe"><i class="fa fa-check"></i><b>12.8.8</b> Filtrer un dataframe</a></li>
+<li class="chapter" data-level="12.8.9" data-path="entrainement.html"><a href="entrainement.html#trier-un-dataframe"><i class="fa fa-check"></i><b>12.8.9</b> Trier un dataframe</a></li>
+<li class="chapter" data-level="12.8.10" data-path="entrainement.html"><a href="entrainement.html#agréger-les-données"><i class="fa fa-check"></i><b>12.8.10</b> Agréger les données</a></li>
+<li class="chapter" data-level="12.8.11" data-path="entrainement.html"><a href="entrainement.html#lusage-du-pipe"><i class="fa fa-check"></i><b>12.8.11</b> L’usage du pipe %&gt;%</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="all_dataset.html"><a href="all_dataset.html"><i class="fa fa-check"></i><b>13</b> Jeux de données utilisés</a>
@@ -425,7 +430,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>Petal.Width</code> : largeur du pétale</li>
 <li><code>Species</code> : l’espèce de la fleur</li>
 </ul>
-<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="all_dataset.html#cb744-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="all_dataset.html#cb746-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(iris)</span></code></pre></div>
 <pre><code>## [1] 150   5</code></pre>
 <p>Voici un extrait du dataset :</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
@@ -798,12 +803,12 @@ setosa
 <h2><span class="header-section-number">13.2</span> Histoire de vie (hdv2003) 🗨<a href="#histoire-de-vie-hdv2003" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Le jeu de données est un extrait de l’enquête <em>Histoire de vie</em> réalisée par l’INSEE en 2003. Il contient 2000 individus et 20 variables.</p>
 <p>Pour pouvoir utiliser ces données, il faut d’abord charger l’extension <code>questionr</code> (après l’avoir installée, bien entendu) :</p>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="all_dataset.html#cb746-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(questionr)</span></code></pre></div>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="all_dataset.html#cb748-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(questionr)</span></code></pre></div>
 <p>Nous devons ensuite indiquer à R que nous souhaitons accéder au jeu de données à l’aide de la commande <code>data</code> :</p>
-<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="all_dataset.html#cb747-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(hdv2003)</span></code></pre></div>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="all_dataset.html#cb749-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(hdv2003)</span></code></pre></div>
 <p>Cette commande ne renvoie aucun résultat particulier (sauf en cas d’erreur), mais vous devriez voir apparaître dans l’onglet <em>Environment</em> de RStudio un nouvel objet nommé <code>hdv2003</code> :</p>
 <p>On utilise la fonction <code>dim</code> pour connaître la taille du dataset</p>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="all_dataset.html#cb748-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(hdv2003)</span></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="all_dataset.html#cb750-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(hdv2003)</span></code></pre></div>
 <pre><code>## [1] 2000   20</code></pre>
 <p>Voici un extrait du dataset :</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
@@ -2120,8 +2125,8 @@ Oui
 <div id="nyc-flights-2013" class="section level2 hasAnchor" number="13.3">
 <h2><span class="header-section-number">13.3</span> NYC Flights 2013 ✈<a href="all_dataset.html#nyc-flights-2013" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Le package <code>nycflights13</code> propose plusieurs <code>data.frame</code>. Ceux-ci correspondent aux données de tous les vols au départ d’un des trois aéroports de New-York en 2013.</p>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="all_dataset.html#cb750-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
-<span id="cb750-2"><a href="all_dataset.html#cb750-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">&quot;package:nycflights13&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="all_dataset.html#cb752-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb752-2"><a href="all_dataset.html#cb752-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">&quot;package:nycflights13&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;airlines&quot; &quot;airports&quot; &quot;flights&quot;  &quot;planes&quot;   &quot;weather&quot;</code></pre>
 <div id="flights" class="section level3 hasAnchor" number="13.3.1">
 <h3><span class="header-section-number">13.3.1</span> Flights<a href="all_dataset.html#flights" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -2140,7 +2145,7 @@ Oui
 <li><code>hour</code> , <code>minute</code> : Heure de départ prévue divisée en heures et minutes.</li>
 <li><code>time_hour</code> : Date et heure prévues du vol</li>
 </ul>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="all_dataset.html#cb752-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="all_dataset.html#cb754-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(flights)</span></code></pre></div>
 <pre><code>## [1] 336776     19</code></pre>
 <p>Voici un extrait du dataset :</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
@@ -3394,7 +3399,7 @@ PBI
 <div id="airlines" class="section level3 hasAnchor" number="13.3.2">
 <h3><span class="header-section-number">13.3.2</span> Airlines<a href="all_dataset.html#airlines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La table <code>airlines</code> contient des données sur les compagnies aériennes</p>
-<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="all_dataset.html#cb754-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(airlines)</span></code></pre></div>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="all_dataset.html#cb756-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(airlines)</span></code></pre></div>
 <pre><code>## [1] 16  2</code></pre>
 <p>Voici un extrait du dataset :</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
@@ -3545,7 +3550,7 @@ Mesa Airlines Inc. 
 <div id="airports" class="section level3 hasAnchor" number="13.3.3">
 <h3><span class="header-section-number">13.3.3</span> Airports<a href="all_dataset.html#airports" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La table <code>airports</code> contient des informations sur les aéroports</p>
-<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="all_dataset.html#cb756-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(airports)</span></code></pre></div>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="all_dataset.html#cb758-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(airports)</span></code></pre></div>
 <pre><code>## [1] 1458    8</code></pre>
 <p>Voici un extrait du dataset :</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
@@ -4106,7 +4111,7 @@ America/Phoenix
 <div id="weather" class="section level3 hasAnchor" number="13.3.4">
 <h3><span class="header-section-number">13.3.4</span> Weather<a href="all_dataset.html#weather" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La table <code>weather</code> contient des informations sur les conditions météorologiques</p>
-<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="all_dataset.html#cb758-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(weather)</span></code></pre></div>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="all_dataset.html#cb760-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(weather)</span></code></pre></div>
 <pre><code>## [1] 26115    15</code></pre>
 <p>Voici un extrait du dataset :</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
@@ -5108,7 +5113,7 @@ EWR
 <div id="planes" class="section level3 hasAnchor" number="13.3.5">
 <h3><span class="header-section-number">13.3.5</span> Planes<a href="all_dataset.html#planes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La table <code>planes</code> contient des informations sur les appareil</p>
-<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="all_dataset.html#cb760-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(planes)</span></code></pre></div>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="all_dataset.html#cb762-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(planes)</span></code></pre></div>
 <pre><code>## [1] 3322    9</code></pre>
 <p>Voici un extrait du dataset :</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
@@ -5747,8 +5752,8 @@ Le fichier est issu du site <a href="https://www.kaggle.com/lava18/google-play-s
 <li><code>Last.Updated</code> : Date de la dernière version</li>
 <li><code>Size_recode</code> : Taille de l’application (en Mo)</li>
 </ul>
-<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="all_dataset.html#cb762-1" aria-hidden="true" tabindex="-1"></a>google <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;./dataset/google.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="all_dataset.html#cb763-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(google)</span></code></pre></div>
+<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="all_dataset.html#cb764-1" aria-hidden="true" tabindex="-1"></a>google <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;./dataset/google.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="all_dataset.html#cb765-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(google)</span></code></pre></div>
 <pre><code>## [1] 8196   10</code></pre>
 <p>Voici un extrait du dataset :</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
@@ -6449,9 +6454,9 @@ Le fichier est issu du site <a href="https://www.kaggle.com/rounakbanik/pokemon"
 <li><code>defense</code> : la puissance de défense du pokemon</li>
 <li><code>speed</code> : la vitesse du pokemon</li>
 </ul>
-<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="all_dataset.html#cb765-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb765-2"><a href="all_dataset.html#cb765-2" aria-hidden="true" tabindex="-1"></a>pokemon <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;./dataset/pokemon.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;pokemon&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb766-1"><a href="all_dataset.html#cb766-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(pokemon)</span></code></pre></div>
+<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="all_dataset.html#cb767-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb767-2"><a href="all_dataset.html#cb767-2" aria-hidden="true" tabindex="-1"></a>pokemon <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;./dataset/pokemon.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;pokemon&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="all_dataset.html#cb768-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(pokemon)</span></code></pre></div>
 <pre><code>## [1] 251  10</code></pre>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
@@ -7137,8 +7142,8 @@ NA
 <div id="star-wars" class="section level2 hasAnchor" number="13.6">
 <h2><span class="header-section-number">13.6</span> Star Wars 🎬<a href="#star-wars" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Le dataset <code>starwars.csv</code> décrit les caractéristiques des personnages principaux de la saga.</p>
-<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="all_dataset.html#cb768-1" aria-hidden="true" tabindex="-1"></a>starWars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./dataset/starwars.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="all_dataset.html#cb769-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(starWars)</span></code></pre></div>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="all_dataset.html#cb770-1" aria-hidden="true" tabindex="-1"></a>starWars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./dataset/starwars.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="all_dataset.html#cb771-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(starWars)</span></code></pre></div>
 <pre><code>## [1] 87 10</code></pre>
 <p>Voici un extrait du dataset :</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
@@ -7842,8 +7847,8 @@ Les fichiers csv ont tous la même structure avec :</p>
 <li><code>Rank.Change</code> : Non renseigné</li>
 <li><code>Region.Game.Code</code> : la région du serveur de jeu</li>
 </ul>
-<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="all_dataset.html#cb771-1" aria-hidden="true" tabindex="-1"></a>AmongUs <span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;./dataset/AmongUs.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="all_dataset.html#cb772-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(AmongUs)</span></code></pre></div>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="all_dataset.html#cb773-1" aria-hidden="true" tabindex="-1"></a>AmongUs <span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;./dataset/AmongUs.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb774-1"><a href="all_dataset.html#cb774-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(AmongUs)</span></code></pre></div>
 <pre><code>## [1] 100  13</code></pre>
 <p>Voici un extrait du dataset :</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
@@ -8766,8 +8771,8 @@ NA / EYNONF
 <li><code>CLOSE_DEF_DIST</code> : Distance entre le tireur et le défenseur le plus proche en <em>foot</em> (<em>1 foot = 0,30 mètre</em>)</li>
 <li><code>SHOOTER</code> : Nom du tireur</li>
 </ul>
-<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb774-1"><a href="all_dataset.html#cb774-1" aria-hidden="true" tabindex="-1"></a>NBA <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./dataset/NBA.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="all_dataset.html#cb775-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(NBA)</span></code></pre></div>
+<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="all_dataset.html#cb776-1" aria-hidden="true" tabindex="-1"></a>NBA <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./dataset/NBA.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="all_dataset.html#cb777-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(NBA)</span></code></pre></div>
 <pre><code>## [1] 128069     12</code></pre>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
@@ -9588,9 +9593,9 @@ brian roberts
 <li><code>QUIZ#</code> : Le score du quiz numéro #</li>
 <li><code>TP#</code> : La note au TP numéro #</li>
 </ul>
-<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="all_dataset.html#cb777-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;dataset/students_results.csv&quot;</span>,</span>
-<span id="cb777-2"><a href="all_dataset.html#cb777-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="all_dataset.html#cb778-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="all_dataset.html#cb779-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;dataset/students_results.csv&quot;</span>,</span>
+<span id="cb779-2"><a href="all_dataset.html#cb779-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb780-1"><a href="all_dataset.html#cb780-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span></code></pre></div>
 <pre><code>## [1] 54  9</code></pre>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
@@ -10225,9 +10230,9 @@ H
 <li><code>Prime.Video</code> : si le film ou la série est disponible sur cette plateforme</li>
 <li><code>Disney.</code> : si le film ou la série est disponible sur cette plateforme</li>
 </ul>
-<div class="sourceCode" id="cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb780-1"><a href="all_dataset.html#cb780-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;dataset/tv_shows.csv&quot;</span>,</span>
-<span id="cb780-2"><a href="all_dataset.html#cb780-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="all_dataset.html#cb781-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb782"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb782-1"><a href="all_dataset.html#cb782-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;dataset/tv_shows.csv&quot;</span>,</span>
+<span id="cb782-2"><a href="all_dataset.html#cb782-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="all_dataset.html#cb783-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span></code></pre></div>
 <pre><code>## [1] 5611    9</code></pre>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
