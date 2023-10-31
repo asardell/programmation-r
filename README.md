@@ -5,10 +5,3 @@ Ce livre est régulièrement mis à jour et disponible sur https://asardell.gith
 
 
 Le code source de ce cours est disponible sur [ github](https://github.com/asardell/programmation-r).
-
-
-
-Liste des choses à modifier/ajouter:
-
-* ajouter les symboles logiques dans la partie filtre
-* la gestion des NA pour les filtres

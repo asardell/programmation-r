@@ -670,6 +670,8 @@ boxplot(formula = attack ~ type,
 - Utiliser le package *ggplot2* avec le cours de [ Julien Barnier ](https://juba.github.io/tidyverse/08-ggplot2.html)
 - Constuire des graphiques avec l'interface *esquisse* avec le cours de [ Dreams Rs](https://dreamrs.github.io/esquisse/articles/get-started.html)
 - Utiliser des widgets HTML avec la [ Galerie ](https://www.htmlwidgets.org/showcase_leaflet.html) pour construire des graphiques dynamiques
+- Développer des applications intéractives avec le [RShiny](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html).
+
 
 ## Testez vos connaissances !
 

@@ -1,0 +1,2922 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 11 Test indépendance | index.html.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 11 Test indépendance | index.html.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 11 Test indépendance | index.html.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="jointures.html"/>
+<link rel="next" href="express.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="presentation.html"><a href="presentation.html"><i class="fa fa-check"></i><b>1</b> Présentation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="presentation.html"><a href="presentation.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="presentation.html"><a href="presentation.html#à-propos-de-r"><i class="fa fa-check"></i><b>1.1.1</b> À propos de R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="presentation.html"><a href="presentation.html#à-propos-de-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> À propos de RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="presentation.html"><a href="presentation.html#à-propos-du-tidyverse"><i class="fa fa-check"></i><b>1.1.3</b> À propos du <em>tidyverse</em></a></li>
+<li class="chapter" data-level="1.1.4" data-path="presentation.html"><a href="presentation.html#structure-du-document"><i class="fa fa-check"></i><b>1.1.4</b> Structure du document</a></li>
+<li class="chapter" data-level="1.1.5" data-path="presentation.html"><a href="presentation.html#prérequis"><i class="fa fa-check"></i><b>1.1.5</b> Prérequis</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="presentation.html"><a href="presentation.html#prise-en-main"><i class="fa fa-check"></i><b>1.2</b> Prise en main</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="presentation.html"><a href="presentation.html#la-console"><i class="fa fa-check"></i><b>1.2.1</b> La console</a></li>
+<li class="chapter" data-level="1.2.2" data-path="presentation.html"><a href="presentation.html#objets"><i class="fa fa-check"></i><b>1.2.2</b> Objets</a></li>
+<li class="chapter" data-level="1.2.3" data-path="presentation.html"><a href="presentation.html#fonctions"><i class="fa fa-check"></i><b>1.2.3</b> Fonctions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="presentation.html"><a href="presentation.html#fonctions-de-tests-et-comparaisons"><i class="fa fa-check"></i><b>1.3</b> Fonctions de tests et comparaisons</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="presentation.html"><a href="presentation.html#opérateurs-de-comparaisons"><i class="fa fa-check"></i><b>1.3.1</b> Opérateurs de comparaisons</a></li>
+<li class="chapter" data-level="1.3.2" data-path="presentation.html"><a href="presentation.html#opérateurs-logiques"><i class="fa fa-check"></i><b>1.3.2</b> Opérateurs logiques</a></li>
+<li class="chapter" data-level="1.3.3" data-path="presentation.html"><a href="presentation.html#fonctions-logiques"><i class="fa fa-check"></i><b>1.3.3</b> Fonctions logiques</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="presentation.html"><a href="presentation.html#regrouper-ses-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>1.4</b> Regrouper ses commandes dans des scripts</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="presentation.html"><a href="presentation.html#commentaires"><i class="fa fa-check"></i><b>1.4.1</b> Commentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="presentation.html"><a href="presentation.html#installer-et-charger-des-extensions-packages"><i class="fa fa-check"></i><b>1.5</b> Installer et charger des extensions (<em>packages</em>)</a></li>
+<li class="chapter" data-level="1.6" data-path="presentation.html"><a href="presentation.html#exercices"><i class="fa fa-check"></i><b>1.6</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="presentation.html"><a href="presentation.html#sujet"><i class="fa fa-check"></i><b>1.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="1.6.2" data-path="presentation.html"><a href="presentation.html#correction"><i class="fa fa-check"></i><b>1.6.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="presentation.html"><a href="presentation.html#testez-vos-connaissances"><i class="fa fa-check"></i><b>1.7</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="first_dataset.html"><a href="first_dataset.html"><i class="fa fa-check"></i><b>2</b> Premier travail avec des données</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="first_dataset.html"><a href="first_dataset.html#jeu-de-données-dexemple"><i class="fa fa-check"></i><b>2.1</b> Jeu de données d’exemple</a></li>
+<li class="chapter" data-level="2.2" data-path="first_dataset.html"><a href="first_dataset.html#tableau-de-données-data-frame"><i class="fa fa-check"></i><b>2.2</b> Tableau de données (<em>data frame</em>)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="first_dataset.html"><a href="first_dataset.html#structure-du-tableau"><i class="fa fa-check"></i><b>2.2.1</b> Structure du tableau</a></li>
+<li class="chapter" data-level="2.2.2" data-path="first_dataset.html"><a href="first_dataset.html#accéder-aux-variables-dun-tableau"><i class="fa fa-check"></i><b>2.2.2</b> Accéder aux variables d’un tableau</a></li>
+<li class="chapter" data-level="2.2.3" data-path="first_dataset.html"><a href="first_dataset.html#créer-une-nouvelle-variable"><i class="fa fa-check"></i><b>2.2.3</b> Créer une nouvelle variable</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="first_dataset.html"><a href="first_dataset.html#analyse-univariée"><i class="fa fa-check"></i><b>2.3</b> Analyse univariée</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="first_dataset.html"><a href="first_dataset.html#analyser-une-variable-quantitative"><i class="fa fa-check"></i><b>2.3.1</b> Analyser une variable quantitative</a></li>
+<li class="chapter" data-level="2.3.2" data-path="first_dataset.html"><a href="first_dataset.html#analyser-une-variable-qualitative"><i class="fa fa-check"></i><b>2.3.2</b> Analyser une variable qualitative</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="first_dataset.html"><a href="first_dataset.html#combiner-plusieurs-variables"><i class="fa fa-check"></i><b>2.4</b> Combiner plusieurs variables</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="first_dataset.html"><a href="first_dataset.html#créer-une-nouvelle-variable-1"><i class="fa fa-check"></i><b>2.4.1</b> Créer une nouvelle variable</a></li>
+<li class="chapter" data-level="2.4.2" data-path="first_dataset.html"><a href="first_dataset.html#créer-des-regroupements-de-modalités"><i class="fa fa-check"></i><b>2.4.2</b> Créer des regroupements de modalités</a></li>
+<li class="chapter" data-level="2.4.3" data-path="first_dataset.html"><a href="first_dataset.html#découper-une-variable-numérique-en-classes"><i class="fa fa-check"></i><b>2.4.3</b> Découper une variable numérique en classes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="first_dataset.html"><a href="first_dataset.html#exercices-1"><i class="fa fa-check"></i><b>2.5</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="first_dataset.html"><a href="first_dataset.html#sujet-1"><i class="fa fa-check"></i><b>2.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="2.5.2" data-path="first_dataset.html"><a href="first_dataset.html#correction-1"><i class="fa fa-check"></i><b>2.5.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="first_dataset.html"><a href="first_dataset.html#testez-vos-connaissances-1"><i class="fa fa-check"></i><b>2.6</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="first_import.html"><a href="first_import.html"><i class="fa fa-check"></i><b>3</b> Importer des données externes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="first_import.html"><a href="first_import.html#import-de-fichiers-csv"><i class="fa fa-check"></i><b>3.1</b> Import de fichiers csv</a></li>
+<li class="chapter" data-level="3.2" data-path="first_import.html"><a href="first_import.html#interface-interactive-dimport-de-fichiers"><i class="fa fa-check"></i><b>3.2</b> Interface interactive d’import de fichiers</a></li>
+<li class="chapter" data-level="3.3" data-path="first_import.html"><a href="first_import.html#modifier-le-répertoire-actif"><i class="fa fa-check"></i><b>3.3</b> Modifier le répertoire actif</a></li>
+<li class="chapter" data-level="3.4" data-path="first_import.html"><a href="first_import.html#import-depuis-un-fichier-excel"><i class="fa fa-check"></i><b>3.4</b> Import depuis un fichier Excel</a></li>
+<li class="chapter" data-level="3.5" data-path="first_import.html"><a href="first_import.html#export-de-données"><i class="fa fa-check"></i><b>3.5</b> Export de données</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="first_import.html"><a href="first_import.html#export-de-tableaux-de-données"><i class="fa fa-check"></i><b>3.5.1</b> Export de tableaux de données</a></li>
+<li class="chapter" data-level="3.5.2" data-path="first_import.html"><a href="first_import.html#sauvegarder-des-objets"><i class="fa fa-check"></i><b>3.5.2</b> Sauvegarder des objets</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="first_import.html"><a href="first_import.html#exercices-2"><i class="fa fa-check"></i><b>3.6</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="first_import.html"><a href="first_import.html#sujet-2"><i class="fa fa-check"></i><b>3.6.1</b> Sujet</a></li>
+<li class="chapter" data-level="3.6.2" data-path="first_import.html"><a href="first_import.html#correction-2"><i class="fa fa-check"></i><b>3.6.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="first_import.html"><a href="first_import.html#testez-vos-connaissances-2"><i class="fa fa-check"></i><b>3.7</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="manipulation_objet.html"><a href="manipulation_objet.html"><i class="fa fa-check"></i><b>4</b> Manipulation des objets</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="manipulation_objet.html"><a href="manipulation_objet.html#liste"><i class="fa fa-check"></i><b>4.1</b> Liste</a></li>
+<li class="chapter" data-level="4.2" data-path="manipulation_objet.html"><a href="manipulation_objet.html#matrice"><i class="fa fa-check"></i><b>4.2</b> Matrice</a></li>
+<li class="chapter" data-level="4.3" data-path="manipulation_objet.html"><a href="manipulation_objet.html#data-frame"><i class="fa fa-check"></i><b>4.3</b> Data frame</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="manipulation_objet.html"><a href="manipulation_objet.html#indexations-simples"><i class="fa fa-check"></i><b>4.3.1</b> Indexations simples</a></li>
+<li class="chapter" data-level="4.3.2" data-path="manipulation_objet.html"><a href="manipulation_objet.html#indexations-avec-des-booléens"><i class="fa fa-check"></i><b>4.3.2</b> Indexations avec des booléens</a></li>
+<li class="chapter" data-level="4.3.3" data-path="manipulation_objet.html"><a href="manipulation_objet.html#filtre-et-sélection-dans-un-data-frame"><i class="fa fa-check"></i><b>4.3.3</b> Filtre et sélection dans un data frame</a></li>
+<li class="chapter" data-level="4.3.4" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercices-3"><i class="fa fa-check"></i><b>4.3.4</b> Exercices</a></li>
+<li class="chapter" data-level="4.3.5" data-path="manipulation_objet.html"><a href="manipulation_objet.html#trier-un-data-frame"><i class="fa fa-check"></i><b>4.3.5</b> Trier un data frame</a></li>
+<li class="chapter" data-level="4.3.6" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercice"><i class="fa fa-check"></i><b>4.3.6</b> Exercice</a></li>
+<li class="chapter" data-level="4.3.7" data-path="manipulation_objet.html"><a href="manipulation_objet.html#agréger-des-données"><i class="fa fa-check"></i><b>4.3.7</b> Agréger des données</a></li>
+<li class="chapter" data-level="4.3.8" data-path="manipulation_objet.html"><a href="manipulation_objet.html#exercice-1"><i class="fa fa-check"></i><b>4.3.8</b> Exercice</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="manipulation_objet.html"><a href="manipulation_objet.html#testez-vos-connaissances-3"><i class="fa fa-check"></i><b>4.4</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="graphique.html"><a href="graphique.html"><i class="fa fa-check"></i><b>5</b> Représentation Graphique</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="graphique.html"><a href="graphique.html#les-fenêtres-graphiques"><i class="fa fa-check"></i><b>5.1</b> Les fenêtres graphiques</a></li>
+<li class="chapter" data-level="5.2" data-path="graphique.html"><a href="graphique.html#les-fonctions-de-tracé-de-bas-niveau"><i class="fa fa-check"></i><b>5.2</b> Les fonctions de tracé de bas niveau</a></li>
+<li class="chapter" data-level="5.3" data-path="graphique.html"><a href="graphique.html#personnaliser-des-éléments-graphiques"><i class="fa fa-check"></i><b>5.3</b> Personnaliser des éléments graphiques</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="graphique.html"><a href="graphique.html#mise-en-forme"><i class="fa fa-check"></i><b>5.3.1</b> Mise en forme</a></li>
+<li class="chapter" data-level="5.3.2" data-path="graphique.html"><a href="graphique.html#gestion-des-couleurs"><i class="fa fa-check"></i><b>5.3.2</b> Gestion des couleurs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="graphique.html"><a href="graphique.html#type-de-graphique"><i class="fa fa-check"></i><b>5.4</b> Type de graphique</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="graphique.html"><a href="graphique.html#boxplot"><i class="fa fa-check"></i><b>5.4.1</b> Boxplot</a></li>
+<li class="chapter" data-level="5.4.2" data-path="graphique.html"><a href="graphique.html#histogramme"><i class="fa fa-check"></i><b>5.4.2</b> Histogramme</a></li>
+<li class="chapter" data-level="5.4.3" data-path="graphique.html"><a href="graphique.html#diagramme-en-circulaire"><i class="fa fa-check"></i><b>5.4.3</b> Diagramme en circulaire</a></li>
+<li class="chapter" data-level="5.4.4" data-path="graphique.html"><a href="graphique.html#diagramme-en-barre"><i class="fa fa-check"></i><b>5.4.4</b> Diagramme en barre</a></li>
+<li class="chapter" data-level="5.4.5" data-path="graphique.html"><a href="graphique.html#nuage-de-points"><i class="fa fa-check"></i><b>5.4.5</b> Nuage de points</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="graphique.html"><a href="graphique.html#exercice-2"><i class="fa fa-check"></i><b>5.5</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="graphique.html"><a href="graphique.html#sujet-6"><i class="fa fa-check"></i><b>5.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="5.5.2" data-path="graphique.html"><a href="graphique.html#correction-6"><i class="fa fa-check"></i><b>5.5.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="graphique.html"><a href="graphique.html#aller-plus-loin"><i class="fa fa-check"></i><b>5.6</b> Aller plus loin</a></li>
+<li class="chapter" data-level="5.7" data-path="graphique.html"><a href="graphique.html#testez-vos-connaissances-4"><i class="fa fa-check"></i><b>5.7</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="algo.html"><a href="algo.html"><i class="fa fa-check"></i><b>6</b> Algorithme</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="algo.html"><a href="algo.html#construire-une-fonction"><i class="fa fa-check"></i><b>6.1</b> Construire une fonction</a></li>
+<li class="chapter" data-level="6.2" data-path="algo.html"><a href="algo.html#construire-une-structure-conditionnelle"><i class="fa fa-check"></i><b>6.2</b> Construire une structure conditionnelle</a></li>
+<li class="chapter" data-level="6.3" data-path="algo.html"><a href="algo.html#construire-une-boucle"><i class="fa fa-check"></i><b>6.3</b> Construire une boucle</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="algo.html"><a href="algo.html#la-boucle-for"><i class="fa fa-check"></i><b>6.3.1</b> La boucle <code>for</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="algo.html"><a href="algo.html#la-boucle-while"><i class="fa fa-check"></i><b>6.3.2</b> La boucle <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="algo.html"><a href="algo.html#exercice-3"><i class="fa fa-check"></i><b>6.4</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="algo.html"><a href="algo.html#sujet-7"><i class="fa fa-check"></i><b>6.4.1</b> Sujet</a></li>
+<li class="chapter" data-level="6.4.2" data-path="algo.html"><a href="algo.html#correction-7"><i class="fa fa-check"></i><b>6.4.2</b> Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="algo.html"><a href="algo.html#testez-vos-connaissances-5"><i class="fa fa-check"></i><b>6.5</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="apply.html"><a href="apply.html"><i class="fa fa-check"></i><b>7</b> Les fonctions apply</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="apply.html"><a href="apply.html#fonction-apply"><i class="fa fa-check"></i><b>7.1</b> Fonction apply</a></li>
+<li class="chapter" data-level="7.2" data-path="apply.html"><a href="apply.html#fonction-lapply"><i class="fa fa-check"></i><b>7.2</b> Fonction lapply</a></li>
+<li class="chapter" data-level="7.3" data-path="apply.html"><a href="apply.html#fonction-sapply"><i class="fa fa-check"></i><b>7.3</b> Fonction sapply</a></li>
+<li class="chapter" data-level="7.4" data-path="apply.html"><a href="apply.html#fonction-tapply"><i class="fa fa-check"></i><b>7.4</b> Fonction tapply</a></li>
+<li class="chapter" data-level="7.5" data-path="apply.html"><a href="apply.html#exercice-4"><i class="fa fa-check"></i><b>7.5</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="apply.html"><a href="apply.html#sujet-8"><i class="fa fa-check"></i><b>7.5.1</b> Sujet</a></li>
+<li class="chapter" data-level="7.5.2" data-path="apply.html"><a href="apply.html#correction-8"><i class="fa fa-check"></i><b>7.5.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>8</b> Manipuler les données avec dplyr</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-slice"><i class="fa fa-check"></i><b>8.1</b> La fonction <code>slice</code></a></li>
+<li class="chapter" data-level="8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-filter"><i class="fa fa-check"></i><b>8.2</b> La fonction <code>filter</code></a></li>
+<li class="chapter" data-level="8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-select"><i class="fa fa-check"></i><b>8.3</b> La fonction <code>select</code></a></li>
+<li class="chapter" data-level="8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-arrange"><i class="fa fa-check"></i><b>8.4</b> La fonction <code>arrange</code></a></li>
+<li class="chapter" data-level="8.5" data-path="dplyr.html"><a href="dplyr.html#enchaîner-les-fonctions-avec-le-pipe"><i class="fa fa-check"></i><b>8.5</b> Enchaîner les fonctions avec le <em>pipe</em></a></li>
+<li class="chapter" data-level="8.6" data-path="dplyr.html"><a href="dplyr.html#la-fonction-group_by"><i class="fa fa-check"></i><b>8.6</b> La fonction <code>group_by</code></a></li>
+<li class="chapter" data-level="8.7" data-path="dplyr.html"><a href="dplyr.html#la-fonction-summarise"><i class="fa fa-check"></i><b>8.7</b> La fonction <code>summarise</code></a></li>
+<li class="chapter" data-level="8.8" data-path="dplyr.html"><a href="dplyr.html#autres-fonctions-utiles-de-dplyr"><i class="fa fa-check"></i><b>8.8</b> Autres fonctions utiles de dplyr</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="dplyr.html"><a href="dplyr.html#la-fonction-rename"><i class="fa fa-check"></i><b>8.8.1</b> La fonction <code>rename</code></a></li>
+<li class="chapter" data-level="8.8.2" data-path="dplyr.html"><a href="dplyr.html#la-fonction-mutate"><i class="fa fa-check"></i><b>8.8.2</b> La fonction <code>mutate</code></a></li>
+<li class="chapter" data-level="8.8.3" data-path="dplyr.html"><a href="dplyr.html#la-fonction-distinct"><i class="fa fa-check"></i><b>8.8.3</b> La fonction <code>distinct</code></a></li>
+<li class="chapter" data-level="8.8.4" data-path="dplyr.html"><a href="dplyr.html#la-fonction-case_when"><i class="fa fa-check"></i><b>8.8.4</b> La fonction <code>case_when</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chaines.html"><a href="chaines.html"><i class="fa fa-check"></i><b>9</b> Manipuler le texte et les dates</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chaines.html"><a href="chaines.html#manipulation-des-chaînes-de-caractères"><i class="fa fa-check"></i><b>9.1</b> Manipulation des chaînes de caractères</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="chaines.html"><a href="chaines.html#concaténer-des-chaînes"><i class="fa fa-check"></i><b>9.1.1</b> Concaténer des chaînes</a></li>
+<li class="chapter" data-level="9.1.2" data-path="chaines.html"><a href="chaines.html#majuscule-et-minuscule"><i class="fa fa-check"></i><b>9.1.2</b> Majuscule et minuscule</a></li>
+<li class="chapter" data-level="9.1.3" data-path="chaines.html"><a href="chaines.html#longueur-dune-chaîne"><i class="fa fa-check"></i><b>9.1.3</b> Longueur d’une chaîne</a></li>
+<li class="chapter" data-level="9.1.4" data-path="chaines.html"><a href="chaines.html#extraction-de-sous-chaînes"><i class="fa fa-check"></i><b>9.1.4</b> Extraction de sous-chaînes</a></li>
+<li class="chapter" data-level="9.1.5" data-path="chaines.html"><a href="chaines.html#remplacement-de-chaînes"><i class="fa fa-check"></i><b>9.1.5</b> Remplacement de chaînes</a></li>
+<li class="chapter" data-level="9.1.6" data-path="chaines.html"><a href="chaines.html#décomposition-dune-chaîne"><i class="fa fa-check"></i><b>9.1.6</b> Décomposition d’une chaîne</a></li>
+<li class="chapter" data-level="9.1.7" data-path="chaines.html"><a href="chaines.html#recherche-de-sous-chaîne"><i class="fa fa-check"></i><b>9.1.7</b> Recherche de sous-chaîne</a></li>
+<li class="chapter" data-level="9.1.8" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-1"><i class="fa fa-check"></i><b>9.1.8</b> Aller plus loin</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="chaines.html"><a href="chaines.html#manipulation-des-dates"><i class="fa fa-check"></i><b>9.2</b> Manipulation des dates</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="chaines.html"><a href="chaines.html#les-dates"><i class="fa fa-check"></i><b>9.2.1</b> Les dates</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chaines.html"><a href="chaines.html#lhorloge"><i class="fa fa-check"></i><b>9.2.2</b> L’horloge</a></li>
+<li class="chapter" data-level="9.2.3" data-path="chaines.html"><a href="chaines.html#calcul-sur-les-dates"><i class="fa fa-check"></i><b>9.2.3</b> Calcul sur les dates</a></li>
+<li class="chapter" data-level="9.2.4" data-path="chaines.html"><a href="chaines.html#aller-plus-loin-2"><i class="fa fa-check"></i><b>9.2.4</b> Aller plus loin</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chaines.html"><a href="chaines.html#testez-vos-connaissances-6"><i class="fa fa-check"></i><b>9.3</b> Testez vos connaissances !</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="jointures.html"><a href="jointures.html"><i class="fa fa-check"></i><b>10</b> Jointures</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="jointures.html"><a href="jointures.html#principe-1"><i class="fa fa-check"></i><b>10.1</b> Principe</a></li>
+<li class="chapter" data-level="10.2" data-path="jointures.html"><a href="jointures.html#types-de-jointures"><i class="fa fa-check"></i><b>10.2</b> Types de jointures</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="jointures.html"><a href="jointures.html#left-join"><i class="fa fa-check"></i><b>10.2.1</b> Left Join</a></li>
+<li class="chapter" data-level="10.2.2" data-path="jointures.html"><a href="jointures.html#right-join"><i class="fa fa-check"></i><b>10.2.2</b> Right Join</a></li>
+<li class="chapter" data-level="10.2.3" data-path="jointures.html"><a href="jointures.html#inner-join"><i class="fa fa-check"></i><b>10.2.3</b> Inner Join</a></li>
+<li class="chapter" data-level="10.2.4" data-path="jointures.html"><a href="jointures.html#full-join"><i class="fa fa-check"></i><b>10.2.4</b> Full Join</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="jointures.html"><a href="jointures.html#exercice-5"><i class="fa fa-check"></i><b>10.3</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="jointures.html"><a href="jointures.html#sujet-9"><i class="fa fa-check"></i><b>10.3.1</b> Sujet</a></li>
+<li class="chapter" data-level="10.3.2" data-path="jointures.html"><a href="jointures.html#correction-9"><i class="fa fa-check"></i><b>10.3.2</b> Correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="independance.html"><a href="independance.html"><i class="fa fa-check"></i><b>11</b> Test indépendance</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="independance.html"><a href="independance.html#test-de-corrélation"><i class="fa fa-check"></i><b>11.1</b> Test de corrélation</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="independance.html"><a href="independance.html#lipide-vs-magnesium"><i class="fa fa-check"></i><b>11.1.1</b> Lipide vs Magnesium</a></li>
+<li class="chapter" data-level="11.1.2" data-path="independance.html"><a href="independance.html#sodium-vs-retinol"><i class="fa fa-check"></i><b>11.1.2</b> Sodium vs Retinol</a></li>
+<li class="chapter" data-level="11.1.3" data-path="independance.html"><a href="independance.html#matrice-des-p-values"><i class="fa fa-check"></i><b>11.1.3</b> Matrice des p-values</a></li>
+<li class="chapter" data-level="11.1.4" data-path="independance.html"><a href="independance.html#cas-de-relation-non-linéaire"><i class="fa fa-check"></i><b>11.1.4</b> Cas de relation non linéaire</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="independance.html"><a href="independance.html#test-du-chi²"><i class="fa fa-check"></i><b>11.2</b> Test du CHI²</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="independance.html"><a href="independance.html#titanic"><i class="fa fa-check"></i><b>11.2.1</b> Titanic</a></li>
+<li class="chapter" data-level="11.2.2" data-path="independance.html"><a href="independance.html#exemple-du-support"><i class="fa fa-check"></i><b>11.2.2</b> Exemple du support</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="independance.html"><a href="independance.html#anova-1"><i class="fa fa-check"></i><b>11.3</b> ANOVA 1</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="independance.html"><a href="independance.html#lindépendance"><i class="fa fa-check"></i><b>11.3.1</b> L’indépendance</a></li>
+<li class="chapter" data-level="11.3.2" data-path="independance.html"><a href="independance.html#légalité-des-variances"><i class="fa fa-check"></i><b>11.3.2</b> L’égalité des variances</a></li>
+<li class="chapter" data-level="11.3.3" data-path="independance.html"><a href="independance.html#normalité-des-résidus"><i class="fa fa-check"></i><b>11.3.3</b> Normalité des résidus</a></li>
+<li class="chapter" data-level="11.3.4" data-path="independance.html"><a href="independance.html#calcul---cas-des-variances-égales"><i class="fa fa-check"></i><b>11.3.4</b> Calcul - Cas des variances égales</a></li>
+<li class="chapter" data-level="11.3.5" data-path="independance.html"><a href="independance.html#calcul---cas-des-variances-inégales"><i class="fa fa-check"></i><b>11.3.5</b> Calcul - Cas des variances inégales</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="independance.html"><a href="independance.html#anova-2"><i class="fa fa-check"></i><b>11.4</b> ANOVA 2</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="independance.html"><a href="independance.html#effet-de-la-variable-supp"><i class="fa fa-check"></i><b>11.4.1</b> Effet de la variable <code>supp</code></a></li>
+<li class="chapter" data-level="11.4.2" data-path="independance.html"><a href="independance.html#effet-de-la-variable-dose"><i class="fa fa-check"></i><b>11.4.2</b> Effet de la variable <code>dose</code></a></li>
+<li class="chapter" data-level="11.4.3" data-path="independance.html"><a href="independance.html#effet-lintéraction-entre-les-deux-facteurs"><i class="fa fa-check"></i><b>11.4.3</b> Effet l’intéraction entre les deux facteurs</a></li>
+<li class="chapter" data-level="11.4.4" data-path="independance.html"><a href="independance.html#calcul-de-lanova-2"><i class="fa fa-check"></i><b>11.4.4</b> Calcul de l’ANOVA 2</a></li>
+<li class="chapter" data-level="11.4.5" data-path="independance.html"><a href="independance.html#aller-plus-loin-3"><i class="fa fa-check"></i><b>11.4.5</b> Aller plus loin</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="express.html"><a href="express.html"><i class="fa fa-check"></i><b>12</b> R-Express 30’ ☕</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="express.html"><a href="express.html#aller-hop-importez-des-données"><i class="fa fa-check"></i><b>12.1</b> Aller hop ! Importez des données</a></li>
+<li class="chapter" data-level="12.2" data-path="express.html"><a href="express.html#manipulez-votre-tableau"><i class="fa fa-check"></i><b>12.2</b> Manipulez votre tableau</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="express.html"><a href="express.html#dans-une-vue"><i class="fa fa-check"></i><b>12.2.1</b> Dans une vue</a></li>
+<li class="chapter" data-level="12.2.2" data-path="express.html"><a href="express.html#avec-dplyr"><i class="fa fa-check"></i><b>12.2.2</b> Avec <code>dplyr</code></a></li>
+<li class="chapter" data-level="12.2.3" data-path="express.html"><a href="express.html#sélectionner-certaines-colonnes"><i class="fa fa-check"></i><b>12.2.3</b> Sélectionner certaines colonnes</a></li>
+<li class="chapter" data-level="12.2.4" data-path="express.html"><a href="express.html#ajouter-des-filtres"><i class="fa fa-check"></i><b>12.2.4</b> Ajouter des filtres</a></li>
+<li class="chapter" data-level="12.2.5" data-path="express.html"><a href="express.html#trier-un-tableau"><i class="fa fa-check"></i><b>12.2.5</b> Trier un tableau</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="express.html"><a href="express.html#des-graphiques-en-3-clics-avec-esquisse"><i class="fa fa-check"></i><b>12.3</b> Des graphiques en 3 clics avec <code>esquisse</code></a></li>
+<li class="chapter" data-level="12.4" data-path="express.html"><a href="express.html#en-bref"><i class="fa fa-check"></i><b>12.4</b> En bref</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="entrainement.html"><a href="entrainement.html"><i class="fa fa-check"></i><b>13</b> S’entrainer</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="entrainement.html"><a href="entrainement.html#tp1"><i class="fa fa-check"></i><b>13.1</b> TP1</a></li>
+<li class="chapter" data-level="13.2" data-path="entrainement.html"><a href="entrainement.html#tp2"><i class="fa fa-check"></i><b>13.2</b> TP2</a></li>
+<li class="chapter" data-level="13.3" data-path="entrainement.html"><a href="entrainement.html#tp3"><i class="fa fa-check"></i><b>13.3</b> TP3</a></li>
+<li class="chapter" data-level="13.4" data-path="entrainement.html"><a href="entrainement.html#tp4"><i class="fa fa-check"></i><b>13.4</b> TP4</a></li>
+<li class="chapter" data-level="13.5" data-path="entrainement.html"><a href="entrainement.html#tp5---chercher-lerreur"><i class="fa fa-check"></i><b>13.5</b> TP5 - Chercher l’erreur</a></li>
+<li class="chapter" data-level="13.6" data-path="entrainement.html"><a href="entrainement.html#tp6---analyses-statistiques"><i class="fa fa-check"></i><b>13.6</b> TP6 - Analyses statistiques</a></li>
+<li class="chapter" data-level="13.7" data-path="entrainement.html"><a href="entrainement.html#tp7---analyse-de-film"><i class="fa fa-check"></i><b>13.7</b> TP7 - Analyse de film</a></li>
+<li class="chapter" data-level="13.8" data-path="entrainement.html"><a href="entrainement.html#tp8---algo"><i class="fa fa-check"></i><b>13.8</b> TP8 - Algo</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="entrainement.html"><a href="entrainement.html#salaire-net"><i class="fa fa-check"></i><b>13.8.1</b> Salaire net</a></li>
+<li class="chapter" data-level="13.8.2" data-path="entrainement.html"><a href="entrainement.html#relevé-dimposition"><i class="fa fa-check"></i><b>13.8.2</b> Relevé d’imposition</a></li>
+<li class="chapter" data-level="13.8.3" data-path="entrainement.html"><a href="entrainement.html#juste-prix"><i class="fa fa-check"></i><b>13.8.3</b> Juste prix</a></li>
+<li class="chapter" data-level="13.8.4" data-path="entrainement.html"><a href="entrainement.html#pierre-feuille-ciseaux"><i class="fa fa-check"></i><b>13.8.4</b> Pierre, feuille, ciseaux</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="entrainement.html"><a href="entrainement.html#tp-formation"><i class="fa fa-check"></i><b>13.9</b> TP Formation</a>
+<ul>
+<li class="chapter" data-level="13.9.1" data-path="entrainement.html"><a href="entrainement.html#création-de-vecteur"><i class="fa fa-check"></i><b>13.9.1</b> Création de vecteur</a></li>
+<li class="chapter" data-level="13.9.2" data-path="entrainement.html"><a href="entrainement.html#manipulation-de-vecteur"><i class="fa fa-check"></i><b>13.9.2</b> Manipulation de vecteur</a></li>
+<li class="chapter" data-level="13.9.3" data-path="entrainement.html"><a href="entrainement.html#simulation-de-vecteur"><i class="fa fa-check"></i><b>13.9.3</b> Simulation de vecteur</a></li>
+<li class="chapter" data-level="13.9.4" data-path="entrainement.html"><a href="entrainement.html#statistique-sur-les-vecteurs"><i class="fa fa-check"></i><b>13.9.4</b> Statistique sur les vecteurs</a></li>
+<li class="chapter" data-level="13.9.5" data-path="entrainement.html"><a href="entrainement.html#représentation-graphique-1"><i class="fa fa-check"></i><b>13.9.5</b> Représentation graphique</a></li>
+<li class="chapter" data-level="13.9.6" data-path="entrainement.html"><a href="entrainement.html#construire-un-dataframe"><i class="fa fa-check"></i><b>13.9.6</b> Construire un dataframe</a></li>
+<li class="chapter" data-level="13.9.7" data-path="entrainement.html"><a href="entrainement.html#manipuler-un-dataframe"><i class="fa fa-check"></i><b>13.9.7</b> Manipuler un dataframe</a></li>
+<li class="chapter" data-level="13.9.8" data-path="entrainement.html"><a href="entrainement.html#filtrer-un-dataframe"><i class="fa fa-check"></i><b>13.9.8</b> Filtrer un dataframe</a></li>
+<li class="chapter" data-level="13.9.9" data-path="entrainement.html"><a href="entrainement.html#trier-un-dataframe"><i class="fa fa-check"></i><b>13.9.9</b> Trier un dataframe</a></li>
+<li class="chapter" data-level="13.9.10" data-path="entrainement.html"><a href="entrainement.html#agréger-les-données"><i class="fa fa-check"></i><b>13.9.10</b> Agréger les données</a></li>
+<li class="chapter" data-level="13.9.11" data-path="entrainement.html"><a href="entrainement.html#lusage-du-pipe"><i class="fa fa-check"></i><b>13.9.11</b> L’usage du pipe %&gt;%</a></li>
+<li class="chapter" data-level="13.9.12" data-path="entrainement.html"><a href="entrainement.html#tests-statistiques"><i class="fa fa-check"></i><b>13.9.12</b> Tests Statistiques</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="all_dataset.html"><a href="all_dataset.html"><i class="fa fa-check"></i><b>14</b> Jeux de données utilisés</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="all_dataset.html"><a href="all_dataset.html#iris"><i class="fa fa-check"></i><b>14.1</b> Iris 🌺</a></li>
+<li class="chapter" data-level="14.2" data-path="all_dataset.html"><a href="all_dataset.html#histoire-de-vie-hdv2003"><i class="fa fa-check"></i><b>14.2</b> Histoire de vie (hdv2003) 🗨</a></li>
+<li class="chapter" data-level="14.3" data-path="all_dataset.html"><a href="all_dataset.html#nyc-flights-2013"><i class="fa fa-check"></i><b>14.3</b> NYC Flights 2013 ✈</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="all_dataset.html"><a href="all_dataset.html#flights"><i class="fa fa-check"></i><b>14.3.1</b> Flights</a></li>
+<li class="chapter" data-level="14.3.2" data-path="all_dataset.html"><a href="all_dataset.html#airlines"><i class="fa fa-check"></i><b>14.3.2</b> Airlines</a></li>
+<li class="chapter" data-level="14.3.3" data-path="all_dataset.html"><a href="all_dataset.html#airports"><i class="fa fa-check"></i><b>14.3.3</b> Airports</a></li>
+<li class="chapter" data-level="14.3.4" data-path="all_dataset.html"><a href="all_dataset.html#weather"><i class="fa fa-check"></i><b>14.3.4</b> Weather</a></li>
+<li class="chapter" data-level="14.3.5" data-path="all_dataset.html"><a href="all_dataset.html#planes"><i class="fa fa-check"></i><b>14.3.5</b> Planes</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="all_dataset.html"><a href="all_dataset.html#google"><i class="fa fa-check"></i><b>14.4</b> Google 📱</a></li>
+<li class="chapter" data-level="14.5" data-path="all_dataset.html"><a href="all_dataset.html#pokemon"><i class="fa fa-check"></i><b>14.5</b> Pokemon 🐾</a></li>
+<li class="chapter" data-level="14.6" data-path="all_dataset.html"><a href="all_dataset.html#star-wars"><i class="fa fa-check"></i><b>14.6</b> Star Wars 🎬</a></li>
+<li class="chapter" data-level="14.7" data-path="all_dataset.html"><a href="all_dataset.html#amongus"><i class="fa fa-check"></i><b>14.7</b> AmongUs 🔦</a></li>
+<li class="chapter" data-level="14.8" data-path="all_dataset.html"><a href="all_dataset.html#nba"><i class="fa fa-check"></i><b>14.8</b> NBA 🏀</a></li>
+<li class="chapter" data-level="14.9" data-path="all_dataset.html"><a href="all_dataset.html#students"><i class="fa fa-check"></i><b>14.9</b> Students 🎓</a></li>
+<li class="chapter" data-level="14.10" data-path="all_dataset.html"><a href="all_dataset.html#tv-shows"><i class="fa fa-check"></i><b>14.10</b> TV Shows 📺</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="biblio.html"><a href="biblio.html"><i class="fa fa-check"></i><b>15</b> Bibliographie</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="independance" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapitre 11</span> Test indépendance<a href="independance.html#independance" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Les tests d’indépendances permettent de définir s’il existe un lien entre deux variables. Il existe différent test d’indépence, en voici quelques exemples :</p>
+<ul>
+<li>Test indépendance entre deux variables quantitatives / Test de corrélation Pearson</li>
+<li>Test d’indépendance entre deux variables qualitatives / Test du Chi²</li>
+<li>Test d’indépendance entre une variable qualitative et une quantitative / Test de Fisher avec l’analyse de la variance (ANOVA)</li>
+</ul>
+<div id="test-de-corrélation" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Test de corrélation<a href="independance.html#test-de-corrélation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>L’intérêt des tests de corrélation est d’apporter plus de pertinence et fiabilité aux coefficients de corrélation. Il existe différents test de corrélation, nous utilisons celui de Pearson.</p>
+<p>On travaille avec le jeu de données fromage 🧀 disponible en <a href="https://github.com/AnthonySardellitti/datascience-r/tree/master/datasets">cliquant ici</a>.</p>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="independance.html#cb696-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;./dataset/fromage.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+calories
+</th>
+<th style="text-align:right;">
+sodium
+</th>
+<th style="text-align:right;">
+calcium
+</th>
+<th style="text-align:right;">
+lipides
+</th>
+<th style="text-align:right;">
+retinol
+</th>
+<th style="text-align:right;">
+folates
+</th>
+<th style="text-align:right;">
+proteines
+</th>
+<th style="text-align:right;">
+cholesterol
+</th>
+<th style="text-align:right;">
+magnesium
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+CarredelEst
+</td>
+<td style="text-align:right;">
+314
+</td>
+<td style="text-align:right;">
+353.5
+</td>
+<td style="text-align:right;">
+72.6
+</td>
+<td style="text-align:right;">
+26.3
+</td>
+<td style="text-align:right;">
+51.6
+</td>
+<td style="text-align:right;">
+30.3
+</td>
+<td style="text-align:right;">
+21.0
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Babybel
+</td>
+<td style="text-align:right;">
+314
+</td>
+<td style="text-align:right;">
+238.0
+</td>
+<td style="text-align:right;">
+209.8
+</td>
+<td style="text-align:right;">
+25.1
+</td>
+<td style="text-align:right;">
+63.7
+</td>
+<td style="text-align:right;">
+6.4
+</td>
+<td style="text-align:right;">
+22.6
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Beaufort
+</td>
+<td style="text-align:right;">
+401
+</td>
+<td style="text-align:right;">
+112.0
+</td>
+<td style="text-align:right;">
+259.4
+</td>
+<td style="text-align:right;">
+33.3
+</td>
+<td style="text-align:right;">
+54.9
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+26.6
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bleu
+</td>
+<td style="text-align:right;">
+342
+</td>
+<td style="text-align:right;">
+336.0
+</td>
+<td style="text-align:right;">
+211.1
+</td>
+<td style="text-align:right;">
+28.9
+</td>
+<td style="text-align:right;">
+37.1
+</td>
+<td style="text-align:right;">
+27.5
+</td>
+<td style="text-align:right;">
+20.2
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Camembert
+</td>
+<td style="text-align:right;">
+264
+</td>
+<td style="text-align:right;">
+314.0
+</td>
+<td style="text-align:right;">
+215.9
+</td>
+<td style="text-align:right;">
+19.5
+</td>
+<td style="text-align:right;">
+103.0
+</td>
+<td style="text-align:right;">
+36.4
+</td>
+<td style="text-align:right;">
+23.4
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cantal
+</td>
+<td style="text-align:right;">
+367
+</td>
+<td style="text-align:right;">
+256.0
+</td>
+<td style="text-align:right;">
+264.0
+</td>
+<td style="text-align:right;">
+28.8
+</td>
+<td style="text-align:right;">
+48.8
+</td>
+<td style="text-align:right;">
+5.7
+</td>
+<td style="text-align:right;">
+23.0
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="independance.html#cb697-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-459-1.png" width="672" /></p>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="independance.html#cb698-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb698-2"><a href="independance.html#cb698-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(df, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>))</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-460-1.png" width="672" /></p>
+<p>On pose les hypothèses de départ :</p>
+<ul>
+<li>H0 : Variables indépendantes si p-value &gt; 5%</li>
+<li>H1 : Variables non indépendantes si p-value &lt; 5%</li>
+</ul>
+<div id="lipide-vs-magnesium" class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Lipide vs Magnesium<a href="independance.html#lipide-vs-magnesium" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La première sortie correspond au coefficient de corrélation, la seconde à la p-value (ou probabilité critique)</p>
+<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="independance.html#cb699-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x =</span> df<span class="sc">$</span>lipides, <span class="at">y =</span> df<span class="sc">$</span>magnesium)</span></code></pre></div>
+<pre><code>## [1] 0.6898601</code></pre>
+<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="independance.html#cb701-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">x =</span> df<span class="sc">$</span>lipides, <span class="at">y =</span> df<span class="sc">$</span>magnesium)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  df$lipides and df$magnesium
+## t = 4.9515, df = 27, p-value = 3.469e-05
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.4327766 0.8431785
+## sample estimates:
+##       cor 
+## 0.6898601</code></pre>
+<p>H1 : Variables non indépendantes</p>
+</div>
+<div id="sodium-vs-retinol" class="section level3 hasAnchor" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> Sodium vs Retinol<a href="independance.html#sodium-vs-retinol" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="independance.html#cb703-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">x =</span> df<span class="sc">$</span>sodium, <span class="at">y =</span> df<span class="sc">$</span>retinol)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  df$sodium and df$retinol
+## t = 0.75788, df = 27, p-value = 0.4551
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.2345870  0.4851693
+## sample estimates:
+##       cor 
+## 0.1443276</code></pre>
+<p>H0 : Variables indépendantes si p-value &gt; 5%</p>
+<p>Si on veut rejeter H0 et prendre H1, j’ai 45,5% de chance de me tromper</p>
+<p>Les tests statistiques sont trés sensibles à la taille de l’échantillon.
+Un coefficient de corrélation de 0.14 n’aura pas la même significativité sur un échantillon de 29 fromages qu’un échantillon de 319 fromages avec le même coefficient de corrélation.</p>
+<p>On construit un dataframe en dupliquant le nombre de lignes</p>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="independance.html#cb705-1" aria-hidden="true" tabindex="-1"></a>sodium <span class="ot">&lt;-</span> <span class="fu">rep</span>(df<span class="sc">$</span>sodium,<span class="at">times =</span> <span class="dv">10</span>)</span>
+<span id="cb705-2"><a href="independance.html#cb705-2" aria-hidden="true" tabindex="-1"></a>retinol <span class="ot">&lt;-</span> <span class="fu">rep</span>(df<span class="sc">$</span>retinol,<span class="at">times =</span> <span class="dv">10</span>)</span>
+<span id="cb705-3"><a href="independance.html#cb705-3" aria-hidden="true" tabindex="-1"></a>nom <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">rownames</span>(df),<span class="at">times =</span> <span class="dv">10</span>)</span>
+<span id="cb705-4"><a href="independance.html#cb705-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb705-5"><a href="independance.html#cb705-5" aria-hidden="true" tabindex="-1"></a>df_10 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(nom,sodium,retinol)</span></code></pre></div>
+<p>Chaque fromage apparaît plusieurs fois, on a augmenté la taille de l’échantillon</p>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="independance.html#cb706-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df_10<span class="sc">$</span>nom)</span></code></pre></div>
+<pre><code>## 
+##            Babybel           Beaufort               Bleu          Camembert 
+##                 10                 10                 10                 10 
+##             Cantal        CarredelEst          Chabichou           Chaource 
+##                 10                 10                 10                 10 
+##            Cheddar              Comte        Coulomniers               Edam 
+##                 10                 10                 10                 10 
+##           Emmental Fr.chevrepatemolle        Fr.fondu.45     Fr.frais20nat. 
+##                 10                 10                 10                 10 
+##     Fr.frais40nat.          Maroilles            Morbier           Parmesan 
+##                 10                 10                 10                 10 
+##      Petitsuisse40        PontlEveque           Pyrenees          Reblochon 
+##                 10                 10                 10                 10 
+##         Rocquefort        SaintPaulin               Tome           Vacherin 
+##                 10                 10                 10                 10 
+## Yaourtlaitent.nat. 
+##                 10</code></pre>
+<p>On effectue un autre test de corrélation avec les mêmes variables sur l’échantillon plus grand.</p>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="independance.html#cb708-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">x =</span> df_10<span class="sc">$</span>sodium, <span class="at">y =</span> df_10<span class="sc">$</span>retinol)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  df_10$sodium and df_10$retinol
+## t = 2.4752, df = 288, p-value = 0.01389
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.0296407 0.2552637
+## sample estimates:
+##       cor 
+## 0.1443276</code></pre>
+<p>H1 : Variables non indépendantes</p>
+<p>On obtient logiquement le même coefficient de corrélation, mais en revanche, cette fois si la p-value est proche de 0.</p>
+</div>
+<div id="matrice-des-p-values" class="section level3 hasAnchor" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> Matrice des p-values<a href="independance.html#matrice-des-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On effectue un test de corrélation sur chaque variable 2 à 2 en isolant uniquement la p-value</p>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="independance.html#cb710-1" aria-hidden="true" tabindex="-1"></a>get_pvalue <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){</span>
+<span id="cb710-2"><a href="independance.html#cb710-2" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(df[,x],df[,y])<span class="sc">$</span>p.value</span>
+<span id="cb710-3"><a href="independance.html#cb710-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
+<span id="cb710-4"><a href="independance.html#cb710-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb710-5"><a href="independance.html#cb710-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb710-6"><a href="independance.html#cb710-6" aria-hidden="true" tabindex="-1"></a>colonne <span class="ot">&lt;-</span> <span class="fu">colnames</span>(df)</span>
+<span id="cb710-7"><a href="independance.html#cb710-7" aria-hidden="true" tabindex="-1"></a>ligne <span class="ot">&lt;-</span> <span class="fu">colnames</span>(df)</span>
+<span id="cb710-8"><a href="independance.html#cb710-8" aria-hidden="true" tabindex="-1"></a>df_pvalues <span class="ot">&lt;-</span> <span class="fu">outer</span>(<span class="at">X =</span> colonne, <span class="at">Y =</span> ligne, <span class="at">FUN =</span> <span class="fu">Vectorize</span>(get_pvalue))</span>
+<span id="cb710-9"><a href="independance.html#cb710-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_pvalues) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(df)</span>
+<span id="cb710-10"><a href="independance.html#cb710-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(df_pvalues) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(df)</span></code></pre></div>
+<p>On affiche la matrice des corrélations avec un gradiant de couleur</p>
+<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="independance.html#cb711-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(df_pvalues, <span class="at">method=</span><span class="st">&quot;number&quot;</span>, <span class="at">type=</span><span class="st">&quot;upper&quot;</span>,</span>
+<span id="cb711-2"><a href="independance.html#cb711-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">col=</span><span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;red&quot;</span>,<span class="st">&quot;green&quot;</span>))(<span class="dv">3</span>))</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-468-1.png" width="672" /></p>
+</div>
+<div id="cas-de-relation-non-linéaire" class="section level3 hasAnchor" number="11.1.4">
+<h3><span class="header-section-number">11.1.4</span> Cas de relation non linéaire<a href="independance.html#cas-de-relation-non-linéaire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Les différents de corrélation sont beaucoup plus adaptés aux relation linéaire. C’est pourquoi il est important de toujours visualiser les distributions (<a href="http://grasland.script.univ-paris-diderot.fr/STAT98/stat98_6/stat98_6.htm">plus d’infos ici</a>).</p>
+<p>Cas d’une relation non-linéaire et non-monotone</p>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="independance.html#cb712-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb712-2"><a href="independance.html#cb712-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="fu">length</span>(x))</span>
+<span id="cb712-3"><a href="independance.html#cb712-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-4"><a href="independance.html#cb712-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-469-1.png" width="672" /></p>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="independance.html#cb713-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  x and y
+## t = 0.036055, df = 19, p-value = 0.9716
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.4249327  0.4383928
+## sample estimates:
+##         cor 
+## 0.008271336</code></pre>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="independance.html#cb715-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Spearman&#39;s rank correlation rho
+## 
+## data:  x and y
+## S = 1456, p-value = 0.8148
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##        rho 
+## 0.05454545</code></pre>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="independance.html#cb717-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Kendall&#39;s rank correlation tau
+## 
+## data:  x and y
+## T = 109, p-value = 0.8347
+## alternative hypothesis: true tau is not equal to 0
+## sample estimates:
+##        tau 
+## 0.03809524</code></pre>
+</div>
+</div>
+<div id="test-du-chi²" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Test du CHI²<a href="independance.html#test-du-chi²" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>L’intérêt du test du Chi² est de mesurer l’indépendance entre deux variables qualitatives à partir de tableau de contigence.</p>
+<div id="titanic" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Titanic<a href="independance.html#titanic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On travaille sur le jeu de données Titanic 🧊⛴ disponible en <a href="https://github.com/AnthonySardellitti/datascience-r/tree/master/datasets">cliquant ici</a>.</p>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="independance.html#cb719-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;./dataset/Titanic.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+PClass
+</th>
+<th style="text-align:right;">
+Age
+</th>
+<th style="text-align:left;">
+Sex
+</th>
+<th style="text-align:right;">
+Survived
+</th>
+<th style="text-align:right;">
+SexCode
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Allen, Miss Elisabeth Walton
+</td>
+<td style="text-align:left;">
+1st
+</td>
+<td style="text-align:right;">
+29.00
+</td>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Allison, Miss Helen Loraine
+</td>
+<td style="text-align:left;">
+1st
+</td>
+<td style="text-align:right;">
+2.00
+</td>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Allison, Mr Hudson Joshua Creighton
+</td>
+<td style="text-align:left;">
+1st
+</td>
+<td style="text-align:right;">
+30.00
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Allison, Mrs Hudson JC (Bessie Waldo Daniels)
+</td>
+<td style="text-align:left;">
+1st
+</td>
+<td style="text-align:right;">
+25.00
+</td>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Allison, Master Hudson Trevor
+</td>
+<td style="text-align:left;">
+1st
+</td>
+<td style="text-align:right;">
+0.92
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Anderson, Mr Harry
+</td>
+<td style="text-align:left;">
+1st
+</td>
+<td style="text-align:right;">
+47.00
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="independance.html#cb720-1" aria-hidden="true" tabindex="-1"></a>df_count <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>Survived, df<span class="sc">$</span>PClass)</span></code></pre></div>
+<p>On pose :</p>
+<ul>
+<li>H0 : Variables indépendantes si p-value &gt; 5%</li>
+<li>H1 : Variables non indépendantes si p-value &lt; 5%</li>
+</ul>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="independance.html#cb721-1" aria-hidden="true" tabindex="-1"></a>resultat <span class="ot">&lt;-</span><span class="fu">chisq.test</span>(df<span class="sc">$</span>Survived,df<span class="sc">$</span>PClass)</span>
+<span id="cb721-2"><a href="independance.html#cb721-2" aria-hidden="true" tabindex="-1"></a>resultat</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  df$Survived and df$PClass
+## X-squared = 172.3, df = 2, p-value &lt; 2.2e-16</code></pre>
+<p>H1 : Variables non indépendantes</p>
+<p>La fonction <code>attributes</code> permet d’afficher les différentes sorties calculées.</p>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="independance.html#cb723-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(resultat)</span></code></pre></div>
+<pre><code>## $names
+## [1] &quot;statistic&quot; &quot;parameter&quot; &quot;p.value&quot;   &quot;method&quot;    &quot;data.name&quot; &quot;observed&quot; 
+## [7] &quot;expected&quot;  &quot;residuals&quot; &quot;stdres&quot;   
+## 
+## $class
+## [1] &quot;htest&quot;</code></pre>
+<p>Par exemple le tableau des effectifs théoriques.</p>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="independance.html#cb725-1" aria-hidden="true" tabindex="-1"></a>resultat<span class="sc">$</span>expected</span></code></pre></div>
+<pre><code>##            df$PClass
+## df$Survived     1st       2nd      3rd
+##           0 211.642 184.03656 467.3214
+##           1 110.358  95.96344 243.6786</code></pre>
+</div>
+<div id="exemple-du-support" class="section level3 hasAnchor" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> Exemple du support<a href="independance.html#exemple-du-support" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="independance.html#cb727-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">693</span>,<span class="dv">886</span>,<span class="dv">534</span>,<span class="dv">153</span>),<span class="fu">c</span>(<span class="dv">597</span>,<span class="dv">696</span>,<span class="dv">448</span>,<span class="dv">95</span>)),<span class="at">ncol=</span><span class="dv">4</span>)</span>
+<span id="cb727-2"><a href="independance.html#cb727-2" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]  693  886  534  153
+## [2,]  597  696  448   95</code></pre>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="independance.html#cb729-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(data)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  data
+## X-squared = 6.0504, df = 3, p-value = 0.1092</code></pre>
+<p>H0 : Variables indépendantes</p>
+<p>Si on veut rejeter H0 et prendre H1, j’ai 10,9% de chance de me tromper</p>
+<p>Lecture dans la table du Chi2</p>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="independance.html#cb731-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.005</span>)</span>
+<span id="cb731-2"><a href="independance.html#cb731-2" aria-hidden="true" tabindex="-1"></a>dof <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb731-3"><a href="independance.html#cb731-3" aria-hidden="true" tabindex="-1"></a>chisq_table <span class="ot">&lt;-</span> <span class="fu">outer</span>(p, dof, <span class="cf">function</span>(x,y) <span class="fu">qchisq</span>(x,y))</span>
+<span id="cb731-4"><a href="independance.html#cb731-4" aria-hidden="true" tabindex="-1"></a>chisq_table <span class="ot">&lt;-</span> <span class="fu">t</span>(chisq_table)</span>
+<span id="cb731-5"><a href="independance.html#cb731-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(chisq_table) <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> p</span>
+<span id="cb731-6"><a href="independance.html#cb731-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(chisq_table) <span class="ot">&lt;-</span> dof</span>
+<span id="cb731-7"><a href="independance.html#cb731-7" aria-hidden="true" tabindex="-1"></a>chisq_table <span class="ot">&lt;-</span> <span class="fu">round</span>(chisq_table,<span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+0.2
+</th>
+<th style="text-align:right;">
+0.195
+</th>
+<th style="text-align:right;">
+0.19
+</th>
+<th style="text-align:right;">
+0.185
+</th>
+<th style="text-align:right;">
+0.18
+</th>
+<th style="text-align:right;">
+0.175
+</th>
+<th style="text-align:right;">
+0.17
+</th>
+<th style="text-align:right;">
+0.165
+</th>
+<th style="text-align:right;">
+0.16
+</th>
+<th style="text-align:right;">
+0.155
+</th>
+<th style="text-align:right;">
+0.15
+</th>
+<th style="text-align:right;">
+0.145
+</th>
+<th style="text-align:right;">
+0.14
+</th>
+<th style="text-align:right;">
+0.135
+</th>
+<th style="text-align:right;">
+0.13
+</th>
+<th style="text-align:right;">
+0.125
+</th>
+<th style="text-align:right;">
+0.12
+</th>
+<th style="text-align:right;">
+0.115
+</th>
+<th style="text-align:right;">
+0.11
+</th>
+<th style="text-align:right;">
+0.105
+</th>
+<th style="text-align:right;">
+0.1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1.64
+</td>
+<td style="text-align:right;">
+1.68
+</td>
+<td style="text-align:right;">
+1.72
+</td>
+<td style="text-align:right;">
+1.76
+</td>
+<td style="text-align:right;">
+1.80
+</td>
+<td style="text-align:right;">
+1.84
+</td>
+<td style="text-align:right;">
+1.88
+</td>
+<td style="text-align:right;">
+1.93
+</td>
+<td style="text-align:right;">
+1.97
+</td>
+<td style="text-align:right;">
+2.02
+</td>
+<td style="text-align:right;">
+2.07
+</td>
+<td style="text-align:right;">
+2.12
+</td>
+<td style="text-align:right;">
+2.18
+</td>
+<td style="text-align:right;">
+2.23
+</td>
+<td style="text-align:right;">
+2.29
+</td>
+<td style="text-align:right;">
+2.35
+</td>
+<td style="text-align:right;">
+2.42
+</td>
+<td style="text-align:right;">
+2.48
+</td>
+<td style="text-align:right;">
+2.55
+</td>
+<td style="text-align:right;">
+2.63
+</td>
+<td style="text-align:right;">
+2.71
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3.22
+</td>
+<td style="text-align:right;">
+3.27
+</td>
+<td style="text-align:right;">
+3.32
+</td>
+<td style="text-align:right;">
+3.37
+</td>
+<td style="text-align:right;">
+3.43
+</td>
+<td style="text-align:right;">
+3.49
+</td>
+<td style="text-align:right;">
+3.54
+</td>
+<td style="text-align:right;">
+3.60
+</td>
+<td style="text-align:right;">
+3.67
+</td>
+<td style="text-align:right;">
+3.73
+</td>
+<td style="text-align:right;">
+3.79
+</td>
+<td style="text-align:right;">
+3.86
+</td>
+<td style="text-align:right;">
+3.93
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+4.08
+</td>
+<td style="text-align:right;">
+4.16
+</td>
+<td style="text-align:right;">
+4.24
+</td>
+<td style="text-align:right;">
+4.33
+</td>
+<td style="text-align:right;">
+4.41
+</td>
+<td style="text-align:right;">
+4.51
+</td>
+<td style="text-align:right;">
+4.61
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.64
+</td>
+<td style="text-align:right;">
+4.70
+</td>
+<td style="text-align:right;">
+4.76
+</td>
+<td style="text-align:right;">
+4.83
+</td>
+<td style="text-align:right;">
+4.89
+</td>
+<td style="text-align:right;">
+4.96
+</td>
+<td style="text-align:right;">
+5.02
+</td>
+<td style="text-align:right;">
+5.09
+</td>
+<td style="text-align:right;">
+5.17
+</td>
+<td style="text-align:right;">
+5.24
+</td>
+<td style="text-align:right;">
+5.32
+</td>
+<td style="text-align:right;">
+5.40
+</td>
+<td style="text-align:right;">
+5.48
+</td>
+<td style="text-align:right;">
+5.56
+</td>
+<td style="text-align:right;">
+5.65
+</td>
+<td style="text-align:right;">
+5.74
+</td>
+<td style="text-align:right;">
+5.83
+</td>
+<td style="text-align:right;">
+5.93
+</td>
+<td style="text-align:right;">
+6.03
+</td>
+<td style="text-align:right;">
+6.14
+</td>
+<td style="text-align:right;">
+6.25
+</td>
+</tr>
+</tbody>
+</table>
+<p>📢 Taille de l’échantillon</p>
+<p>Les tests d’indépendance sont trés sensibles à la taille des échantillons. Ici on divise par 100 pour avoir des effectifs faibles mais en conservant les répartitions.</p>
+<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="independance.html#cb732-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(data<span class="sc">/</span><span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  data/100
+## X-squared = 0.060504, df = 3, p-value = 0.9961</code></pre>
+<p>H0 : Variables indépendantes</p>
+<p>Ici on multiplie par 100 pour avoir des effectifs grands mais en conservant les répartitions</p>
+<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="independance.html#cb734-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(data<span class="sc">*</span><span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  data * 100
+## X-squared = 605.04, df = 3, p-value &lt; 2.2e-16</code></pre>
+<p>H1 : Variables non indépendantes</p>
+</div>
+</div>
+<div id="anova-1" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> ANOVA 1<a href="independance.html#anova-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>On effectue une analyse de variance pour mesurer l’indépendance entre une variable qualitative et une quantitative.</p>
+<p>Pour illustrer cela, on utilise le jeu de données Hotdogs 🌭 disponible en <a href="https://github.com/AnthonySardellitti/datascience-r/tree/master/datasets">cliquant ici</a>.</p>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="independance.html#cb736-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;./dataset/Hotdogs.csv&quot;</span>, </span>
+<span id="cb736-2"><a href="independance.html#cb736-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:right;">
+Calories
+</th>
+<th style="text-align:right;">
+Sodium
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Beef
+</td>
+<td style="text-align:right;">
+186
+</td>
+<td style="text-align:right;">
+495
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Beef
+</td>
+<td style="text-align:right;">
+181
+</td>
+<td style="text-align:right;">
+477
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Beef
+</td>
+<td style="text-align:right;">
+176
+</td>
+<td style="text-align:right;">
+425
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Beef
+</td>
+<td style="text-align:right;">
+149
+</td>
+<td style="text-align:right;">
+322
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Beef
+</td>
+<td style="text-align:right;">
+184
+</td>
+<td style="text-align:right;">
+482
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Beef
+</td>
+<td style="text-align:right;">
+190
+</td>
+<td style="text-align:right;">
+587
+</td>
+</tr>
+</tbody>
+</table>
+<p>On va tester l’indépendance entre la variable qualitative <code>Type</code> et la variable quantitatives <code>Calories</code>.</p>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="independance.html#cb737-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Calories  <span class="sc">~</span> Type, <span class="at">data =</span> df, </span>
+<span id="cb737-2"><a href="independance.html#cb737-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-485-1.png" width="672" /></p>
+<p>Dans une ANOVA, on cherche à déterminer si les moyennes des groupes sont significativement différentes. On pose donc :</p>
+<ul>
+<li>H0 : Les moyennes de chaque groupe sont égales si p-value &gt; 5%</li>
+<li>H1 : Les moyennes de chaque groupe ne sont pas toutes égales si p-value &lt; 5%</li>
+</ul>
+<p>Dans une ANOVA, on étudie la variance de chacun de ces groupes. Pour cela on utilise la fonction <code>aov()</code>.</p>
+<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="independance.html#cb738-1" aria-hidden="true" tabindex="-1"></a>aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">formula =</span> Calories <span class="sc">~</span> Type, <span class="at">data =</span> df)</span>
+<span id="cb738-2"><a href="independance.html#cb738-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov)</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## Type         2  17692    8846   16.07 3.86e-06 ***
+## Residuals   51  28067     550                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>H1 : Les moyennes de chaque groupe ne sont pas toutes égales</p>
+<p>Quand on dispose d’un petit échantillon, la pertinence de ce test repose sur la validation de plusieurs hypothèses :</p>
+<ul>
+<li>l’indépendance entre les échantillons de chaque groupe</li>
+<li>l’égalité des variances que l’on peut verifier avec un test de Bartlett.</li>
+<li>la normalité des résidus avec un test de Shapiro.</li>
+</ul>
+<div id="lindépendance" class="section level3 hasAnchor" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> L’indépendance<a href="independance.html#lindépendance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>L’indépendance est une des 3 conditions de validité d’une ANOVA.
+Seul le contexte de l’étude permet de s’assurer de l’indépendance entre les échantillons de chaque groupe (ici <em>beef</em>, <em>poultry</em>, <em>chicken</em>.)</p>
+</div>
+<div id="légalité-des-variances" class="section level3 hasAnchor" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> L’égalité des variances<a href="independance.html#légalité-des-variances" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On parle aussi d’homoscédasticité. C’est une des 3 conditions de validité d’une ANOVA. On cherche à démontrer que les variances de chaque groupe sont égales. Dans un boxplot, l’amplitude des boîtes traduit graphiquement l’égalité des variances.</p>
+<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb740-1"><a href="independance.html#cb740-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Calories  <span class="sc">~</span> Type, <span class="at">data =</span> df, </span>
+<span id="cb740-2"><a href="independance.html#cb740-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-487-1.png" width="672" /></p>
+<p>Mais c’est le test de bartlett qui permet de tester si les variances sont significativement différentes ou non avec :</p>
+<ul>
+<li>H0 : Les variances de chaque groupe sont égales si p-value &gt; 5%</li>
+<li>H1 : Les variances de chaque groupe ne sont pas toutes égales &lt; 5%</li>
+</ul>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="independance.html#cb741-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Calories  <span class="sc">~</span> Type, <span class="at">data =</span> df)</span></code></pre></div>
+<pre><code>## 
+##  Bartlett test of homogeneity of variances
+## 
+## data:  Calories by Type
+## Bartlett&#39;s K-squared = 0.26732, df = 2, p-value = 0.8749</code></pre>
+<p>H0 : Les variances de chaque groupe sont égales.
+La deuxième condition pour effectuer une anova est validée.</p>
+</div>
+<div id="normalité-des-résidus" class="section level3 hasAnchor" number="11.3.3">
+<h3><span class="header-section-number">11.3.3</span> Normalité des résidus<a href="independance.html#normalité-des-résidus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>C’est une des 3 conditions de validité d’une ANOVA. L’objectif est de s’assurer que les résidus suivent une loi normale afin de ne pas affirmer qu’il existe une différence de moyenne entre les groupes qui serait causée par le hasard.</p>
+<p>Dans R, on utilise le test de Shapiro-Wilk pour tester la normalité des résidus où :</p>
+<ul>
+<li>H0 : Les résidus suivent une loi normale si p-value &gt; 5%</li>
+<li>H1 : Les résidus ne suivent pas une loi normale si p-value &lt; 5%</li>
+</ul>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="independance.html#cb743-1" aria-hidden="true" tabindex="-1"></a>aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">formula =</span> Calories <span class="sc">~</span> Type, <span class="at">data =</span> df)</span>
+<span id="cb743-2"><a href="independance.html#cb743-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(aov<span class="sc">$</span>residuals)</span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  aov$residuals
+## W = 0.94199, p-value = 0.0113</code></pre>
+<p>H1 : Les résidus ne suivent pas une loi normale</p>
+</div>
+<div id="calcul---cas-des-variances-égales" class="section level3 hasAnchor" number="11.3.4">
+<h3><span class="header-section-number">11.3.4</span> Calcul - Cas des variances égales<a href="independance.html#calcul---cas-des-variances-égales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="independance.html#cb745-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">11</span>, <span class="at">length.out =</span> <span class="dv">9</span>   )</span>
+<span id="cb745-2"><a href="independance.html#cb745-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">31</span>, <span class="at">to =</span> <span class="dv">40</span>, <span class="at">length.out =</span> <span class="dv">9</span>   )</span>
+<span id="cb745-3"><a href="independance.html#cb745-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">51</span>, <span class="at">to =</span> <span class="dv">62</span>, <span class="at">length.out =</span> <span class="dv">9</span>   )</span></code></pre></div>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="independance.html#cb746-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Valeur =</span> <span class="fu">c</span>(a,b,c), <span class="at">Groupe =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">9</span>),</span>
+<span id="cb746-2"><a href="independance.html#cb746-2" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">rep</span>(<span class="st">&quot;B&quot;</span>,<span class="dv">9</span>),</span>
+<span id="cb746-3"><a href="independance.html#cb746-3" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">rep</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">9</span>)))</span>
+<span id="cb746-4"><a href="independance.html#cb746-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Valeur
+</th>
+<th style="text-align:left;">
+Groupe
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1.000
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.250
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3.500
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.750
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6.000
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.250
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8.500
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9.750
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11.000
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+31.000
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+32.125
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+33.250
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+34.375
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+35.500
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+36.625
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+37.750
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+38.875
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+40.000
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+51.000
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+52.375
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+53.750
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+55.125
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+56.500
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+57.875
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+59.250
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+60.625
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+62.000
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="independance.html#cb747-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Valeur  <span class="sc">~</span> Groupe, <span class="at">data =</span> df, </span>
+<span id="cb747-2"><a href="independance.html#cb747-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-492-1.png" width="672" /></p>
+<p>Comment calculer le tableau récaptitulatif de l’analyse de la variance :</p>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## Groupe       2  11585    5792     491 &lt;2e-16 ***
+## Residuals   24    283      12                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Variance intra classes</p>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="independance.html#cb749-1" aria-hidden="true" tabindex="-1"></a>SCE_a <span class="ot">&lt;-</span> (a <span class="sc">-</span> <span class="fu">mean</span>(a))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb749-2"><a href="independance.html#cb749-2" aria-hidden="true" tabindex="-1"></a>SCE_b <span class="ot">&lt;-</span> (b <span class="sc">-</span> <span class="fu">mean</span>(b))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb749-3"><a href="independance.html#cb749-3" aria-hidden="true" tabindex="-1"></a>SCE_c <span class="ot">&lt;-</span> (c <span class="sc">-</span> <span class="fu">mean</span>(c))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb749-4"><a href="independance.html#cb749-4" aria-hidden="true" tabindex="-1"></a>intra <span class="ot">&lt;-</span> <span class="fu">sum</span>(SCE_a <span class="sc">+</span> SCE_b <span class="sc">+</span> SCE_c)</span>
+<span id="cb749-5"><a href="independance.html#cb749-5" aria-hidden="true" tabindex="-1"></a>intra</span></code></pre></div>
+<pre><code>## [1] 283.125</code></pre>
+<p>Variance inter classes</p>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="independance.html#cb751-1" aria-hidden="true" tabindex="-1"></a>moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>Valeur)</span>
+<span id="cb751-2"><a href="independance.html#cb751-2" aria-hidden="true" tabindex="-1"></a>moyenne_facteur <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="at">X =</span> df<span class="sc">$</span>Valeur, </span>
+<span id="cb751-3"><a href="independance.html#cb751-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">INDEX =</span> df<span class="sc">$</span>Groupe,</span>
+<span id="cb751-4"><a href="independance.html#cb751-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">FUN =</span> mean)</span>
+<span id="cb751-5"><a href="independance.html#cb751-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb751-6"><a href="independance.html#cb751-6" aria-hidden="true" tabindex="-1"></a>longueur_facteur <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="at">X =</span> df<span class="sc">$</span>Valeur, </span>
+<span id="cb751-7"><a href="independance.html#cb751-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">INDEX =</span> df<span class="sc">$</span>Groupe,</span>
+<span id="cb751-8"><a href="independance.html#cb751-8" aria-hidden="true" tabindex="-1"></a>                           <span class="at">FUN =</span> length)</span>
+<span id="cb751-9"><a href="independance.html#cb751-9" aria-hidden="true" tabindex="-1"></a>inter <span class="ot">&lt;-</span> <span class="fu">sum</span>(longueur_facteur<span class="sc">*</span>((moyenne_facteur <span class="sc">-</span> moyenne)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb751-10"><a href="independance.html#cb751-10" aria-hidden="true" tabindex="-1"></a>inter</span></code></pre></div>
+<pre><code>## [1] 11584.5</code></pre>
+<p>Degré de liberté</p>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="independance.html#cb753-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(df)</span>
+<span id="cb753-2"><a href="independance.html#cb753-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">levels</span>(df<span class="sc">$</span>Groupe))</span>
+<span id="cb753-3"><a href="independance.html#cb753-3" aria-hidden="true" tabindex="-1"></a>dof_inter <span class="ot">&lt;-</span> p <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb753-4"><a href="independance.html#cb753-4" aria-hidden="true" tabindex="-1"></a>dof_intra <span class="ot">&lt;-</span> n <span class="sc">-</span> p</span>
+<span id="cb753-5"><a href="independance.html#cb753-5" aria-hidden="true" tabindex="-1"></a>dof_inter</span></code></pre></div>
+<pre><code>## [1] -1</code></pre>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="independance.html#cb755-1" aria-hidden="true" tabindex="-1"></a>dof_intra</span></code></pre></div>
+<pre><code>## [1] 27</code></pre>
+<p>Calcul de la statistique de test de Fisher</p>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="independance.html#cb757-1" aria-hidden="true" tabindex="-1"></a>Stat_Fisher <span class="ot">&lt;-</span> (inter<span class="sc">/</span>dof_inter) <span class="sc">/</span> (intra<span class="sc">/</span>dof_intra)</span>
+<span id="cb757-2"><a href="independance.html#cb757-2" aria-hidden="true" tabindex="-1"></a>Stat_Fisher</span></code></pre></div>
+<pre><code>## [1] -1104.747</code></pre>
+<p>On lit dans la table de Fisher</p>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="independance.html#cb759-1" aria-hidden="true" tabindex="-1"></a>pvalue <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(<span class="at">q =</span> Stat_Fisher,</span>
+<span id="cb759-2"><a href="independance.html#cb759-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">df1 =</span> dof_inter,</span>
+<span id="cb759-3"><a href="independance.html#cb759-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">df2 =</span> dof_intra)</span></code></pre></div>
+<pre><code>## Warning in pf(q = Stat_Fisher, df1 = dof_inter, df2 = dof_intra): Production de
+## NaN</code></pre>
+<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="independance.html#cb761-1" aria-hidden="true" tabindex="-1"></a>pvalue</span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p>Réciproque de la loi de Fisher pour retrouver la statistique de test.</p>
+<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="independance.html#cb763-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="at">p =</span> <span class="dv">1</span><span class="sc">-</span>pvalue, <span class="at">df1 =</span> dof_inter, <span class="at">df2 =</span> dof_intra)</span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+</div>
+<div id="calcul---cas-des-variances-inégales" class="section level3 hasAnchor" number="11.3.5">
+<h3><span class="header-section-number">11.3.5</span> Calcul - Cas des variances inégales<a href="independance.html#calcul---cas-des-variances-inégales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="independance.html#cb765-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">40</span>, <span class="at">length.out =</span> <span class="dv">9</span>   )</span>
+<span id="cb765-2"><a href="independance.html#cb765-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">10</span>, <span class="at">to =</span> <span class="dv">30</span>, <span class="at">length.out =</span> <span class="dv">9</span>   )</span>
+<span id="cb765-3"><a href="independance.html#cb765-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">25</span>, <span class="at">to =</span> <span class="dv">30</span>, <span class="at">length.out =</span> <span class="dv">9</span>   )</span></code></pre></div>
+<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb766-1"><a href="independance.html#cb766-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Valeur =</span> <span class="fu">c</span>(a,b,c), <span class="at">Groupe =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">9</span>),</span>
+<span id="cb766-2"><a href="independance.html#cb766-2" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">rep</span>(<span class="st">&quot;B&quot;</span>,<span class="dv">9</span>),</span>
+<span id="cb766-3"><a href="independance.html#cb766-3" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">rep</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">9</span>)))</span>
+<span id="cb766-4"><a href="independance.html#cb766-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Valeur
+</th>
+<th style="text-align:left;">
+Groupe
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1.000
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.875
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10.750
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15.625
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20.500
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.375
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30.250
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+35.125
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+40.000
+</td>
+<td style="text-align:left;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10.000
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12.500
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15.000
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17.500
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20.000
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22.500
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.000
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27.500
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30.000
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.000
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.625
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26.250
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26.875
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27.500
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+28.125
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+28.750
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+29.375
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30.000
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="independance.html#cb767-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Valeur  <span class="sc">~</span> Groupe, <span class="at">data =</span> df, </span>
+<span id="cb767-2"><a href="independance.html#cb767-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-502-1.png" width="672" /></p>
+<p>Comment calculer le tableau récaptitulatif de l’analyse de la variance :</p>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Groupe       2  316.5  158.25   2.082  0.147
+## Residuals   24 1824.4   76.02</code></pre>
+<p>Variance intra classes</p>
+<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="independance.html#cb769-1" aria-hidden="true" tabindex="-1"></a>SCE_a <span class="ot">&lt;-</span> (a <span class="sc">-</span> <span class="fu">mean</span>(a))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb769-2"><a href="independance.html#cb769-2" aria-hidden="true" tabindex="-1"></a>SCE_b <span class="ot">&lt;-</span> (b <span class="sc">-</span> <span class="fu">mean</span>(b))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb769-3"><a href="independance.html#cb769-3" aria-hidden="true" tabindex="-1"></a>SCE_c <span class="ot">&lt;-</span> (c <span class="sc">-</span> <span class="fu">mean</span>(c))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb769-4"><a href="independance.html#cb769-4" aria-hidden="true" tabindex="-1"></a>intra <span class="ot">&lt;-</span> <span class="fu">sum</span>(SCE_a <span class="sc">+</span> SCE_b <span class="sc">+</span> SCE_c)</span>
+<span id="cb769-5"><a href="independance.html#cb769-5" aria-hidden="true" tabindex="-1"></a>intra</span></code></pre></div>
+<pre><code>## [1] 1824.375</code></pre>
+<p>Variance inter classes</p>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="independance.html#cb771-1" aria-hidden="true" tabindex="-1"></a>moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>Valeur)</span>
+<span id="cb771-2"><a href="independance.html#cb771-2" aria-hidden="true" tabindex="-1"></a>moyenne_facteur <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="at">X =</span> df<span class="sc">$</span>Valeur, </span>
+<span id="cb771-3"><a href="independance.html#cb771-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">INDEX =</span> df<span class="sc">$</span>Groupe,</span>
+<span id="cb771-4"><a href="independance.html#cb771-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">FUN =</span> mean)</span>
+<span id="cb771-5"><a href="independance.html#cb771-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb771-6"><a href="independance.html#cb771-6" aria-hidden="true" tabindex="-1"></a>longueur_facteur <span class="ot">&lt;-</span> <span class="fu">tapply</span>(<span class="at">X =</span> df<span class="sc">$</span>Valeur, </span>
+<span id="cb771-7"><a href="independance.html#cb771-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">INDEX =</span> df<span class="sc">$</span>Groupe,</span>
+<span id="cb771-8"><a href="independance.html#cb771-8" aria-hidden="true" tabindex="-1"></a>                           <span class="at">FUN =</span> length)</span>
+<span id="cb771-9"><a href="independance.html#cb771-9" aria-hidden="true" tabindex="-1"></a>inter <span class="ot">&lt;-</span> <span class="fu">sum</span>(longueur_facteur<span class="sc">*</span>((moyenne_facteur <span class="sc">-</span> moyenne)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb771-10"><a href="independance.html#cb771-10" aria-hidden="true" tabindex="-1"></a>inter</span></code></pre></div>
+<pre><code>## [1] 316.5</code></pre>
+<p>Degré de liberté</p>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="independance.html#cb773-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(df)</span>
+<span id="cb773-2"><a href="independance.html#cb773-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">levels</span>(df<span class="sc">$</span>Groupe))</span>
+<span id="cb773-3"><a href="independance.html#cb773-3" aria-hidden="true" tabindex="-1"></a>dof_inter <span class="ot">&lt;-</span> p <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb773-4"><a href="independance.html#cb773-4" aria-hidden="true" tabindex="-1"></a>dof_intra <span class="ot">&lt;-</span> n <span class="sc">-</span> p</span>
+<span id="cb773-5"><a href="independance.html#cb773-5" aria-hidden="true" tabindex="-1"></a>dof_inter</span></code></pre></div>
+<pre><code>## [1] -1</code></pre>
+<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="independance.html#cb775-1" aria-hidden="true" tabindex="-1"></a>dof_intra</span></code></pre></div>
+<pre><code>## [1] 27</code></pre>
+<p>Calcul de la statistique de test de Fisher</p>
+<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="independance.html#cb777-1" aria-hidden="true" tabindex="-1"></a>Stat_Fisher <span class="ot">&lt;-</span> (inter<span class="sc">/</span>dof_inter) <span class="sc">/</span> (intra<span class="sc">/</span>dof_intra)</span>
+<span id="cb777-2"><a href="independance.html#cb777-2" aria-hidden="true" tabindex="-1"></a>Stat_Fisher</span></code></pre></div>
+<pre><code>## [1] -4.68407</code></pre>
+<p>On lit dans la table de Fisher</p>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="independance.html#cb779-1" aria-hidden="true" tabindex="-1"></a>pvalue <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(<span class="at">q =</span> Stat_Fisher,</span>
+<span id="cb779-2"><a href="independance.html#cb779-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">df1 =</span> dof_inter,</span>
+<span id="cb779-3"><a href="independance.html#cb779-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">df2 =</span> dof_intra)</span></code></pre></div>
+<pre><code>## Warning in pf(q = Stat_Fisher, df1 = dof_inter, df2 = dof_intra): Production de
+## NaN</code></pre>
+<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="independance.html#cb781-1" aria-hidden="true" tabindex="-1"></a>pvalue</span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p>Réciproque de la loi de Fisher pour retrouver la statistique de test.</p>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="independance.html#cb783-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="at">p =</span> <span class="dv">1</span><span class="sc">-</span>pvalue, <span class="at">df1 =</span> dof_inter, <span class="at">df2 =</span> dof_intra)</span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+</div>
+</div>
+<div id="anova-2" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> ANOVA 2<a href="independance.html#anova-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Même principe que l’Anova à un facteur sauf qu’on ajoute un autre facteur. L’idée est de tester l’indépendance de ces facteurs sur une variable quantitatives continue.</p>
+<p>On étudie la longueur des odontoblastes (cellules responsables de la croissance dentaire) chez 60 cobayes. Chaque animal a reçu l’une des trois doses de vitamine C (0,5, 1 et 2 mg / jour) par l’une des deux méthodes d’administration, du jus d’orange ou de l’acide ascorbique (une forme de vitamine C et codée VC) :</p>
+<ul>
+<li>len : lLongueur de la dent</li>
+<li>supp : supplément (VC ou OJ).</li>
+<li>dose : dose en milligrammes / jour</li>
+</ul>
+<p>Ce jeu de données <em>ToothGrowth</em> est présent dans le <code>datasets</code>.</p>
+<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="independance.html#cb785-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> ToothGrowth</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+len
+</th>
+<th style="text-align:left;">
+supp
+</th>
+<th style="text-align:right;">
+dose
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+4.2
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6.4
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10.0
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11.2
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11.2
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.2
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.0
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15.2
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17.3
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17.3
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13.6
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18.8
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23.6
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+33.9
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26.4
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+32.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26.7
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23.3
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+29.5
+</td>
+<td style="text-align:left;">
+VC
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15.2
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21.5
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17.6
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9.7
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14.5
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10.0
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8.2
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9.4
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16.5
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9.7
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19.7
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23.3
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23.6
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26.4
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20.0
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.2
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.8
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21.2
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14.5
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27.3
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.5
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26.4
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22.4
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24.5
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24.8
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30.9
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26.4
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27.3
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+29.4
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23.0
+</td>
+<td style="text-align:left;">
+OJ
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>En théorie, dans une ANOVA à plusieurs facteurs, il faut valider chacune des hypothèses une à une pour chaque facteur. La particularité de l’ANOVA à plusieurs facteurs réside dans la mesure de l’intéraction entre les facteurs pouvant mener à des différences de moyennes entres les groupes.</p>
+<div id="effet-de-la-variable-supp" class="section level3 hasAnchor" number="11.4.1">
+<h3><span class="header-section-number">11.4.1</span> Effet de la variable <code>supp</code><a href="independance.html#effet-de-la-variable-supp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb786-1"><a href="independance.html#cb786-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(len  <span class="sc">~</span> supp, <span class="at">data =</span> df,</span>
+<span id="cb786-2"><a href="independance.html#cb786-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-512-1.png" width="672" /></p>
+</div>
+<div id="effet-de-la-variable-dose" class="section level3 hasAnchor" number="11.4.2">
+<h3><span class="header-section-number">11.4.2</span> Effet de la variable <code>dose</code><a href="independance.html#effet-de-la-variable-dose" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="independance.html#cb787-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(len  <span class="sc">~</span> dose, <span class="at">data =</span> df,</span>
+<span id="cb787-2"><a href="independance.html#cb787-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-513-1.png" width="672" /></p>
+</div>
+<div id="effet-lintéraction-entre-les-deux-facteurs" class="section level3 hasAnchor" number="11.4.3">
+<h3><span class="header-section-number">11.4.3</span> Effet l’intéraction entre les deux facteurs<a href="independance.html#effet-lintéraction-entre-les-deux-facteurs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour visualiser graphiquement l’intéraction, on crée une colonne avec les deux modalités</p>
+<div class="sourceCode" id="cb788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb788-1"><a href="independance.html#cb788-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>interaction <span class="ot">&lt;-</span> <span class="fu">paste</span>(df<span class="sc">$</span>supp,<span class="st">&quot;-&quot;</span>,df<span class="sc">$</span>dose)</span></code></pre></div>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="independance.html#cb789-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(len  <span class="sc">~</span> interaction, <span class="at">data =</span> df,</span>
+<span id="cb789-2"><a href="independance.html#cb789-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="index.html_files/figure-html/unnamed-chunk-515-1.png" width="672" /></p>
+</div>
+<div id="calcul-de-lanova-2" class="section level3 hasAnchor" number="11.4.4">
+<h3><span class="header-section-number">11.4.4</span> Calcul de l’ANOVA 2<a href="independance.html#calcul-de-lanova-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Quelques soit le nombre de facteurs étudiés, nous avons toujours les mêmes hypothèses dans une ANOVA :</p>
+<ul>
+<li>H0 : Les moyennes de chaque groupe sont égales si p-value &gt; 5%</li>
+<li>H1 : Les moyennes de chaque groupe ne sont pas toutes égales si p-value &lt; 5%</li>
+</ul>
+<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="independance.html#cb790-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>dose <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>dose)</span>
+<span id="cb790-2"><a href="independance.html#cb790-2" aria-hidden="true" tabindex="-1"></a>aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">formula =</span> len <span class="sc">~</span> dose <span class="sc">+</span> supp <span class="sc">+</span> supp<span class="sc">*</span>dose , <span class="at">data =</span> df)</span>
+<span id="cb790-3"><a href="independance.html#cb790-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov)</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## dose         2 2426.4  1213.2  92.000  &lt; 2e-16 ***
+## supp         1  205.3   205.3  15.572 0.000231 ***
+## dose:supp    2  108.3    54.2   4.107 0.021860 *  
+## Residuals   54  712.1    13.2                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>H1 : Les moyennes de chaque groupe ne sont pas toutes égales pour chaque facteur.</p>
+<p>📢 On voit donc qu’il existe une intéraction entre les deux variables. Pour mesurer quelles associations sont significativement différentes des autres, on peut utilise un test de Tukey qui consiste à faire des tests de comparaison de moyenne sur deux échantillon avec toutes les combinaisons d’association</p>
+<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb792-1"><a href="independance.html#cb792-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(aov)</span></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = len ~ dose + supp + supp * dose, data = df)
+## 
+## $dose
+##         diff       lwr       upr   p adj
+## 1-0.5  9.130  6.362488 11.897512 0.0e+00
+## 2-0.5 15.495 12.727488 18.262512 0.0e+00
+## 2-1    6.365  3.597488  9.132512 2.7e-06
+## 
+## $supp
+##       diff       lwr       upr     p adj
+## VC-OJ -3.7 -5.579828 -1.820172 0.0002312
+## 
+## $`dose:supp`
+##                 diff        lwr         upr     p adj
+## 1:OJ-0.5:OJ     9.47   4.671876  14.2681238 0.0000046
+## 2:OJ-0.5:OJ    12.83   8.031876  17.6281238 0.0000000
+## 0.5:VC-0.5:OJ  -5.25 -10.048124  -0.4518762 0.0242521
+## 1:VC-0.5:OJ     3.54  -1.258124   8.3381238 0.2640208
+## 2:VC-0.5:OJ    12.91   8.111876  17.7081238 0.0000000
+## 2:OJ-1:OJ       3.36  -1.438124   8.1581238 0.3187361
+## 0.5:VC-1:OJ   -14.72 -19.518124  -9.9218762 0.0000000
+## 1:VC-1:OJ      -5.93 -10.728124  -1.1318762 0.0073930
+## 2:VC-1:OJ       3.44  -1.358124   8.2381238 0.2936430
+## 0.5:VC-2:OJ   -18.08 -22.878124 -13.2818762 0.0000000
+## 1:VC-2:OJ      -9.29 -14.088124  -4.4918762 0.0000069
+## 2:VC-2:OJ       0.08  -4.718124   4.8781238 1.0000000
+## 1:VC-0.5:VC     8.79   3.991876  13.5881238 0.0000210
+## 2:VC-0.5:VC    18.16  13.361876  22.9581238 0.0000000
+## 2:VC-1:VC       9.37   4.571876  14.1681238 0.0000058</code></pre>
+</div>
+<div id="aller-plus-loin-3" class="section level3 hasAnchor" number="11.4.5">
+<h3><span class="header-section-number">11.4.5</span> Aller plus loin<a href="independance.html#aller-plus-loin-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Plus d’information sur les tests statistiques <a href="https://statsandr.com/blog/files/overview-statistical-tests-statsandr.pdf">ici</a>.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="jointures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="express.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

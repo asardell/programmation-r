@@ -1,0 +1,571 @@
+# Test indépendance {#independance}
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(knitr)
+library(dplyr)
+```
+
+Les tests d'indépendances permettent de définir s'il existe un lien entre deux variables. Il existe différent test d'indépence, en voici quelques exemples :
+
+- Test indépendance entre deux variables quantitatives / Test de corrélation Pearson
+- Test d'indépendance entre deux variables qualitatives / Test du Chi²
+- Test d'indépendance entre une variable qualitative et une quantitative / Test de Fisher avec l'analyse de la variance (ANOVA)
+
+
+## Test de corrélation
+
+L'intérêt des tests de corrélation est d'apporter plus de pertinence et fiabilité aux coefficients de corrélation. Il existe différents test de corrélation, nous utilisons celui de Pearson.
+
+On travaille avec le jeu de données fromage 🧀 disponible  en [cliquant ici](https://github.com/AnthonySardellitti/datascience-r/tree/master/datasets).
+
+```{r}
+df <- read.csv(file = "./dataset/fromage.txt", sep = "\t", row.names = 1)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+kable(head(df))
+```
+
+
+```{r}
+plot(df)
+```
+
+```{r, warning=FALSE, message=FALSE}
+library(corrplot)
+corrplot(cor(df, method = "pearson"))
+```
+
+
+On pose les hypothèses de départ :
+
+* H0 : Variables indépendantes si p-value > 5%
+* H1 : Variables non indépendantes si p-value < 5%
+
+
+### Lipide vs Magnesium
+
+La première sortie correspond au coefficient de corrélation, la seconde à la p-value (ou probabilité critique)
+
+```{r}
+cor(x = df$lipides, y = df$magnesium)
+```
+
+```{r}
+cor.test(x = df$lipides, y = df$magnesium)
+```
+
+H1 : Variables non indépendantes
+
+
+### Sodium vs Retinol
+
+```{r}
+cor.test(x = df$sodium, y = df$retinol)
+```
+
+H0 : Variables indépendantes si p-value > 5%
+
+Si on veut rejeter H0 et prendre H1, j'ai 45,5% de chance de me tromper
+
+Les tests statistiques sont trés sensibles à la taille de l'échantillon. 
+Un coefficient de corrélation de 0.14 n'aura pas la même significativité sur un échantillon de 29 fromages qu'un échantillon de 319 fromages avec le même coefficient de corrélation.
+
+On construit un dataframe en dupliquant le nombre de lignes
+
+```{r}
+sodium <- rep(df$sodium,times = 10)
+retinol <- rep(df$retinol,times = 10)
+nom <- rep(rownames(df),times = 10)
+
+df_10 <- data.frame(nom,sodium,retinol)
+
+```
+
+Chaque fromage apparaît plusieurs fois, on a augmenté la taille de l'échantillon
+
+
+```{r}
+table(df_10$nom)
+```
+
+On effectue un autre test de corrélation avec les mêmes variables sur l'échantillon plus grand.
+
+```{r}
+cor.test(x = df_10$sodium, y = df_10$retinol)
+```
+H1 : Variables non indépendantes
+
+On obtient logiquement le même coefficient de corrélation, mais en revanche, cette fois si la p-value est proche de 0.
+
+
+
+### Matrice des p-values
+
+On effectue un test de corrélation sur chaque variable 2 à 2 en isolant uniquement la p-value
+
+```{r}
+get_pvalue <- function(x,y){
+  p <- cor.test(df[,x],df[,y])$p.value
+  return(p)
+}
+
+colonne <- colnames(df)
+ligne <- colnames(df)
+df_pvalues <- outer(X = colonne, Y = ligne, FUN = Vectorize(get_pvalue))
+colnames(df_pvalues) <- colnames(df)
+rownames(df_pvalues) <- colnames(df)
+
+```
+
+On affiche la matrice des corrélations avec un gradiant de couleur
+
+```{r}
+corrplot(df_pvalues, method="number", type="upper",
+         col=colorRampPalette(c("white","red","green"))(3))
+```
+
+
+### Cas de relation non linéaire
+
+Les différents de corrélation sont beaucoup plus adaptés aux relation linéaire. C'est pourquoi il est important de toujours visualiser les distributions ([plus d'infos ici](http://grasland.script.univ-paris-diderot.fr/STAT98/stat98_6/stat98_6.htm)).
+
+
+Cas d'une relation non-linéaire et non-monotone
+
+
+```{r}
+x <- -10:10
+y <- x^2 + rnorm(n = length(x))
+
+plot(x,y)
+```
+
+```{r}
+cor.test(x, y, method = "pearson")
+cor.test(x, y, method = "spearman")
+cor.test(x, y, method = "kendall")
+```
+
+
+## Test du CHI²
+
+L'intérêt du test du Chi² est de mesurer l'indépendance entre deux variables qualitatives à partir de tableau de contigence.
+
+### Titanic
+
+On travaille sur le jeu de données Titanic 🧊⛴ disponible  en [cliquant ici](https://github.com/AnthonySardellitti/datascience-r/tree/master/datasets).
+
+```{r}
+df <- read.csv(file = "./dataset/Titanic.csv", row.names = 1)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+kable(head(df))
+```
+
+
+```{r}
+df_count <- table(df$Survived, df$PClass)
+```
+
+On pose :
+
+* H0 : Variables indépendantes si p-value > 5%
+* H1 : Variables non indépendantes si p-value < 5%
+
+```{r}
+resultat <-chisq.test(df$Survived,df$PClass)
+resultat
+```
+
+H1 : Variables non indépendantes
+
+La fonction `attributes` permet d'afficher les différentes sorties calculées.
+
+```{r}
+attributes(resultat)
+```
+Par exemple le tableau des effectifs théoriques.
+
+```{r}
+resultat$expected
+```
+
+### Exemple du support
+
+```{r}
+data <- matrix(rbind(c(693,886,534,153),c(597,696,448,95)),ncol=4)
+data
+```
+
+```{r}
+chisq.test(data)
+```
+
+H0 : Variables indépendantes 
+
+Si on veut rejeter H0 et prendre H1, j'ai 10,9% de chance de me tromper
+
+Lecture dans la table du Chi2
+
+```{r}
+p <- seq(0.80, 0.90, 0.005)
+dof <- seq(1,3)
+chisq_table <- outer(p, dof, function(x,y) qchisq(x,y))
+chisq_table <- t(chisq_table)
+colnames(chisq_table) <- 1 - p
+rownames(chisq_table) <- dof
+chisq_table <- round(chisq_table,2)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+kable(chisq_table)
+```
+
+
+📢 Taille de l'échantillon
+
+Les tests d'indépendance sont trés sensibles à la taille des échantillons. Ici on divise par 100 pour avoir des effectifs faibles mais en conservant les répartitions.
+
+
+```{r, warning=FALSE, message=FALSE}
+chisq.test(data/100)
+```
+H0 : Variables indépendantes 
+
+Ici on multiplie par 100 pour avoir des effectifs grands mais en conservant les répartitions
+
+```{r}
+chisq.test(data*100)
+```
+
+H1 : Variables non indépendantes
+
+
+## ANOVA 1
+
+On effectue une analyse de variance pour mesurer l'indépendance entre une variable qualitative et une quantitative. 
+
+
+Pour illustrer cela, on utilise le jeu de données Hotdogs 🌭  disponible  en [cliquant ici](https://github.com/AnthonySardellitti/datascience-r/tree/master/datasets).
+
+```{r}
+df <- read.csv(file = "./dataset/Hotdogs.csv", 
+               sep = ";")
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+kable(head(df))
+```
+
+
+On va tester l'indépendance entre la variable qualitative `Type` et la variable quantitatives `Calories`. 
+
+```{r}
+boxplot(Calories  ~ Type, data = df, 
+        horizontal = TRUE)
+```
+
+Dans une ANOVA, on cherche à déterminer si les moyennes des groupes sont significativement différentes. On pose donc :
+
+* H0 : Les moyennes de chaque groupe sont égales si p-value > 5%
+* H1 : Les moyennes de chaque groupe ne sont pas toutes égales si p-value < 5%
+
+Dans une ANOVA, on étudie la variance de chacun de ces groupes. Pour cela on utilise la fonction `aov()`.
+
+```{r}
+aov <- aov(formula = Calories ~ Type, data = df)
+summary(aov)
+```
+H1 : Les moyennes de chaque groupe ne sont pas toutes égales
+
+
+Quand on dispose d'un petit échantillon, la pertinence de ce test repose sur la validation de plusieurs hypothèses :
+
+* l'indépendance entre les échantillons de chaque groupe
+* l'égalité des variances que l'on peut verifier avec un test de Bartlett.
+* la normalité des résidus avec un test de Shapiro.
+
+### L'indépendance
+
+L'indépendance est une des 3 conditions de validité d'une ANOVA.
+Seul le contexte de l'étude permet de s'assurer de l'indépendance entre les échantillons de chaque groupe (ici *beef*, *poultry*, *chicken*.)
+
+### L'égalité des variances
+
+On parle aussi d'homoscédasticité. C'est une des 3 conditions de validité d'une ANOVA. On cherche à démontrer que les variances de chaque groupe sont égales. Dans un boxplot, l'amplitude des boîtes traduit graphiquement l'égalité des variances.
+
+```{r}
+boxplot(Calories  ~ Type, data = df, 
+        horizontal = TRUE)
+```
+
+Mais c'est le test de bartlett qui permet de tester si les variances sont significativement différentes ou non avec :
+
+* H0 : Les variances de chaque groupe sont égales si p-value > 5%
+* H1 : Les variances de chaque groupe ne sont pas toutes égales < 5%
+
+```{r}
+bartlett.test(Calories  ~ Type, data = df)
+```
+H0 : Les variances de chaque groupe sont égales.
+La deuxième condition pour effectuer une anova est validée.
+
+### Normalité des résidus
+
+C'est une des 3 conditions de validité d'une ANOVA. L'objectif est de s'assurer que les résidus suivent une loi normale afin de ne pas affirmer qu'il existe une différence de moyenne entre les groupes qui serait causée par le hasard.
+
+Dans R, on utilise le test de Shapiro-Wilk pour tester la normalité des résidus où :
+
+* H0 : Les résidus suivent une loi normale si p-value > 5%
+* H1 : Les résidus ne suivent pas une loi normale si p-value < 5%
+
+```{r}
+aov <- aov(formula = Calories ~ Type, data = df)
+shapiro.test(aov$residuals)
+```
+H1 : Les résidus ne suivent pas une loi normale
+
+### Calcul - Cas des variances égales
+
+```{r}
+a <- seq(from = 1, to = 11, length.out = 9   )
+b <- seq(from = 31, to = 40, length.out = 9   )
+c <- seq(from = 51, to = 62, length.out = 9   )
+```
+
+```{r}
+df <- data.frame(Valeur = c(a,b,c), Groupe = c(rep("A",9),
+                        rep("B",9),
+                        rep("C",9)))
+kable(df)
+```
+```{r}
+boxplot(Valeur  ~ Groupe, data = df, 
+        col = 1:3, horizontal = TRUE)
+```
+
+Comment calculer le tableau récaptitulatif de l'analyse de la variance :
+
+```{r, echo=FALSE}
+summary(aov(formula = Valeur ~ Groupe, data = df))
+```
+
+Variance intra classes
+
+```{r}
+SCE_a <- (a - mean(a))^2
+SCE_b <- (b - mean(b))^2
+SCE_c <- (c - mean(c))^2
+intra <- sum(SCE_a + SCE_b + SCE_c)
+intra
+```
+
+Variance inter classes
+
+```{r}
+moyenne <- mean(df$Valeur)
+moyenne_facteur <- tapply(X = df$Valeur, 
+                          INDEX = df$Groupe,
+                          FUN = mean)
+
+longueur_facteur <- tapply(X = df$Valeur, 
+                           INDEX = df$Groupe,
+                           FUN = length)
+inter <- sum(longueur_facteur*((moyenne_facteur - moyenne)^2))
+inter
+```
+
+Degré de liberté
+
+```{r}
+n <- nrow(df)
+p <- length(levels(df$Groupe))
+dof_inter <- p - 1
+dof_intra <- n - p
+dof_inter
+dof_intra
+```
+
+Calcul de la statistique de test de Fisher
+
+```{r}
+Stat_Fisher <- (inter/dof_inter) / (intra/dof_intra)
+Stat_Fisher
+```
+
+On lit dans la table de Fisher
+
+```{r}
+pvalue <- 1-pf(q = Stat_Fisher,
+   df1 = dof_inter,
+   df2 = dof_intra)
+pvalue
+```
+
+Réciproque de la loi de Fisher pour retrouver la statistique de test.
+
+```{r}
+qf(p = 1-pvalue, df1 = dof_inter, df2 = dof_intra)
+```
+
+### Calcul - Cas des variances inégales
+
+```{r}
+a <- seq(from = 1, to = 40, length.out = 9   )
+b <- seq(from = 10, to = 30, length.out = 9   )
+c <- seq(from = 25, to = 30, length.out = 9   )
+```
+
+```{r}
+df <- data.frame(Valeur = c(a,b,c), Groupe = c(rep("A",9),
+                        rep("B",9),
+                        rep("C",9)))
+kable(df)
+```
+```{r}
+boxplot(Valeur  ~ Groupe, data = df, 
+        col = 1:3, horizontal = TRUE)
+```
+
+Comment calculer le tableau récaptitulatif de l'analyse de la variance :
+
+```{r, echo=FALSE}
+summary(aov(formula = Valeur ~ Groupe, data = df))
+```
+
+Variance intra classes
+
+```{r}
+SCE_a <- (a - mean(a))^2
+SCE_b <- (b - mean(b))^2
+SCE_c <- (c - mean(c))^2
+intra <- sum(SCE_a + SCE_b + SCE_c)
+intra
+```
+
+Variance inter classes
+
+```{r}
+moyenne <- mean(df$Valeur)
+moyenne_facteur <- tapply(X = df$Valeur, 
+                          INDEX = df$Groupe,
+                          FUN = mean)
+
+longueur_facteur <- tapply(X = df$Valeur, 
+                           INDEX = df$Groupe,
+                           FUN = length)
+inter <- sum(longueur_facteur*((moyenne_facteur - moyenne)^2))
+inter
+```
+
+Degré de liberté
+
+```{r}
+n <- nrow(df)
+p <- length(levels(df$Groupe))
+dof_inter <- p - 1
+dof_intra <- n - p
+dof_inter
+dof_intra
+```
+
+Calcul de la statistique de test de Fisher
+
+```{r}
+Stat_Fisher <- (inter/dof_inter) / (intra/dof_intra)
+Stat_Fisher
+```
+
+On lit dans la table de Fisher
+
+```{r}
+pvalue <- 1-pf(q = Stat_Fisher,
+   df1 = dof_inter,
+   df2 = dof_intra)
+pvalue
+```
+
+Réciproque de la loi de Fisher pour retrouver la statistique de test.
+
+```{r}
+qf(p = 1-pvalue, df1 = dof_inter, df2 = dof_intra)
+```
+
+## ANOVA 2
+
+Même principe que l'Anova à un facteur sauf qu'on ajoute un autre facteur. L'idée est de tester l'indépendance de ces facteurs sur une variable quantitatives continue. 
+
+On étudie la longueur des odontoblastes (cellules responsables de la croissance dentaire) chez 60 cobayes. Chaque animal a reçu l'une des trois doses de vitamine C (0,5, 1 et 2 mg / jour) par l'une des deux méthodes d'administration, du jus d'orange ou de l'acide ascorbique (une forme de vitamine C et codée VC) :
+
+* len : lLongueur de la dent
+* supp : supplément (VC ou OJ).
+* dose : dose en milligrammes / jour
+
+Ce jeu de données *ToothGrowth* est  présent dans le `datasets`.
+
+```{r}
+df <- ToothGrowth
+```
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+kable(df)
+```
+
+En théorie, dans une ANOVA à plusieurs facteurs, il faut valider chacune des hypothèses une à une pour chaque facteur. La particularité de l'ANOVA à plusieurs facteurs réside dans la mesure de l'intéraction entre les facteurs pouvant mener à des différences de moyennes entres les groupes.
+
+### Effet de la variable `supp`
+
+```{r}
+boxplot(len  ~ supp, data = df,
+        horizontal = TRUE)
+```
+
+### Effet de la variable `dose`
+
+```{r}
+boxplot(len  ~ dose, data = df,
+        horizontal = TRUE)
+```
+
+### Effet l'intéraction entre les deux facteurs
+
+Pour visualiser graphiquement l'intéraction, on crée une colonne avec les deux modalités
+
+```{r}
+df$interaction <- paste(df$supp,"-",df$dose)
+```
+
+
+```{r}
+boxplot(len  ~ interaction, data = df,
+        horizontal = TRUE)
+```
+
+### Calcul de l'ANOVA 2
+
+Quelques soit le nombre de facteurs étudiés, nous avons toujours les mêmes hypothèses dans une ANOVA :
+
+* H0 : Les moyennes de chaque groupe sont égales si p-value > 5%
+* H1 : Les moyennes de chaque groupe ne sont pas toutes égales si p-value < 5%
+
+```{r}
+df$dose <- as.factor(df$dose)
+aov <- aov(formula = len ~ dose + supp + supp*dose , data = df)
+summary(aov)
+```
+H1 : Les moyennes de chaque groupe ne sont pas toutes égales pour chaque facteur.
+
+📢 On voit donc qu'il existe une intéraction entre les deux variables. Pour mesurer quelles associations sont significativement différentes des autres, on peut utilise un test de Tukey qui consiste à faire des tests de comparaison de moyenne sur deux échantillon avec toutes les combinaisons d'association
+
+
+```{r,warning=FALSE}
+TukeyHSD(aov)
+```
+
+### Aller plus loin
+
+Plus d'information sur les tests statistiques [ici](https://statsandr.com/blog/files/overview-statistical-tests-statsandr.pdf).
+

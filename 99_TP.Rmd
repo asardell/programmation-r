@@ -725,7 +725,115 @@ a. Représenter grahiquement le lien entre les notes utilisateurs et les notes d
 
 b. Calculer le coefficient de corrélation entre les notes utilisateurs et les notes des critiques. Attention, les `NA` pourraient vous poser des problèmes mais avec `use = "complete.obs"` dans la fonction cela devrait fonctionner.
 
+## TP8 - Algo
 
+Pour réaliser ce TP, vous aurez besoin des ressources suivantes :
+
+- [Les listes](https://asardell.github.io/programmation-r/manipulation-objet.html#liste)
+- [Les fonctions](https://asardell.github.io/programmation-r/presentation.html#fonctions)
+- [Les fonctions de tests et opérateurs de comparaison](https://asardell.github.io/programmation-r/presentation.html#fonctions-de-tests-et-comparaisons)
+- [Construire une fonction](https://asardell.github.io/programmation-r/algo.html#construire-une-fonction)
+- [Construire une structure conditionnelle](https://asardell.github.io/programmation-r/algo.html#construire-une-structure-conditionnelle)
+- [Construire une boucle](https://asardell.github.io/programmation-r/algo.html#construire-une-boucle)
+
+### Salaire net
+
+Dans cet exercice, vous allez devoir programmer plusieurs fonctions pour calculer le salaire net à partir d'un salaire brut. Cette [page web](https://www.salaire-brut-en-net.fr/) vous sera utile pour comprendre les éléments qui interviennent dans le calcul. Pour faciliter le développement, utilisez uniquement le salaire brut mensuel.
+
+<p>
+![](./img/salaire_net.PNG){width=600px}
+</p>
+
+**Exercice 1 :  Brut vers Net avant impôt pour les non-cadres uniquement**
+
+Programmez une fonction appelée *brutToNet1* qui prend en entrée un salaire brut mensuel. La fonction retourne le salaire net avant impôt pour les non cadres. 
+Nous souhaitons également que la fonction gère les erreurs si les arguments donnés à la fonction ne sont pas du bon type (ex : le salaire brut doit-être numeric). En cas d'erreur, la fonction doit renvoyer "ERROR : type not expected".
+Pour information, les non-cadres ont un 22% de cotisations salariales.
+Pensez à tester votre fonction pour vous autocorriger.
+
+**Exercice 2 : Brut vers Net après impôt pour cadres et non-cadres**
+
+Programmez une fonction appelée *brutToNet2* qui prend en entrée un salaire brut mensuel et le statut du contrat (cadre/non-cadres). Le taux de prélèvement à la source est fixe à 7,5%. La fonction retourne le salaire net après impôt. 
+Pour information, les non-cadres ont un 22% de cotisations salariales contre 25% pour les cadres. 
+Nous souhaitons également que la fonction gère les erreurs si l'argument contrat n'est pas correct. Pour cette erreur, la fonction doit renvoyer "ERROR : contract unknown".
+Pensez à tester votre fonction pour vous autocorriger.
+
+**Exercice 3 : Brut vers Net après impôt pour cadres et non-cadres**
+
+Programmez une fonction appelée *brutToNet3* qui prend en entrée : 
+
+* un salaire brut mensuel (obligatoire)
+* le statut du contrat cadre/non-cadres (obligatoire)
+* le taux de prélèvement à la source (par défaut 7,5%)
+* le temps de travail entre 0 et 100% (par défaut 100%)
+
+La fonction retourne une liste avec deux objets :
+
+* le salaire net avant impôt
+* le salaire net après impôt
+
+Nous souhaitons également que la fonction gère les erreurs si  taux de prélèvement et le temps de travail ne sont pas compris entre 0 et 100%.
+En cas d'erreur, la fonction doit renvoyer "ERROR : rate and time must be in range(0,100)".
+Pensez à tester votre fonction pour vous autocorriger.
+
+
+### Relevé d'imposition
+
+Qui dit alternance, dit impôt sur le revenu ! 
+Cet exercice n'a aucun lien avec le précédent. 
+Programmez une fonction appelée *netAnnuelToImpot* qui prend en entrée un salaire net annuel imposable. 
+La fonction doit retourner le montant total de l'impôt.
+Voici comment calculer le montant total de l'impôt :
+
+<p>
+![](./img/impot.PNG){width=300px}
+</p>
+
+
+### Juste prix
+
+Dans cet exercice, vous allez coder le jeu du juste prix.
+
+<p>
+![](./img/juste_prix.PNG){width=150px}
+</p>
+
+Le joueur doit deviner un prix (entier), il fait des propositions en saisissant au clavier et à chaque proposition le programme lui dit si "c’est plus" ou si "c’est moins. Il gagne lorsqu’il a trouvé le juste prix.
+
+Le joueur choisit le mode du jeu entre :
+
+* Mode facile : le joueur a autant de tentatives qu’il souhaite et le jeu doit s’arrêter lorsque le
+joueur a trouvé le prix
+* Mode difficile : le joueur n’a que 10 essais pour trouver le nombre mystère ; si le joueur
+trouve en moins de 10 essais il gagne et la partie s’arrête, sinon il perd.
+
+Voici la ligne de commande pour demander à l'utilisateur de saisir une valeur :
+
+```{r, eval=FALSE}
+user_choice <- readline(prompt = "Saisissez une valeur textuelle : ")
+```
+
+Pour simuler le choix de l'ordinateur, vous pouvez utiliser la fonction suivante :
+
+```{r, eval=FALSE}
+ai_choice <- sample(x = 1:100,size = 1)
+```
+
+### Pierre, feuille, ciseaux
+
+Dans ce jeu, l'utilisateur peut jouer plusieurs parties. La fonction prend en entrée le nombre de parties que le joueur souhaite faire.
+Pour chaque partie l'utilisateur saisit son choix au clavier et le programme retourne ensuite une liste avec :
+
+* le choix du programme
+* si l'utilisateur a gagné, perdu, ou fait match nul
+
+La fonction doit retourner le nombre de partie gagnante pour l'utilisateur lorsque toutes les parties ont été jouées.
+
+Pour simuler le choix de l'ordinateur, vous pouvez utiliser la fonction suivante :
+
+```{r, eval=FALSE}
+ai_choice <- sample(x = c("Pierre","Feuille","Ciseaux"),size = 1)
+```
 
 ## TP Formation
 
@@ -741,16 +849,20 @@ Complétez les exercices suivants en utilisant. Créez les vecteurs demandés et
 
 ### Manipulation de vecteur
 
+Pour répondre à ces questions, utilisez la syntaxe `[ ]`.
 
 1. Sélectionner la première voyelle du vecteur.
 1. Sélectionner la dernière voyelle du vecteur.
 1. Sélectionner les deux premières voyelles du vecteur.
 1. Sélectionner toutes les voyelles du vecteur sauf la dernière.
-1. Sélectionnez les deux premières notes du vecteur "notes" et créez un nouveau vecteur avec ces notes en utilisant.
-1. Sélectionner les éléments du vecteur "nombres" qui sont supérieurs ou égaux à 5 en utilisant la notation.
-1. Sélectionner les voyelles "e" et "o" du vecteur "voyelles" en utilisant la notation.
+1. Sélectionnez les deux premières notes du vecteur "notes" et créez un nouveau vecteur avec ces notes.
+1. Sélectionner les voyelles "e" et "o" du vecteur "voyelles".
 1. Créer un vecteur appelé "t1"  à partir de "mois" contenant les mois du premier trimestre (janvier, février, mars).
-1. Sélectionner les contrats "CDI" et "Intérim" du vecteur "contrats" en utilisant la notation `[ ]`.
+1. Sélectionner les contrats "CDI" et "Intérim" du vecteur "contrats".
+1. Sélectionner les éléments du vecteur "nombres" qui sont inférieurs à 5.
+1. Sélectionner les éléments du vecteur "nombres" qui sont supérieurs ou égaux à 5.
+1. Sélectionner les éléments du vecteur "nombres" qui sont égaux à 17.
+1. Sélectionner les éléments du vecteur "nombres" qui sont différents de 17.
 
 
 ### Simulation de vecteur
@@ -789,7 +901,7 @@ hist(test)
 ```
 
 1. Créer un vecteur appelé "sample_anciennete" avec une centaine d'anciennete en mois basée sur une loi uniforme de 0 à 120.
-1. Modifier ce vecteur pour obtenir des mois entier avec la fonction `truncate()`
+1. Modifier ce vecteur pour obtenir des mois entier avec la fonction `trunc()`
 1. Construire un histogramme avec la fonction `hist()`.
 
 La fonction `rnorm()` permet de simuler des échantillons aléatoires selon une loi normale où l'argument `mean` est la moyenne théorique.
@@ -799,13 +911,30 @@ test  = rnorm(n = 1000, mean = 50)
 hist(test)
 ```
 
-1. Créer un vecteur appelé "sample_salaire" avec une centaine de salaire basée sur une loi normale avec  une moyenne théorique de 1700 €
+L'argument `sd` est l'écart-type et traduit l'homogénéité de la distribution.
+
+```{r}
+par(mfrow=c(2,2))
+hist(rnorm(n = 1000, mean = 50, sd = 1),
+     main = "mean = 50 et sd = 1)", xlim = c(0,100))
+
+hist(rnorm(n = 1000, mean = 50, sd = 5),
+     main = "mean = 50 et sd = 5)", xlim = c(0,100))
+
+hist(rnorm(n = 1000, mean = 50, sd = 10),
+     main = "mean = 50 et sd = 10)", xlim = c(0,100))
+
+hist(rnorm(n = 1000, mean = 50, sd = 20),
+     main = "mean = 50 et sd = 20)", xlim = c(0,100))
+par(mfrow=c(1,1))
+```
+1. Créer un vecteur appelé "sample_salaire" avec une centaine de salaire basée sur une loi normale avec  une moyenne théorique de 1700 € et un ecart-type de 200€
 1. Calculer le salaire moyen.
 1. Calculer le salaire médian.
 1. Calculer l'écart-type.
 1. Calculer la masse salariale.
 1. Calculer les déciles de la distribution des salaires.
-1. Modifier ce vecteur pour obtenir des salaire avec une décimale disponible avec la fonction `round`()`
+1. Modifier ce vecteur pour obtenir des salaire avec une décimale disponible avec la fonction `round()`
 1. Construire un histogramme avec la fonction `hist()`.
 
 ### Représentation graphique
@@ -868,7 +997,7 @@ Pour répondre à ces questions, utilisez la fonction `subset()`.
 1. Créer un nouveau data frame appelé "dfTest" avec uniquement les personnes qui gagne entre 1500 et 1900€.
 1. Créer un nouveau data frame appelé "dfTest" avec uniquement toutes les personnes sauf celles en CDI
 1. Créer un nouveau data frame appelé "dfTest" avec uniquement toutes les personnes sauf celles de 50 ans.
-1. Créer un nouveau data frame appelé "dfTest" avec uniquement les personnes en CDD OU en alternance
+1. Créer un nouveau data frame appelé "dfTest" avec uniquement les personnes en CDD OU en alternance.
 
 Même exercice mais avec le package `dplyr` et sa foncton `filter()`.
 
@@ -914,3 +1043,29 @@ a %>%
 1. Filtrer ensuite sur les salaire moyens de plus de 1500€.
 1. Exporter cet objet R avec la fonction `save()`.
 
+### Tests Statistiques
+
+Test entre deux quantitatives :
+
+1. Importer le jeu de données `pokemon.xlsx` à l'aide du package `readxl`.
+1. a. Analyser les coefficients de corrélations des variables quantitatives `weight_kg`, `height_m`, `attack`, `defense`, `speed`. Il est conseillé d'utiliser la matrice des corrélations et la visualisation adaptée.
+1. Représenter graphiquement les 3 couples de variables avec les coefficients de corrélations les plus élevés.
+1. Effectuer un test d'indépendance sur le couple de variables avec le coefficient de corrélation le plus bas. N'oubliez pas de poser les hypothèses.
+1. Effectuez un test d'indépendance sur le couple de variables avec le coefficient de corrélation le plus élevé. N'oubliez pas de poser les hypothèses. 
+
+Test entre deux qualitatives :
+
+1. Créer un nouveau dataframe avec avec uniquement les pokemons de type `water`, `fire`, et `grass`.
+1. Déterminer s'il y a indépendance entre ces `type` et la `generation`.
+1. Découper la variable attack en 3 classes avec la fonction `cut`.
+1. Déterminer s'il y a indépendance entre ces `type` et la `attack`.
+
+Test entre qualitative et quantitative(s) :
+
+1. Créer un nouveau dataframe avec avec uniquement les pokemons de type `water`, `fire`, et `grass`.
+1. Déterminer s'il y a indépendance entre ces `type` et l' `attack`.
+1. Déterminer s'il y a indépendance entre ces `type` et l' `speed`.
+1. Déterminer s'il y a indépendance entre ces `type` et l' `weight_kg`.
+1. Déterminer s'il y a indépendance entre ces `type` et l' `height_m`.
+1. Déterminer s'il y a indépendance entre ces `type` et l' `defense`.
+1. Le `type` et la `generation` ont-il une influence sur l'`attack` ?
