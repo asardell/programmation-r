@@ -463,7 +463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>R n’est pas prévu pour la saisie de données, mais il bénéficie de nombreuses fonctions et packages permettant l’import de données depuis un grand nombre de formats. Seuls les plus courants seront abordés ici.</p>
 <p><br></p>
 <p>Si votre fichier CSV suit un format CSV standard (c’est le cas s’il a été exporté depuis LibreOffice par exemple), avec des champs séparés par des virgules, vous pouvez utiliser la fonction <code>read.csv</code> en lui passant en argument le chemin et le nom du fichier. Cette fonction est issue du package <em>utils</em> chargé par défaut à chaque ouverture d’une session RStudio.</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="first_import.html#cb314-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;C:/Users/anthony.sardellitti/Programmation_Statistique_R/dataset/Titanic.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="first_import.html#cb314-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;./Programmation_Statistique_R/dataset/Titanic.csv&quot;</span>)</span></code></pre></div>
 <p>Il existe plusieurs variantes à la fonction <code>read.csv</code>, la différence réside dans les arguments par défaut. Voir l’aide pour plus d’information :</p>
 <div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="first_import.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;read.csv&quot;</span>)</span></code></pre></div>
 <p>Dans le package <em>utils</em>, chaque fonction dispose de plusieurs arguments, parmi lesquels :</p>
@@ -478,7 +478,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><br></p>
 <p>Il peut arriver, notamment sous Windows, que l’encodage des caractères accentués ne soit pas correct au moment de l’importation. On peut alors spécifier manuellement l’encodage avec cet argument</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="first_import.html#cb316-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;C:/Users/anthony.sardellitti/Programmation_Statistique_R/dataset/Titanic.csv&quot;</span>,</span>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="first_import.html#cb316-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;./Programmation_Statistique_R/dataset/Titanic.csv&quot;</span>,</span>
 <span id="cb316-2"><a href="first_import.html#cb316-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>,</span>
 <span id="cb316-3"><a href="first_import.html#cb316-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">row.names =</span> <span class="dv">1</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="st">&quot;NULL&quot;</span>,<span class="st">&quot;None&quot;</span>),</span>
 <span id="cb316-4"><a href="first_import.html#cb316-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">encoding =</span> <span class="st">&quot;Latin-1&quot;</span>)</span></code></pre></div>
@@ -518,15 +518,15 @@ Cette manière de faire permet “d’automatiser” l’importation des donnée
 <!-- Etant dans un R Project, les fonctions getwd() et setwd() ne fonctionnent pas. Ainsi pour illustrer les exemples, j'utilise quelques pirouettes -->
 <p>La fonction <code>getwd()</code> permet d’afficher le répertoire actif. En général, le chemin proposé est similaire à celui ci :</p>
 <div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="first_import.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="first_import.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;C:/Users/anthony.sardellitti/Documents&quot;</span></span></code></pre></div>
-<pre><code>## [1] &quot;C:/Users/anthony.sardellitti/Documents&quot;</code></pre>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="first_import.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;./Documents&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;./Documents&quot;</code></pre>
 <p>Il est possible de modifier ce chemin. Cela permet notamment d’éviter de saisir le chemin complet d’un fichier de données à l’importation :</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="first_import.html#cb320-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;C:/Users/anthony.sardellitti/Programmation_Statistique_R/dataset/Titanic.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="first_import.html#cb320-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;./Programmation_Statistique_R/dataset/Titanic.csv&quot;</span>)</span></code></pre></div>
 <p>Pour modifier le répertoire courant, on utilise la fonction <code>setwd()</code>tel que :</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="first_import.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/anthony.sardellitti/Programmation_Statistique_R/dataset&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="first_import.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./Programmation_Statistique_R/dataset&quot;</span>)</span></code></pre></div>
 <p>On observe que le chemin a été modifié :</p>
 <div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="first_import.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;C:/Users/anthony.sardellitti/Programmation_Statistique_R/dataset&quot;</code></pre>
+<pre><code>## [1] &quot;./Programmation_Statistique_R/dataset&quot;</code></pre>
 <p>On peut également faire la même opération en cliquant sur <strong>Session</strong>, puis <strong>Set Working Directory</strong> et <strong>Choose Directory</strong>.</p>
 <p>
 <img src="img/setwd.png" />
