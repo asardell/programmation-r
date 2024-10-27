@@ -40,7 +40,7 @@ Dans le package *utils*, chaque fonction dispose de plusieurs arguments, parmi l
 Il peut arriver, notamment sous Windows, que l'encodage des caractères accentués ne soit pas correct au moment de l'importation. On peut alors spécifier manuellement l'encodage avec cet argument
 
 ```{r, eval=FALSE}
-dataset <- read.csv(file = "C:/Users/anthony.sardellitti/Programmation_Statistique_R/dataset/Titanic.csv",
+dataset <- read.csv(file = ".//Programmation_Statistique_R/dataset/Titanic.csv",
               header = TRUE, sep = ",", dec = ".",
               row.names = 1, na.strings = c(NA,"NULL","None"),
               encoding = "Latin-1")
@@ -87,19 +87,19 @@ La fonction `getwd()` permet d'afficher le répertoire actif. En général, le c
 getwd()
 ```
 ```{r, echo=TRUE}
-"C:/Users/anthony.sardellitti/Documents"
+".//Documents"
 ```
 
 Il est possible de modifier ce chemin. Cela permet notamment d'éviter de saisir le chemin complet d'un fichier de données à l'importation : 
 
 ```{r, eval=FALSE}
-dataset <- read.csv(file = "C:/Users/anthony.sardellitti/Programmation_Statistique_R/dataset/Titanic.csv")
+dataset <- read.csv(file = ".//Programmation_Statistique_R/dataset/Titanic.csv")
 ```
 
 Pour modifier le répertoire courant, on utilise la fonction `setwd()`tel que :
 
 ```{r, eval=FALSE}
-setwd("C:/Users/anthony.sardellitti/Programmation_Statistique_R/dataset")
+setwd(".//Programmation_Statistique_R/dataset")
 ```
 
 On observe que le chemin a été modifié :
@@ -108,7 +108,7 @@ On observe que le chemin a été modifié :
 getwd()
 ```
 ```{r, echo=FALSE}
-"C:/Users/anthony.sardellitti/Programmation_Statistique_R/dataset"
+"./Programmation_Statistique_R/dataset"
 ```
 
 On peut également faire la même opération en cliquant sur **Session**, puis **Set Working Directory** et **Choose Directory**.
