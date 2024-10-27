@@ -16,7 +16,7 @@ R n'est pas prévu pour la saisie de données, mais il bénéficie de nombreuses
 Si votre fichier CSV suit un format CSV standard (c'est le cas s'il a été exporté depuis LibreOffice par exemple), avec des champs séparés par des virgules, vous pouvez utiliser la fonction `read.csv` en lui passant en argument le chemin et le nom du fichier. Cette fonction est issue du package *utils* chargé par défaut à chaque ouverture d'une session RStudio.
 
 ```{r, eval=FALSE}
-dataset <- read.csv(file = "C:/Users/anthony.sardellitti/Programmation_Statistique_R/dataset/Titanic.csv")
+dataset <- read.csv(file = "./Programmation_Statistique_R/dataset/Titanic.csv")
 ```
 
 Il existe plusieurs variantes à la fonction `read.csv`, la différence réside dans les arguments par défaut. Voir l'aide pour plus d'information :
